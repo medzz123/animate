@@ -5,6 +5,7 @@ module.exports = {
   moduleNameMapper: {
     '^@components(.*)$': '<rootDir>/src/components$1',
     '^@theme(.*)$': '<rootDir>/src/theme$1',
+    '^@state(.*)$': '<rootDir>/src/state$1',
   },
   globals: {
     'ts-jest': {

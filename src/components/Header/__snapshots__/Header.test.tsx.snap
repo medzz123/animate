@@ -11,7 +11,22 @@ exports[`<Header /> should render without throwing an error and match snapshot 1
     className="sc-gsTCUz jZYPjJ"
   >
     <li>
-      App
+      <a
+        href="/"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        Home
+      </a>
+    </li>
+    <li>
+      <a
+        href="/animate"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        App
+      </a>
     </li>
     <li>
       Animations

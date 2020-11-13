@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 import { HeaderContainer, List } from './Header.styles';
@@ -7,7 +8,12 @@ const Header: React.FunctionComponent = () => {
     <HeaderContainer>
       <p>Animate</p>
       <List>
-        <li>App</li>
+        <li>
+          <Link href="/">Home</Link>
+        </li>
+        <li>
+          <Link href="/animate">App</Link>
+        </li>
         <li>Animations</li>
       </List>
     </HeaderContainer>
