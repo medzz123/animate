@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should render without throwing an error and match snapshot 1`] = `
+<header
+  className="sc-bdfBwQ WJVyh"
+>
+  <p>
+    Animate
+  </p>
+  <ul
+    className="sc-gsTCUz jZYPjJ"
+  >
+    <li>
+      App
+    </li>
+    <li>
+      Animations
+    </li>
+  </ul>
+</header>
+`;
