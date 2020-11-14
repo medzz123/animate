@@ -2,7 +2,7 @@
 
 exports[`<Header /> should render without throwing an error and match snapshot 1`] = `
 <header
-  className="sc-bdfBwQ WJVyh"
+  className="sc-bdfBwQ detITg"
 >
   <p>
     Animate

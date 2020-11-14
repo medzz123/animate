@@ -21,6 +21,9 @@
       "@state/*": ["src/state/*"]
     }
   },
+  "rules": {
+    "no-unused-variable": [true, { "ignore-pattern": "^_" }]
+  },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useRecoilState } from 'recoil';
 
 const Home: NextPage = () => {
-  const [text, _] = useRecoilState<string>(username);
+  const [text] = useRecoilState<string>(username);
   return (
     <div>
       <h1>Dead simple CSS animation tool</h1>

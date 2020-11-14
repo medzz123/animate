@@ -18,6 +18,7 @@ const styles = css`
   h5,
   h6 {
     color: ${(p) => p.theme.colors.black};
+    margin: 0;
   }
 
   * {
