@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 import { ArtboardWrapper } from './Artboard.styles';
@@ -5,7 +6,7 @@ import { ArtboardWrapper } from './Artboard.styles';
 const Artboard: React.FunctionComponent = () => {
   return (
     <ArtboardWrapper>
-      <p>Artboard</p>
+      <Image src="/duck.jpg" alt="My duck" width="400" height="400" />
     </ArtboardWrapper>
   );
 };

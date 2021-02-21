@@ -18,7 +18,8 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@theme/*": ["src/theme/*"],
-      "@state/*": ["src/state/*"]
+      "@state/*": ["src/state/*"],
+      "@pages/*": ["src/pages/*"]
     }
   },
   "rules": {
