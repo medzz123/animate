@@ -13,7 +13,7 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
 
     // Prettier plugin and recommended rules
-    'prettier/@typescript-eslint',
+    'prettier',
     'plugin:prettier/recommended',
   ],
   rules: {
@@ -30,7 +30,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
-    'simple-import-sort/sort': 'error',
+    'simple-import-sort/imports': 'error',
   },
   settings: {
     react: {
