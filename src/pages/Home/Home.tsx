@@ -1,3 +1,4 @@
+import Box from '@components/Box';
 import Button from '@components/Button';
 import { username } from '@state/user';
 import { NextPage } from 'next';
@@ -18,13 +19,13 @@ const Home: NextPage = () => {
           <h1>Dead simple CSS animation tool</h1>
           <p>{text}</p>
           <Image src="/duck.jpg" alt="My duck" width="400" height="400" />
-          <br />
+          <Box mb={80} />
           <Button
             onClick={() => {
               router.push('/animate');
             }}
           >
-            Start Animating
+            start animating
           </Button>
         </Center>
       </Expanded>

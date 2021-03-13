@@ -34,12 +34,12 @@ const styles = css`
   h6 {
     font-family: 'Abril Fatface', sans-serif;
     color: ${(p) => p.theme.black};
-    margin: 0;
+    margin: 16px 0;
   }
 
   h1 {
     font-size: 5vh;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   @media screen and (max-width: 996px) {
@@ -57,17 +57,16 @@ const styles = css`
   a {
     text-decoration: none;
     color: inherit;
+    outline: none;
+
+    &:focus {
+      box-shadow: 0 0 0 5px ${(p) => p.theme.highlighter};
+    }
   }
 
   p {
     font-size: 18px;
     line-height: 32px;
-    margin: 0;
-  }
-
-  p,
-  span {
-    color: ${(p) => p.theme.black};
   }
 `;
 

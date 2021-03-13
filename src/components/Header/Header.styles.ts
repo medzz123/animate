@@ -89,6 +89,12 @@ export const MenuButton = styled.button<{ open: boolean }>`
   @media screen and (min-width: 596px) {
     display: none;
   }
+
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 0 5px ${(p) => p.theme.highlighter};
+  }
 `;
 
 export const HeaderWrapper = styled.nav`
@@ -151,4 +157,10 @@ export const ThemeButton = styled.button<{ vertical?: boolean }>`
   background-color: transparent;
 
   color: ${(p) => p.theme.black};
+
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 0 5px ${(p) => p.theme.highlighter};
+  }
 `;

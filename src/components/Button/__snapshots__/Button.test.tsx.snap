@@ -2,18 +2,14 @@
 
 exports[`<Button /> should render without throwing an error and match snapshot 1`] = `
 <button
-  className="sc-bdfBwQ fejMAn"
+  className="sc-dlfnbm iaJVoB"
 >
-  <p>
+  <div
+    className="sc-gsTCUz kcRCWL"
+  >
     <span
-      className="bg"
+      className="sc-bdfBwQ bHgGoI"
     />
-    <span
-      className="base"
-    />
-    <span
-      className="text"
-    />
-  </p>
+  </div>
 </button>
 `;
