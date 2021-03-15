@@ -1,10 +1,9 @@
 import React from 'react';
 
+import { ButtonProps } from './Button.models';
 import { Border, Span, StyledButton } from './Button.styles';
 
-type ButtonTypes = React.ButtonHTMLAttributes<HTMLButtonElement>;
-
-const Button: React.FunctionComponent<ButtonTypes> = (props) => {
+const Button: React.FunctionComponent<ButtonProps> = (props) => {
   const { children, ...rest } = props;
   return (
     <StyledButton {...rest}>

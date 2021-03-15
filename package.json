@@ -10,7 +10,10 @@
     "lint:fix": "yarn lint --fix",
     "ts": "tsc --noEmit",
     "test": "jest",
-    "test:all": "yarn ts && yarn lint && yarn test"
+    "test:all": "yarn ts && yarn lint && yarn test",
+    "storybook": "start-storybook -s public -p 6006",
+    "storybook:build": "build-storybook -s public",
+    "storybook:deploy": "build-storybook -c .storybook -o dist -s ./public"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
@@ -24,8 +27,15 @@
     "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.10",
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
+    "@storybook/addon-actions": "^6.1.21",
+    "@storybook/addon-essentials": "^6.1.21",
+    "@storybook/addon-knobs": "^6.1.21",
+    "@storybook/addon-links": "^6.1.21",
+    "@storybook/addon-viewport": "^6.1.21",
+    "@storybook/react": "^6.1.21",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.35",
     "@types/react": "^17.0.3",
@@ -34,6 +44,7 @@
     "@types/styled-components": "^5.1.9",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
+    "babel-loader": "^8.2.2",
     "babel-plugin-styled-components": "^1.12.0",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
@@ -47,6 +58,7 @@
     "prettier": "^2.2.1",
     "react-test-renderer": "^17.0.1",
     "ts-jest": "^26.5.3",
+    "tsconfig-paths-webpack-plugin": "^3.4.1",
     "typescript": "^4.2.3"
   }
 }

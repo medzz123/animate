@@ -1,4 +1,4 @@
-export const defaultTheme = {
+const defaultTheme = {
   beige: '#f9efe7',
   black: '#000000',
   white: '#ffffff',
