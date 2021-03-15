@@ -1,0 +1,1 @@
+export { replaceTokens } from './replaceTokens';

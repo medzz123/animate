@@ -20,7 +20,7 @@ const Home: NextPage = () => {
           <h1>Dead simple CSS animation tool</h1>
           <p>{text}</p>
           <Image src="/duck.jpg" alt="My duck" width="400" height="400" />
-          <Box mb={80} />
+          <Box marginBottom={60} />
           <Button
             onClick={() => {
               router.push('/animate');

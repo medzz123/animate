@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box Test 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ dQBRbl"
+    data-testid="box"
+  >
+    Hello
+  </div>
+</div>
+`;

@@ -20,7 +20,8 @@
       "@theme/*": ["src/theme/*"],
       "@state/*": ["src/state/*"],
       "@pages/*": ["src/pages/*"],
-      "@test/*": ["__tests__/*"]
+      "@test/*": ["__tests__/*"],
+      "@utils/*": ["src/utils/*"]
     }
   },
   "rules": {
