@@ -19,7 +19,8 @@
       "@components/*": ["src/components/*"],
       "@theme/*": ["src/theme/*"],
       "@state/*": ["src/state/*"],
-      "@pages/*": ["src/pages/*"]
+      "@pages/*": ["src/pages/*"],
+      "@test/*": ["__tests__/*"]
     }
   },
   "rules": {

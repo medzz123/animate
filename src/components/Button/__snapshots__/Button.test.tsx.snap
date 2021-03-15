@@ -1,15 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button /> should render without throwing an error and match snapshot 1`] = `
-<button
-  className="sc-dlfnbm iaJVoB"
->
-  <div
-    className="sc-gsTCUz kcRCWL"
+exports[`<Button /> 1`] = `
+<div>
+  <button
+    class="sc-dlfnbm iaJVoB"
   >
-    <span
-      className="sc-bdfBwQ bHgGoI"
-    />
-  </div>
-</button>
+    <div
+      class="sc-gsTCUz hATUWM"
+    >
+      <span
+        class="sc-bdfBwQ iKIiZD"
+      >
+        Hello
+      </span>
+    </div>
+  </button>
+</div>
 `;
