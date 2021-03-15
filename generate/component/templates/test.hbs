@@ -1,0 +1,14 @@
+import { render } from '@test/testUtils';
+import React from 'react';
+
+import {{pascalCase name}} from './{{pascalCase name}}';
+
+test('{{pascalCase name}} Test', () => {
+  const { getByTestId, container } = render(<{{pascalCase name}}>Hello</{{pascalCase name}}>);
+
+  const {{camelCase name}}Node = getByTestId('{{camelCase name}}');
+
+  expect({{camelCase name}}Node.textContent).toBe('Hello');
+
+  expect(container).toMatchSnapshot();
+});

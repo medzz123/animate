@@ -1,0 +1,13 @@
+import { Meta, Story } from '@storybook/react/types-6-0';
+import React from 'react';
+
+import {{pascalCase name}} from './{{pascalCase name}}';
+
+export default {
+  title: 'Pages/{{pascalCase name}}',
+  component: {{pascalCase name}},
+} as Meta;
+
+const Template: Story = (storyArguments) => <{{pascalCase name}} {...storyArguments} />;
+
+export const {{pascalCase name}}Story = Template.bind({});

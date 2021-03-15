@@ -1,0 +1,18 @@
+import { FunctionComponent } from 'react';
+
+import { {{pascalCase name}}Props } from './{{pascalCase name}}.models';
+import { {{pascalCase name}}Container } from './{{pascalCase name}}.styles';
+
+const {{pascalCase name}}: FunctionComponent<{{pascalCase name}}Props> = (props) => {
+  const { uga, buga } = props;
+
+  return (
+    <{{pascalCase name}}Container data-testid="{{camelCase name}}">
+      <p>
+        {uga} {buga}
+      </p>
+    </{{pascalCase name}}Container>
+  );
+};
+
+export default {{pascalCase name}};
