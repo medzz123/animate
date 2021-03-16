@@ -1,6 +1,5 @@
 import Box from '@components/Box';
 import Button from '@components/Button';
-import CompactButton from '@components/CompactButton';
 import { username } from '@state/user';
 import { NextPage } from 'next';
 import Image from 'next/image';
@@ -29,8 +28,6 @@ const Home: NextPage = () => {
             start animating
           </Button>
         </Center>
-
-        <CompactButton>Hello</CompactButton>
       </Expanded>
     </div>
   );
