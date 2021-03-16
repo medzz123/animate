@@ -17,11 +17,18 @@ const styles = css`
     box-sizing: border-box;
   }
 
+  ::selection {
+    background: ${(p) => p.theme.accent};
+  }
+
   ul {
     list-style: none;
   }
 
-  body {
+  body,
+  a,
+  span,
+  p {
     font-family: 'Mulish', sans-serif;
     color: ${(p) => p.theme.black};
   }
@@ -60,7 +67,7 @@ const styles = css`
     outline: none;
 
     &:focus {
-      box-shadow: 0 0 0 5px ${(p) => p.theme.highlighter};
+      box-shadow: 0 0 0 5px ${(p) => p.theme.accent};
     }
   }
 

@@ -3,17 +3,14 @@
 exports[`<Button /> 1`] = `
 <div>
   <button
-    class="sc-dlfnbm iaJVoB"
+    class="sc-gsTCUz gELrHd"
+    data-testid="button"
   >
-    <div
-      class="sc-gsTCUz hATUWM"
+    <span
+      class="sc-bdfBwQ nvJLW"
     >
-      <span
-        class="sc-bdfBwQ iKIiZD"
-      >
-        Hello
-      </span>
-    </div>
+      Hello
+    </span>
   </button>
 </div>
 `;

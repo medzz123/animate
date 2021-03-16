@@ -1,15 +1,22 @@
 import React from 'react';
 
 import { ButtonProps } from './Button.models';
-import { Border, Span, StyledButton } from './Button.styles';
+import { Span, StyledButton } from './Button.styles';
 
 const Button: React.FunctionComponent<ButtonProps> = (props) => {
-  const { children, ...rest } = props;
+  const {
+    children,
+    variant = 'primary',
+    size = 'medium',
+    leftIcon,
+    rightIcon,
+    ...rest
+  } = props;
   return (
-    <StyledButton {...rest}>
-      <Border>
-        <Span>{children}</Span>
-      </Border>
+    <StyledButton variant={variant} size={size} data-testid="button" {...rest}>
+      {leftIcon}
+      <Span>{children}</Span>
+      {rightIcon}
     </StyledButton>
   );
 };

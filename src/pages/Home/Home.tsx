@@ -21,6 +21,7 @@ const Home: NextPage = () => {
           <Image src="/duck.jpg" alt="My duck" width="400" height="400" />
           <Box marginBottom={60} />
           <Button
+            size="large"
             onClick={() => {
               router.push('/animate');
             }}

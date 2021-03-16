@@ -161,6 +161,6 @@ export const ThemeButton = styled.button<{ vertical?: boolean }>`
   outline: none;
 
   &:focus {
-    box-shadow: 0 0 0 5px ${(p) => p.theme.highlighter};
+    box-shadow: 0 0 0 5px ${(p) => p.theme.accent};
   }
 `;
