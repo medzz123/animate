@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion Test 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ"
+    type="multiple"
+  />
+</div>
+`;
