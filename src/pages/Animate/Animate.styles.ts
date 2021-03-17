@@ -7,6 +7,10 @@ export const Container = styled.div`
   justify-content: space-between;
 `;
 
-export const Row = styled.div`
-  display: flex;
+export const TestNode = styled.div.attrs({ className: 'text-node' })<{
+  raw: string;
+}>`
+  width: 40px;
+  height: 40px;
+  background-color: red;
 `;
