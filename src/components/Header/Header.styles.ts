@@ -18,6 +18,7 @@ export const HeaderContainer = styled.div`
 export const LogoLink = styled.a`
   font-weight: 900;
   font-size: ${tokens.sizes[22]};
+  cursor: pointer;
 `;
 
 export const List = styled.ul<StyleProps>`

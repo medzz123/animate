@@ -1,4 +1,5 @@
-import Layout from '@components/Layout';
+import Box from '@components/Box';
+import Header from '@components/Header';
 import { GlobalStyle } from '@theme/globalStyles';
 import { darkTheme, lightTheme } from '@theme/theme';
 import Head from 'next/head';
@@ -28,9 +29,12 @@ const App = ({ Component, pageProps }) => {
       <RecoilRoot>
         <GlobalStyle />
         {isMounted && (
-          <Layout dark={darkMode.value} toggleDarkMode={darkMode.toggle}>
-            <Component {...pageProps} />
-          </Layout>
+          <>
+            <Header toggleDarkMode={darkMode.toggle} />
+            <Box padding={24} display="block">
+              <Component {...pageProps} />
+            </Box>
+          </>
         )}
       </RecoilRoot>
     </ThemeProvider>
