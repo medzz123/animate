@@ -12,11 +12,11 @@ const Wrapper = styled.div`
 `;
 
 const Layout: React.FC<LayoutProps> = (props) => {
-  const { children, toggleDarkMode, dark } = props;
+  const { children, toggleDarkMode } = props;
 
   return (
     <React.Fragment>
-      <Header toggleDarkMode={toggleDarkMode} dark={dark} />
+      <Header toggleDarkMode={toggleDarkMode} />
       <Wrapper>{children}</Wrapper>
     </React.Fragment>
   );

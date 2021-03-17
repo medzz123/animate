@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Test 1`] = `
+<div>
+  <div
+    class="sc-dlfnbm bLlanB"
+    data-testid="header"
+  >
+    <a
+      class="sc-hKgILt dkMAFE"
+    >
+      Animate.
+    </a>
+    <ul
+      class="sc-eCssSg hbMeSj"
+    >
+      <li>
+        <a
+          href="/browse"
+        >
+          <span
+            class="sc-bdfBwQ iMFFdf"
+          >
+            browse
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          href="/animate"
+        >
+          <span
+            class="sc-bdfBwQ iMFFdf"
+          >
+            animate
+          </span>
+        </a>
+      </li>
+      <button
+        class="sc-jSgupP cBcaRo"
+        type="button"
+      >
+        <span
+          class="sc-bdfBwQ iMFFdf"
+        >
+          toggle theme
+        </span>
+      </button>
+    </ul>
+    <button
+      class="sc-iBPRYJ LVRyY"
+    >
+      <span />
+      <span />
+      <span />
+    </button>
+    <div
+      class="sc-gKsewC cOPjWi"
+    >
+      <ul
+        class="sc-eCssSg fLdiDJ"
+      >
+        <li>
+          <a
+            href="/browse"
+          >
+            <span
+              class="sc-bdfBwQ iMFFdf"
+            >
+              browse
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/animate"
+          >
+            <span
+              class="sc-bdfBwQ iMFFdf"
+            >
+              animate
+            </span>
+          </a>
+        </li>
+        <button
+          class="sc-jSgupP cBcaRo"
+          type="button"
+        >
+          <span
+            class="sc-bdfBwQ iMFFdf"
+          >
+            toggle theme
+          </span>
+        </button>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

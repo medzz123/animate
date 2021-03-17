@@ -1,26 +1,14 @@
-import { LinkHighlight } from '@components/Highlight';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
-import {
-  Container,
-  HeaderWrapper,
-  List,
-  Logo,
-  Menu,
-  MenuButton,
-  ThemeButton,
-} from './Header.styles';
+import LinkList from './Header.List';
+import { HeaderProps } from './Header.models';
+import { HeaderContainer, LogoLink, Menu, MenuButton } from './Header.styles';
 
-const nav = [
-  { title: 'browse', path: '/browse' },
-  { title: 'animate', path: '/animate' },
-];
+const Header: FunctionComponent<HeaderProps> = (props) => {
+  const { toggleDarkMode } = props;
 
-const Header: React.FC<{ toggleDarkMode: () => void; dark: boolean }> = ({
-  toggleDarkMode,
-}) => {
   const [open, setOpen] = React.useState(false);
 
   const { pathname } = useRouter();
@@ -30,51 +18,22 @@ const Header: React.FC<{ toggleDarkMode: () => void; dark: boolean }> = ({
   }, [pathname]);
 
   return (
-    <HeaderWrapper>
-      <Container>
-        <Link href="/">
-          <a>
-            <Logo>Animate.</Logo>
-          </a>
-        </Link>
-        <List>
-          {nav.map((e, i) => (
-            <li key={`navItem-${i}`}>
-              <Link href={e.path} passHref>
-                <a>
-                  <LinkHighlight>{e.title}</LinkHighlight>
-                </a>
-              </Link>
-            </li>
-          ))}
-          <ThemeButton type="button" onClick={toggleDarkMode}>
-            <LinkHighlight>toggle theme</LinkHighlight>
-          </ThemeButton>
-        </List>
+    <HeaderContainer data-testid="header">
+      <Link href="/">
+        <LogoLink>Animate.</LogoLink>
+      </Link>
 
-        <MenuButton open={open} onClick={() => setOpen(!open)}>
-          <span />
-          <span />
-          <span />
-        </MenuButton>
-        <Menu open={open}>
-          <List vertical>
-            {nav.map((e, i) => (
-              <li key={`vertical-navItem-${i}`}>
-                <Link href={e.path} passHref>
-                  <a>
-                    <LinkHighlight>{e.title}</LinkHighlight>
-                  </a>
-                </Link>
-              </li>
-            ))}
-            <ThemeButton type="button" onClick={toggleDarkMode} vertical>
-              <LinkHighlight>toggle theme</LinkHighlight>
-            </ThemeButton>
-          </List>
-        </Menu>
-      </Container>
-    </HeaderWrapper>
+      <LinkList vertical={false} toggleDarkMode={toggleDarkMode} />
+
+      <MenuButton open={open} onClick={() => setOpen(!open)}>
+        <span />
+        <span />
+        <span />
+      </MenuButton>
+      <Menu open={open}>
+        <LinkList vertical={true} toggleDarkMode={toggleDarkMode} />
+      </Menu>
+    </HeaderContainer>
   );
 };
 

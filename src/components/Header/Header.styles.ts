@@ -1,8 +1,71 @@
+import { mq } from '@theme/mediaQueries';
+import { tokens } from '@theme/tokens';
 import styled, { css } from 'styled-components';
 
-export const Logo = styled.span`
+import { StyleProps } from './Header.models';
+
+export const HeaderContainer = styled.div`
+  margin-top: ${tokens.sizes[24]};
+  margin-right: ${tokens.sizes[24]};
+  margin-left: ${tokens.sizes[24]};
+  background-color: transparent;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const LogoLink = styled.a`
   font-weight: 900;
-  font-size: 22px;
+  font-size: ${tokens.sizes[22]};
+`;
+
+export const List = styled.ul<StyleProps>`
+  display: ${({ vertical }) => (vertical ? 'flex' : 'none')};
+  margin: ${tokens.sizes[0]};
+  padding: ${tokens.sizes[0]};
+
+  flex-direction: ${({ vertical }) => (vertical ? 'column' : 'row')};
+
+  align-items: center;
+
+  li {
+    font-size: ${tokens.sizes[18]};
+    font-weight: bold;
+    margin: ${({ vertical }) => (vertical ? `0 16px 0 0` : `0 0 0 32px`)};
+  }
+
+  ${mq(768)} {
+    display: flex;
+  }
+
+  button {
+    margin-left: ${({ vertical }) => (vertical ? '0' : '32px')};
+  }
+`;
+
+export const ThemeButton = styled.button`
+  border: none;
+  box-shadow: none;
+  padding: ${tokens.sizes[0]};
+  margin: ${tokens.sizes[0]};
+
+  font-size: ${tokens.sizes[18]};
+  font-weight: bold;
+
+  cursor: pointer;
+
+  font-family: 'Mulish', sans-serif;
+
+  background-color: transparent;
+
+  color: ${(p) => p.theme.black};
+
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 0 ${tokens.sizes[5]} ${(p) => p.theme.accent};
+  }
 `;
 
 export const Menu = styled.div<{ open: boolean }>`
@@ -11,13 +74,13 @@ export const Menu = styled.div<{ open: boolean }>`
   top: 70px;
   left: 0;
   background-color: ${(p) => p.theme.white};
-  padding: 16px;
+  padding: ${tokens.sizes[16]};
 
   transition: all 250ms ease;
 
-  width: calc(100vw - 48px);
+  width: 100vw;
 
-  @media screen and (min-width: 596px) {
+  ${mq(768)} {
     display: none;
   }
 `;
@@ -28,12 +91,22 @@ export const MenuButton = styled.button<{ open: boolean }>`
   box-shadow: none;
   padding: 0;
 
-  width: 30px;
-  height: 22px;
+  width: ${tokens.sizes[32]};
+  height: ${tokens.sizes[24]};
   position: relative;
   transform: rotate(0deg);
   transition: 0.5s ease-in-out;
   cursor: pointer;
+
+  ${mq(768)} {
+    display: none;
+  }
+
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 0 ${tokens.sizes[5]} ${(p) => p.theme.highlighter};
+  }
 
   span {
     display: block;
@@ -61,12 +134,10 @@ export const MenuButton = styled.button<{ open: boolean }>`
       top: 18px;
       transform-origin: left center;
     }
-  }
 
-  ${(p) =>
-    p.open &&
-    css`
-      span {
+    ${(p) =>
+      p.open &&
+      css`
         &:nth-child(1) {
           transform: rotate(45deg);
           top: -1.5px;
@@ -83,84 +154,6 @@ export const MenuButton = styled.button<{ open: boolean }>`
           top: 20px;
           left: 4px;
         }
-      }
-    `}
-
-  @media screen and (min-width: 596px) {
-    display: none;
-  }
-
-  outline: none;
-
-  &:focus {
-    box-shadow: 0 0 0 5px ${(p) => p.theme.highlighter};
-  }
-`;
-
-export const HeaderWrapper = styled.nav`
-  z-index: 100;
-  margin-top: 24px;
-  margin-right: 24px;
-  margin-left: 24px;
-  background-color: transparent;
-`;
-
-export const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const List = styled.ul<{ vertical?: boolean }>`
-  display: flex;
-  margin: 0;
-  padding: 0;
-
-  flex-direction: ${(p) => (p.vertical ? 'column' : 'row')};
-
-  align-items: center;
-
-  li {
-    font-size: 18px;
-    font-weight: bold;
-    ${(p) =>
-      p.vertical
-        ? `
-    margin-bottom: 16px;
-    `
-        : ` margin-left: 32px;`}
-  }
-  ${(p) =>
-    !p.vertical &&
-    `
-  @media screen and (max-width: 596px) {
-    display: none;
-  }
-
-`}
-`;
-
-export const ThemeButton = styled.button<{ vertical?: boolean }>`
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  margin: 0;
-
-  font-size: 18px;
-  font-weight: bold;
-  margin-left: ${(p) => (p.vertical ? '0' : '32px')};
-
-  cursor: pointer;
-
-  font-family: 'Mulish', sans-serif;
-
-  background-color: transparent;
-
-  color: ${(p) => p.theme.black};
-
-  outline: none;
-
-  &:focus {
-    box-shadow: 0 0 0 5px ${(p) => p.theme.accent};
+      `}
   }
 `;

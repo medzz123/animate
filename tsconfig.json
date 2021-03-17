@@ -28,5 +28,5 @@
     "no-unused-variable": [true, { "ignore-pattern": "^_" }]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }
