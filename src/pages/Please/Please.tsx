@@ -1,9 +1,12 @@
 import { NextPage } from 'next';
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import Frame, { FrameContextConsumer } from 'react-frame-component';
 import styled, { StyleSheetManager } from 'styled-components';
 
 import { Container, Content } from './Please.styles';
+
+const MonacoEditor = dynamic(import('react-monaco-editor'), { ssr: false });
 
 export const TestNode = styled.div.attrs({ className: 'text-node' })`
   width: 40px;
@@ -39,13 +42,30 @@ const Please: NextPage = () => {
           )}
         </FrameContextConsumer>
       </Frame>
-      <textarea
-        rows={25}
-        cols={50}
+      <MonacoEditor
+        height="600px"
+        width="600px"
+        language="scss"
+        theme="vs-dark"
         value={raw}
-        onChange={(event) => {
-          console.log('Event', JSON.stringify(event.target.value));
-          setRaw(event.target.value);
+        options={{
+          minimap: {
+            enabled: false,
+          },
+        }}
+        onChange={(c) => setRaw(c)}
+        editorDidMount={() => {
+          // @ts-ignore
+          window.MonacoEnvironment.getWorkerUrl = (
+            _: unknown,
+            label: string
+          ) => {
+            if (label === 'json') return '/_next/static/json.worker.js';
+            if (label === 'css') return '/_next/static/css.worker.js';
+            if (label === 'html') return '/_next/static/html.worker.js';
+            if (label === 'scss') return '/_next/static/ts.worker.js';
+            return '/_next/static/editor.worker.js';
+          };
         }}
       />
     </Container>
