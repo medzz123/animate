@@ -1,9 +1,26 @@
 import { NextPage } from 'next';
+import dynamic from 'next/dynamic';
+import { highlight, languages } from 'prismjs/components/prism-core';
 import React, { useState } from 'react';
 import Frame, { FrameContextConsumer } from 'react-frame-component';
 import styled, { StyleSheetManager } from 'styled-components';
 
 import { Container, Content } from './Please.styles';
+
+// const Editor = dynamic(() => import('../../components/Editor'), { ssr: false });
+
+const Editor = dynamic(
+  async () => {
+    const editor = await import('react-simple-code-editor');
+    import('prismjs/components/prism-clike');
+    import('prismjs/components/prism-javascript');
+    import('prismjs/themes/prism.css');
+    return editor;
+  },
+  {
+    ssr: false,
+  }
+);
 
 export const TestNode = styled.div.attrs({ className: 'text-node' })`
   width: 40px;
@@ -18,14 +35,34 @@ const AnimationStyles = styled.div<{
 `;
 
 const Please: NextPage = () => {
-  const [raw, setRaw] = useState(
-    '.text-node {\n  animation: animate 1500ms infinite;\n\n  @keyframes animate {\n    0% {\n      transform: translateX(0);\n    }\n\n    50% {\n      transform: translateX(150px);\n    }\n\n    100% {\n      transform: translateX(0);\n    }\n  }\n}'
-  );
+  const [raw, setRaw] = useState(`.text-node {
+    animation: animate 1500ms infinite;
+  
+    @keyframes animate {
+      0% {
+        transform: translateX(0);
+      }
+  
+      50% {
+        transform: translateX(150px);
+      }
+  
+      100% {
+        transform: translateX(0);
+      }
+    }
+  }`);
   return (
     <Container>
       <Content>
         <p>Hello, this page us Please</p>
       </Content>
+      <Editor
+        value={raw}
+        onValueChange={(code) => setRaw(code)}
+        highlight={(code) => highlight(code, languages.js)}
+        padding={10}
+      />
       <Frame>
         <FrameContextConsumer>
           {(frameContext) => (
@@ -39,15 +76,6 @@ const Please: NextPage = () => {
           )}
         </FrameContextConsumer>
       </Frame>
-      <textarea
-        rows={25}
-        cols={50}
-        value={raw}
-        onChange={(event) => {
-          console.log('Event', JSON.stringify(event.target.value));
-          setRaw(event.target.value);
-        }}
-      />
     </Container>
   );
 };
