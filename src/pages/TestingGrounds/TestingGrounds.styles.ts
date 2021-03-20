@@ -2,8 +2,15 @@ import styled from 'styled-components';
 
 export const Container = styled.div``;
 
+export const Content = styled.main``;
+
 export const TestNode = styled.div.attrs({ className: 'text-node' })<{
-  raw: string;
+  initial: string;
+  animations: string;
 }>`
-  ${(p) => p.raw}
+  .test-node {
+    ${(p) => p.initial}
+
+    ${(p) => p.animations}
+  }
 `;

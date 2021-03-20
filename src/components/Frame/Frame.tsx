@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
+import { StyleSheetManager } from 'styled-components';
 
 import { FrameProps } from './Frame.models';
 import { IFrame } from './Frame.styles';
@@ -18,7 +19,9 @@ const Frame: React.FunctionComponent<FrameProps> = (props) => {
       ref={setContentRef}
       {...rest}
     >
-      {mountNode && createPortal(children, mountNode)}
+      <StyleSheetManager target={contentRef?.contentWindow?.document?.head}>
+        <div>{mountNode && createPortal(children, mountNode)}</div>
+      </StyleSheetManager>
     </IFrame>
   );
 };

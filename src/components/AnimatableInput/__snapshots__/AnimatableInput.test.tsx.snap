@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnimatableInput Test 1`] = `
+<div>
+  <div
+    class="sc-gsTCUz iSUBTc"
+  >
+    <label
+      class="sc-dlfnbm YlwpW"
+      data-testid="animatable-input-label"
+      for="Test"
+    >
+      Test
+    </label>
+    <div
+      class="sc-bdfBwQ kKrvpF"
+      data-testid="box"
+    />
+    <input
+      autocomplete="off"
+      class="sc-hKgILt jxSUMg"
+      data-testid="animatable-input"
+      id="Test"
+    />
+  </div>
+</div>
+`;
