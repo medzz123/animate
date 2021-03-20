@@ -1,15 +1,19 @@
+import inRange from 'lodash/inRange';
 import { useCallback, useMemo, useState } from 'react';
 
 type AnimatableState = {
-  [x: number]: {
-    translate?: string;
-    rotate?: string;
-    skew?: string;
-    scale?: string;
+  step: number;
+  steps: {
+    [x: number]: {
+      translate?: string;
+      rotate?: string;
+      skew?: string;
+      scale?: string;
+    };
   };
 };
 
-const parseToCss = (obj: AnimatableState) => {
+const parseToCss = (obj: AnimatableState['steps']) => {
   let finalString = ``;
 
   for (const key in obj) {
@@ -43,64 +47,90 @@ export const useTestingGrounds = () => {
     animatableProperties,
     setAnimatableProperties,
   ] = useState<AnimatableState>({
-    0: {
-      translate: '0, 0',
-    },
-    50: {
-      translate: '150px, 0',
-    },
-    100: {
-      translate: '0, 0',
+    step: 50,
+    steps: {
+      '0': {
+        translate: '0, 0',
+      },
+      '50': {
+        translate: '250px, 250px',
+        rotate: '90deg',
+        scale: '1.8',
+        skew: '',
+      },
+      '100': {
+        translate: '0, 0',
+      },
     },
   });
 
   const parsed = useMemo(() => {
-    return parseToCss(animatableProperties);
-  }, [animatableProperties]);
+    return parseToCss(animatableProperties.steps);
+  }, [animatableProperties.steps]);
 
   const handlers = useCallback(
     () => ({
       createStep: (step: number) => {
-        setAnimatableProperties((p) => ({
-          ...p,
-          [step]: {},
-        }));
+        setAnimatableProperties((p) => {
+          if (
+            inRange(step, 0, 100) &&
+            !Object.keys(p.steps).includes(String(step))
+          ) {
+            return {
+              step,
+              steps: { ...p.steps, [step]: {} },
+            };
+          }
+
+          return p;
+        });
       },
-      deleteStep: (step: number) => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        setAnimatableProperties(({ [step]: _, ...p }) => ({
-          ...p,
-        }));
+      changeCurrentStep: (step: number) => {
+        setAnimatableProperties((p) => ({ ...p, step }));
       },
-      onTranslateChange: (input: string, step: number) => {
-        setAnimatableProperties((p) => ({
-          ...p,
-          [step]: { ...p[step], translate: input },
-        }));
+      deleteStep: () => {
+        setAnimatableProperties((props) => {
+          const {
+            steps: { [props.step]: _, ...rest },
+          } = props;
+          if (Object.keys(rest).length > 0) {
+            const newCurrentStep = Number(Object.keys(rest)[0]);
+
+            return {
+              step: newCurrentStep,
+              steps: {
+                ...rest,
+              },
+            };
+          } else {
+            return props;
+          }
+        });
       },
-      onRotateChange: (input: string, step: number) => {
-        setAnimatableProperties((p) => ({
-          ...p,
-          [step]: { ...p[step], rotate: input },
-        }));
-      },
-      onSkewChange: (input: string, step: number) => {
-        setAnimatableProperties((p) => ({
-          ...p,
-          [step]: { ...p[step], skew: input },
-        }));
-      },
-      onScaleChange: (input: string, step: number) => {
-        setAnimatableProperties((p) => ({
-          ...p,
-          [step]: { ...p[step], scale: input },
-        }));
+      onPropertyChange: (event: React.ChangeEvent<HTMLInputElement>) => {
+        setAnimatableProperties((p) => {
+          return {
+            step: p.step,
+            steps: {
+              ...p.steps,
+              [p.step]: {
+                ...p.steps[p.step],
+                [event.target.name]: event.target.value,
+              },
+            },
+          };
+        });
       },
     }),
     []
   );
 
-  return { parsed, animatableProperties, handlers };
+  return {
+    parsed,
+    animatableProperties,
+    currentProperties: animatableProperties.steps[animatableProperties.step],
+    handlers,
+  };
 };
 
 export const useAnimationControls = () => {

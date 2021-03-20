@@ -24,10 +24,14 @@ const TestingGrounds: NextPage = () => {
   }`
   );
 
-  const [step, setStep] = useState(0);
   const [newStep, setNewStep] = useState(0);
 
-  const { parsed, handlers, animatableProperties } = useTestingGrounds();
+  const {
+    parsed,
+    handlers,
+    animatableProperties,
+    currentProperties,
+  } = useTestingGrounds();
 
   const { play, handlers: playHandlers } = useAnimationControls();
 
@@ -76,55 +80,51 @@ const TestingGrounds: NextPage = () => {
         <AnimatableInput
           label="Translate"
           placeholder="50px, 100px"
-          value={animatableProperties[step].translate || ''}
-          onChange={(event) =>
-            handlers().onTranslateChange(event.target.value, step)
-          }
+          name="translate"
+          value={currentProperties.translate || ''}
+          onChange={handlers().onPropertyChange}
         />
         <Box marginBottom={10} />
         <AnimatableInput
           label="Rotate"
+          name="rotate"
           placeholder="45 deg"
-          value={animatableProperties[step].rotate || ''}
-          onChange={(event) =>
-            handlers().onRotateChange(event.target.value, step)
-          }
+          value={currentProperties.rotate || ''}
+          onChange={handlers().onPropertyChange}
         />
         <Box marginBottom={10} />
         <AnimatableInput
           label="Scale"
+          name="scale"
           placeholder="1.5"
-          value={animatableProperties[step].scale || ''}
-          onChange={(event) =>
-            handlers().onScaleChange(event.target.value, step)
-          }
+          value={currentProperties.scale || ''}
+          onChange={handlers().onPropertyChange}
         />
         <Box marginBottom={10} />
         <AnimatableInput
           label="Skew"
+          name="skew"
           placeholder="22deg"
-          value={animatableProperties[step].skew || ''}
-          onChange={(event) =>
-            handlers().onSkewChange(event.target.value, step)
-          }
+          value={currentProperties.skew || ''}
+          onChange={handlers().onPropertyChange}
         />
         <Box marginBottom={40} />
         <AnimatableInput
-          label="New Step %"
+          label="New Step"
           placeholder="77"
           type="number"
           onChange={(event) => setNewStep(Number(event.target.value))}
         />
       </Box>
       <Box marginLeft={20} display="inline-flex" flexDirection="column">
-        <p>Current step: {step}%</p>
+        <p>Current step: {animatableProperties.step}%</p>
         <Box marginBottom={20}>
-          {Object.keys(animatableProperties).map((key) => (
+          {Object.keys(animatableProperties.steps).map((key) => (
             <button
               key={`location-${key}`}
               style={{ marginRight: 20 }}
               onClick={() => {
-                setStep(Number(key));
+                handlers().changeCurrentStep(Number(key));
               }}
             >
               Step {key}%
@@ -151,6 +151,15 @@ const TestingGrounds: NextPage = () => {
           }}
         >
           Add New Step
+        </Button>
+
+        <Button
+          style={{ marginLeft: 20 }}
+          onClick={() => {
+            handlers().deleteStep();
+          }}
+        >
+          Delete Current Step
         </Button>
       </Flex>
     </Container>
