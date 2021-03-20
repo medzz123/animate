@@ -7,31 +7,35 @@ import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 
-import { useTestingGrounds } from './TestingGrounds.hooks';
+import {
+  useAnimationControls,
+  useTestingGrounds,
+} from './TestingGrounds.hooks';
 import { Container, TestNode } from './TestingGrounds.styles';
 
 const MonacoEditor = dynamic(import('react-monaco-editor'), { ssr: false });
 
 const TestingGrounds: NextPage = () => {
   const [initial, setInitial] = useState(
-    `
-    width: 40px;
-    height: 40px;
-    background-color: red;
-    animation: animate 1500ms infinite;
-    `
+    `.test-node {
+      width: 40px;
+      height: 40px;
+      background-color: red;
+  }`
   );
 
-  const [location, setLocation] = useState(0);
-  const [newLocation, setNewLocation] = useState(0);
+  const [step, setStep] = useState(0);
+  const [newStep, setNewStep] = useState(0);
 
   const { parsed, handlers, animatableProperties } = useTestingGrounds();
+
+  const { play, handlers: playHandlers } = useAnimationControls();
 
   return (
     <Container>
       <Flex marginBottom={20}>
         <Frame title="Artboard">
-          <TestNode initial={initial} animations={parsed}>
+          <TestNode initial={initial} animations={parsed} play={play}>
             <div className="test-node" />
           </TestNode>
         </Frame>
@@ -72,51 +76,83 @@ const TestingGrounds: NextPage = () => {
         <AnimatableInput
           label="Translate"
           placeholder="50px, 100px"
-          value={animatableProperties[location].translate || ''}
+          value={animatableProperties[step].translate || ''}
           onChange={(event) =>
-            handlers().onTranslateChange(event.target.value, location)
+            handlers().onTranslateChange(event.target.value, step)
           }
         />
         <Box marginBottom={10} />
-        <AnimatableInput label="Rotate" placeholder="45 deg" />
+        <AnimatableInput
+          label="Rotate"
+          placeholder="45 deg"
+          value={animatableProperties[step].rotate || ''}
+          onChange={(event) =>
+            handlers().onRotateChange(event.target.value, step)
+          }
+        />
         <Box marginBottom={10} />
-        <AnimatableInput label="Scale" placeholder="1.5" />
+        <AnimatableInput
+          label="Scale"
+          placeholder="1.5"
+          value={animatableProperties[step].scale || ''}
+          onChange={(event) =>
+            handlers().onScaleChange(event.target.value, step)
+          }
+        />
         <Box marginBottom={10} />
-        <AnimatableInput label="Skew" placeholder="22deg" />
+        <AnimatableInput
+          label="Skew"
+          placeholder="22deg"
+          value={animatableProperties[step].skew || ''}
+          onChange={(event) =>
+            handlers().onSkewChange(event.target.value, step)
+          }
+        />
+        <Box marginBottom={40} />
+        <AnimatableInput
+          label="New Step %"
+          placeholder="77"
+          type="number"
+          onChange={(event) => setNewStep(Number(event.target.value))}
+        />
       </Box>
       <Box marginLeft={20} display="inline-flex" flexDirection="column">
+        <p>Current step: {step}%</p>
         <Box marginBottom={20}>
           {Object.keys(animatableProperties).map((key) => (
             <button
               key={`location-${key}`}
-              style={{ marginLeft: 20 }}
+              style={{ marginRight: 20 }}
               onClick={() => {
-                setLocation(Number(key));
+                setStep(Number(key));
               }}
             >
-              Location {key}%
+              Step {key}%
             </button>
           ))}
         </Box>
         <Box display="inline-flex" flexDirection="column">
-          <AnimatableInput
-            label="Location Input"
-            placeholder="77"
-            type="number"
-            onChange={(event) => setNewLocation(Number(event.target.value))}
-          />
-          <Box marginBottom={20} />
-          <Button
-            type="button"
-            size="large"
-            onClick={() => {
-              handlers().createLocation(newLocation);
-            }}
-          >
-            Add New Location
-          </Button>
+          <Flex></Flex>
         </Box>
       </Box>
+      <Flex marginBottom={20}>
+        <Button
+          onClick={() => {
+            playHandlers().toggle();
+          }}
+        >
+          {play ? 'Pause' : 'Play'}
+        </Button>
+
+        <Button
+          style={{ marginLeft: 20 }}
+          onClick={() => {
+            handlers().createStep(newStep);
+          }}
+        >
+          Add New Step
+        </Button>
+      </Flex>
     </Container>
   );
 };

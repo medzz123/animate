@@ -10,10 +10,17 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
     size = 'medium',
     leftIcon,
     rightIcon,
+    type = 'button',
     ...rest
   } = props;
   return (
-    <StyledButton variant={variant} size={size} data-testid="button" {...rest}>
+    <StyledButton
+      variant={variant}
+      size={size}
+      type={type}
+      data-testid="button"
+      {...rest}
+    >
       {leftIcon}
       <Span>{children}</Span>
       {rightIcon}

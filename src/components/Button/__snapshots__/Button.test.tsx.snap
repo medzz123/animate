@@ -5,6 +5,7 @@ exports[`<Button /> 1`] = `
   <button
     class="sc-gsTCUz gELrHd"
     data-testid="button"
+    type="button"
   >
     <span
       class="sc-bdfBwQ nvJLW"

@@ -2,8 +2,10 @@ import styled from 'styled-components';
 
 export const AnimatableInputContainer = styled.div`
   display: inline-flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+
+  width: 350px;
 `;
 
 export const Label = styled.label`

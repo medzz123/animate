@@ -4,12 +4,17 @@ export const Container = styled.div``;
 
 export const Content = styled.main``;
 
-export const TestNode = styled.div.attrs({ className: 'text-node' })<{
+type TNode = {
   initial: string;
   animations: string;
-}>`
+  play: boolean;
+};
+
+export const TestNode = styled.div<TNode>`
+  ${(p) => p.initial}
+
   .test-node {
-    ${(p) => p.initial}
+    ${(p) => p.play && `animation: animate 1500ms infinite;`}
 
     ${(p) => p.animations}
   }

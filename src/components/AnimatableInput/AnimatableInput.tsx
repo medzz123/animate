@@ -1,4 +1,3 @@
-import Box from '@components/Box';
 import React, { FunctionComponent } from 'react';
 
 import { AnimatableInputProps } from './AnimatableInput.models';
@@ -16,7 +15,6 @@ const AnimatableInput: FunctionComponent<AnimatableInputProps> = (props) => {
       <Label htmlFor={label} data-testid="animatable-input-label">
         {label}
       </Label>
-      <Box marginRight={12} />
       <StyledInput
         id={label}
         autoComplete="off"

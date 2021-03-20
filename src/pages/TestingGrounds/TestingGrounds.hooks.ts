@@ -60,16 +60,40 @@ export const useTestingGrounds = () => {
 
   const handlers = useCallback(
     () => ({
-      createLocation: (location: number) => {
+      createStep: (step: number) => {
         setAnimatableProperties((p) => ({
           ...p,
-          [location]: {},
+          [step]: {},
         }));
       },
-      onTranslateChange: (input: string, location: number) => {
+      deleteStep: (step: number) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        setAnimatableProperties(({ [step]: _, ...p }) => ({
+          ...p,
+        }));
+      },
+      onTranslateChange: (input: string, step: number) => {
         setAnimatableProperties((p) => ({
           ...p,
-          [location]: { ...p[location], translate: input },
+          [step]: { ...p[step], translate: input },
+        }));
+      },
+      onRotateChange: (input: string, step: number) => {
+        setAnimatableProperties((p) => ({
+          ...p,
+          [step]: { ...p[step], rotate: input },
+        }));
+      },
+      onSkewChange: (input: string, step: number) => {
+        setAnimatableProperties((p) => ({
+          ...p,
+          [step]: { ...p[step], skew: input },
+        }));
+      },
+      onScaleChange: (input: string, step: number) => {
+        setAnimatableProperties((p) => ({
+          ...p,
+          [step]: { ...p[step], scale: input },
         }));
       },
     }),
@@ -77,4 +101,19 @@ export const useTestingGrounds = () => {
   );
 
   return { parsed, animatableProperties, handlers };
+};
+
+export const useAnimationControls = () => {
+  const [play, setPlay] = useState(true);
+
+  const handlers = useCallback(
+    () => ({
+      toggle: () => {
+        setPlay((p) => !p);
+      },
+    }),
+    []
+  );
+
+  return { play, handlers };
 };
