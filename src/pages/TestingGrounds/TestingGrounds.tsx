@@ -25,10 +25,12 @@ const TestingGrounds: NextPage = () => {
 
   const { parsed, handlers, state, currentProperties } = useTestingGrounds();
 
+  const [resetKey, setResetKey] = useState('frame-reset-key');
+
   return (
     <Container>
       <Flex marginBottom={20}>
-        <Frame title="Artboard">
+        <Frame title="Artboard" key={resetKey}>
           <TestNode initial={initial} animations={parsed}>
             <div className="test-node" />
           </TestNode>
@@ -200,6 +202,19 @@ const TestingGrounds: NextPage = () => {
 
         <Button style={{ marginLeft: 20 }} onClick={handlers().deleteStep}>
           Delete Current Step
+        </Button>
+
+        <Button
+          style={{ marginLeft: 20 }}
+          onClick={() => {
+            setResetKey('frame-off');
+            handlers().pauseAnimation();
+            setTimeout(() => {
+              setResetKey('frame-reset-key');
+            }, 50);
+          }}
+        >
+          Rest Animation
         </Button>
       </Flex>
     </Container>

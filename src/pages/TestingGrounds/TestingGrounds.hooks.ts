@@ -65,7 +65,7 @@ const parseAnimationState = (
 
 export const useTestingGrounds = () => {
   const [state, setState] = useState<AnimatableState>({
-    step: 50,
+    step: 0,
     animationState: {
       'animation-duration': '2s',
       'animation-timing-function': 'ease',
@@ -76,16 +76,16 @@ export const useTestingGrounds = () => {
       'animation-play-state': 'running',
     },
     steps: {
-      '0': {
+      0: {
         translate: '0, 0',
       },
-      '50': {
+      50: {
         translate: '250px, 250px',
         rotate: '90deg',
         scale: '1.8',
         skew: '',
       },
-      '100': {
+      100: {
         translate: '0, 0',
       },
     },
@@ -137,6 +137,15 @@ export const useTestingGrounds = () => {
             return props;
           }
         });
+      },
+      pauseAnimation: () => {
+        setState((props) => ({
+          ...props,
+          animationState: {
+            ...props.animationState,
+            'animation-play-state': 'paused',
+          },
+        }));
       },
       toggleAnimationPlayState: () => {
         setState((props) => ({
