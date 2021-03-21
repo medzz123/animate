@@ -18,12 +18,14 @@ const TestingGrounds: NextPage = () => {
       width: 40px;
       height: 40px;
       background-color: red;
+      display: inline-block;
   }`
   );
 
   const [newStep, setNewStep] = useState(0);
 
   const { parsed, handlers, state, currentProperties } = useTestingGrounds();
+  console.log('🚀 ~ file: TestingGrounds.tsx ~ line 27 ~ parsed\n', parsed);
 
   const [resetKey, setResetKey] = useState('frame-reset-key');
 
@@ -165,8 +167,16 @@ const TestingGrounds: NextPage = () => {
         />
         <Box marginBottom={10} />
       </Box>
-      <Box marginLeft={40} display="inline-flex" flexDirection="column">
-        <p>Current step: {state.step}%</p>
+      <Box
+        marginLeft={40}
+        display="inline-flex"
+        flexDirection="column"
+        flexWrap="wrap"
+      >
+        <p>
+          Current step:{' '}
+          {state.step ?? state.animationState['animation-play-state']}
+        </p>
         <Box marginBottom={20}>
           {Object.keys(state.steps).map((key) => (
             <button

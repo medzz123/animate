@@ -22,11 +22,11 @@ type AnimatableState = {
   };
 };
 
-const parseToCss = (obj: AnimatableState['steps']) => {
+const parseToCss = (state: AnimatableState['steps']) => {
   let finalString = ``;
 
-  for (const key in obj) {
-    const properties = obj[key];
+  for (const key in state) {
+    const properties = state[key];
     let parsedProperties = '';
 
     for (const property in properties) {
@@ -51,16 +51,42 @@ const parseToCss = (obj: AnimatableState['steps']) => {
   `;
 };
 
-const parseAnimationState = (
-  animationState: AnimatableState['animationState']
-) => {
+const parseAnimationState = (state: AnimatableState['animationState']) => {
   let finalString = '';
 
-  for (const option in animationState) {
-    finalString += `${option}: ${animationState[option]};\n`;
+  for (const option in state) {
+    finalString += `${option}: ${state[option]};\n`;
   }
 
   return finalString;
+};
+
+const parseCurrentStepCss = (state: AnimatableState) => {
+  if (
+    state.step !== undefined &&
+    state.animationState['animation-play-state'] === 'paused'
+  ) {
+    let finalString = '';
+
+    const current = state.steps[state.step];
+
+    for (const key in current) {
+      console.log(
+        '🚀 ~ file: TestingGrounds.hooks.ts ~ line 71 ~ parseCurrentStepCss ~ key',
+        key
+      );
+      if (!current[key]) {
+        break;
+      }
+      finalString += `${key}(${current[key]})`;
+    }
+
+    return `
+    animation: none;
+    transform: ${finalString};`;
+  }
+
+  return '';
 };
 
 export const useTestingGrounds = () => {
@@ -93,7 +119,11 @@ export const useTestingGrounds = () => {
 
   const parsed = useMemo(() => {
     return (
-      parseAnimationState(state.animationState) + '\n' + parseToCss(state.steps)
+      parseCurrentStepCss(state) +
+      '\n' +
+      parseAnimationState(state.animationState) +
+      '\n' +
+      parseToCss(state.steps)
     );
   }, [state]);
 
@@ -150,6 +180,7 @@ export const useTestingGrounds = () => {
       toggleAnimationPlayState: () => {
         setState((props) => ({
           ...props,
+          step: undefined,
           animationState: {
             ...props.animationState,
             'animation-play-state':
@@ -191,7 +222,7 @@ export const useTestingGrounds = () => {
   return {
     parsed,
     state,
-    currentProperties: state.steps[state.step],
+    currentProperties: state.steps[state.step] || {},
     handlers,
   };
 };
