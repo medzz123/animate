@@ -7,10 +7,7 @@ import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 
-import {
-  useAnimationControls,
-  useTestingGrounds,
-} from './TestingGrounds.hooks';
+import { useTestingGrounds } from './TestingGrounds.hooks';
 import { Container, TestNode } from './TestingGrounds.styles';
 
 const MonacoEditor = dynamic(import('react-monaco-editor'), { ssr: false });
@@ -26,20 +23,13 @@ const TestingGrounds: NextPage = () => {
 
   const [newStep, setNewStep] = useState(0);
 
-  const {
-    parsed,
-    handlers,
-    animatableProperties,
-    currentProperties,
-  } = useTestingGrounds();
-
-  const { play, handlers: playHandlers } = useAnimationControls();
+  const { parsed, handlers, state, currentProperties } = useTestingGrounds();
 
   return (
     <Container>
       <Flex marginBottom={20}>
         <Frame title="Artboard">
-          <TestNode initial={initial} animations={parsed} play={play}>
+          <TestNode initial={initial} animations={parsed}>
             <div className="test-node" />
           </TestNode>
         </Frame>
@@ -116,10 +106,67 @@ const TestingGrounds: NextPage = () => {
           onChange={(event) => setNewStep(Number(event.target.value))}
         />
       </Box>
-      <Box marginLeft={20} display="inline-flex" flexDirection="column">
-        <p>Current step: {animatableProperties.step}%</p>
+
+      <Box
+        marginBottom={40}
+        marginLeft={40}
+        display="inline-flex"
+        flexDirection="column"
+        alignItems="flex-start"
+      >
+        <AnimatableInput
+          label="Duration"
+          placeholder="750ms"
+          name="animation-duration"
+          value={state.animationState['animation-duration'] || ''}
+          onChange={handlers().onAnimationStateChange}
+        />
+        <Box marginBottom={10} />
+        <AnimatableInput
+          label="Timing"
+          placeholder="ease"
+          name="animation-timing-function"
+          value={state.animationState['animation-timing-function'] || ''}
+          onChange={handlers().onAnimationStateChange}
+        />
+        <Box marginBottom={10} />
+        <AnimatableInput
+          label="Delay"
+          placeholder="750ms"
+          name="animation-delay"
+          value={state.animationState['animation-delay'] || ''}
+          onChange={handlers().onAnimationStateChange}
+        />
+        <Box marginBottom={10} />
+        <AnimatableInput
+          label="Fill Mode"
+          placeholder="forwards"
+          name="animation-fill-mode"
+          value={state.animationState['animation-fill-mode'] || ''}
+          onChange={handlers().onAnimationStateChange}
+        />
+        <Box marginBottom={10} />
+        <AnimatableInput
+          label="Direction"
+          placeholder="reverse"
+          name="animation-direction"
+          value={state.animationState['animation-direction'] || ''}
+          onChange={handlers().onAnimationStateChange}
+        />
+        <Box marginBottom={10} />
+        <AnimatableInput
+          label="Iteration Count"
+          placeholder="2"
+          name="animation-iteration-count"
+          value={state.animationState['animation-iteration-count'] || ''}
+          onChange={handlers().onAnimationStateChange}
+        />
+        <Box marginBottom={10} />
+      </Box>
+      <Box marginLeft={40} display="inline-flex" flexDirection="column">
+        <p>Current step: {state.step}%</p>
         <Box marginBottom={20}>
-          {Object.keys(animatableProperties.steps).map((key) => (
+          {Object.keys(state.steps).map((key) => (
             <button
               key={`location-${key}`}
               style={{ marginRight: 20 }}
@@ -136,12 +183,10 @@ const TestingGrounds: NextPage = () => {
         </Box>
       </Box>
       <Flex marginBottom={20}>
-        <Button
-          onClick={() => {
-            playHandlers().toggle();
-          }}
-        >
-          {play ? 'Pause' : 'Play'}
+        <Button onClick={handlers().toggleAnimationPlayState}>
+          {state.animationState['animation-play-state'] === 'paused'
+            ? 'Play'
+            : 'Pause'}
         </Button>
 
         <Button
@@ -153,12 +198,7 @@ const TestingGrounds: NextPage = () => {
           Add New Step
         </Button>
 
-        <Button
-          style={{ marginLeft: 20 }}
-          onClick={() => {
-            handlers().deleteStep();
-          }}
-        >
+        <Button style={{ marginLeft: 20 }} onClick={handlers().deleteStep}>
           Delete Current Step
         </Button>
       </Flex>
