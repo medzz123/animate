@@ -25,9 +25,12 @@ const TestingGrounds: NextPage = () => {
   const [newStep, setNewStep] = useState(0);
 
   const { parsed, handlers, state, currentProperties } = useTestingGrounds();
-  console.log('🚀 ~ file: TestingGrounds.tsx ~ line 27 ~ parsed\n', parsed);
 
   const [resetKey, setResetKey] = useState('frame-reset-key');
+
+  if (!state.loaded) {
+    return <p>loading ...</p>;
+  }
 
   return (
     <Container>
