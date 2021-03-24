@@ -8,23 +8,47 @@ import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 
 import { useTestingGrounds } from './TestingGrounds.hooks';
-import { Container, TestNode } from './TestingGrounds.styles';
+import { Container, ParentNode } from './TestingGrounds.styles';
 
 const MonacoEditor = dynamic(import('react-monaco-editor'), { ssr: false });
 
+function download(filename: string, text: string) {
+  const pom = document.createElement('a');
+  pom.setAttribute(
+    'href',
+    'data:text/plain;charset=utf-8,' + encodeURIComponent(text)
+  );
+  pom.setAttribute('download', filename);
+
+  if (document.createEvent) {
+    const event = document.createEvent('MouseEvents');
+    event.initEvent('click', true, true);
+    pom.dispatchEvent(event);
+  } else {
+    pom.click();
+  }
+}
+
 const TestingGrounds: NextPage = () => {
   const [initial, setInitial] = useState(
-    `.test-node {
+    `#node {
       width: 40px;
       height: 40px;
       background-color: red;
       display: inline-block;
-  }`
+    }`
   );
 
   const [newStep, setNewStep] = useState(0);
 
-  const { parsed, handlers, state, currentProperties } = useTestingGrounds();
+  const {
+    parsed,
+    handlers,
+    separateParse,
+    state,
+    currentProperties,
+    jsx,
+  } = useTestingGrounds();
 
   const [resetKey, setResetKey] = useState('frame-reset-key');
 
@@ -36,14 +60,14 @@ const TestingGrounds: NextPage = () => {
     <Container>
       <Flex marginBottom={20}>
         <Frame title="Artboard" key={resetKey}>
-          <TestNode initial={initial} animations={parsed}>
-            <div className="test-node" />
-          </TestNode>
+          <ParentNode initial={initial} animations={parsed}>
+            {jsx}
+          </ParentNode>
         </Frame>
 
         <MonacoEditor
           height="400px"
-          width="600px"
+          width="300px"
           language="scss"
           theme="vs-dark"
           value={initial}
@@ -53,6 +77,33 @@ const TestingGrounds: NextPage = () => {
             },
           }}
           onChange={(c: string) => setInitial(c)}
+          editorDidMount={() => {
+            // @ts-ignore
+            window.MonacoEnvironment.getWorkerUrl = (
+              _: unknown,
+              label: string
+            ) => {
+              if (label === 'json') return '/_next/static/json.worker.js';
+              if (label === 'css') return '/_next/static/css.worker.js';
+              if (label === 'html') return '/_next/static/html.worker.js';
+              if (label === 'scss') return '/_next/static/ts.worker.js';
+              return '/_next/static/editor.worker.js';
+            };
+          }}
+        />
+        <Box width={20} />
+        <MonacoEditor
+          height="400px"
+          width="300px"
+          language="html"
+          theme="vs-dark"
+          value={state.markup}
+          options={{
+            minimap: {
+              enabled: false,
+            },
+          }}
+          onChange={handlers().onChangeMarkup}
           editorDidMount={() => {
             // @ts-ignore
             window.MonacoEnvironment.getWorkerUrl = (
@@ -78,6 +129,7 @@ const TestingGrounds: NextPage = () => {
           label="Translate"
           placeholder="50px, 100px"
           name="translate"
+          onFocus={handlers().handleFocus}
           value={currentProperties.translate || ''}
           onChange={handlers().onPropertyChange}
         />
@@ -228,6 +280,32 @@ const TestingGrounds: NextPage = () => {
           }}
         >
           Rest Animation
+        </Button>
+
+        <Button
+          style={{ marginLeft: 20 }}
+          onClick={() => {
+            download(
+              'animation.html',
+              `<!DOCTYPE html><html>
+              <head>
+              <style>
+              ${initial}
+              #node {
+                ${separateParse.a}
+              }
+
+              ${separateParse.b}
+              </style>
+              </head>
+              <body>
+              ${state.markup}
+              </body>
+              </html>`
+            );
+          }}
+        >
+          Export HTML and CSS
         </Button>
       </Flex>
     </Container>

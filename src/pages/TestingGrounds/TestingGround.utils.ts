@@ -32,7 +32,7 @@ export const parseToCss = (state: AnimatableState['steps']) => {
 export const parseAnimationState = (
   state: AnimatableState['animationState']
 ) => {
-  let finalString = '';
+  let finalString = 'animation-name: animate;\n';
 
   for (const option in state) {
     finalString += `${option}: ${state[option]};\n`;

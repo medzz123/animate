@@ -1,4 +1,5 @@
 export type AnimatableState = {
+  markup: string;
   loaded: boolean;
   step: number;
   animationState: {

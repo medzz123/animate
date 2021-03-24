@@ -9,12 +9,13 @@ type TNode = {
   animations: string;
 };
 
-export const TestNode = styled.div<TNode>`
+export const ParentNode = styled.div<TNode>`
+  width: 100%;
+  height: 100%;
+
   ${(p) => p.initial}
 
-  .test-node {
-    animation-name: animate;
-
+  #node {
     ${(p) => p.animations}
   }
 `;

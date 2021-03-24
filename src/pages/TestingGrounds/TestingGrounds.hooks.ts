@@ -1,3 +1,4 @@
+import parse from 'html-react-parser';
 import inRange from 'lodash/inRange';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
@@ -10,8 +11,9 @@ import { AnimatableState } from './TestingGrounds.models';
 
 export const useTestingGrounds = () => {
   const [state, setState] = useState<AnimatableState>({
+    markup: `<div id="node"></div>`,
     loaded: false,
-    step: 0,
+    step: 50,
     animationState: {
       'animation-duration': '2s',
       'animation-timing-function': 'ease',
@@ -22,17 +24,11 @@ export const useTestingGrounds = () => {
       'animation-play-state': 'running',
     },
     steps: {
-      0: {
-        translate: '0, 0',
-      },
       50: {
         translate: '250px, 250px',
         rotate: '90deg',
         scale: '1.8',
         skew: '',
-      },
-      100: {
-        translate: '0, 0',
       },
     },
   });
@@ -52,14 +48,25 @@ export const useTestingGrounds = () => {
     window.localStorage.setItem('animation', JSON.stringify(state));
   }, [state]);
 
+  const jsx = useMemo(() => {
+    return parse(state.markup);
+  }, [state.markup]);
+
   const parsed = useMemo(() => {
     return (
-      parseCurrentStepCss(state) +
-      '\n' +
       parseAnimationState(state.animationState) +
+      '\n' +
+      parseCurrentStepCss(state) +
       '\n' +
       parseToCss(state.steps)
     );
+  }, [state]);
+
+  const separateParse = useMemo(() => {
+    return {
+      a: parseAnimationState(state.animationState),
+      b: parseToCss(state.steps),
+    };
   }, [state]);
 
   const handlers = useCallback(
@@ -125,6 +132,9 @@ export const useTestingGrounds = () => {
           },
         }));
       },
+      onChangeMarkup: (markup: string) => {
+        setState((props) => ({ ...props, markup }));
+      },
       onAnimationStateChange: (event: React.ChangeEvent<HTMLInputElement>) => {
         setState((p) => {
           return {
@@ -135,6 +145,12 @@ export const useTestingGrounds = () => {
             },
           };
         });
+      },
+      handleFocus: () => {
+        setState((p) => ({
+          ...p,
+          step: p.step || Number(Object.keys(p.steps)[0]),
+        }));
       },
       onPropertyChange: (event: React.ChangeEvent<HTMLInputElement>) => {
         setState((p) => {
@@ -156,8 +172,10 @@ export const useTestingGrounds = () => {
 
   return {
     parsed,
+    separateParse,
     state,
     currentProperties: state.steps[state.step] || {},
     handlers,
+    jsx,
   };
 };

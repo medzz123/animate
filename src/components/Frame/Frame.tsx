@@ -10,15 +10,10 @@ const styles = css`
   html {
     margin: 0;
     padding: 0;
-    background-color: white;
   }
 
   * {
     box-sizing: border-box;
-  }
-
-  ul {
-    list-style: none;
   }
 `;
 
