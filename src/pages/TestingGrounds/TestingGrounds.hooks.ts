@@ -25,10 +25,12 @@ export const useTestingGrounds = () => {
     },
     steps: {
       50: {
-        translate: '250px, 250px',
-        rotate: '90deg',
-        scale: '1.8',
-        skew: '',
+        transform: {
+          translate: '250px, 250px',
+          rotate: '90deg',
+          scale: '1.8',
+          skew: '',
+        },
       },
     },
   });
@@ -152,6 +154,23 @@ export const useTestingGrounds = () => {
           step: p.step || Number(Object.keys(p.steps)[0]),
         }));
       },
+      onTransformChange: (event: React.ChangeEvent<HTMLInputElement>) => {
+        setState((p) => {
+          return {
+            ...p,
+            steps: {
+              ...p.steps,
+              [p.step]: {
+                ...p.steps[p.step],
+                transform: {
+                  ...p.steps[p.step].transform,
+                  [event.target.name]: event.target.value,
+                },
+              },
+            },
+          };
+        });
+      },
       onPropertyChange: (event: React.ChangeEvent<HTMLInputElement>) => {
         setState((p) => {
           return {
@@ -160,7 +179,10 @@ export const useTestingGrounds = () => {
               ...p.steps,
               [p.step]: {
                 ...p.steps[p.step],
-                [event.target.name]: event.target.value,
+                normal: {
+                  ...p.steps[p.step].normal,
+                  [event.target.name]: event.target.value,
+                },
               },
             },
           };

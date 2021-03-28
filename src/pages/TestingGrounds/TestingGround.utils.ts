@@ -5,21 +5,27 @@ export const parseToCss = (state: AnimatableState['steps']) => {
 
   for (const key in state) {
     const properties = state[key];
-    let parsedProperties = '';
+    let parsedTransform = '';
+    let parsedNormal = '';
 
-    for (const property in properties) {
-      if (properties[property]) {
-        parsedProperties += `${property}(${properties[property]})`;
+    for (const property in properties.transform) {
+      if (properties.transform[property]) {
+        parsedTransform += `${property}(${properties.transform[property]})`;
+      }
+    }
+
+    for (const property2 in properties.normal) {
+      if (properties.normal[property2]) {
+        parsedNormal += `${property2}: ${properties.normal[property2]};\n`;
       }
     }
 
     const build = `${key}% {
-          transform: ${parsedProperties};
+        ${parsedNormal}
+        ${parsedTransform.length > 0 ? `transform: ${parsedTransform};` : ''}
       }`;
 
-    if (parsedProperties.length) {
-      finalString += build;
-    }
+    finalString += build;
   }
 
   return `
@@ -46,20 +52,30 @@ export const parseCurrentStepCss = (state: AnimatableState) => {
     state.step !== undefined &&
     state.animationState['animation-play-state'] === 'paused'
   ) {
-    let finalString = '';
+    let transformProperties = '';
+    let normalProperties = '';
 
     const current = state.steps[state.step];
 
-    for (const key in current) {
-      if (!current[key]) {
+    for (const key in current.transform) {
+      if (!current.transform[key]) {
         break;
       }
-      finalString += `${key}(${current[key]})`;
+      transformProperties += `${key}(${current.transform[key]})`;
+    }
+
+    for (const key2 in current.normal) {
+      if (!current.normal[key2]) {
+        break;
+      }
+      normalProperties += `${key2}: ${current.normal[key2]};\n`;
     }
 
     return `
       animation: none;
-      transform: ${finalString};`;
+      transform: ${transformProperties};
+      ${normalProperties}
+      `;
   }
 
   return '';

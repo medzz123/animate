@@ -130,31 +130,45 @@ const TestingGrounds: NextPage = () => {
           placeholder="50px, 100px"
           name="translate"
           onFocus={handlers().handleFocus}
-          value={currentProperties.translate || ''}
-          onChange={handlers().onPropertyChange}
+          value={currentProperties.transform?.translate || ''}
+          onChange={handlers().onTransformChange}
         />
         <Box marginBottom={10} />
         <AnimatableInput
           label="Rotate"
           name="rotate"
           placeholder="45 deg"
-          value={currentProperties.rotate || ''}
-          onChange={handlers().onPropertyChange}
+          value={currentProperties.transform?.rotate || ''}
+          onChange={handlers().onTransformChange}
         />
         <Box marginBottom={10} />
         <AnimatableInput
           label="Scale"
           name="scale"
           placeholder="1.5"
-          value={currentProperties.scale || ''}
-          onChange={handlers().onPropertyChange}
+          value={currentProperties.transform?.scale || ''}
+          onChange={handlers().onTransformChange}
         />
         <Box marginBottom={10} />
         <AnimatableInput
           label="Skew"
           name="skew"
           placeholder="22deg"
-          value={currentProperties.skew || ''}
+          value={currentProperties.transform?.skew || ''}
+          onChange={handlers().onTransformChange}
+        />
+        <AnimatableInput
+          label="Background Color"
+          name="background-color"
+          placeholder="blue"
+          value={currentProperties.normal?.['background-color'] || ''}
+          onChange={handlers().onPropertyChange}
+        />
+        <AnimatableInput
+          label="Opacity"
+          name="opacity"
+          placeholder="1"
+          value={currentProperties.normal?.opacity || ''}
           onChange={handlers().onPropertyChange}
         />
         <Box marginBottom={40} />

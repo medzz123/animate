@@ -12,11 +12,23 @@ export type AnimatableState = {
     'animation-play-state': string;
   };
   steps: {
-    [x: number]: {
-      translate?: string;
-      rotate?: string;
-      skew?: string;
-      scale?: string;
-    };
+    [x: number]: StepProperties;
   };
+};
+
+type TransformProperties = {
+  translate: string;
+  rotate: string;
+  skew: string;
+  scale: string;
+};
+
+type CSSProperties = {
+  'background-color': string;
+  opacity: string;
+};
+
+type StepProperties = {
+  transform?: Partial<TransformProperties>;
+  normal?: Partial<CSSProperties>;
 };
