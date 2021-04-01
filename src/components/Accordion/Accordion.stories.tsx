@@ -8,14 +8,10 @@ export default {
   component: Accordion,
 } as Meta;
 
-const Template: Story = (storyArguments) => <Accordion {...storyArguments} />;
+const Template: Story = (storyArguments) => (
+  <Accordion title="Accordion" id="accordion" {...storyArguments}>
+    <p>Hello from the other side</p>
+  </Accordion>
+);
 
 export const AccordionStory = Template.bind({});
-
-AccordionStory.args = {
-  data: [
-    { id: 'item-1', title: 'First', content: 'Hello from the other side' },
-    { id: 'item-2', title: 'Second', content: 'Hello from this side' },
-    { id: 'item-3', title: 'Third', content: 'Dark side of the moon' },
-  ],
-};

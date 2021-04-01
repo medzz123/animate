@@ -1,27 +1,17 @@
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import { Button, Header, Item, Panel, Root } from '@radix-ui/react-accordion';
+import { GiCupidonArrow } from 'react-icons/gi';
 import styled from 'styled-components';
 
 export const StyledAccordion = styled(Root)``;
 
-export const StyledItem = styled(Item)`
-  border: 1px solid blue;
-`;
+export const StyledItem = styled(Item)``;
 
 export const StyledHeader = styled(Header)`
   margin: 0;
   display: 'flex';
 `;
 
-export const StyledButton = styled(Button)`
-  background-color: transparent;
-  border: none;
-  padding: 10;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
+export const StyledButton = styled(Button)``;
 
 export const StyledPanel = styled(Panel)`
   padding: 10;
@@ -55,7 +45,7 @@ export const StyledPanel = styled(Panel)`
   }
 `;
 
-export const AccordionChevron = styled(KeyboardArrowDownIcon)`
+export const AccordionChevron = styled(GiCupidonArrow)`
   transition: 'transform 300ms';
   [data-state='open'] & {
     transform: 'rotate(180deg)';

@@ -34,7 +34,7 @@ export const SettingsButton = styled.button<{ active: boolean }>`
   outline: none;
 
   transform: scale(0.7);
-  opacity: 0.7;
+  opacity: 0.5;
 
   ${(p) =>
     p.active &&
@@ -62,6 +62,4 @@ export const Color = styled.div<{ color: string; active: boolean }>`
   background-color: ${(p) => p.color};
 
   ${(p) => p.active && `border: ${tokens.sizes[3]} solid #455a64;`}
-
-  box-shadow: 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.accent};
 `;

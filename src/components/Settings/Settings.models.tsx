@@ -1,5 +1,5 @@
-import { DarkMode } from 'use-dark-mode';
+import { ThemeController } from '@theme/themeController';
 
 export interface SettingsProps {
-  darkMode: DarkMode;
+  themeController: ThemeController;
 }

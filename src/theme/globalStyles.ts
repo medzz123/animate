@@ -106,12 +106,6 @@ const styles = css`
       box-shadow: inset 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.black};
     }
   }
-
-  .flip {
-    * {
-      color: ${(p) => p.theme.white};
-    }
-  }
 `;
 
 export const GlobalStyle = createGlobalStyle`

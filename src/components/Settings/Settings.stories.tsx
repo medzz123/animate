@@ -14,11 +14,11 @@ const noop = () => {
 
 const Template: Story = (storyArguments) => (
   <Settings
-    darkMode={{
-      value: false,
-      enable: noop,
-      disable: noop,
-      toggle: noop,
+    themeController={{
+      theme: {},
+      setTheme: noop,
+      themeName: 'dark',
+      mounted: true,
     }}
     {...storyArguments}
   />

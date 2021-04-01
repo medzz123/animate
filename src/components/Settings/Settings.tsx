@@ -1,6 +1,7 @@
-import SettingsIcon from '@material-ui/icons/Settings';
+import { themes } from '@theme/theme';
 import Link from 'next/link';
 import React, { FunctionComponent } from 'react';
+import { IoIosSettings } from 'react-icons/io';
 
 import { useSettingsState } from './Settings.hooks';
 import { SettingsProps } from './Settings.models';
@@ -14,30 +15,28 @@ import {
 
 const Settings: FunctionComponent<SettingsProps> = (props) => {
   const { state, handlers } = useSettingsState();
-  const { darkMode } = props;
+  const { themeController } = props;
 
   return (
-    <SettingsContainer data-testid="settings" active={state} className="flip">
+    <SettingsContainer data-testid="settings" active={state}>
       <SettingsContent>
         <h3>Color switcher</h3>
         <ColorContainer>
-          <Color
-            color="#ffffff"
-            active={darkMode.value === false}
-            onClick={darkMode.disable}
-          />
-          <Color
-            color="#000000"
-            active={darkMode.value === true}
-            onClick={darkMode.enable}
-          />
+          {Object.keys(themes).map((theme) => (
+            <Color
+              key={`theme-${theme}`}
+              color={themes[theme].accent}
+              active={themeController.themeName === theme}
+              onClick={() => themeController.setTheme(theme)}
+            />
+          ))}
         </ColorContainer>
         <Link href="/testing-grounds">
           <a>Testing Grounds</a>
         </Link>
       </SettingsContent>
       <SettingsButton onClick={handlers().toggle} active={state}>
-        <SettingsIcon />
+        <IoIosSettings />
       </SettingsButton>
     </SettingsContainer>
   );

@@ -6,11 +6,11 @@ import Settings from './Settings';
 test('Settings Test', () => {
   const { getByTestId, container } = render(
     <Settings
-      darkMode={{
-        value: false,
-        enable: jest.fn(),
-        disable: jest.fn(),
-        toggle: jest.fn(),
+      themeController={{
+        theme: {},
+        setTheme: jest.fn(),
+        themeName: 'dark',
+        mounted: true,
       }}
     />
   );

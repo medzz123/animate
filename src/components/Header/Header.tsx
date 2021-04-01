@@ -1,6 +1,6 @@
-import DashboardIcon from '@material-ui/icons/Dashboard';
 import Link from 'next/link';
 import React, { FunctionComponent } from 'react';
+import { MdDashboard } from 'react-icons/md';
 
 import { HeaderContainer, LogoLink, MainLink } from './Header.styles';
 
@@ -20,7 +20,7 @@ const Header: FunctionComponent = () => {
         <li>
           <Link href="/animate">
             <MainLink tabIndex={0}>
-              <DashboardIcon /> Animate
+              <MdDashboard /> Animate
             </MainLink>
           </Link>
         </li>

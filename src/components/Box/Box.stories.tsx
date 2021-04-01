@@ -11,12 +11,12 @@ export default {
 
 const Template: Story = (storyArguments) => (
   <Box {...storyArguments}>
-    <div>of-</div>
-    <div>course-</div>
-    <div>i-</div>
-    <div>still-</div>
-    <div>love-</div>
-    <div>you</div>
+    <p>of-</p>
+    <p>course-</p>
+    <p>i-</p>
+    <p>still-</p>
+    <p>love-</p>
+    <p>you</p>
   </Box>
 );
 
@@ -36,7 +36,7 @@ const ExpandedTemplate: Story = (storyArguments) => (
       alignItems="center"
       {...storyArguments}
     >
-      Hello
+      <p>Hello</p>
     </Expanded>
   </div>
 );

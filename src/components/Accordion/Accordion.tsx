@@ -11,21 +11,19 @@ import {
 } from './Accordion.styles';
 
 const Accordion: FunctionComponent<AccordionProps> = (props) => {
-  const { data = [] } = props;
+  const { title, id, children } = props;
 
   return (
     <StyledAccordion type="multiple">
-      {data.map((item) => (
-        <StyledItem key={item.id} value={item.id}>
-          <StyledHeader>
-            <StyledButton>
-              {item.title}
-              <AccordionChevron aria-hidden />
-            </StyledButton>
-          </StyledHeader>
-          <StyledPanel>{item.content}</StyledPanel>
-        </StyledItem>
-      ))}
+      <StyledItem key={id} value={id}>
+        <StyledHeader>
+          <StyledButton>
+            {title}
+            <AccordionChevron aria-hidden />
+          </StyledButton>
+        </StyledHeader>
+        <StyledPanel>{children}</StyledPanel>
+      </StyledItem>
     </StyledAccordion>
   );
 };

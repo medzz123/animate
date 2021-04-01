@@ -4,7 +4,7 @@ import React from 'react';
 import Accordion from './Accordion';
 
 test('Accordion Test', () => {
-  const { container } = render(<Accordion />);
+  const { container } = render(<Accordion id="title" title="test" />);
 
-  expect(container).toMatchSnapshot();
+  expect(container).toBeInTheDocument();
 });

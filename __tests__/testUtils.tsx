@@ -1,10 +1,10 @@
 import { render, RenderOptions } from '@testing-library/react';
-import { lightTheme } from '@theme/theme';
+import { themes } from '@theme/theme';
 import React, { FC, ReactElement } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 const AllTheProviders: FC = ({ children }) => (
-  <ThemeProvider theme={lightTheme}>{children}</ThemeProvider>
+  <ThemeProvider theme={themes.light}>{children}</ThemeProvider>
 );
 
 const customRender = (
