@@ -1,7 +1,6 @@
 import AnimatableInput from '@components/AnimatableInput';
 import Box from '@components/Box';
 import Flex from '@components/Box/Flex';
-import Button from '@components/Button';
 import Frame from '@components/Frame';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
@@ -264,26 +263,26 @@ const TestingGrounds: NextPage = () => {
         </Box>
       </Box>
       <Flex marginBottom={20}>
-        <Button onClick={handlers().toggleAnimationPlayState}>
+        <button onClick={handlers().toggleAnimationPlayState}>
           {state.animationState['animation-play-state'] === 'paused'
             ? 'Play'
             : 'Pause'}
-        </Button>
+        </button>
 
-        <Button
+        <button
           style={{ marginLeft: 20 }}
           onClick={() => {
             handlers().createStep(newStep);
           }}
         >
           Add New Step
-        </Button>
+        </button>
 
-        <Button style={{ marginLeft: 20 }} onClick={handlers().deleteStep}>
+        <button style={{ marginLeft: 20 }} onClick={handlers().deleteStep}>
           Delete Current Step
-        </Button>
+        </button>
 
-        <Button
+        <button
           style={{ marginLeft: 20 }}
           onClick={() => {
             setResetKey('frame-off');
@@ -294,9 +293,9 @@ const TestingGrounds: NextPage = () => {
           }}
         >
           Rest Animation
-        </Button>
+        </button>
 
-        <Button
+        <button
           style={{ marginLeft: 20 }}
           onClick={() => {
             download(
@@ -320,7 +319,7 @@ const TestingGrounds: NextPage = () => {
           }}
         >
           Export HTML and CSS
-        </Button>
+        </button>
       </Flex>
     </Container>
   );

@@ -1,19 +1,17 @@
 const defaultTheme = {
-  beige: '#f9efe7',
   black: '#000000',
   white: '#ffffff',
-  highlighter: '#ffe872',
-  gray: '#b7b4b9',
-  accent: '#79ffe1',
+  accent: '#FF3366',
+  highlight: '#1de9b6',
+  background: '#11171a',
 };
 
 const dark: typeof defaultTheme = {
-  beige: '#1B1F3B',
-  black: '#F6F7F8',
-  white: '#141414',
-  highlighter: '#FF3366',
-  gray: '#b7b4b9',
-  accent: '#29bc9b',
+  black: '#ffffff',
+  white: '#000000',
+  accent: '#FF3366',
+  highlight: '#1de9b6',
+  background: '#E6AF2E',
 };
 
 export const darkTheme = { ...dark };

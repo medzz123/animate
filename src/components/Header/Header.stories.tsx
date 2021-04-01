@@ -8,11 +8,8 @@ export default {
   component: Header,
 } as Meta;
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const noop = () => {};
-
 const Template: Story = (storyArguments) => {
-  return <Header toggleDarkMode={noop} {...storyArguments} />;
+  return <Header {...storyArguments} />;
 };
 
 export const HeaderStory = Template.bind({});

@@ -1,8 +1,10 @@
 import { createGlobalStyle, css } from 'styled-components';
 
+import { buttonReset, listReset } from './resets';
+import { tokens } from './tokens';
+
 const styles = css`
   html {
-    font-family: 'Mulish', sans-serif;
     scroll-behavior: smooth;
   }
 
@@ -11,26 +13,56 @@ const styles = css`
     margin: 0;
     padding: 0;
     background-color: ${(p) => p.theme.white};
+    color: ${(p) => p.theme.black};
   }
 
   * {
     box-sizing: border-box;
   }
 
-  ::selection {
-    background: ${(p) => p.theme.accent};
-  }
-
   ul {
-    list-style: none;
+    ${listReset}
   }
 
-  body,
-  a,
-  span,
+  button {
+    ${buttonReset}
+
+    background-color: ${(p) => p.theme.accent};
+
+    transition: all ${tokens.transitions.fast} ease-out 0s;
+    font-size: ${tokens.sizes[14]};
+    border: none;
+    outline: none;
+
+    display: inline-flex;
+    font-weight: 500;
+    padding: ${tokens.sizes[10]} ${tokens.sizes[24]};
+
+    line-height: 1.5;
+
+    &:focus {
+      box-shadow: inset 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.black};
+    }
+
+    &:hover {
+      color: white;
+    }
+  }
+
   p {
-    font-family: 'Mulish', sans-serif;
-    color: ${(p) => p.theme.black};
+    color: currentColor;
+    font-weight: 500;
+    font-size: ${tokens.sizes[18]};
+    line-height: 1.5;
+    margin: 0 0 ${tokens.sizes[16]} 0;
+  }
+
+  p,
+  a,
+  button,
+  input,
+  label {
+    font-family: 'Inter', sans-serif;
   }
 
   h1,
@@ -39,41 +71,46 @@ const styles = css`
   h4,
   h5,
   h6 {
-    font-family: 'Abril Fatface', sans-serif;
-    color: ${(p) => p.theme.black};
-    margin: 16px 0;
+    color: currentColor;
+    margin: 0 0 ${tokens.sizes[16]} 0;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
   }
 
   h1 {
-    font-size: 5vh;
-    font-weight: 400;
-  }
-
-  @media screen and (max-width: 996px) {
-    h1 {
-      font-size: 50px;
-    }
-  }
-
-  @media screen and (max-width: 479px) {
-    h1 {
-      font-size: 37px;
-    }
+    font-size: ${tokens.sizes[48]};
+    font-weight: 900;
   }
 
   a {
     text-decoration: none;
     color: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     outline: none;
 
+    transition: all 200ms ease;
+
+    margin: ${tokens.sizes[4]} ${tokens.sizes[12]};
+    font-size: ${tokens.sizes[18]};
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0.8;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
     &:focus {
-      box-shadow: 0 0 0 5px ${(p) => p.theme.accent};
+      box-shadow: inset 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.black};
     }
   }
 
-  p {
-    font-size: 18px;
-    line-height: 32px;
+  .flip {
+    * {
+      color: ${(p) => p.theme.white};
+    }
   }
 `;
 

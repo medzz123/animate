@@ -1,36 +1,28 @@
-import Box from '@components/Box';
-import Button from '@components/Button';
-import { username } from '@state/user';
 import { NextPage } from 'next';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { useRecoilState } from 'recoil';
 
-import { Center, Expanded } from './Home.styles';
+import { HomeContainer, MaxWidth } from './Home.styles';
 
 const Home: NextPage = () => {
-  const [text] = useRecoilState<string>(username);
   const router = useRouter();
   return (
-    <div>
-      <Expanded>
-        <Center>
-          <h1>Dead simple CSS animation tool</h1>
-          <p>{text}</p>
-          <Image src="/duck.jpg" alt="My duck" width="400" height="400" />
-          <Box marginBottom={60} />
-          <Button
-            size="large"
-            onClick={() => {
-              router.push('/animate');
-            }}
-          >
-            start animating
-          </Button>
-        </Center>
-      </Expanded>
-    </div>
+    <HomeContainer>
+      <MaxWidth>
+        <h1>Quickly Build CSS Animations With Animate</h1>
+        <p>
+          Animate is a platform that helps developers and designers to build
+          beautiful css animations in minutes. Try it out now!
+        </p>
+        <button
+          onClick={() => {
+            router.push('/animate');
+          }}
+        >
+          start animating
+        </button>
+      </MaxWidth>
+    </HomeContainer>
   );
 };
 

@@ -3,97 +3,42 @@
 exports[`Header Test 1`] = `
 <div>
   <div
-    class="sc-dlfnbm bLlanB"
+    class="sc-bdfBwQ bJvYKE"
     data-testid="header"
   >
     <a
-      class="sc-hKgILt gfYOlu"
+      class="sc-gsTCUz jYhrxZ"
+      tabindex="0"
     >
       Animate.
     </a>
-    <ul
-      class="sc-eCssSg hbMeSj"
-    >
+    <ul>
       <li>
         <a
           href="/browse"
         >
-          <span
-            class="sc-bdfBwQ iMFFdf"
-          >
-            browse
-          </span>
+          Browse
         </a>
       </li>
       <li>
         <a
-          href="/animate"
+          class="sc-dlfnbm fiBirn"
+          tabindex="0"
         >
-          <span
-            class="sc-bdfBwQ iMFFdf"
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
           >
-            animate
-          </span>
+            <path
+              d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"
+            />
+          </svg>
+           Animate
         </a>
       </li>
-      <button
-        class="sc-jSgupP cBcaRo"
-        type="button"
-      >
-        <span
-          class="sc-bdfBwQ iMFFdf"
-        >
-          toggle theme
-        </span>
-      </button>
     </ul>
-    <button
-      class="sc-iBPRYJ LVRyY"
-    >
-      <span />
-      <span />
-      <span />
-    </button>
-    <div
-      class="sc-gKsewC cOPjWi"
-    >
-      <ul
-        class="sc-eCssSg fLdiDJ"
-      >
-        <li>
-          <a
-            href="/browse"
-          >
-            <span
-              class="sc-bdfBwQ iMFFdf"
-            >
-              browse
-            </span>
-          </a>
-        </li>
-        <li>
-          <a
-            href="/animate"
-          >
-            <span
-              class="sc-bdfBwQ iMFFdf"
-            >
-              animate
-            </span>
-          </a>
-        </li>
-        <button
-          class="sc-jSgupP cBcaRo"
-          type="button"
-        >
-          <span
-            class="sc-bdfBwQ iMFFdf"
-          >
-            toggle theme
-          </span>
-        </button>
-      </ul>
-    </div>
   </div>
 </div>
 `;

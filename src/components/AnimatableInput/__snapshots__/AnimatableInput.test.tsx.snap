@@ -14,7 +14,7 @@ exports[`AnimatableInput Test 1`] = `
     </label>
     <input
       autocomplete="off"
-      class="sc-dlfnbm fQvILG"
+      class="sc-dlfnbm bbjVph"
       data-testid="animatable-input"
       id="Test"
     />

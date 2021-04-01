@@ -18,9 +18,8 @@ export const StyledInput = styled.input`
   padding: 5px;
   color: ${(p) => p.theme.black};
   border: none;
-  border-radius: 5px;
   box-shadow: 0 0 0 2px ${(p) => p.theme.black};
-  background-color: ${(p) => p.theme.beige};
+  background-color: transparent;
 
   &:focus {
     outline: none;

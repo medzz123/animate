@@ -1,38 +1,30 @@
+import DashboardIcon from '@material-ui/icons/Dashboard';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import React, { FunctionComponent } from 'react';
 
-import LinkList from './Header.List';
-import { HeaderProps } from './Header.models';
-import { HeaderContainer, LogoLink, Menu, MenuButton } from './Header.styles';
+import { HeaderContainer, LogoLink, MainLink } from './Header.styles';
 
-const Header: FunctionComponent<HeaderProps> = (props) => {
-  const { toggleDarkMode } = props;
-
-  const [open, setOpen] = React.useState(false);
-
-  const { pathname } = useRouter();
-
-  React.useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
+const Header: FunctionComponent = () => {
   return (
     <HeaderContainer data-testid="header">
       <Link href="/">
-        <LogoLink>Animate.</LogoLink>
+        <LogoLink tabIndex={0}>Animate.</LogoLink>
       </Link>
 
-      <LinkList vertical={false} toggleDarkMode={toggleDarkMode} />
-
-      <MenuButton open={open} onClick={() => setOpen(!open)}>
-        <span />
-        <span />
-        <span />
-      </MenuButton>
-      <Menu open={open}>
-        <LinkList vertical={true} toggleDarkMode={toggleDarkMode} />
-      </Menu>
+      <ul>
+        <li>
+          <Link href="/browse">
+            <a>Browse</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/animate">
+            <MainLink tabIndex={0}>
+              <DashboardIcon /> Animate
+            </MainLink>
+          </Link>
+        </li>
+      </ul>
     </HeaderContainer>
   );
 };

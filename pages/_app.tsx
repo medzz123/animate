@@ -1,5 +1,6 @@
 import Box from '@components/Box';
 import Header from '@components/Header';
+import Settings from '@components/Settings';
 import { GlobalStyle } from '@theme/globalStyles';
 import { darkTheme, lightTheme } from '@theme/theme';
 import Head from 'next/head';
@@ -30,8 +31,9 @@ const App = ({ Component, pageProps }) => {
         <GlobalStyle />
         {isMounted && (
           <>
-            <Header toggleDarkMode={darkMode.toggle} />
-            <Box padding={24} display="block">
+            <Header />
+            <Settings darkMode={darkMode} />
+            <Box padding={16} display="block">
               <Component {...pageProps} />
             </Box>
           </>
