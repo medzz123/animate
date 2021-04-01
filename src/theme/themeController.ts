@@ -13,14 +13,14 @@ export const useThemeController = () => {
 
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const setTheme = useCallback((themeName: string) => {
     localStorage.setItem('theme', themeName);
 
     setState(themeName);
+  }, []);
+
+  useEffect(() => {
+    setMounted(true);
   }, []);
 
   return {

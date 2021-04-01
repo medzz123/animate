@@ -1,1 +1,1 @@
-export { camelCaseToKebabCase } from './cameCaseToKebabCase';
+export * from './cameCaseToKebabCase';

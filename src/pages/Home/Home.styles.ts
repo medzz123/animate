@@ -25,8 +25,8 @@ export const MaxWidth = styled.div`
 export const HomeContainer = styled.div`
   margin: auto auto;
 
-  min-width: calc(100vw - 32px);
-  min-height: calc(100vh - 112px - 32px);
+  min-width: calc(100vw - 48px);
+  min-height: calc(100vh - 112px - 48px);
 
   display: flex;
   justify-content: center;

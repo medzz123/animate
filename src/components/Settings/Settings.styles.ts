@@ -33,7 +33,7 @@ export const SettingsButton = styled.button<{ active: boolean }>`
 
   outline: none;
 
-  transform: scale(0.7);
+  transform: scale(0.6);
   opacity: 0.5;
 
   ${(p) =>
@@ -57,6 +57,7 @@ export const ColorContainer = styled.div`
 
 export const Color = styled.div<{ color: string; active: boolean }>`
   margin-right: ${tokens.sizes[10]};
+  margin-bottom: ${tokens.sizes[10]};
   width: ${tokens.sizes[28]};
   height: ${tokens.sizes[28]};
   background-color: ${(p) => p.color};

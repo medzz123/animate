@@ -1,4 +1,5 @@
 import { themes } from '@theme/theme';
+import { tokens } from '@theme/tokens';
 import Link from 'next/link';
 import React, { FunctionComponent } from 'react';
 import { IoIosSettings } from 'react-icons/io';
@@ -36,7 +37,7 @@ const Settings: FunctionComponent<SettingsProps> = (props) => {
         </Link>
       </SettingsContent>
       <SettingsButton onClick={handlers().toggle} active={state}>
-        <IoIosSettings />
+        <IoIosSettings size={tokens.sizes[32]} />
       </SettingsButton>
     </SettingsContainer>
   );

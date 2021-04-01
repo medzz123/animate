@@ -2,6 +2,7 @@ import AnimatableInput from '@components/AnimatableInput';
 import Box from '@components/Box';
 import Flex from '@components/Box/Flex';
 import Frame from '@components/Frame';
+import { download } from '@utils/Download';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
@@ -10,23 +11,6 @@ import { useTestingGrounds } from './TestingGrounds.hooks';
 import { Container, ParentNode } from './TestingGrounds.styles';
 
 const MonacoEditor = dynamic(import('react-monaco-editor'), { ssr: false });
-
-function download(filename: string, text: string) {
-  const pom = document.createElement('a');
-  pom.setAttribute(
-    'href',
-    'data:text/plain;charset=utf-8,' + encodeURIComponent(text)
-  );
-  pom.setAttribute('download', filename);
-
-  if (document.createEvent) {
-    const event = document.createEvent('MouseEvents');
-    event.initEvent('click', true, true);
-    pom.dispatchEvent(event);
-  } else {
-    pom.click();
-  }
-}
 
 const TestingGrounds: NextPage = () => {
   const [initial, setInitial] = useState(

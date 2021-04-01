@@ -22,7 +22,7 @@ const App = ({ Component, pageProps }) => {
         <>
           <Header />
           <Settings themeController={themeController} />
-          <Box padding={16} display="block">
+          <Box padding={24} display="block">
             <Component {...pageProps} />
           </Box>
         </>

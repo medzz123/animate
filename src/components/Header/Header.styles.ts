@@ -2,7 +2,7 @@ import { tokens } from '@theme/tokens';
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.div`
-  padding: ${tokens.sizes[24]} ${tokens.sizes[16]};
+  padding: ${tokens.sizes[24]} ${tokens.sizes[24]};
   background-color: transparent;
 
   display: flex;

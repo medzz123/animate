@@ -16,20 +16,28 @@ exports[`Settings Test 1`] = `
         class="sc-hKgILt jrtiCz"
       >
         <div
-          class="sc-eCssSg fvppmu"
+          class="sc-eCssSg iFMuFj"
           color="#FF3366"
         />
         <div
-          class="sc-eCssSg cJcqfb"
+          class="sc-eCssSg hUaitO"
           color="#FF3366"
         />
         <div
-          class="sc-eCssSg iOOEFD"
+          class="sc-eCssSg dhrwAa"
           color="#1de9b6"
         />
         <div
-          class="sc-eCssSg hGBydv"
+          class="sc-eCssSg eEiGbC"
           color="#2979ff"
+        />
+        <div
+          class="sc-eCssSg bwMNEA"
+          color="#fca311"
+        />
+        <div
+          class="sc-eCssSg bwMNEA"
+          color="#fca311"
         />
       </div>
       <a
@@ -39,15 +47,15 @@ exports[`Settings Test 1`] = `
       </a>
     </div>
     <button
-      class="sc-dlfnbm hzSYqC"
+      class="sc-dlfnbm iaxZtX"
     >
       <svg
         fill="currentColor"
-        height="1em"
+        height="2rem"
         stroke="currentColor"
         stroke-width="0"
         viewBox="0 0 512 512"
-        width="1em"
+        width="2rem"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path

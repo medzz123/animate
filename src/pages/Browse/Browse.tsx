@@ -1,18 +1,24 @@
 import { NextPage } from 'next';
 import React from 'react';
 
+import { useBrowseHooks } from './Browse.hooks';
+import { Card, Container, MaxWidth } from './Browse.styles';
+
 const Browse: NextPage = () => {
+  const { animations } = useBrowseHooks();
+
+  console.log('Animations', animations);
+
   return (
-    <div>
-      <p>Ya gonna browse some shit in here</p>
-      <p>Ya gonna browse some shit in here</p>
-      <p>Ya gonna browse some shit in here</p>
-      <p>Ya gonna browse some shit in here</p>
-      <p>Ya gonna browse some shit in here</p>
-      <p>Ya gonna browse some shit in here</p>
-      <p>Ya gonna browse some shit in here</p>
-      <p>Ya gonna browse some shit in here</p>
-    </div>
+    <Container>
+      <MaxWidth>
+        {animations.map((animation) => (
+          <Card key={animation.key}>
+            <p>{animation.key}</p>
+          </Card>
+        ))}
+      </MaxWidth>
+    </Container>
   );
 };
 
