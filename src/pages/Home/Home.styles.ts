@@ -11,7 +11,7 @@ export const MaxWidth = styled.div`
   flex-direction: column;
 
   ${mq(768)} {
-    transform: translateY(-65px);
+    transform: translateY(-48px);
   }
 
   h1,
@@ -26,7 +26,7 @@ export const HomeContainer = styled.div`
   margin: auto auto;
 
   min-width: calc(100vw - 48px);
-  min-height: calc(100vh - 112px - 48px);
+  min-height: calc(100vh - 112px - 24px);
 
   display: flex;
   justify-content: center;

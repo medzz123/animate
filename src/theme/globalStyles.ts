@@ -36,7 +36,7 @@ const styles = css`
 
     display: inline-flex;
     font-weight: 500;
-    padding: ${tokens.sizes[10]} ${tokens.sizes[24]};
+    padding: ${tokens.sizes[8]} ${tokens.sizes[24]};
 
     line-height: 1.5;
 
@@ -61,7 +61,8 @@ const styles = css`
   a,
   button,
   input,
-  label {
+  label,
+  div {
     font-family: 'Inter', sans-serif;
   }
 

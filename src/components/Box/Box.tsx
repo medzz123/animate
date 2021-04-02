@@ -24,7 +24,7 @@ const Box = forwardRef<HTMLDivElement, BoxPropsExtended>((props, ref) => {
     minHeight,
     minWidth,
     height,
-    display = 'inline-block',
+    display = 'block',
     flexDirection,
     flexWrap,
     justifyContent,

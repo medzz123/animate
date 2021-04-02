@@ -1,10 +1,19 @@
 import { render, RenderOptions } from '@testing-library/react';
 import { themes } from '@theme/theme';
 import React, { FC, ReactElement } from 'react';
+import { ToastProvider } from 'react-toast-notifications';
 import { ThemeProvider } from 'styled-components';
 
 const AllTheProviders: FC = ({ children }) => (
-  <ThemeProvider theme={themes.light}>{children}</ThemeProvider>
+  <ThemeProvider theme={themes.light}>
+    <ToastProvider
+      autoDismiss={true}
+      placement="bottom-center"
+      autoDismissTimeout={2000}
+    >
+      {children}
+    </ToastProvider>
+  </ThemeProvider>
 );
 
 const customRender = (
