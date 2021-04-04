@@ -15,6 +15,7 @@ const AnimatableInput: FunctionComponent<AnimatableInputProps> = (props) => {
       <Label htmlFor={label} data-testid="animatable-input-label">
         {label}
       </Label>
+
       <StyledInput
         id={label}
         autoComplete="off"

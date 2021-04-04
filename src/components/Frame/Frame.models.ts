@@ -1,9 +1,4 @@
-export interface FrameProps extends Partial<FrameStyles> {
+export interface FrameProps {
   title: string;
-  [props: string]: unknown;
-}
-
-export interface FrameStyles {
-  width: string;
-  height: string;
+  onLoad: () => void;
 }

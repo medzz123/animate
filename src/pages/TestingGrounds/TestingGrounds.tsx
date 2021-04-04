@@ -42,7 +42,13 @@ const TestingGrounds: NextPage = () => {
   return (
     <Container>
       <Flex marginBottom={20}>
-        <Frame title="Artboard" key={resetKey}>
+        <Frame
+          title="Artboard"
+          key={resetKey}
+          onLoad={() => {
+            // ji
+          }}
+        >
           <ParentNode initial={initial} animations={parsed}>
             {jsx}
           </ParentNode>

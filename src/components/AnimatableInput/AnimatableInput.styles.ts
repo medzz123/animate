@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 
 export const AnimatableInputContainer = styled.div`
-  display: inline-flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 
-  width: 350px;
+  max-width: 350px;
 `;
 
 export const Label = styled.label`
   font-size: 18px;
   color: ${(p) => p.theme.black};
+  flex: 1;
+  margin-right: 8px;
 `;
 
 export const StyledInput = styled.input`
@@ -20,6 +22,8 @@ export const StyledInput = styled.input`
   border: none;
   box-shadow: 0 0 0 2px ${(p) => p.theme.black};
   background-color: transparent;
+  width: 100%;
+  flex: 2;
 
   &:focus {
     outline: none;
