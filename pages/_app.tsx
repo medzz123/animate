@@ -27,10 +27,10 @@ const App = ({ Component, pageProps }) => {
         {themeController.mounted && (
           <>
             <Header />
-            <Settings themeController={themeController} />
             <Box padding={24} paddingTop={0} display="block">
               <Component {...pageProps} />
             </Box>
+            <Settings themeController={themeController} />
           </>
         )}
       </ToastProvider>
