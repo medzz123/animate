@@ -1,4 +1,4 @@
-export interface PopoverProps {
+export interface DialogProps {
   /**
    * Button label
    */

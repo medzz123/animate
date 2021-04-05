@@ -1,15 +1,15 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import React from 'react';
 
-import Popover from './Popover';
+import Dialog from './Dialog';
 
 export default {
-  title: 'Components/Popover',
-  component: Popover,
+  title: 'Components/Dialog',
+  component: Dialog,
 } as Meta;
 
 const Template: Story = (storyArguments) => (
-  <Popover label="Try me" {...storyArguments} />
+  <Dialog label="Try me" {...storyArguments} />
 );
 
 export const PopoverStory = Template.bind({});
