@@ -2,9 +2,7 @@ import { buttonReset } from '@theme/resets';
 import { tokens } from '@theme/tokens';
 import styled from 'styled-components';
 
-export const LoadContainer = styled.div`
-  background-color: red;
-`;
+export const LoadContainer = styled.div``;
 
 export const List = styled.ul`
   flex-direction: column;

@@ -29,12 +29,12 @@ export const ArtboardSize = styled.div<ArtboardProps>`
 
   transform: scale(${(p) => p.s});
   transform-origin: top left;
+  display: inline-block;
 `;
 
 export const Content = styled.main<ContentProps>`
   width: ${padding}%;
   height: ${(p) => (((p.h / p.w) * padding) / 100) * p.x}px;
-  background: pink;
   max-height: ${padding}%;
   max-width: ${(p) => (((p.w / p.h) * padding) / 100) * p.y}px;
   margin: auto;
@@ -46,20 +46,22 @@ export const Content = styled.main<ContentProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 0 0 1px ${(p) => p.theme.black}${tokens.alpha[50]};
 `;
 
 export const ToolBar = styled.div`
   width: 100%;
   display: flex;
+  border-bottom: 1px solid ${(p) => p.theme.black}${tokens.alpha[50]};
+  padding: 8px;
 `;
 
 export const FlexContainer = styled.div`
   display: flex;
-  height: calc(100% - 37px - 37px - 156px);
+  height: calc(100% - 37px - 37px - 32px - 200px);
 `;
 
 export const FrameContainer = styled.div.attrs({ id: 'container' })`
-  background-color: yellow;
   width: 100%;
   height: 100%;
   position: relative;
@@ -67,9 +69,8 @@ export const FrameContainer = styled.div.attrs({ id: 'container' })`
 
 export const LeftSidePanel = styled.div`
   height: 100%;
-  padding: 12px;
-  background-color: royalblue;
   display: none;
+  border-left: 1px solid ${(p) => p.theme.black}${tokens.alpha[50]};
 
   ${mq(992)} {
     display: block;
@@ -77,11 +78,30 @@ export const LeftSidePanel = styled.div`
 `;
 
 export const ControlsPanel = styled.div`
+  border-top: 1px solid ${(p) => p.theme.black}${tokens.alpha[50]};
   width: 100%;
-  background-color: green;
+  padding: 8px;
+  overflow-x: scroll;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const BottomPanel = styled.div`
+  border-top: 1px solid ${(p) => p.theme.black}${tokens.alpha[50]};
   width: 100%;
-  background-color: red;
+  padding: 8px;
+  height: 200px;
+  overflow-y: scroll;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;

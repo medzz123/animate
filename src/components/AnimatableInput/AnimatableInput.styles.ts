@@ -6,6 +6,7 @@ export const AnimatableInputContainer = styled.div`
   align-items: center;
 
   max-width: 350px;
+  margin-bottom: 12px;
 `;
 
 export const Label = styled.label`
@@ -13,6 +14,7 @@ export const Label = styled.label`
   color: ${(p) => p.theme.black};
   flex: 1;
   margin-right: 8px;
+  min-width: 120px;
 `;
 
 export const StyledInput = styled.input`
@@ -20,7 +22,7 @@ export const StyledInput = styled.input`
   padding: 5px;
   color: ${(p) => p.theme.black};
   border: none;
-  box-shadow: 0 0 0 2px ${(p) => p.theme.black};
+  box-shadow: inset 0 0 0 2px ${(p) => p.theme.black};
   background-color: transparent;
   width: 100%;
   flex: 2;

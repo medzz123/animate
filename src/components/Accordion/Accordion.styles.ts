@@ -1,17 +1,42 @@
-import { Button, Header, Item, Panel, Root } from '@radix-ui/react-accordion';
-import { GiCupidonArrow } from 'react-icons/gi';
+import { Button, Panel } from '@radix-ui/react-accordion';
+import { buttonReset } from '@theme/resets';
+import { FaAngleDoubleDown } from 'react-icons/fa';
 import styled from 'styled-components';
 
-export const StyledAccordion = styled(Root)``;
+export const StyledButton = styled(Button)`
+  ${buttonReset}
 
-export const StyledItem = styled(Item)``;
+  color: ${(p) => p.theme.black};
 
-export const StyledHeader = styled(Header)`
-  margin: 0;
-  display: 'flex';
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  &:hover {
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  &:focus {
+    box-shadow: none;
+
+    span {
+      text-decoration: underline;
+    }
+  }
 `;
 
-export const StyledButton = styled(Button)``;
+export const Text = styled.span`
+  margin-right: 8px;
+`;
+
+export const HorizontalLine = styled.div`
+  height: 1px;
+  background-color: ${(p) => p.theme.black};
+  width: 100%;
+  margin-left: 8px;
+`;
 
 export const StyledPanel = styled(Panel)`
   padding: 10;
@@ -25,29 +50,43 @@ export const StyledPanel = styled(Panel)`
   }
 
   @keyframes slideDown {
-    from {
+    0% {
       height: 0;
+      opacity: 0;
     }
 
-    to {
+    99% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
       height: var(--radix-accordion-panel-height);
     }
   }
 
   @keyframes slideUp {
-    from {
+    0% {
       height: var(--radix-accordion-panel-height);
+      opacity: 1;
     }
 
-    to {
+    1% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 0;
       height: 0;
     }
   }
 `;
 
-export const AccordionChevron = styled(GiCupidonArrow)`
-  transition: 'transform 300ms';
+export const AccordionChevron = styled(FaAngleDoubleDown)`
+  transition: transform 300ms;
+  margin-right: 8px;
+
   [data-state='open'] & {
-    transform: 'rotate(180deg)';
+    transform: rotate(180deg);
   }
 `;

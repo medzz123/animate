@@ -1,5 +1,5 @@
-import AnimatableInput from '@components/AnimatableInput';
 import Box from '@components/Box';
+import Controller from '@components/Controller';
 import Export from '@components/Export';
 import Frame from '@components/Frame';
 import Load from '@components/Load';
@@ -20,10 +20,10 @@ import {
   ToolBar,
 } from './Animate.styles';
 
+const size = { w: 600, h: 400 };
+
 const Animate: NextPage = () => {
   const [s, ss] = useState({ x: 0, y: 0, scale: 0 });
-
-  const size = { w: 600, h: 400 };
 
   const onLoad = () => {
     ss({
@@ -45,8 +45,6 @@ const Animate: NextPage = () => {
     }, 300);
   }, []);
 
-  console.log(s);
-
   return (
     <Container>
       <ToolBar>
@@ -55,6 +53,7 @@ const Animate: NextPage = () => {
         <Target />
         <Box width={10} />
         <Export />
+        <Box width={10} />
       </ToolBar>
 
       <FlexContainer>
@@ -71,7 +70,7 @@ const Animate: NextPage = () => {
         </FrameContainer>
 
         <LeftSidePanel>
-          <AnimatableInput label="hello" />
+          <Controller />
         </LeftSidePanel>
       </FlexContainer>
 
@@ -80,6 +79,9 @@ const Animate: NextPage = () => {
       </ControlsPanel>
 
       <BottomPanel>
+        <p>Bottom Panel</p>
+        <p>Bottom Panel</p>
+        <p>Bottom Panel</p>
         <p>Bottom Panel</p>
         <p>Bottom Panel</p>
         <p>Bottom Panel</p>

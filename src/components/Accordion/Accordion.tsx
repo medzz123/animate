@@ -1,30 +1,32 @@
+import { Header, Item, Root } from '@radix-ui/react-accordion';
 import React, { FunctionComponent } from 'react';
 
 import { AccordionProps } from './Accordion.models';
 import {
   AccordionChevron,
-  StyledAccordion,
+  HorizontalLine,
   StyledButton,
-  StyledHeader,
-  StyledItem,
   StyledPanel,
+  Text,
 } from './Accordion.styles';
 
 const Accordion: FunctionComponent<AccordionProps> = (props) => {
-  const { title, id, children } = props;
+  const { title, id, children, Icon } = props;
 
   return (
-    <StyledAccordion type="multiple">
-      <StyledItem key={id} value={id}>
-        <StyledHeader>
+    <Root type="multiple">
+      <Item key={id} value={id}>
+        <Header>
           <StyledButton>
-            {title}
             <AccordionChevron aria-hidden />
+            <Text>{title}</Text>
+            <Icon />
+            <HorizontalLine />
           </StyledButton>
-        </StyledHeader>
+        </Header>
         <StyledPanel>{children}</StyledPanel>
-      </StyledItem>
-    </StyledAccordion>
+      </Item>
+    </Root>
   );
 };
 

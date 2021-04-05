@@ -7,7 +7,7 @@ export const StyledContent = styled(Content)`
   background-color: ${(p) => p.theme.background};
   color: ${(p) => p.theme.black};
   margin-top: ${tokens.sizes[12]};
-  max-width: calc(100vw - 48px);
+  max-width: calc(100vw - 52px);
 
   outline: none;
 

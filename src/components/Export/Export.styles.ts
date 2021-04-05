@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-export const ExportContainer = styled.div`
-  background-color: red;
-`;
+export const ExportContainer = styled.div``;
 
 export const Code = styled.code`
   display: block;
