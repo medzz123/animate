@@ -1,4 +1,5 @@
 import Box from '@components/Box';
+import Button from '@components/Button';
 import Control from '@components/Control';
 import Controller from '@components/Controller';
 import Export from '@components/Export';
@@ -26,6 +27,7 @@ const size = { w: 600, h: 400 };
 
 const Animate: NextPage = () => {
   const [s, ss] = useState({ x: 0, y: 0, scale: 0 });
+  const [closed, setClosed] = useState(true);
 
   const onLoad = () => {
     ss({
@@ -56,6 +58,15 @@ const Animate: NextPage = () => {
         <Box width={10} />
         <Export />
         <Box width={10} />
+        <Box display={{ 375: 'block', 992: 'none' }}>
+          <Button
+            onClick={() => {
+              setClosed((p) => !p);
+            }}
+          >
+            Editor
+          </Button>
+        </Box>
       </ToolBar>
 
       <FlexContainer>
@@ -71,7 +82,7 @@ const Animate: NextPage = () => {
           </Content>
         </FrameContainer>
 
-        <LeftSidePanel>
+        <LeftSidePanel closed={closed}>
           <Controller />
         </LeftSidePanel>
       </FlexContainer>

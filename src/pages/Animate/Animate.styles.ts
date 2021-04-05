@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   border: ${tokens.sizes[1]} solid ${(p) => p.theme.black}${tokens.alpha[50]};
-  width: 100%;
+  width: calc(100vw - ${tokens.sizes[48]});
   height: calc(100vh - 6.813rem - ${tokens.sizes[24]});
 `;
 
@@ -59,9 +59,7 @@ export const ToolBar = styled.div`
 
 export const FlexContainer = styled.div`
   display: flex;
-  height: calc(
-    100% - ${tokens.sizes[88]} - ${tokens.sizes[24]} - ${tokens.sizes['3xs']}
-  );
+  height: calc(100% - 6.813rem - ${tokens.sizes[24]} - ${tokens.sizes['3xs']});
 `;
 
 export const FrameContainer = styled.div.attrs({ id: 'container' })`
@@ -70,13 +68,21 @@ export const FrameContainer = styled.div.attrs({ id: 'container' })`
   position: relative;
 `;
 
-export const LeftSidePanel = styled.div`
-  height: ${tokens.sizes.full};
-  display: none;
-  border-left: ${tokens.sizes[1]} solid ${(p) => p.theme.black}${tokens.alpha[50]};
+export const LeftSidePanel = styled.div<{ closed?: boolean }>`
+  ${(p) => p.closed && `display: none;`}
+  border: ${tokens.sizes[1]} solid ${(p) => p.theme.black}${tokens.alpha[50]};
+  position: absolute;
+  right: ${tokens.sizes[24]};
+  background-color: ${(p) => p.theme.white}${tokens.alpha[80]};
+  height: calc(100vh - ${tokens.sizes[88]} - 5.65rem);
+  z-index: 9999999;
 
   ${mq(992)} {
     display: block;
+    position: static;
+    height: ${tokens.sizes.full};
+    border: none;
+    border-left: ${tokens.sizes[1]} solid ${(p) => p.theme.black}${tokens.alpha[50]};
   }
 `;
 
