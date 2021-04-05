@@ -1,14 +1,14 @@
-import { Root, Trigger } from '@radix-ui/react-popover';
+import { Root } from '@radix-ui/react-popover';
 import React, { FunctionComponent } from 'react';
 
 import { PopoverProps } from './Popover.models';
-import { StyledContent } from './Popover.styles';
+import { StyledContent, StyledTrigger } from './Popover.styles';
 
 const Popover: FunctionComponent<PopoverProps> = (props) => {
   const { label, children } = props;
   return (
     <Root data-testid="popover">
-      <Trigger type="button">{label}</Trigger>
+      <StyledTrigger type="button">{label}</StyledTrigger>
       <StyledContent>{children}</StyledContent>
     </Root>
   );

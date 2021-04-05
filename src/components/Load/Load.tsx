@@ -1,5 +1,5 @@
 import Popover from '@components/Popover';
-import { Close } from '@radix-ui/react-popover';
+import { Close } from '@components/Popover/Popover.close';
 import { tokens } from '@theme/tokens';
 import React from 'react';
 import { FunctionComponent } from 'react';

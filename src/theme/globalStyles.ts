@@ -26,26 +26,14 @@ const styles = css`
 
   button {
     ${buttonReset}
-
-    background-color: ${(p) => p.theme.accent};
-
-    transition: all ${tokens.transitions.fast} ease-out 0s;
-    font-size: ${tokens.sizes[14]};
     border: none;
     outline: none;
-
-    display: inline-flex;
-    font-weight: 500;
-    padding: ${tokens.sizes[8]} ${tokens.sizes[24]};
-
-    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:focus {
       box-shadow: inset 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.black};
-    }
-
-    &:hover {
-      color: white;
     }
   }
 
@@ -104,7 +92,7 @@ const styles = css`
     }
 
     &:focus {
-      box-shadow: inset 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.black};
+      text-decoration: underline;
     }
   }
 `;

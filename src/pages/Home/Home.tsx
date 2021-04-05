@@ -1,3 +1,4 @@
+import Button from '@components/Button';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -14,13 +15,14 @@ const Home: NextPage = () => {
           Animate is a platform that helps developers and designers to build
           beautiful css animations in minutes. Try it out now!
         </p>
-        <button
+        <Button
+          size="large"
           onClick={() => {
             router.push('/animate');
           }}
         >
           start animating
-        </button>
+        </Button>
       </MaxWidth>
     </HomeContainer>
   );

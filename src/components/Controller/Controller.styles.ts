@@ -1,10 +1,11 @@
+import { tokens } from '@theme/tokens';
 import styled from 'styled-components';
 
 export const ControllerContainer = styled.div`
   overflow: scroll;
-  height: 100%;
-  padding: 8px;
-  min-width: 300px;
+  height: ${tokens.sizes.full};
+  padding: ${tokens.sizes[8]};
+  min-width: ${tokens.sizes['2xs']};
 
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */

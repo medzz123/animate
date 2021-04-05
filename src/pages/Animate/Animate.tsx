@@ -1,4 +1,5 @@
 import Box from '@components/Box';
+import Button from '@components/Button';
 import Controller from '@components/Controller';
 import Export from '@components/Export';
 import Frame from '@components/Frame';
@@ -75,7 +76,7 @@ const Animate: NextPage = () => {
       </FlexContainer>
 
       <ControlsPanel>
-        <button>Controls</button>
+        <Button>Controls</Button>
       </ControlsPanel>
 
       <BottomPanel>

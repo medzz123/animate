@@ -25,20 +25,7 @@ exports[`Header Test 1`] = `
           class="sc-dlfnbm fiBirn"
           tabindex="0"
         >
-          <svg
-            fill="currentColor"
-            height="1em"
-            stroke="currentColor"
-            stroke-width="0"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"
-            />
-          </svg>
-           Animate
+          Animate
         </a>
       </li>
     </ul>

@@ -1,5 +1,6 @@
 import { Button, Panel } from '@radix-ui/react-accordion';
 import { buttonReset } from '@theme/resets';
+import { tokens } from '@theme/tokens';
 import { FaAngleDoubleDown } from 'react-icons/fa';
 import styled from 'styled-components';
 
@@ -10,7 +11,7 @@ export const StyledButton = styled(Button)`
 
   display: flex;
   align-items: center;
-  width: 100%;
+  width: ${tokens.sizes.full};
 
   &:hover {
     span {
@@ -28,25 +29,23 @@ export const StyledButton = styled(Button)`
 `;
 
 export const Text = styled.span`
-  margin-right: 8px;
+  margin-right: ${tokens.sizes[8]};
 `;
 
 export const HorizontalLine = styled.div`
-  height: 1px;
+  height: ${tokens.sizes[1]};
   background-color: ${(p) => p.theme.black};
-  width: 100%;
-  margin-left: 8px;
+  width: ${tokens.sizes.full};
+  margin-left: ${tokens.sizes[8]};
 `;
 
 export const StyledPanel = styled(Panel)`
-  padding: 10;
-
   &[data-state='open'] {
-    animation: slideDown 300ms ease-out;
+    animation: slideDown ${tokens.transitions.fast} ease-out;
   }
 
   &[data-state='closed'] {
-    animation: slideUp 300ms ease-out;
+    animation: slideUp ${tokens.transitions.fast} ease-out;
   }
 
   @keyframes slideDown {
@@ -83,8 +82,8 @@ export const StyledPanel = styled(Panel)`
 `;
 
 export const AccordionChevron = styled(FaAngleDoubleDown)`
-  transition: transform 300ms;
-  margin-right: 8px;
+  transition: transform ${tokens.transitions.fast};
+  margin-right: ${tokens.sizes[8]};
 
   [data-state='open'] & {
     transform: rotate(180deg);

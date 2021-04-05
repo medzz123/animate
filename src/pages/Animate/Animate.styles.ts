@@ -3,9 +3,9 @@ import { tokens } from '@theme/tokens';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  border: 1px solid ${(p) => p.theme.black}${tokens.alpha[50]};
+  border: ${tokens.sizes[1]} solid ${(p) => p.theme.black}${tokens.alpha[50]};
   width: 100%;
-  height: calc(100vh - 109px - 24px);
+  height: calc(100vh - 6.813rem - ${tokens.sizes[24]});
 `;
 
 interface ContentProps {
@@ -46,14 +46,14 @@ export const Content = styled.main<ContentProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 0 1px ${(p) => p.theme.black}${tokens.alpha[50]};
+  box-shadow: inset 0 0 0 ${tokens.sizes[1]} ${(p) => p.theme.black}${tokens.alpha[50]};
 `;
 
 export const ToolBar = styled.div`
   width: 100%;
   display: flex;
-  border-bottom: 1px solid ${(p) => p.theme.black}${tokens.alpha[50]};
-  padding: 8px;
+  border-bottom: ${tokens.sizes[1]} solid ${(p) => p.theme.black}${tokens.alpha[50]};
+  padding: ${tokens.sizes[8]};
 `;
 
 export const FlexContainer = styled.div`
@@ -70,7 +70,7 @@ export const FrameContainer = styled.div.attrs({ id: 'container' })`
 export const LeftSidePanel = styled.div`
   height: 100%;
   display: none;
-  border-left: 1px solid ${(p) => p.theme.black}${tokens.alpha[50]};
+  border-left: ${tokens.sizes[1]} solid ${(p) => p.theme.black}${tokens.alpha[50]};
 
   ${mq(992)} {
     display: block;
@@ -78,9 +78,9 @@ export const LeftSidePanel = styled.div`
 `;
 
 export const ControlsPanel = styled.div`
-  border-top: 1px solid ${(p) => p.theme.black}${tokens.alpha[50]};
-  width: 100%;
-  padding: 8px;
+  border-top: ${tokens.sizes[1]} solid ${(p) => p.theme.black}${tokens.alpha[50]};
+  width: ${tokens.sizes.full};
+  padding: ${tokens.sizes[8]};
   overflow-x: scroll;
 
   -ms-overflow-style: none; /* IE and Edge */
@@ -92,9 +92,9 @@ export const ControlsPanel = styled.div`
 `;
 
 export const BottomPanel = styled.div`
-  border-top: 1px solid ${(p) => p.theme.black}${tokens.alpha[50]};
-  width: 100%;
-  padding: 8px;
+  border-top: ${tokens.sizes[1]} solid ${(p) => p.theme.black}${tokens.alpha[50]};
+  width: ${tokens.sizes.full};
+  padding: ${tokens.sizes[8]};
   height: 200px;
   overflow-y: scroll;
 

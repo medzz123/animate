@@ -10,7 +10,7 @@ export const MaxWidth = styled.div`
 `;
 
 export const Card = styled.div`
-  padding: 12px;
-  margin-bottom: 12px;
-  border: 1px solid ${(p) => p.theme.black}${tokens.alpha[25]};
+  padding: ${tokens.sizes[8]};
+  margin-bottom: ${tokens.sizes[8]};
+  border: ${tokens.sizes[1]} solid ${(p) => p.theme.black}${tokens.alpha[25]};
 `;

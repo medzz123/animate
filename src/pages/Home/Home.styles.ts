@@ -11,7 +11,7 @@ export const MaxWidth = styled.div`
   flex-direction: column;
 
   ${mq(768)} {
-    transform: translateY(-48px);
+    transform: translateY(-${tokens.sizes[48]});
   }
 
   h1,
@@ -25,8 +25,8 @@ export const MaxWidth = styled.div`
 export const HomeContainer = styled.div`
   margin: auto auto;
 
-  min-width: calc(100vw - 48px);
-  min-height: calc(100vh - 112px - 24px);
+  min-width: calc(100vw - ${tokens.sizes[48]});
+  min-height: calc(100vh - 6.813rem - ${tokens.sizes[24]});
 
   display: flex;
   justify-content: center;
