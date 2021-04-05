@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { IconContext } from 'react-icons/lib';
 
 import { ButtonProps } from './Button.models';
 import { ButtonContainer } from './Button.styles';
@@ -14,7 +15,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       data-testid="button"
       {...rest}
     >
-      {children}
+      <IconContext.Provider value={{ size: '18' }}>
+        {children}
+      </IconContext.Provider>
     </ButtonContainer>
   );
 });

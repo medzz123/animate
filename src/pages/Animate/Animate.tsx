@@ -1,10 +1,11 @@
 import Box from '@components/Box';
-import Button from '@components/Button';
+import Control from '@components/Control';
 import Controller from '@components/Controller';
 import Export from '@components/Export';
 import Frame from '@components/Frame';
 import Load from '@components/Load';
 import Target from '@components/Target';
+import Timeline from '@components/Timeline';
 import debounce from 'lodash/debounce';
 import { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
@@ -76,17 +77,11 @@ const Animate: NextPage = () => {
       </FlexContainer>
 
       <ControlsPanel>
-        <Button>Controls</Button>
+        <Control />
       </ControlsPanel>
 
       <BottomPanel>
-        <p>Bottom Panel</p>
-        <p>Bottom Panel</p>
-        <p>Bottom Panel</p>
-        <p>Bottom Panel</p>
-        <p>Bottom Panel</p>
-        <p>Bottom Panel</p>
-        <p>Bottom Panel</p>
+        <Timeline />
       </BottomPanel>
     </Container>
   );

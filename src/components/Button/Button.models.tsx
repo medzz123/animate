@@ -3,5 +3,5 @@ export type ButtonProps = React.HTMLAttributes<HTMLButtonElement> &
 
 export interface ButtonStyles {
   variant: 'primary' | 'secondary';
-  size: 'medium' | 'large';
+  size: 'medium' | 'large' | 'icon';
 }

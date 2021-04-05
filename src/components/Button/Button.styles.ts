@@ -24,6 +24,8 @@ export const ButtonContainer = styled.button.attrs({
     p.size === 'large'
       ? `${tokens.sizes[12]}
     ${tokens.sizes[28]}`
+      : p.size === 'icon'
+      ? tokens.sizes[4]
       : `${tokens.sizes[4]}
       ${tokens.sizes[12]}`};
 

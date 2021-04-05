@@ -80,28 +80,8 @@ export const LeftSidePanel = styled.div`
 export const ControlsPanel = styled.div`
   border-top: ${tokens.sizes[1]} solid ${(p) => p.theme.black}${tokens.alpha[50]};
   width: ${tokens.sizes.full};
-  padding: ${tokens.sizes[8]};
-  overflow-x: scroll;
-
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 export const BottomPanel = styled.div`
   border-top: ${tokens.sizes[1]} solid ${(p) => p.theme.black}${tokens.alpha[50]};
-  width: ${tokens.sizes.full};
-  padding: ${tokens.sizes[8]};
-  height: 200px;
-  overflow-y: scroll;
-
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `;

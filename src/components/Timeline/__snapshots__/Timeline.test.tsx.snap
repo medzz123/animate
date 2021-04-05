@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Timeline Test 1`] = `
+<div>
+  <div
+    class="sc-gsTCUz ktbKWX"
+    data-testid="timeline"
+  >
+    <button
+      class="sc-dlfnbm ciPSa-d"
+    >
+      <span
+        class="sc-hKgILt dFyqFt"
+      >
+        <span
+          class="sc-eCssSg"
+        >
+          SomeLongClassName
+        </span>
+      </span>
+      <span
+        class="sc-jSgupP hAEgnI"
+      >
+        div
+      </span>
+    </button>
+    <div
+      class="sc-bdfBwQ fnelBy"
+      data-testid="box"
+    />
+    <button
+      class="sc-dlfnbm ciPSa-d"
+    >
+      <span
+        class="sc-hKgILt dFyqFt"
+      >
+        <span
+          class="sc-eCssSg"
+        >
+          Cube
+        </span>
+      </span>
+      <span
+        class="sc-jSgupP hAEgnI"
+      >
+        div
+      </span>
+    </button>
+  </div>
+</div>
+`;
