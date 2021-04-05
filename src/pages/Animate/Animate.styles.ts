@@ -54,21 +54,24 @@ export const ToolBar = styled.div`
   display: flex;
   border-bottom: ${tokens.sizes[1]} solid ${(p) => p.theme.black}${tokens.alpha[50]};
   padding: ${tokens.sizes[8]};
+  height: ${tokens.sizes[44]};
 `;
 
 export const FlexContainer = styled.div`
   display: flex;
-  height: calc(100% - 37px - 37px - 32px - 200px);
+  height: calc(
+    100% - ${tokens.sizes[88]} - ${tokens.sizes[24]} - ${tokens.sizes['3xs']}
+  );
 `;
 
 export const FrameContainer = styled.div.attrs({ id: 'container' })`
-  width: 100%;
-  height: 100%;
+  width: ${tokens.sizes.full};
+  height: ${tokens.sizes.full};
   position: relative;
 `;
 
 export const LeftSidePanel = styled.div`
-  height: 100%;
+  height: ${tokens.sizes.full};
   display: none;
   border-left: ${tokens.sizes[1]} solid ${(p) => p.theme.black}${tokens.alpha[50]};
 
@@ -80,6 +83,7 @@ export const LeftSidePanel = styled.div`
 export const ControlsPanel = styled.div`
   border-top: ${tokens.sizes[1]} solid ${(p) => p.theme.black}${tokens.alpha[50]};
   width: ${tokens.sizes.full};
+  height: ${tokens.sizes[44]};
 `;
 
 export const BottomPanel = styled.div`

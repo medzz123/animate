@@ -3,49 +3,120 @@
 exports[`Timeline Test 1`] = `
 <div>
   <div
-    class="sc-gsTCUz ktbKWX"
+    class="sc-bdfBwQ eFvNDF"
     data-testid="timeline"
   >
-    <button
-      class="sc-dlfnbm ciPSa-d"
+    <ul
+      class="sc-gKsewC iWuhsy"
     >
-      <span
-        class="sc-hKgILt dFyqFt"
+      <li
+        class="sc-iBPRYJ gOMmOO"
       >
-        <span
-          class="sc-eCssSg"
+        <button
+          class="sc-fubCfw lewicv"
         >
-          SomeLongClassName
-        </span>
-      </span>
-      <span
-        class="sc-jSgupP hAEgnI"
-      >
-        div
-      </span>
-    </button>
-    <div
-      class="sc-bdfBwQ fnelBy"
-      data-testid="box"
-    />
-    <button
-      class="sc-dlfnbm ciPSa-d"
-    >
-      <span
-        class="sc-hKgILt dFyqFt"
-      >
-        <span
-          class="sc-eCssSg"
+          <span
+            class="sc-pFZIQ fMPdAT"
+          >
+            <span>
+              SomeLongClassName
+            </span>
+          </span>
+          <span
+            class="sc-jrAGrp eVMiKS"
+          >
+            div
+          </span>
+        </button>
+        <div
+          class="sc-eCssSg eyhcHf"
         >
-          Cube
-        </span>
-      </span>
-      <span
-        class="sc-jSgupP hAEgnI"
+          <button
+            class="sc-jSgupP KNaPG"
+            data-state="closed"
+            position="0"
+            type="button"
+          />
+          <button
+            class="sc-jSgupP awGtP"
+            data-state="closed"
+            position="10"
+            type="button"
+          />
+          <button
+            class="sc-jSgupP bOONcP"
+            data-state="closed"
+            position="50"
+            type="button"
+          />
+          <button
+            class="sc-jSgupP dVaIym"
+            data-state="closed"
+            position="80"
+            type="button"
+          />
+        </div>
+      </li>
+      <li
+        class="sc-iBPRYJ Mvjqo"
       >
-        div
-      </span>
-    </button>
+        <button
+          class="sc-fubCfw lewicv"
+        >
+          <span
+            class="sc-pFZIQ fMPdAT"
+          >
+            <span>
+              Cube
+            </span>
+          </span>
+          <span
+            class="sc-jrAGrp eVMiKS"
+          >
+            div
+          </span>
+        </button>
+        <div
+          class="sc-eCssSg eyhcHf"
+        />
+      </li>
+      <li
+        class="sc-iBPRYJ Mvjqo"
+      >
+        <button
+          class="sc-fubCfw lewicv"
+        >
+          <span
+            class="sc-pFZIQ fMPdAT"
+          >
+            <span>
+              Star
+            </span>
+          </span>
+          <span
+            class="sc-jrAGrp eVMiKS"
+          >
+            div
+          </span>
+        </button>
+        <div
+          class="sc-eCssSg eyhcHf"
+        >
+          <button
+            class="sc-jSgupP bOONcP"
+            data-state="closed"
+            position="50"
+            type="button"
+          />
+          <button
+            class="sc-jSgupP hPswdO"
+            data-state="closed"
+            position="77"
+            type="button"
+          />
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
 `;

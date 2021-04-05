@@ -1,6 +1,7 @@
 import Box from '@components/Box';
+import Button from '@components/Button';
 import Popover from '@components/Popover';
-import { Close } from '@radix-ui/react-popover';
+import { Close } from '@components/Popover/Popover.close';
 import copy from 'copy-to-clipboard';
 import React, { FunctionComponent } from 'react';
 import { useToasts } from 'react-toast-notifications';
@@ -18,14 +19,14 @@ const Export: FunctionComponent = () => {
         <p>This will create a HTML file with animation.</p>
 
         <Box marginBottom={16}>
-          <button>Export</button>
+          <Button>Export</Button>
         </Box>
 
         <h3>Export to REACT</h3>
         <p>Select from one of your animations</p>
 
         <Box marginBottom={16}>
-          <button>Export</button>
+          <Button>Export</Button>
         </Box>
 
         <h3>Raw HTML & CSS</h3>
@@ -34,7 +35,7 @@ const Export: FunctionComponent = () => {
           <Code>{text}</Code>
         </Box>
         <Box marginBottom={16}>
-          <button
+          <Button
             onClick={() => {
               copy(text, {
                 onCopy: () => {
@@ -44,7 +45,7 @@ const Export: FunctionComponent = () => {
             }}
           >
             Copy to clipboard
-          </button>
+          </Button>
         </Box>
 
         <Close>Close</Close>

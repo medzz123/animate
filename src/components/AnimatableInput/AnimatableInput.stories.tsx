@@ -15,5 +15,5 @@ const Template: Story = (storyArguments) => (
 export const AnimatableInputStory = Template.bind({});
 
 AnimatableInputStory.args = {
-  placeholder: '10px 20px',
+  placeholder: '10rem 20rem',
 };
