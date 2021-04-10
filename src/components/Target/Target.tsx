@@ -2,6 +2,7 @@ import Box from '@components/Box';
 import Dialog from '@components/Dialog';
 import { Close } from '@components/Dialog/Dialog.close';
 import Editor from '@components/Editor';
+import { useAnimationState } from '@pages/Animate/Animate.hooks';
 import router from 'next/router';
 import React, { FunctionComponent } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -9,6 +10,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { TargetFallback } from './Target.fallback';
 
 const Target: FunctionComponent = () => {
+  const { handlers, state } = useAnimationState();
   return (
     <Dialog label="Target">
       <ErrorBoundary
@@ -21,10 +23,8 @@ const Target: FunctionComponent = () => {
         <p>Add the element you want animate with an ID attribute.</p>
         <Editor
           language="html"
-          value="<div>Hi</div>"
-          onChange={() => {
-            // hi
-          }}
+          value={state.markup}
+          onChange={handlers().onChangeMarkup}
         />
         <Box height={16} />
 
@@ -32,14 +32,8 @@ const Target: FunctionComponent = () => {
         <p>Initial CSS applied to your HTML elements.</p>
         <Editor
           language="scss"
-          value={`
-          div {
-            background-color: red;
-          }
-          `}
-          onChange={() => {
-            // hi
-          }}
+          value={state.css}
+          onChange={handlers().onChangeCss}
         />
         <Box marginTop={16}>
           <Close>Close</Close>

@@ -59,7 +59,7 @@ export const ToolBar = styled.div`
 
 export const FlexContainer = styled.div`
   display: flex;
-  height: calc(100% - 6.813rem - ${tokens.sizes[24]} - ${tokens.sizes['3xs']});
+  height: calc(100% - 5.5rem - ${tokens.sizes['4xs']});
 `;
 
 export const FrameContainer = styled.div.attrs({ id: 'container' })`

@@ -6,7 +6,7 @@ export const TimelineContainer = styled.div`
   padding: ${tokens.sizes[8]};
   width: ${tokens.sizes.full};
 
-  height: ${tokens.sizes['3xs']};
+  height: ${tokens.sizes['4xs']};
   overflow-y: scroll;
 
   -ms-overflow-style: none; /* IE and Edge */

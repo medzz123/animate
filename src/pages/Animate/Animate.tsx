@@ -7,10 +7,11 @@ import Frame from '@components/Frame';
 import Load from '@components/Load';
 import Target from '@components/Target';
 import Timeline from '@components/Timeline';
-import debounce from 'lodash/debounce';
 import { NextPage } from 'next';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
+import { AnimationStateWizardProvider } from './Animate.context';
+import { useAnimationState } from './Animate.hooks';
 import {
   ArtboardSize,
   BottomPanel,
@@ -23,78 +24,63 @@ import {
   ToolBar,
 } from './Animate.styles';
 
-const size = { w: 600, h: 400 };
-
 const Animate: NextPage = () => {
-  const [s, ss] = useState({ x: 0, y: 0, scale: 0 });
-  const [closed, setClosed] = useState(true);
-
-  const onLoad = () => {
-    ss({
-      x: document?.getElementById('container')?.clientWidth,
-      y: document?.getElementById('container')?.clientHeight,
-      scale: document?.getElementById('content')?.clientWidth / size.w,
-    });
-  };
-
-  useEffect(() => {
-    onLoad();
-
-    window.onresize = debounce(() => {
-      ss({
-        x: document?.getElementById('container')?.clientWidth,
-        y: document?.getElementById('container')?.clientHeight,
-        scale: document?.getElementById('content')?.clientWidth / size.w,
-      });
-    }, 300);
-  }, []);
+  const animationState = useAnimationState();
 
   return (
-    <Container>
-      <ToolBar>
-        <Load />
-        <Box width={10} />
-        <Target />
-        <Box width={10} />
-        <Export />
-        <Box width={10} />
-        <Box display={{ 375: 'block', 992: 'none' }}>
-          <Button
-            onClick={() => {
-              setClosed((p) => !p);
-            }}
-          >
-            Editor
-          </Button>
-        </Box>
-      </ToolBar>
+    <AnimationStateWizardProvider value={{ ...animationState }}>
+      <Container>
+        <ToolBar>
+          <Load />
+          <Box width={10} />
+          <Target />
+          <Box width={10} />
+          <Export />
+          <Box width={10} />
+          <Box display={{ 375: 'block', 992: 'none' }}>
+            <Button onClick={animationState.toggleEditorVisibility}>
+              Editor
+            </Button>
+          </Box>
+        </ToolBar>
 
-      <FlexContainer>
-        <FrameContainer>
-          <Content x={s.x} y={s.y} w={size.w} h={size.h} id="content">
-            <Frame title="animation" onLoad={onLoad}>
-              <ArtboardSize w={size.w} h={size.h} s={s.scale}>
-                <div
-                  style={{ width: 40, height: 40, backgroundColor: 'red' }}
-                />
-              </ArtboardSize>
-            </Frame>
-          </Content>
-        </FrameContainer>
+        <FlexContainer>
+          <FrameContainer>
+            <Content
+              x={animationState.scaling.width}
+              y={animationState.scaling.height}
+              w={animationState.artboardSize.width}
+              h={animationState.artboardSize.height}
+              id="content"
+            >
+              <Frame title="animation" onLoad={animationState.onLoad}>
+                <ArtboardSize
+                  w={animationState.artboardSize.width}
+                  h={animationState.artboardSize.height}
+                  s={animationState.scaling.scale}
+                >
+                  <div
+                    style={{ width: 40, height: 40, backgroundColor: 'red' }}
+                  />
+                </ArtboardSize>
+              </Frame>
+            </Content>
+          </FrameContainer>
 
-        <LeftSidePanel closed={closed}>
-          <Controller />
-        </LeftSidePanel>
-      </FlexContainer>
+          <LeftSidePanel closed={animationState.editorVisible}>
+            <Controller />
+          </LeftSidePanel>
+        </FlexContainer>
 
-      <ControlsPanel>
-        <Control />
-      </ControlsPanel>
+        <ControlsPanel>
+          <Control />
+        </ControlsPanel>
 
-      <BottomPanel>
-        <Timeline />
-      </BottomPanel>
-    </Container>
+        <BottomPanel>
+          <Timeline />
+        </BottomPanel>
+      </Container>
+    </AnimationStateWizardProvider>
   );
 };
 

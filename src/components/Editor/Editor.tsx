@@ -26,6 +26,11 @@ const Editor: FunctionComponent<EditorProps> = (props) => {
           minimap: {
             enabled: false,
           },
+          lineNumbers: 'off',
+          glyphMargin: false,
+          folding: false,
+          lineDecorationsWidth: 0,
+          lineNumbersMinChars: 0,
         }}
         onChange={onChange}
         editorDidMount={() => {

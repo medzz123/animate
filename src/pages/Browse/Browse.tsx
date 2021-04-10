@@ -7,8 +7,6 @@ import { Card, Container, MaxWidth } from './Browse.styles';
 const Browse: NextPage = () => {
   const { animations } = useBrowseHooks();
 
-  console.log('Animations', animations);
-
   return (
     <Container>
       <MaxWidth>
