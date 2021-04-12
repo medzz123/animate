@@ -58,18 +58,28 @@ export const useAnimationState = () => {
     });
 
     const elem = document?.getElementById('container');
-    resizeObserver.observe(document?.getElementById('container'));
+
+    if (elem) {
+      resizeObserver.observe(document?.getElementById('container'));
+    }
 
     return () => {
-      resizeObserver.unobserve(elem);
+      if (elem) {
+        resizeObserver.unobserve(elem);
+      }
     };
-  }, [artboardSize]);
+  }, [artboardSize, loaded]);
 
-  const handleArtboardSize = ({ width, height }) => {
+  const handleArtboardSize = ({
+    width,
+    height,
+  }: {
+    width?: number;
+    height?: number;
+  }) => {
     setArtboardSize((s) => ({
-      ...s,
-      width,
-      height,
+      width: width || s.width,
+      height: height || s.height,
     }));
   };
 
@@ -87,6 +97,22 @@ export const useAnimationState = () => {
       onChangeCss: (input: string) => {
         setState((draft) => {
           draft.css = input;
+        });
+      },
+      onTransformChange: (event: React.ChangeEvent<HTMLInputElement>) => {
+        setState((draft) => {
+          draft.elements[draft.element].steps[
+            draft.elements[draft.element].step
+          ].transform[event.target.name] = event.target.value;
+        });
+      },
+      onAnimationPropertyChange: (
+        event: React.ChangeEvent<HTMLInputElement>
+      ) => {
+        setState((draft) => {
+          draft.elements[draft.element].steps[
+            draft.elements[draft.element].step
+          ].normal[event.target.name] = event.target.value;
         });
       },
     }),

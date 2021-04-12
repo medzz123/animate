@@ -17,6 +17,7 @@ export const basic: AnimationState = {
     'animation-iteration-count': 'infinite',
     'animation-play-state': 'running',
   },
+  element: 'node',
   elements: {
     node: {
       step: 50,
@@ -28,6 +29,7 @@ export const basic: AnimationState = {
             scale: '1',
             skew: '0deg',
           },
+          normal: {},
         },
         50: {
           transform: {
@@ -36,6 +38,7 @@ export const basic: AnimationState = {
             scale: '1.8',
             skew: '0deg',
           },
+          normal: {},
         },
         100: {
           transform: {
@@ -44,6 +47,7 @@ export const basic: AnimationState = {
             scale: '1',
             skew: '0deg',
           },
+          normal: {},
         },
       },
     },

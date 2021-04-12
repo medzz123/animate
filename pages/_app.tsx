@@ -1,6 +1,8 @@
 import Box from '@components/Box';
 import Header from '@components/Header';
 import Settings from '@components/Settings';
+import { AnimationStateWizardProvider } from '@pages/Animate/Animate.context';
+import { useAnimationState } from '@pages/Animate/Animate.hooks';
 import { IdProvider } from '@radix-ui/react-id';
 import { GlobalStyle } from '@theme/globalStyles';
 import { useThemeController } from '@theme/themeController';
@@ -11,6 +13,7 @@ import { ThemeProvider } from 'styled-components';
 
 const App = ({ Component, pageProps }) => {
   const themeController = useThemeController();
+  const animationState = useAnimationState();
   return (
     <ThemeProvider theme={themeController.theme}>
       <IdProvider>
@@ -33,7 +36,9 @@ const App = ({ Component, pageProps }) => {
             <>
               <Header />
               <Box padding={24} paddingTop={0} display="block">
-                <Component {...pageProps} />
+                <AnimationStateWizardProvider value={{ ...animationState }}>
+                  <Component {...pageProps} />
+                </AnimationStateWizardProvider>
               </Box>
               <Settings themeController={themeController} />
             </>
