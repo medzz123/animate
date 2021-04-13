@@ -1,6 +1,7 @@
-import { ResponsiveProps } from '@theme/ResponsiveProps/responsiveProps.models';
-import { tokens } from '@theme/tokens';
 import { CSSProperties } from 'react';
+
+import { ResponsiveProps } from '../../theme/ResponsiveProps/responsiveProps.models';
+import { tokens } from '../../theme/tokens';
 
 export interface BoxPropsExtended
   extends React.HTMLAttributes<HTMLDivElement>,

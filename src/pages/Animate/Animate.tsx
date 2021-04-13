@@ -1,15 +1,14 @@
-import Box from '@components/Box';
-import Button from '@components/Button';
-import Control from '@components/Control';
-import Controller from '@components/Controller';
-import Export from '@components/Export';
-import Frame from '@components/Frame';
-import Load from '@components/Load';
-import Target from '@components/Target';
-import Timeline from '@components/Timeline';
-import { NextPage } from 'next';
 import React from 'react';
 
+import Box from '../../components/Box';
+import Button from '../../components/Button';
+import Control from '../../components/Control';
+import Controller from '../../components/Controller';
+import Export from '../../components/Export';
+import Frame from '../../components/Frame';
+import Load from '../../components/Load';
+import Target from '../../components/Target';
+import Timeline from '../../components/Timeline';
 import { useAnimationState } from './Animate.hooks';
 import {
   ArtboardSize,
@@ -23,7 +22,7 @@ import {
   ToolBar,
 } from './Animate.styles';
 
-const Animate: NextPage = () => {
+const Animate: React.FunctionComponent = () => {
   const {
     scaling,
     artboardSize,

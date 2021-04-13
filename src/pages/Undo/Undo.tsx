@@ -1,10 +1,9 @@
-import { NextPage } from 'next';
 import React from 'react';
 
 import { useUndo } from './Undo.hook';
 import { Container, Content } from './Undo.styles';
 
-const Undo: NextPage = () => {
+const Undo: React.FunctionComponent = () => {
   const { state, handlers } = useUndo([1, 2, 3, 4, 5]);
 
   return (

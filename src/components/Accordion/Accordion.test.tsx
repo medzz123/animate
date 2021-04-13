@@ -1,7 +1,7 @@
-import { render } from '@test/testUtils';
 import React from 'react';
 import { BiMove } from 'react-icons/bi';
 
+import { render } from '../../../__tests__/testUtils';
 import Accordion from './Accordion';
 
 test('Accordion Test', () => {

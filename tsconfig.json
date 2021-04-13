@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -12,21 +16,29 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "typeRoots": ["src/typings", "node_modules/@types"],
+    "jsx": "react-jsx",
+    "typeRoots": [
+      "src/typings",
+      "node_modules/@types"
+    ],
     "baseUrl": ".",
-    "paths": {
-      "@components/*": ["src/components/*"],
-      "@theme/*": ["src/theme/*"],
-      "@state/*": ["src/state/*"],
-      "@pages/*": ["src/pages/*"],
-      "@test/*": ["__tests__/*"],
-      "@utils/*": ["src/utils/*"]
-    }
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true
   },
   "rules": {
-    "no-unused-variable": [true, { "ignore-pattern": "^_" }]
+    "no-unused-variable": [
+      true,
+      {
+        "ignore-pattern": "^_"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

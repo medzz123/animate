@@ -1,7 +1,7 @@
-import { tokens } from '@theme/tokens';
-import { camelCaseToKebabCase } from '@utils/CamelCaseToKebabCase';
 import isPlainObject from 'lodash/isPlainObject';
 
+import { tokens } from '../../theme/tokens';
+import { camelCaseToKebabCase } from '../../utils/CamelCaseToKebabCase';
 import { mq } from '../mediaQueries';
 import { ResponsiveProps } from './responsiveProps.models';
 

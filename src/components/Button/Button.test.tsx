@@ -1,6 +1,6 @@
-import { render } from '@test/testUtils';
 import React from 'react';
 
+import { render } from '../../../__tests__/testUtils';
 import Button from './Button';
 
 test('Button Test', () => {

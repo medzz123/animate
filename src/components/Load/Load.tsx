@@ -1,10 +1,10 @@
-import Dialog from '@components/Dialog';
-import { Close } from '@components/Dialog/Dialog.close';
-import { tokens } from '@theme/tokens';
 import React from 'react';
 import { FunctionComponent } from 'react';
 import { VscClose } from 'react-icons/vsc';
 
+import { tokens } from '../../theme/tokens';
+import Dialog from '../Dialog';
+import { Close } from '../Dialog/Dialog.close';
 import { DeleteAnimationButton, Item, List } from './Load.styles';
 
 const Load: FunctionComponent = () => {

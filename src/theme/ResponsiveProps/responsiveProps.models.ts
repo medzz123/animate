@@ -1,4 +1,4 @@
-import { tokens } from '@theme/tokens';
+import { tokens } from '../../theme/tokens';
 
 export type ResponsiveProps<T> = {
   [prop in keyof T]:

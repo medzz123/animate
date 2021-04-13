@@ -1,6 +1,7 @@
-import { buttonReset } from '@theme/resets';
-import { tokens } from '@theme/tokens';
 import styled from 'styled-components';
+
+import { buttonReset } from '../../theme/resets';
+import { tokens } from '../../theme/tokens';
 
 export const List = styled.ul`
   flex-direction: column;

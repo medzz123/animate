@@ -1,12 +1,11 @@
-import Box from '@components/Box';
-import Dialog from '@components/Dialog';
-import { Close } from '@components/Dialog/Dialog.close';
-import Editor from '@components/Editor';
-import { useAnimationState } from '@pages/Animate/Animate.hooks';
-import router from 'next/router';
 import React, { FunctionComponent } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
+import { useAnimationState } from '../../pages/Animate/Animate.hooks';
+import Box from '../Box';
+import Dialog from '../Dialog';
+import { Close } from '../Dialog/Dialog.close';
+import Editor from '../Editor';
 import { TargetFallback } from './Target.fallback';
 
 const Target: FunctionComponent = () => {
@@ -16,7 +15,7 @@ const Target: FunctionComponent = () => {
       <ErrorBoundary
         fallbackRender={TargetFallback}
         onReset={() => {
-          router.reload();
+          location.reload();
         }}
       >
         <h3>Target Elements</h3>

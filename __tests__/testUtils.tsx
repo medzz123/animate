@@ -1,8 +1,10 @@
 import { render, RenderOptions } from '@testing-library/react';
-import { themes } from '@theme/theme';
 import React, { FC, ReactElement } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { ToastProvider } from 'react-toast-notifications';
 import { ThemeProvider } from 'styled-components';
+
+import { themes } from '../src/theme/theme';
 
 const AllTheProviders: FC = ({ children }) => (
   <ThemeProvider theme={themes.light}>
@@ -11,7 +13,7 @@ const AllTheProviders: FC = ({ children }) => (
       placement="bottom-center"
       autoDismissTimeout={2000}
     >
-      {children}
+      <Router>{children}</Router>
     </ToastProvider>
   </ThemeProvider>
 );

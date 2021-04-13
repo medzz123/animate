@@ -1,6 +1,6 @@
-import { fireEvent, render } from '@test/testUtils';
 import React from 'react';
 
+import { fireEvent, render } from '../../../__tests__/testUtils';
 import AnimatableInput from './AnimatableInput';
 
 test('AnimatableInput Test', () => {

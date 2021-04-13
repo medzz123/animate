@@ -1,9 +1,9 @@
-import { themes } from '@theme/theme';
-import { tokens } from '@theme/tokens';
-import Link from 'next/link';
 import React, { FunctionComponent } from 'react';
 import { IoIosSettings } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
+import { themes } from '../../theme/theme';
+import { tokens } from '../../theme/tokens';
 import { useSettingsState } from './Settings.hooks';
 import { SettingsProps } from './Settings.models';
 import {
@@ -32,9 +32,7 @@ const Settings: FunctionComponent<SettingsProps> = (props) => {
             />
           ))}
         </ColorContainer>
-        <Link href="/testing-grounds">
-          <a>Testing Grounds</a>
-        </Link>
+        <Link to="/testing-grounds">Testing Grounds</Link>
       </SettingsContent>
       <SettingsButton onClick={handlers().toggle} active={state}>
         <IoIosSettings size={tokens.sizes[32]} />

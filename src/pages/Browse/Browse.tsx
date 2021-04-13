@@ -1,10 +1,9 @@
-import { NextPage } from 'next';
 import React from 'react';
 
 import { useBrowseHooks } from './Browse.hooks';
 import { Card, Container, MaxWidth } from './Browse.styles';
 
-const Browse: NextPage = () => {
+const Browse: React.FunctionComponent = () => {
   const { animations } = useBrowseHooks();
 
   return (

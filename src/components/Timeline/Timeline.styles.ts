@@ -1,6 +1,7 @@
 import { Arrow, Content, Trigger } from '@radix-ui/react-tooltip';
-import { tokens } from '@theme/tokens';
 import styled from 'styled-components';
+
+import { tokens } from '../../theme/tokens';
 
 export const TimelineContainer = styled.div`
   padding: ${tokens.sizes[8]};

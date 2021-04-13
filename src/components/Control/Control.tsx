@@ -1,9 +1,9 @@
-import Box from '@components/Box';
-import Flex from '@components/Box/Flex';
-import Button from '@components/Button';
 import React, { FunctionComponent } from 'react';
 import { FaPause, FaPlay, FaStop } from 'react-icons/fa';
 
+import Box from '../Box';
+import Flex from '../Box/Flex';
+import Button from '../Button';
 import { ControlContainer } from './Control.styles';
 
 const Control: FunctionComponent = () => {

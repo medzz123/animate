@@ -3,54 +3,54 @@
 exports[`Timeline Test 1`] = `
 <div>
   <div
-    class="sc-bdfBwQ kSSGdB"
+    class="sc-bdvvaa hykYqx"
     data-testid="timeline"
   >
     <ul
-      class="sc-gKsewC iWuhsy"
+      class="sc-gKckTs fsMbnl"
     >
       <li
-        class="sc-iBPRYJ gOMmOO"
+        class="sc-iCfLBT kCUkqM"
       >
         <button
-          class="sc-fubCfw lewicv"
+          class="sc-furvIG bUqbGv"
         >
           <span
-            class="sc-pFZIQ fMPdAT"
+            class="sc-pVTma cFJwBr"
           >
             <span>
               SomeLongClassName
             </span>
           </span>
           <span
-            class="sc-jrAGrp eVMiKS"
+            class="sc-jrQzUz cPpEhs"
           >
             div
           </span>
         </button>
         <div
-          class="sc-eCssSg eyhcHf"
+          class="sc-eCImvq dCKDUK"
         >
           <button
-            class="sc-jSgupP KNaPG"
+            class="sc-jRQAMF dpLIg"
             data-state="closed"
             position="0"
             type="button"
           />
           <button
-            class="sc-jSgupP awGtP"
+            class="sc-jRQAMF dKemgx"
             data-state="closed"
             position="10"
             type="button"
           />
           <button
-            class="sc-jSgupP bOONcP"
+            class="sc-jRQAMF eywsPx"
             data-state="closed"
             position="50"
             type="button"
           />
           <button
-            class="sc-jSgupP dVaIym"
+            class="sc-jRQAMF lhDnIo"
             data-state="closed"
             position="80"
             type="button"
@@ -58,58 +58,58 @@ exports[`Timeline Test 1`] = `
         </div>
       </li>
       <li
-        class="sc-iBPRYJ Mvjqo"
+        class="sc-iCfLBT hxhYuG"
       >
         <button
-          class="sc-fubCfw lewicv"
+          class="sc-furvIG bUqbGv"
         >
           <span
-            class="sc-pFZIQ fMPdAT"
+            class="sc-pVTma cFJwBr"
           >
             <span>
               Cube
             </span>
           </span>
           <span
-            class="sc-jrAGrp eVMiKS"
+            class="sc-jrQzUz cPpEhs"
           >
             div
           </span>
         </button>
         <div
-          class="sc-eCssSg eyhcHf"
+          class="sc-eCImvq dCKDUK"
         />
       </li>
       <li
-        class="sc-iBPRYJ Mvjqo"
+        class="sc-iCfLBT hxhYuG"
       >
         <button
-          class="sc-fubCfw lewicv"
+          class="sc-furvIG bUqbGv"
         >
           <span
-            class="sc-pFZIQ fMPdAT"
+            class="sc-pVTma cFJwBr"
           >
             <span>
               Star
             </span>
           </span>
           <span
-            class="sc-jrAGrp eVMiKS"
+            class="sc-jrQzUz cPpEhs"
           >
             div
           </span>
         </button>
         <div
-          class="sc-eCssSg eyhcHf"
+          class="sc-eCImvq dCKDUK"
         >
           <button
-            class="sc-jSgupP bOONcP"
+            class="sc-jRQAMF eywsPx"
             data-state="closed"
             position="50"
             type="button"
           />
           <button
-            class="sc-jSgupP hPswdO"
+            class="sc-jRQAMF inAQww"
             data-state="closed"
             position="77"
             type="button"

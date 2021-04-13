@@ -1,6 +1,6 @@
-import { tokens } from '@theme/tokens';
 import styled from 'styled-components';
 
+import { tokens } from '../../theme/tokens';
 import { ButtonStyles } from './Button.models';
 
 export const ButtonContainer = styled.button.attrs({

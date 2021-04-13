@@ -1,7 +1,3 @@
-import Accordion from '@components/Accordion';
-import AnimatableInput from '@components/AnimatableInput';
-import Flex from '@components/Box/Flex';
-import { useAnimationState } from '@pages/Animate/Animate.hooks';
 import React, { FunctionComponent } from 'react';
 import {
   FaArrowsAlt,
@@ -13,6 +9,10 @@ import {
   FaSpellCheck,
 } from 'react-icons/fa';
 
+import { useAnimationState } from '../../pages/Animate/Animate.hooks';
+import Accordion from '../Accordion';
+import AnimatableInput from '../AnimatableInput';
+import Flex from '../Box/Flex';
 import { ControllerContainer } from './Controller.styles';
 
 const Controller: FunctionComponent = () => {

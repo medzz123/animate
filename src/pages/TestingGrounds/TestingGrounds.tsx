@@ -1,18 +1,15 @@
-import AnimatableInput from '@components/AnimatableInput';
-import Box from '@components/Box';
-import Flex from '@components/Box/Flex';
-import Frame from '@components/Frame';
-import { download } from '@utils/Download';
-import { NextPage } from 'next';
-import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
+import MonacoEditor from 'react-monaco-editor';
 
+import AnimatableInput from '../../components/AnimatableInput';
+import Box from '../../components/Box';
+import Flex from '../../components/Box/Flex';
+import Frame from '../../components/Frame';
+import { download } from '../../utils/Download';
 import { useTestingGrounds } from './TestingGrounds.hooks';
 import { Container, ParentNode } from './TestingGrounds.styles';
 
-const MonacoEditor = dynamic(import('react-monaco-editor'), { ssr: false });
-
-const TestingGrounds: NextPage = () => {
+const TestingGrounds: React.FunctionComponent = () => {
   const [initial, setInitial] = useState(
     `#node {
       width: 40px;
@@ -66,19 +63,6 @@ const TestingGrounds: NextPage = () => {
             },
           }}
           onChange={(c: string) => setInitial(c)}
-          editorDidMount={() => {
-            // @ts-ignore
-            window.MonacoEnvironment.getWorkerUrl = (
-              _: unknown,
-              label: string
-            ) => {
-              if (label === 'json') return '/_next/static/json.worker.js';
-              if (label === 'css') return '/_next/static/css.worker.js';
-              if (label === 'html') return '/_next/static/html.worker.js';
-              if (label === 'scss') return '/_next/static/ts.worker.js';
-              return '/_next/static/editor.worker.js';
-            };
-          }}
         />
         <Box width={20} />
         <MonacoEditor
@@ -93,19 +77,6 @@ const TestingGrounds: NextPage = () => {
             },
           }}
           onChange={handlers().onChangeMarkup}
-          editorDidMount={() => {
-            // @ts-ignore
-            window.MonacoEnvironment.getWorkerUrl = (
-              _: unknown,
-              label: string
-            ) => {
-              if (label === 'json') return '/_next/static/json.worker.js';
-              if (label === 'css') return '/_next/static/css.worker.js';
-              if (label === 'html') return '/_next/static/html.worker.js';
-              if (label === 'scss') return '/_next/static/ts.worker.js';
-              return '/_next/static/editor.worker.js';
-            };
-          }}
         />
       </Flex>
       <Box

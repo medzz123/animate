@@ -1,8 +1,8 @@
-import { tokens } from '@theme/tokens';
 import React, { FunctionComponent } from 'react';
 import ReactSelect from 'react-select';
 import { useTheme } from 'styled-components';
 
+import { tokens } from '../../theme/tokens';
 import { SelectProps } from './Select.models';
 import { SelectContainer } from './Select.styles';
 

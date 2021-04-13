@@ -1,4 +1,4 @@
-import { AnimationState } from '@pages/Animate/Animate.models';
+import { AnimationState } from '../pages/Animate/Animate.models';
 
 export const basic: AnimationState = {
   markup: `<div id="node"/>`,

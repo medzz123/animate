@@ -3,11 +3,11 @@
 exports[`Control Test 1`] = `
 <div>
   <div
-    class="sc-dlfnbm hKPOEz"
+    class="sc-dkPtyc ivLdOD"
     data-testid="control"
   >
     <button
-      class="sc-gsTCUz kpzOFd"
+      class="sc-gsDJrp liakXf"
       data-testid="button"
       type="button"
     >
@@ -15,7 +15,7 @@ exports[`Control Test 1`] = `
     </button>
     <div>
       <button
-        class="sc-gsTCUz kpzOFd"
+        class="sc-gsDJrp liakXf"
         data-testid="button"
         type="button"
       >
@@ -23,11 +23,11 @@ exports[`Control Test 1`] = `
       </button>
     </div>
     <div
-      class="sc-bdfBwQ kyFiiv"
+      class="sc-bdvvaa hOlXtj"
       data-testid="box"
     >
       <button
-        class="sc-gsTCUz dnxWzp"
+        class="sc-gsDJrp bzHnWL"
         data-testid="button"
         type="button"
       >
@@ -46,11 +46,11 @@ exports[`Control Test 1`] = `
         </svg>
       </button>
       <div
-        class="sc-bdfBwQ hCsDVH"
+        class="sc-bdvvaa kkNaPP"
         data-testid="box"
       />
       <button
-        class="sc-gsTCUz dnxWzp"
+        class="sc-gsDJrp bzHnWL"
         data-testid="button"
         type="button"
       >
@@ -69,11 +69,11 @@ exports[`Control Test 1`] = `
         </svg>
       </button>
       <div
-        class="sc-bdfBwQ hCsDVH"
+        class="sc-bdvvaa kkNaPP"
         data-testid="box"
       />
       <button
-        class="sc-gsTCUz dnxWzp"
+        class="sc-gsDJrp bzHnWL"
         data-testid="button"
         type="button"
       >

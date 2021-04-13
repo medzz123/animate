@@ -1,7 +1,8 @@
-import { ResponsiveProps } from '@theme/ResponsiveProps/responsiveProps.models';
-import { tokens } from '@theme/tokens';
 import cloneDeep from 'lodash/cloneDeep';
 import isPlainObject from 'lodash/isPlainObject';
+
+import { ResponsiveProps } from '../../theme/ResponsiveProps/responsiveProps.models';
+import { tokens } from '../../theme/tokens';
 
 export const replaceTokens = <T = unknown>(
   props: ResponsiveProps<T>

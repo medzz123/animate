@@ -37,11 +37,6 @@ module.exports.setGenerator = function (plop) {
           path: 'src/pages/{{pascalCase name}}/{{pascalCase name}}.stories.tsx',
           templateFile: 'generate/page/templates/story.hbs',
         },
-        {
-          type: 'add',
-          path: 'pages/{{kebabCase name}}.ts',
-          templateFile: 'generate/page/templates/next-page.hbs',
-        },
       ];
     },
   });

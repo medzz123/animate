@@ -3,10 +3,10 @@
 exports[`AnimatableInput Test 1`] = `
 <div>
   <div
-    class="sc-bdfBwQ dwTXly"
+    class="sc-bdvvaa cpIdJy"
   >
     <label
-      class="sc-gsTCUz kWwUEG"
+      class="sc-gsDJrp gbpYvQ"
       data-testid="animatable-input-label"
       for="Test"
     >
@@ -14,7 +14,7 @@ exports[`AnimatableInput Test 1`] = `
     </label>
     <input
       autocomplete="off"
-      class="sc-dlfnbm iUZFmc"
+      class="sc-dkPtyc jgzDZs"
       data-testid="animatable-input"
       id="Test"
     />

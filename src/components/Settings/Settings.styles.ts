@@ -1,6 +1,7 @@
-import { buttonReset } from '@theme/resets';
-import { tokens } from '@theme/tokens';
 import styled, { css } from 'styled-components';
+
+import { buttonReset } from '../../theme/resets';
+import { tokens } from '../../theme/tokens';
 
 export const SettingsContainer = styled.div<{ active: boolean }>`
   position: fixed;

@@ -1,5 +1,6 @@
-import { tokens } from '@theme/tokens';
 import styled from 'styled-components';
+
+import { tokens } from '../../theme/tokens';
 
 export const ControllerContainer = styled.div`
   overflow: scroll;

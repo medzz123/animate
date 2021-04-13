@@ -1,11 +1,11 @@
-import Box from '@components/Box';
-import Button from '@components/Button';
-import Dialog from '@components/Dialog';
-import { Close } from '@components/Dialog/Dialog.close';
 import copy from 'copy-to-clipboard';
 import React, { FunctionComponent } from 'react';
 import { useToasts } from 'react-toast-notifications';
 
+import Box from '../Box';
+import Button from '../Button';
+import Dialog from '../Dialog';
+import { Close } from '../Dialog/Dialog.close';
 import { Code } from './Export.styles';
 
 const text = `<div id="node"></div>`;

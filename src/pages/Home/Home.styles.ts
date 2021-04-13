@@ -1,6 +1,7 @@
-import { mq } from '@theme/mediaQueries';
-import { tokens } from '@theme/tokens';
 import styled from 'styled-components';
+
+import { mq } from '../../theme/mediaQueries';
+import { tokens } from '../../theme/tokens';
 
 export const Center = styled.div``;
 

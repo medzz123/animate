@@ -1,8 +1,9 @@
 import { Content, Overlay, Trigger } from '@radix-ui/react-dialog';
-import { mq } from '@theme/mediaQueries';
-import { secondaryButtonStyles } from '@theme/reusable';
-import { tokens } from '@theme/tokens';
 import styled from 'styled-components';
+
+import { mq } from '../../theme/mediaQueries';
+import { secondaryButtonStyles } from '../../theme/reusable';
+import { tokens } from '../../theme/tokens';
 
 export const StyledTrigger = styled(Trigger)`
   ${secondaryButtonStyles}

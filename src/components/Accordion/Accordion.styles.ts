@@ -1,8 +1,9 @@
 import { Button, Panel } from '@radix-ui/react-accordion';
-import { buttonReset } from '@theme/resets';
-import { tokens } from '@theme/tokens';
 import { FaAngleDoubleDown } from 'react-icons/fa';
 import styled from 'styled-components';
+
+import { buttonReset } from '../../theme/resets';
+import { tokens } from '../../theme/tokens';
 
 export const StyledButton = styled(Button)`
   ${buttonReset}

@@ -1,12 +1,11 @@
-import Button from '@components/Button';
-import { NextPage } from 'next';
-import { useRouter } from 'next/router';
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
+import Button from '../../components/Button';
 import { HomeContainer, MaxWidth } from './Home.styles';
 
-const Home: NextPage = () => {
-  const router = useRouter();
+const Home: React.FunctionComponent = () => {
+  const history = useHistory();
   return (
     <HomeContainer>
       <MaxWidth>
@@ -18,7 +17,7 @@ const Home: NextPage = () => {
         <Button
           size="large"
           onClick={() => {
-            router.push('/animate');
+            history.push('/animate');
           }}
         >
           start animating

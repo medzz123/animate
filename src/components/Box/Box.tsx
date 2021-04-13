@@ -1,7 +1,7 @@
-import { replaceTokens } from '@theme/ReplaceTokens';
-import { responsiveProps } from '@theme/ResponsiveProps';
 import { forwardRef, useMemo } from 'react';
 
+import { replaceTokens } from '../../theme/ReplaceTokens';
+import { responsiveProps } from '../../theme/ResponsiveProps';
 import { BoxProps, BoxPropsExtended } from './Box.models';
 import { BoxContainer } from './Box.styles';
 

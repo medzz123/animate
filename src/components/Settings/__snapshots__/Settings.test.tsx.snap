@@ -3,40 +3,40 @@
 exports[`Settings Test 1`] = `
 <div>
   <div
-    class="sc-bdfBwQ icQyYd"
+    class="sc-bdvvaa fuDobx"
     data-testid="settings"
   >
     <div
-      class="sc-gsTCUz dGDhKX"
+      class="sc-gsDJrp gqNVbd"
     >
       <h3>
         Color switcher
       </h3>
       <div
-        class="sc-hKgILt jrtiCz"
+        class="sc-hKwCoD DzoLE"
       >
         <div
-          class="sc-eCssSg iFMuFj"
+          class="sc-eCImvq kZWFUy"
           color="#FF3366"
         />
         <div
-          class="sc-eCssSg hUaitO"
+          class="sc-eCImvq dSCRv"
           color="#FF3366"
         />
         <div
-          class="sc-eCssSg dhrwAa"
+          class="sc-eCImvq cBySXP"
           color="#1de9b6"
         />
         <div
-          class="sc-eCssSg eEiGbC"
+          class="sc-eCImvq iQxyTb"
           color="#2979ff"
         />
         <div
-          class="sc-eCssSg bwMNEA"
+          class="sc-eCImvq jcQxwV"
           color="#fca311"
         />
         <div
-          class="sc-eCssSg bwMNEA"
+          class="sc-eCImvq jcQxwV"
           color="#fca311"
         />
       </div>
@@ -47,7 +47,7 @@ exports[`Settings Test 1`] = `
       </a>
     </div>
     <button
-      class="sc-dlfnbm iaxZtX"
+      class="sc-dkPtyc gKgzkj"
     >
       <svg
         fill="currentColor"

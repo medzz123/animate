@@ -3,11 +3,12 @@
 exports[`Header Test 1`] = `
 <div>
   <div
-    class="sc-bdfBwQ iwmcRz"
+    class="sc-bdvvaa blkmKL"
     data-testid="header"
   >
     <a
-      class="sc-gsTCUz jYhrxZ"
+      class="sc-gsDJrp ktfGVT"
+      href="/"
       tabindex="0"
     >
       Animate.
@@ -22,7 +23,8 @@ exports[`Header Test 1`] = `
       </li>
       <li>
         <a
-          class="sc-dlfnbm fiBirn"
+          class="sc-dkPtyc cJeWmT"
+          href="/animate"
           tabindex="0"
         >
           Animate

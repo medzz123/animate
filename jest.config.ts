@@ -1,7 +1,3 @@
-import { pathsToModuleNameMapper } from 'ts-jest/utils';
-
-import { compilerOptions } from './tsconfig.json';
-
 export default {
   // Automatically clear mock calls and instances between every test
   clearMocks: true,
@@ -16,7 +12,6 @@ export default {
     'dist',
   ],
   moduleNameMapper: {
-    ...pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/' }),
     '\\.(css)$': 'identity-obj-proxy',
   },
   setupFilesAfterEnv: ['<rootDir>/__tests__/testSetup.ts'],
