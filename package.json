@@ -9,13 +9,14 @@
     "ts": "tsc --noEmit",
     "test": "jest",
     "test:all": "yarn ts && yarn lint && yarn test",
-    "storybook": "start-storybook -s public -p 6006",
+    "storybook": "start-storybook -p 6006 -s public",
     "storybook:build": "build-storybook -s public",
     "storybook:deploy": "build-storybook -c .storybook -o dist -s ./public",
     "new:page": "plop --generate-page",
     "new:component": "plop --generate-component",
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^0.0.7",
@@ -39,13 +40,21 @@
     "use-immer": "^0.5.1"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.168",
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
+    "@storybook/addon-actions": "^6.2.7",
+    "@storybook/addon-essentials": "^6.2.7",
+    "@storybook/addon-knobs": "^6.2.7",
+    "@storybook/addon-links": "^6.2.7",
+    "@storybook/addon-viewport": "^6.2.7",
+    "@storybook/node-logger": "^6.2.7",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.7",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
     "@types/jest": "^26.0.22",
+    "@types/lodash": "^4.14.168",
     "@types/node": "^14.14.37",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
@@ -82,6 +91,18 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   }
 }

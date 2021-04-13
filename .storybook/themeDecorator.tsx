@@ -1,5 +1,6 @@
 import { select } from '@storybook/addon-knobs';
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '../src/theme/globalStyles';
 import { themes } from '../src/theme/theme';
@@ -12,7 +13,9 @@ const ThemeKnob = ({ children }) => {
   return (
     <ThemeProvider theme={themes[theme]}>
       <GlobalStyle />
-      <div style={{ padding: 20 }}>{children}</div>
+      <Router>
+        <div style={{ padding: 20 }}>{children}</div>
+      </Router>
     </ThemeProvider>
   );
 };
