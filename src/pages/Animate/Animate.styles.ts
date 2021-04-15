@@ -63,10 +63,14 @@ export const FlexContainer = styled.div`
   height: calc(100% - 5.5rem - ${tokens.sizes['4xs']});
 `;
 
-export const FrameContainer = styled.div.attrs({ id: 'container' })`
-  width: ${tokens.sizes.full};
-  height: ${tokens.sizes.full};
-  position: relative;
+export const FrameContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  background-color: gainsboro;
 `;
 
 export const LeftSidePanel = styled.div<{ closed?: boolean }>`

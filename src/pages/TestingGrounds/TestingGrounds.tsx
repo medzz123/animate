@@ -39,13 +39,7 @@ const TestingGrounds: React.FunctionComponent = () => {
   return (
     <Container>
       <Flex marginBottom={20}>
-        <Frame
-          title="Artboard"
-          key={resetKey}
-          onLoad={() => {
-            // ji
-          }}
-        >
+        <Frame title="Artboard" key={resetKey}>
           <ParentNode initial={initial} animations={parsed}>
             {jsx}
           </ParentNode>

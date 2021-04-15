@@ -2,8 +2,7 @@ import { AnimationState } from '../pages/Animate/Animate.models';
 
 export const basic: AnimationState = {
   markup: `<div id="node"/>`,
-  css: `
-  .node {
+  css: `.node {
     background-color: red;
     width: 40px;
     height: 40px;
