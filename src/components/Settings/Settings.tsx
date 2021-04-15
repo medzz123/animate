@@ -3,7 +3,6 @@ import { IoIosSettings } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 
 import { themes } from '../../theme/theme';
-import { tokens } from '../../theme/tokens';
 import { useSettingsState } from './Settings.hooks';
 import { SettingsProps } from './Settings.models';
 import {
@@ -35,7 +34,7 @@ const Settings: FunctionComponent<SettingsProps> = (props) => {
         <Link to="/testing-grounds">Testing Grounds</Link>
       </SettingsContent>
       <SettingsButton onClick={handlers().toggle} active={state}>
-        <IoIosSettings size={tokens.sizes[32]} />
+        <IoIosSettings size="32px" />
       </SettingsButton>
     </SettingsContainer>
   );

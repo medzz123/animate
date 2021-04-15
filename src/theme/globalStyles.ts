@@ -49,8 +49,7 @@ const styles = css`
   a,
   button,
   input,
-  label,
-  div {
+  label {
     font-family: 'Inter', sans-serif;
   }
 

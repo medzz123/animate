@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { useAnimationState } from '../../pages/Animate/Animate.hooks';
+import { useGlobalState } from '../../pages/Animate/Animate.state';
 import Box from '../Box';
 import Dialog from '../Dialog';
 import { Close } from '../Dialog/Dialog.close';
@@ -9,7 +9,7 @@ import Editor from '../Editor';
 import { TargetFallback } from './Target.fallback';
 
 const Target: FunctionComponent = () => {
-  const { handlers, state } = useAnimationState();
+  const state = useGlobalState();
   return (
     <Dialog label="Target">
       <ErrorBoundary
@@ -23,7 +23,7 @@ const Target: FunctionComponent = () => {
         <Editor
           language="html"
           value={state.markup}
-          onChange={handlers().onChangeMarkup}
+          onChange={state.onChangeMarkup}
         />
         <Box height={16} />
 
@@ -32,7 +32,7 @@ const Target: FunctionComponent = () => {
         <Editor
           language="scss"
           value={state.css}
-          onChange={handlers().onChangeCss}
+          onChange={state.onChangeCss}
         />
         <Box marginTop={16}>
           <Close>Close</Close>
