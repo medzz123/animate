@@ -19,8 +19,6 @@ const artboardState = createState<ArtboardState>({
 export const useArtboardState = () => {
   const state = useState(artboardState);
 
-  console.log(state);
-
   return {
     get state() {
       return state.get();

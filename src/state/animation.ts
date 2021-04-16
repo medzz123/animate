@@ -1,6 +1,10 @@
 import { createState, useState } from '@hookstate/core';
+import { none } from '@hookstate/core';
+import inRange from 'lodash/inRange';
+import { useEffect, useState as useReactState } from 'react';
 
 import { basic } from '../data/basic';
+import { parseToCss } from '../utils/ParseAnimations';
 
 export interface AnimationState {
   markup: string;
@@ -18,7 +22,7 @@ export interface AnimationState {
   elements: Record<string, Element>;
 }
 
-interface Element {
+export interface Element {
   step: number;
   steps: {
     [x: number]: StepProperties;
@@ -58,8 +62,32 @@ type CSSProperties = {
 
 const animationState = createState<AnimationState>(basic);
 
+// const ParseAnimationPluginId = Symbol('ParseAnimationPlugin');
+
+// function ParseAnimationPlugin() {
+//   return {
+//     id: ParseAnimationPluginId,
+//     init: (s: State<AnimationState>) => {
+//       s.parsed.set(parseToCss(s.elements['node'].steps.get()));
+
+//       return {
+//         onSet: (data) => {
+//           s.parsed.set(parseToCss(data.state.elements['node'].steps));
+//         },
+//       } as PluginCallbacks;
+//     },
+//   };
+// }
+
+// animationState.attach(ParseAnimationPlugin);
+
 export const useAnimationState = () => {
   const state = useState(animationState);
+  const [parsed, setParsed] = useReactState('');
+
+  useEffect(() => {
+    setParsed(parseToCss(state.elements['node'].steps.get()));
+  }, [state]);
 
   return {
     get markup() {
@@ -74,11 +102,24 @@ export const useAnimationState = () => {
     get css() {
       return state.css.get();
     },
+    get parsed() {
+      return parsed;
+    },
     get currentState() {
       const element = state.element.get();
       const step = state.elements[element].step.get();
 
       return state.elements[element].steps[step].get();
+    },
+    addStep(step: number) {
+      const currentSteps = state.elements[state.element.get()].steps.keys;
+
+      if (inRange(step, 0, 100) && !currentSteps.includes(step)) {
+        state.elements[state.element.get()].steps.merge({ [step]: {} });
+      }
+    },
+    deleteStep(step: number) {
+      state.elements[state.element.get()].steps[step].set(none);
     },
     onChangeMarkup(input: string) {
       state.markup.set(input);

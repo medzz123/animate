@@ -1,12 +1,11 @@
-import { AnimationState } from '../pages/Animate/Animate.models';
-
-export const basic: AnimationState = {
+export const basic = {
   markup: `<div id="node"/>`,
   css: `.node {
     background-color: red;
     width: 40px;
     height: 40px;
   }`,
+  parsed: '',
   animationState: {
     'animation-duration': '2s',
     'animation-timing-function': 'ease',

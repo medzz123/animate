@@ -1,11 +1,11 @@
 import React from 'react';
 
+import Artboard from '../../components/Artboard';
 import Box from '../../components/Box';
 import Button from '../../components/Button';
 import Control from '../../components/Control';
 import Controller from '../../components/Controller';
 import Export from '../../components/Export';
-import Frame from '../../components/Frame';
 import Load from '../../components/Load';
 import Target from '../../components/Target';
 import Timeline from '../../components/Timeline';
@@ -15,7 +15,6 @@ import {
   Container,
   ControlsPanel,
   FlexContainer,
-  FrameContainer,
   LeftSidePanel,
   ToolBar,
 } from './Animate.styles';
@@ -37,12 +36,7 @@ const Animate: React.FunctionComponent = () => {
       </ToolBar>
 
       <FlexContainer>
-        <FrameContainer>
-          <Frame title="animation">
-            <div style={{ width: 40, height: 40, backgroundColor: 'red' }} />
-          </Frame>
-        </FrameContainer>
-
+        <Artboard />
         <LeftSidePanel closed={open}>
           <Controller />
         </LeftSidePanel>
