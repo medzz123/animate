@@ -10,7 +10,6 @@ import {
 } from 'react-icons/fa';
 
 import { useAnimationState } from '../../state/Animation/animation';
-import { useArtboardState } from '../../state/artboard';
 import Accordion from '../Accordion';
 import AnimatableInput from '../AnimatableInput';
 import Flex from '../Box/Flex';
@@ -23,9 +22,11 @@ const Controller: FunctionComponent = () => {
     onAnimationPropertyChange,
     currentElement,
     currentStep,
+    setWidth,
+    setHeight,
+    width,
+    height,
   } = useAnimationState();
-
-  const { state, setWidth, setHeight } = useArtboardState();
 
   return (
     <ControllerContainer data-testid="controller">
@@ -190,16 +191,8 @@ const Controller: FunctionComponent = () => {
         />
       </Accordion>
       <Accordion title="Artboard" id="artboard-size" Icon={FaSign}>
-        <AnimatableInput
-          label="Width"
-          value={state.width}
-          onChange={setWidth}
-        />
-        <AnimatableInput
-          label="Height"
-          value={state.height}
-          onChange={setHeight}
-        />
+        <AnimatableInput label="Width" value={width} onChange={setWidth} />
+        <AnimatableInput label="Height" value={height} onChange={setHeight} />
       </Accordion>
     </ControllerContainer>
   );

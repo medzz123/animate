@@ -1,16 +1,15 @@
 import { createState, useState } from '@hookstate/core';
+import { useEffect } from 'react';
+
+import { animationState } from './Animation/animation';
 
 type ArtboardState = {
-  width: number;
-  height: number;
   containerWidth: number;
   containerHeight: number;
   scale: number;
 };
 
 const artboardState = createState<ArtboardState>({
-  width: 800,
-  height: 600,
   containerHeight: 0,
   containerWidth: 0,
   scale: 0,
@@ -19,15 +18,36 @@ const artboardState = createState<ArtboardState>({
 export const useArtboardState = () => {
   const state = useState(artboardState);
 
+  const width = useState(animationState.width).get();
+  const height = useState(animationState.height).get();
+
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver((entries) => {
+      const targetToWatch = entries[0];
+
+      state.containerWidth.set(targetToWatch.contentRect.width);
+      state.containerHeight.set(targetToWatch.contentRect.height);
+      state.scale.set(
+        document.getElementById('aspect-ratio').clientWidth / width
+      );
+    });
+
+    const elem = document.getElementById('parent');
+
+    if (elem) {
+      resizeObserver.observe(document.getElementById('parent'));
+    }
+
+    return () => {
+      if (elem) {
+        resizeObserver.unobserve(elem);
+      }
+    };
+  }, [width, height]);
+
   return {
     get state() {
       return state.get();
-    },
-    setWidth(event: React.ChangeEvent<HTMLInputElement>) {
-      state.width.set(Number(event.target.value));
-    },
-    setHeight(event: React.ChangeEvent<HTMLInputElement>) {
-      state.height.set(Number(event.target.value));
     },
   };
 };

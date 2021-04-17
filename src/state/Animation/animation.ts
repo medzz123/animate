@@ -8,7 +8,7 @@ import { basic } from '../../data/basic';
 import { parseElements } from '../../utils/ParseAnimations';
 import { AnimationState } from './animation.models';
 
-const animationState = createState<AnimationState>(basic);
+export const animationState = createState<AnimationState>(basic);
 
 export const useAnimationState = () => {
   const state = useState(animationState);
@@ -27,6 +27,12 @@ export const useAnimationState = () => {
     },
     get state() {
       return state.get();
+    },
+    get width() {
+      return state.width.get();
+    },
+    get height() {
+      return state.height.get();
     },
     get markup() {
       return state.markup.get();
@@ -48,6 +54,12 @@ export const useAnimationState = () => {
       const step = state.elements[element].step.get();
 
       return state.elements[element].steps[step].get();
+    },
+    setWidth(event: React.ChangeEvent<HTMLInputElement>) {
+      state.width.set(Number(event.target.value));
+    },
+    setHeight(event: React.ChangeEvent<HTMLInputElement>) {
+      state.height.set(Number(event.target.value));
     },
     addStep(step: number) {
       const currentSteps = state.elements[state.element.get()].steps.keys;

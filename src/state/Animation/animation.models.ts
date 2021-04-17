@@ -2,6 +2,8 @@ export interface AnimationState {
   markup: string;
   css: string;
   element: string;
+  width: number;
+  height: number;
   'animation-play-state': string;
   elements: Record<string, Element>;
 }
