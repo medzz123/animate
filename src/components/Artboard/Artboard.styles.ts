@@ -12,18 +12,13 @@ export const ArtboardContainer = styled.div`
   background-color: gainsboro;
 `;
 
-export const AnimationsManager = styled.div<{ animations: string }>`
-  #node {
-    background-color: red;
-    width: 40px;
-    height: 40px;
-  }
+export const AnimationsManager = styled.div<{
+  css: string;
+  animations: string;
+}>`
+  ${(p) => p.css}
 
-  #node {
-    animation: 2s ease 0s infinite normal none running animate;
-
-    ${(p) => p.animations}
-  }
+  ${(p) => p.animations}
 `;
 
 export const IFrame = styled.iframe`

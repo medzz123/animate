@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { useAnimationState } from '../../state/animation';
+import { useAnimationState } from '../../state/Animation/animation';
 import Box from '../Box';
 import Dialog from '../Dialog';
 import { Close } from '../Dialog/Dialog.close';

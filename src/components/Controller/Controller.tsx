@@ -9,7 +9,7 @@ import {
   FaSpellCheck,
 } from 'react-icons/fa';
 
-import { useAnimationState } from '../../state/animation';
+import { useAnimationState } from '../../state/Animation/animation';
 import { useArtboardState } from '../../state/artboard';
 import Accordion from '../Accordion';
 import AnimatableInput from '../AnimatableInput';

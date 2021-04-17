@@ -5,9 +5,9 @@ import { DialogProps } from './Dialog.models';
 import { StyledContent, StyledOverlay, StyledTrigger } from './Dialog.styles';
 
 const Dialog: FunctionComponent<DialogProps> = (props) => {
-  const { label, children } = props;
+  const { label, children, onOpenChange } = props;
   return (
-    <Root data-testid="dialog">
+    <Root data-testid="dialog" onOpenChange={onOpenChange}>
       <StyledTrigger type="button">{label}</StyledTrigger>
       <StyledOverlay />
       <StyledContent>{children}</StyledContent>

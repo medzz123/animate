@@ -2,6 +2,12 @@ export interface AnimationState {
   markup: string;
   css: string;
   element: string;
+  'animation-play-state': string;
+  elements: Record<string, Element>;
+}
+
+export interface Element {
+  step: number;
   animationState: {
     'animation-duration': string;
     'animation-timing-function': string;
@@ -9,13 +15,7 @@ export interface AnimationState {
     'animation-fill-mode': string;
     'animation-direction': string;
     'animation-iteration-count': string;
-    'animation-play-state': string;
   };
-  elements: Record<string, Element>;
-}
-
-interface Element {
-  step: number;
   steps: {
     [x: number]: StepProperties;
   };

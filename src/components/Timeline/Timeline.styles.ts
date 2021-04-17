@@ -1,6 +1,7 @@
-import { Arrow, Content, Trigger } from '@radix-ui/react-tooltip';
-import styled from 'styled-components';
+import { Arrow, Content } from '@radix-ui/react-tooltip';
+import styled, { css } from 'styled-components';
 
+import { buttonReset } from '../../theme/resets';
 import { tokens } from '../../theme/tokens';
 
 export const TimelineContainer = styled.div`
@@ -36,21 +37,52 @@ export const StyledArrow = styled(Arrow)`
 `;
 
 export const FramesContainer = styled.div`
+  margin: 0 24px;
   height: ${tokens.sizes[24]};
   width: ${tokens.sizes.full};
   position: relative;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: ${(p) => p.theme.accent}${tokens.alpha[15]};
+  }
 `;
 
-export const Frame = styled(Trigger)<{ position: number }>`
+export const Frame = styled.button<{ position: string; selected: boolean }>`
+  ${buttonReset}
   position: absolute;
+  transition: all 200ms ease;
   left: ${(p) => p.position}%;
   top: ${tokens.sizes.half};
+  cursor: pointer;
 
   background-color: ${(p) => p.theme.accent};
-  width: ${tokens.sizes[12]};
-  height: ${tokens.sizes[12]};
+  opacity: 0.7;
+  width: ${tokens.sizes[9]};
+  height: ${tokens.sizes[9]};
+  border-radius: 50%;
 
-  transform: translateY(-50%) translateX(50%) rotate(45deg);
+  transform: translateY(-50%);
+
+  ${(p) =>
+    p.selected &&
+    css`
+      box-shadow: inset 0 0 0 2px ${(p) => p.theme.black};
+    `}
+
+  &:focus {
+    box-shadow: inset 0 0 0 2px ${(p) => p.theme.black};
+  }
+
+  &:hover {
+    transform: translateY(-50%) scale(2);
+    opacity: 1;
+  }
 `;
 
 export const List = styled.ul`
@@ -77,15 +109,12 @@ export const Item = styled.li<{ selected?: boolean }>`
   }
 `;
 
-export const ElementButton = styled.button<{ hidden?: boolean }>`
-  /* box-shadow: inset 0 0 0 ${tokens.sizes[1]} ${(p) => p.theme.black}; */
+export const ElementButton = styled.div`
   justify-content: space-between;
   padding: ${tokens.sizes[4]};
   min-width: ${tokens.sizes[100]};
   max-width: ${tokens.sizes[100]};
   margin-right: ${tokens.sizes[8]};
-
-  ${(p) => p.hidden && `visibility: hidden;`}
 `;
 
 export const Overflow = styled.span`
@@ -100,6 +129,11 @@ export const Overflow = styled.span`
     position: relative;
     z-index: 999999;
     background-color: ${(p) => p.theme.white};
+  }
+
+  span {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
   }
 `;
 

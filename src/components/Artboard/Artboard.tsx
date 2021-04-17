@@ -7,7 +7,7 @@ import React, {
 import { createPortal } from 'react-dom';
 import { StyleSheetManager } from 'styled-components';
 
-import { useAnimationState } from '../../state/animation';
+import { useAnimationState } from '../../state/Animation/animation';
 import {
   AnimationsManager,
   ArtboardContainer,
@@ -17,13 +17,11 @@ import {
 
 const Artboard: FunctionComponent = () => {
   const [contentRef, setContentRef] = useState(null);
-  const { parsed } = useAnimationState();
+  const { parsed, css, react } = useAnimationState();
 
   const mountNode = contentRef?.contentWindow?.document?.body;
 
   const [_, forceUpdate] = useReducer((x) => x + 1, 0);
-
-  console.log({ parsed });
 
   useEffect(() => {
     contentRef?.addEventListener('load', forceUpdate);
@@ -41,8 +39,8 @@ const Artboard: FunctionComponent = () => {
             <GlobalFrameStyles />
             {mountNode &&
               createPortal(
-                <AnimationsManager animations={parsed}>
-                  <div id="node" />
+                <AnimationsManager css={css} animations={parsed}>
+                  <div id="main-container">{react}</div>
                 </AnimationsManager>,
                 mountNode
               )}

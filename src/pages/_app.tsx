@@ -9,7 +9,6 @@ import Settings from '../components/Settings';
 import Animate from '../pages/Animate';
 import Browse from '../pages/Browse';
 import Home from '../pages/Home';
-import TestingGrounds from '../pages/TestingGrounds';
 import { GlobalStyle } from '../theme/globalStyles';
 import { useThemeController } from '../theme/themeController';
 
@@ -38,9 +37,6 @@ const App = () => {
                     </Route>
                     <Route path="/">
                       <Home />
-                    </Route>
-                    <Route path="/testing-grounds">
-                      <TestingGrounds />
                     </Route>
                   </Switch>
                 </div>

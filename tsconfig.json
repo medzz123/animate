@@ -21,7 +21,6 @@
       "src/typings",
       "node_modules/@types"
     ],
-    "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "noFallthroughCasesInSwitch": true
   },

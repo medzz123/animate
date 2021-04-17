@@ -1,52 +1,48 @@
-import { Root } from '@radix-ui/react-tooltip';
 import React, { FunctionComponent } from 'react';
 
+import { useAnimationState } from '../../state/Animation/animation';
 import {
   ElementButton,
-  ElementType,
   Frame,
   FramesContainer,
   Item,
   List,
   Overflow,
-  StyledArrow,
-  StyledContent,
   TimelineContainer,
-  TooltipText,
 } from './Timeline.styles';
 
-const mockFrames = [
-  {
-    name: 'SomeLongClassName',
-    type: 'div',
-    frames: [0, 10, 50, 80],
-    selected: true,
-  },
-  { name: 'Cube', type: 'div', frames: [], selected: false },
-  { name: 'Star', type: 'div', frames: [50, 77], selected: false },
-];
-
 const Timeline: FunctionComponent = () => {
+  const { state, setElement, setStep, currentStep } = useAnimationState();
+
   return (
     <TimelineContainer data-testid="timeline">
       <List>
-        {mockFrames.map((element) => (
-          <Item key={element.name} selected={element.selected}>
+        {Object.keys(state.elements).map((key) => (
+          <Item
+            key={key}
+            selected={key === state.element}
+            onClick={() => {
+              setElement(key);
+            }}
+          >
             <ElementButton>
               <Overflow>
-                <span>{element.name}</span>
+                <span>{key}</span>
               </Overflow>
-              <ElementType>{element.type}</ElementType>
             </ElementButton>
             <FramesContainer>
-              {element.frames.map((frame) => (
-                <Root key={`frame@${frame}`} delayDuration={0}>
-                  <Frame position={frame} />
-                  <StyledContent side="top">
-                    <TooltipText>{frame}%</TooltipText>
-                    <StyledArrow />
-                  </StyledContent>
-                </Root>
+              {Object.keys(state.elements[key].steps).map((frame) => (
+                <Frame
+                  selected={
+                    key === state.element && Number(frame) === currentStep
+                  }
+                  key={`frame@${frame}`}
+                  position={frame}
+                  type="button"
+                  onClick={() => {
+                    setStep(Number(frame));
+                  }}
+                />
               ))}
             </FramesContainer>
           </Item>
