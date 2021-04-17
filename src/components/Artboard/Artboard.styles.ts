@@ -44,9 +44,14 @@ export const ArtboardSize = styled.div<ArtboardSizeProps>`
 export const AnimationsManager = styled.div<{
   css: string;
   animations: string;
+  nodes: string;
+  playState: string;
 }>`
   ${(p) => p.css}
   ${(p) => p.animations}
+  ${(p) => p.nodes} {
+    animation-play-state: ${(p) => p.playState};
+  }
 `;
 
 export const IFrame = styled.iframe`

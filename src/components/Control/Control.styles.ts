@@ -16,3 +16,17 @@ export const ControlContainer = styled.div`
     display: none;
   }
 `;
+
+export const NewFrameInput = styled.input`
+  border: none;
+  box-shadow: inset 0 0 0 1px ${(p) => p.theme.paragraph};
+  background-color: transparent;
+  padding-left: 4px;
+  width: 26px;
+  color: ${(p) => p.theme.paragraph};
+  height: 26px;
+
+  &:focus {
+    outline: none;
+  }
+`;

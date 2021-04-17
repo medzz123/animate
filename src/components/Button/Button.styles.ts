@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { tokens } from '../../theme/tokens';
 import { ButtonStyles } from './Button.models';
@@ -9,6 +9,13 @@ export const ButtonContainer = styled.button.attrs({
   display: flex;
   justify-content: center;
   align-items: center;
+
+  ${(p) =>
+    p.size === 'icon' &&
+    css`
+      width: ${tokens.sizes[26]};
+      height: ${tokens.sizes[26]};
+    `}
 
   background-color: ${(p) => p.theme.button};
 
@@ -25,7 +32,7 @@ export const ButtonContainer = styled.button.attrs({
       ? `${tokens.sizes[12]}
     ${tokens.sizes[28]}`
       : p.size === 'icon'
-      ? tokens.sizes[4]
+      ? tokens.sizes[0]
       : `${tokens.sizes[4]}
       ${tokens.sizes[12]}`};
 

@@ -2,28 +2,67 @@ import { createState, useState } from '@hookstate/core';
 import { none } from '@hookstate/core';
 import parse from 'html-react-parser';
 import inRange from 'lodash/inRange';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 
-import { basic } from '../../data/basic';
+import * as animations from '../../animations';
+import { getLocalAnimations } from '../../utils/GetLocalAnimations';
 import { parseElements } from '../../utils/ParseAnimations';
 import { AnimationState } from './animation.models';
 
-export const animationState = createState<AnimationState>(basic);
+export const animationState = createState<AnimationState>(() => {
+  const { animationKey, localAnimations } = getLocalAnimations();
+
+  if (
+    localAnimations[animationKey] &&
+    window.localStorage.getItem(animationKey) !== null
+  ) {
+    return JSON.parse(window.localStorage.getItem(animationKey));
+  }
+
+  if (animations[animationKey]) {
+    return animations[animationKey];
+  }
+
+  return animations.basic;
+});
 
 export const useAnimationState = () => {
   const state = useState(animationState);
+
+  const cleanState = state.get();
 
   const parsed = useMemo(() => {
     return parseElements(state.elements.get());
   }, [state.elements]);
 
-  const jsx = useMemo(() => {
-    return parse(state.markup.get());
-  }, [state.markup]);
+  const { jsx, nodes } = useMemo(() => {
+    return {
+      jsx: parse(cleanState.markup),
+      nodes: cleanState.markup
+        .match(/id="(.*?)"/g)
+        .map((val) => {
+          return val.replace(/id="/g, '#').replace(`"`, '');
+        })
+        .join(', '),
+    };
+  }, [cleanState.markup]);
+
+  useEffect(() => {
+    const currentKey = window.localStorage.getItem('current');
+    if (currentKey && currentKey.includes('animation-')) {
+      window.localStorage.setItem(currentKey, JSON.stringify(cleanState));
+    }
+  }, [cleanState]);
 
   return {
     get react() {
       return jsx;
+    },
+    get nodes() {
+      return nodes;
+    },
+    get playState() {
+      return state['animation-play-state'].get();
     },
     get state() {
       return state.get();
@@ -49,11 +88,22 @@ export const useAnimationState = () => {
     get parsed() {
       return parsed;
     },
-    get currentState() {
+    get currentAnimationState() {
+      const element = state.element.get();
+
+      return state.elements[element].animationState.get();
+    },
+    get currentStepState() {
       const element = state.element.get();
       const step = state.elements[element].step.get();
 
       return state.elements[element].steps[step].get();
+    },
+    togglePlayState() {
+      const currentPlayState = state['animation-play-state'].get();
+      state['animation-play-state'].set(
+        currentPlayState === 'paused' ? 'running' : 'paused'
+      );
     },
     setWidth(event: React.ChangeEvent<HTMLInputElement>) {
       state.width.set(Number(event.target.value));
@@ -70,6 +120,8 @@ export const useAnimationState = () => {
             normal: {},
           },
         });
+
+        state.elements[state.element.get()].step.set(step);
       }
     },
     deleteStep(step: number) {
@@ -112,6 +164,13 @@ export const useAnimationState = () => {
       const step = state.elements[element].step.get();
 
       state.elements[element].steps[step].normal[event.target.name].set(
+        event.target.value
+      );
+    },
+    onAnimationStateChange: (event: React.ChangeEvent<HTMLInputElement>) => {
+      const element = state.element.get();
+
+      state.elements[element].animationState[event.target.name].set(
         event.target.value
       );
     },

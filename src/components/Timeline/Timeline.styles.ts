@@ -49,37 +49,25 @@ export const Item = styled.li<{ selected?: boolean }>`
   }
 `;
 
-export const NameContainer = styled.div`
-  justify-content: space-between;
-  min-width: ${tokens.sizes[40]};
-  max-width: ${tokens.sizes[40]};
-  margin-right: ${tokens.sizes[8]};
-`;
-
 export const Overflow = styled.span`
+  display: block;
+  min-width: ${tokens.sizes[60]};
+  max-width: ${tokens.sizes[60]};
+  margin-right: ${tokens.sizes[8]};
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  position: relative;
   margin-right: ${tokens.sizes[8]};
   cursor: default;
+  color: ${(p) => p.theme.secondaryParagraph};
+  padding: 0 ${tokens.sizes[2]};
 
-  span {
-    font-family: 'Inter', sans-serif;
-    font-size: ${tokens.sizes[12]};
-  }
-
-  &:hover {
-    overflow: visible;
-
-    position: relative;
-    z-index: 999999;
-    background-color: ${(p) => p.theme.secondaryBackground};
-
-    span {
-      color: ${(p) => p.theme.secondaryParagraph};
-      padding: 0 ${tokens.sizes[2]};
-    }
-  }
+  font-family: 'Inter', sans-serif;
+  font-size: ${tokens.sizes[12]};
 `;
 
 export const TooltipText = styled.span`
@@ -99,7 +87,7 @@ export const FramesContainer = styled.div`
     content: '';
     width: ${tokens.sizes.full};
     height: ${tokens.sizes[1]};
-    background-color: ${(p) => p.theme.button}${tokens.alpha[15]};
+    background-color: ${(p) => p.theme.button}${tokens.alpha[65]};
   }
 `;
 

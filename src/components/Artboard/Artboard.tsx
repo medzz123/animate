@@ -20,7 +20,15 @@ import {
 
 const Artboard: FunctionComponent = () => {
   const [contentRef, setContentRef] = useState(null);
-  const { parsed, css, react, width, height } = useAnimationState();
+  const {
+    parsed,
+    css,
+    react,
+    width,
+    height,
+    nodes,
+    playState,
+  } = useAnimationState();
   const { state } = useArtboardState();
 
   const mountNode = contentRef?.contentWindow?.document?.body;
@@ -54,7 +62,12 @@ const Artboard: FunctionComponent = () => {
                     artboardHeight={height}
                     scale={state.scale}
                   >
-                    <AnimationsManager css={css} animations={parsed}>
+                    <AnimationsManager
+                      nodes={nodes}
+                      playState={playState}
+                      css={css}
+                      animations={parsed}
+                    >
                       <div id="main-container">{react}</div>
                     </AnimationsManager>
                   </ArtboardSize>,

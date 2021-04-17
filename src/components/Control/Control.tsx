@@ -1,43 +1,55 @@
-import React, { FunctionComponent } from 'react';
-import { FaPause, FaPlay, FaStop } from 'react-icons/fa';
+import React, { FunctionComponent, useState } from 'react';
+import { FaPause, FaPlay, FaPlus, FaStop } from 'react-icons/fa';
 
 import { useAnimationState } from '../../state/Animation/animation';
 import Box from '../Box';
 import Flex from '../Box/Flex';
 import Button from '../Button';
-import { ControlContainer } from './Control.styles';
+import { ControlContainer, NewFrameInput } from './Control.styles';
 
 const Control: FunctionComponent = () => {
   const {
     currentStep,
-    deleteCurrentElement,
+    playState,
     deleteCurrentStep,
-    currentElement,
+    togglePlayState,
+    addStep,
   } = useAnimationState();
+  const [newStep, setNewStep] = useState('');
 
   return (
     <ControlContainer data-testid="control">
       <Flex>
-        <Button>Add Frame</Button>
-        <Box width={8} />
-        <Button onClick={deleteCurrentStep}>Delete Step: {currentStep}</Button>
-        <Box width={8} />
-        <Button onClick={deleteCurrentElement}>
-          Delete Element: {currentElement}
+        <NewFrameInput
+          maxLength={3}
+          value={newStep}
+          onChange={(event) => {
+            setNewStep(event.target.value.replace(/[^0-9]/g, ''));
+          }}
+        />
+        <Button
+          size="icon"
+          onClick={() => {
+            addStep(Number(newStep));
+          }}
+        >
+          <FaPlus size={12} />
         </Button>
+        <Box width={8} />
+        <Button onClick={deleteCurrentStep}>Delete {currentStep}</Button>
       </Flex>
 
       <Flex>
-        <Button size="icon">
-          <FaPlay />
+        <Button size="icon" onClick={togglePlayState}>
+          {playState === 'paused' ? (
+            <FaPause size={12} />
+          ) : (
+            <FaPlay size={12} />
+          )}
         </Button>
         <Box width={8} />
         <Button size="icon">
-          <FaPause />
-        </Button>
-        <Box width={8} />
-        <Button size="icon">
-          <FaStop />
+          <FaStop size={12} />
         </Button>
       </Flex>
     </ControlContainer>

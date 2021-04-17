@@ -21,6 +21,17 @@ const purple: Theme = {
   secondaryParagraph: '#232946',
 };
 
+const invertedPurple: Theme = {
+  background: '#d4d8f0',
+  headline: '#232946',
+  paragraph: '#232946',
+  button: '#eebbc3',
+  buttonText: '#232946',
+  secondaryBackground: '#232946',
+  secondaryHeadline: '#fffffe',
+  secondaryParagraph: '#b8c1ec',
+};
+
 const forest: Theme = {
   background: '#004643',
   headline: '#fffffe',
@@ -71,4 +82,5 @@ export const themes = {
   night,
   solaris,
   light,
+  invertedPurple,
 };

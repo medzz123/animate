@@ -3,28 +3,27 @@ import { AnimationState } from '../state/Animation/animation.models';
 export const basic: AnimationState = {
   width: 600,
   height: 400,
-  markup: `<div id="node"/>
-  <div id="bode"/>
-  `,
-  css: `#node {
+  markup: `<div id="square">
+  <div id="circle"></div>
+</div>`,
+  css: `#square {
     background-color: red;
     width: 40px;
     height: 40px;
-  }
+}
 
-  #bode {
+#circle {
     background-color: blue;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-  }
-  `,
+}`,
   'animation-play-state': 'running',
-  element: 'node',
+  element: 'square',
   elements: {
-    node: {
+    square: {
       animationState: {
-        'animation-duration': '2s',
+        'animation-duration': '4s',
         'animation-timing-function': 'ease',
         'animation-delay': '0s',
         'animation-fill-mode': 'none',
@@ -62,7 +61,7 @@ export const basic: AnimationState = {
         },
       },
     },
-    bode: {
+    circle: {
       animationState: {
         'animation-duration': '2s',
         'animation-timing-function': 'ease',

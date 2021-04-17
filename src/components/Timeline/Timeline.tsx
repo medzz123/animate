@@ -1,4 +1,6 @@
 import React, { FunctionComponent } from 'react';
+import { VscClose } from 'react-icons/vsc';
+import { useTheme } from 'styled-components';
 
 import { useAnimationState } from '../../state/Animation/animation';
 import {
@@ -6,13 +8,20 @@ import {
   FramesContainer,
   Item,
   List,
-  NameContainer,
   Overflow,
   TimelineContainer,
 } from './Timeline.styles';
 
 const Timeline: FunctionComponent = () => {
-  const { state, setElement, setStep, currentStep } = useAnimationState();
+  const {
+    state,
+    setElement,
+    setStep,
+    currentStep,
+    deleteCurrentElement,
+  } = useAnimationState();
+
+  const theme = useTheme();
 
   return (
     <TimelineContainer data-testid="timeline">
@@ -25,11 +34,10 @@ const Timeline: FunctionComponent = () => {
               setElement(key);
             }}
           >
-            <NameContainer>
-              <Overflow>
-                <span>{key}</span>
-              </Overflow>
-            </NameContainer>
+            <Overflow>{key}</Overflow>
+            <button type="button" onClick={deleteCurrentElement}>
+              <VscClose size="20px" color={theme.paragraph} />
+            </button>
             <FramesContainer>
               {Object.keys(state.elements[key].steps).map((frame) => (
                 <Frame

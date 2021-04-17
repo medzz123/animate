@@ -66,5 +66,8 @@ export const Color = styled.div<{ color: string; active: boolean }>`
   background-color: ${(p) => p.color};
   cursor: pointer;
 
-  ${(p) => p.active && `border: ${tokens.sizes[3]} solid ${p.theme.button};`}
+  box-shadow: inset 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.button};
+
+  ${(p) =>
+    p.active && `box-shadow: inset 0 0 0 ${tokens.sizes[6]} ${p.theme.button};`}
 `;
