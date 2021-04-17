@@ -8,7 +8,7 @@ import { tokens } from '../../theme/tokens';
 export const StyledButton = styled(Button)`
   ${buttonReset}
 
-  color: ${(p) => p.theme.black};
+  color: ${(p) => p.theme.paragraph};
 
   display: flex;
   align-items: center;
@@ -35,7 +35,7 @@ export const Text = styled.span`
 
 export const HorizontalLine = styled.div`
   height: ${tokens.sizes[1]};
-  background-color: ${(p) => p.theme.black};
+  background-color: ${(p) => p.theme.headline};
   width: ${tokens.sizes.full};
   margin-left: ${tokens.sizes[8]};
 `;

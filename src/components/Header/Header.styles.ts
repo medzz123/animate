@@ -17,19 +17,12 @@ export const LogoLink = styled(Link)`
   font-size: ${tokens.sizes[22]};
   cursor: pointer;
   transition: color 200ms ease;
-  color: ${(p) => p.theme.accent};
+  color: ${(p) => p.theme.headline};
   margin-left: 0;
-
-  &:hover {
-    color: ${(p) => p.theme.black};
-  }
 `;
 
 export const MainLink = styled(Link)`
-  color: ${(p) => p.theme.accent};
+  color: ${(p) => p.theme.headline};
 
   margin-right: 0;
-  &:hover {
-    color: ${(p) => p.theme.black};
-  }
 `;

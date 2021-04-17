@@ -10,13 +10,13 @@ export const ButtonContainer = styled.button.attrs({
   justify-content: center;
   align-items: center;
 
-  background-color: ${(p) => p.theme.accent};
+  background-color: ${(p) => p.theme.button};
 
   transition: all ${tokens.transitions.fast} ease 0s;
   font-size: ${(p) =>
     p.size === 'large' ? tokens.sizes[18] : tokens.sizes[12]};
 
-  color: ${(p) => (p.variant === 'primary' ? p.theme.black : p.theme.white)};
+  color: ${(p) => p.theme.buttonText};
 
   display: inline-flex;
   font-weight: 500;
@@ -32,6 +32,6 @@ export const ButtonContainer = styled.button.attrs({
   line-height: 1.5;
 
   &:hover {
-    color: ${(p) => (p.variant === 'primary' ? p.theme.white : p.theme.black)};
+    box-shadow: inset 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.headline};
   }
 `;

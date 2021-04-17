@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { themes } from './theme';
 
 export const useThemeController = () => {
-  const [state, setState] = useState('dark');
+  const [state, setState] = useState('purple');
 
   useEffect(() => {
     if (localStorage.getItem('theme')) {
@@ -24,7 +24,7 @@ export const useThemeController = () => {
   }, []);
 
   return {
-    theme: themes[state] || themes.light,
+    theme: themes[state] || themes.purple,
     themeName: state,
     mounted,
     setTheme,

@@ -2,11 +2,11 @@ import React, { FunctionComponent } from 'react';
 
 import { useAnimationState } from '../../state/Animation/animation';
 import {
-  ElementButton,
   Frame,
   FramesContainer,
   Item,
   List,
+  NameContainer,
   Overflow,
   TimelineContainer,
 } from './Timeline.styles';
@@ -25,11 +25,11 @@ const Timeline: FunctionComponent = () => {
               setElement(key);
             }}
           >
-            <ElementButton>
+            <NameContainer>
               <Overflow>
                 <span>{key}</span>
               </Overflow>
-            </ElementButton>
+            </NameContainer>
             <FramesContainer>
               {Object.keys(state.elements[key].steps).map((frame) => (
                 <Frame

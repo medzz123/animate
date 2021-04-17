@@ -12,8 +12,8 @@ const styles = css`
   html {
     margin: 0;
     padding: 0;
-    background-color: ${(p) => p.theme.white};
-    color: ${(p) => p.theme.black};
+    background-color: ${(p) => p.theme.background};
+    color: ${(p) => p.theme.headline};
   }
 
   * {
@@ -33,12 +33,12 @@ const styles = css`
     align-items: center;
 
     &:focus {
-      box-shadow: inset 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.black};
+      box-shadow: inset 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.headline};
     }
   }
 
   p {
-    color: currentColor;
+    color: ${(p) => p.theme.paragraph};
     font-weight: 500;
     font-size: ${tokens.sizes[18]};
     line-height: 1.5;
@@ -49,7 +49,8 @@ const styles = css`
   a,
   button,
   input,
-  label {
+  label,
+  li {
     font-family: 'Inter', sans-serif;
   }
 
@@ -59,7 +60,7 @@ const styles = css`
   h4,
   h5,
   h6 {
-    color: currentColor;
+    color: ${(p) => p.theme.headline};
     margin: 0 0 ${tokens.sizes[16]} 0;
     font-weight: 700;
     font-family: 'Inter', sans-serif;

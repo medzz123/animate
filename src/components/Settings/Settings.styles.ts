@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { buttonReset } from '../../theme/resets';
+import { buttonReset, flipReset } from '../../theme/resets';
 import { tokens } from '../../theme/tokens';
 
 export const SettingsContainer = styled.div<{ active: boolean }>`
@@ -9,13 +9,15 @@ export const SettingsContainer = styled.div<{ active: boolean }>`
   top: 25%;
   display: flex;
   transition: transform ${tokens.transitions.fast} ease;
-  ${(p) => p.active && `transform: translateX(${tokens.sizes['2xs']})`}
+  ${(p) => p.active && `transform: translateX(${tokens.sizes['2xs']});`}
+
+  ${flipReset}
 `;
 
 export const SettingsContent = styled.div`
   width: ${tokens.sizes['2xs']};
   height: ${tokens.sizes['2xs']};
-  background-color: ${(p) => p.theme.background};
+  background-color: ${(p) => p.theme.secondaryBackground};
   align-items: top;
   padding: ${tokens.sizes[16]};
 `;
@@ -25,7 +27,7 @@ export const SettingsButton = styled.button<{ active: boolean }>`
 
   width: ${tokens.sizes[40]};
   height: ${tokens.sizes[40]};
-  background-color: ${(p) => p.theme.accent};
+  background-color: ${(p) => p.theme.button};
   border-radius: 0;
   display: flex;
   justify-content: center;
@@ -62,6 +64,7 @@ export const Color = styled.div<{ color: string; active: boolean }>`
   width: ${tokens.sizes[28]};
   height: ${tokens.sizes[28]};
   background-color: ${(p) => p.color};
+  cursor: pointer;
 
-  ${(p) => p.active && `border: ${tokens.sizes[3]} solid #455a64;`}
+  ${(p) => p.active && `border: ${tokens.sizes[3]} solid ${p.theme.button};`}
 `;

@@ -16,7 +16,7 @@ const Header: FunctionComponent = () => {
         </li>
         <li>
           <MainLink to="/animate" tabIndex={0}>
-            Animate
+            Editor
           </MainLink>
         </li>
       </ul>

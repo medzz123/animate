@@ -4,11 +4,11 @@ import parse from 'html-react-parser';
 import inRange from 'lodash/inRange';
 import { useMemo } from 'react';
 
-import { pulse } from '../../data/pulse';
+import { basic } from '../../data/basic';
 import { parseElements } from '../../utils/ParseAnimations';
 import { AnimationState } from './animation.models';
 
-const animationState = createState<AnimationState>(pulse);
+const animationState = createState<AnimationState>(basic);
 
 export const useAnimationState = () => {
   const state = useState(animationState);

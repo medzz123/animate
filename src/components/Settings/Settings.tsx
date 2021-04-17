@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
 import { IoIosSettings } from 'react-icons/io';
-import { Link } from 'react-router-dom';
 
 import { themes } from '../../theme/theme';
 import { useSettingsState } from './Settings.hooks';
@@ -25,13 +24,12 @@ const Settings: FunctionComponent<SettingsProps> = (props) => {
           {Object.keys(themes).map((theme) => (
             <Color
               key={`theme-${theme}`}
-              color={themes[theme].accent}
+              color={themes[theme].background}
               active={themeController.themeName === theme}
               onClick={() => themeController.setTheme(theme)}
             />
           ))}
         </ColorContainer>
-        <Link to="/testing-grounds">Testing Grounds</Link>
       </SettingsContent>
       <SettingsButton onClick={handlers().toggle} active={state}>
         <IoIosSettings size="32px" />

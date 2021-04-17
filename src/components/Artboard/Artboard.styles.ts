@@ -8,8 +8,6 @@ export const ArtboardContainer = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
-
-  background-color: gainsboro;
 `;
 
 export const AnimationsManager = styled.div<{
@@ -24,7 +22,7 @@ export const AnimationsManager = styled.div<{
 export const IFrame = styled.iframe`
   width: 800px;
   height: 600px;
-  box-shadow: inset 0 0 0 1px ${`#4169e1${tokens.alpha[30]}`};
+  box-shadow: inset 0 0 0 1px ${(p) => p.theme.secondaryBackground}${tokens.alpha[30]};
 `;
 
 const styles = css`

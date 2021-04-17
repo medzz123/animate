@@ -18,8 +18,8 @@ const Select: FunctionComponent<SelectProps> = (props) => {
           ...selectTheme,
           borderRadius: 0,
           colors: {
-            primary: theme.accent,
-            primary25: `${theme.accent}${tokens.alpha[50]}`,
+            primary: theme.button,
+            primary25: `${theme.button}${tokens.alpha[50]}`,
           },
         })}
         defaultValue={selected}

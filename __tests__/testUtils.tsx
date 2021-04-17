@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import { themes } from '../src/theme/theme';
 
 const AllTheProviders: FC = ({ children }) => (
-  <ThemeProvider theme={themes.light}>
+  <ThemeProvider theme={themes.purple}>
     <ToastProvider
       autoDismiss={true}
       placement="bottom-center"
