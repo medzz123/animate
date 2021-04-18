@@ -25,7 +25,7 @@ export interface Element {
 
 type StepProperties = {
   transform?: Partial<TransformProperties>;
-  normal?: Partial<CSSProperties>;
+  property?: Partial<CSSProperties>;
 };
 
 type TransformProperties = {

@@ -3,6 +3,7 @@ import { FunctionComponent } from 'react';
 import { VscClose } from 'react-icons/vsc';
 
 import * as animations from '../../animations';
+import { useAnimationState } from '../../state/Animation/animation';
 import { getLocalAnimations } from '../../utils/GetLocalAnimations';
 import Box from '../Box';
 import Flex from '../Box/Flex';
@@ -21,7 +22,13 @@ const Load: FunctionComponent = () => {
   const [state] = useState(() => {
     return getLocalAnimations();
   });
+
+  const { state: currentState } = useAnimationState();
+
+  console.log('c', currentState);
+
   const [animationName, setAnimationName] = useState('');
+  const [toNewAnimation, setToNewAnimation] = useState('');
 
   return (
     <Dialog label="Load">
@@ -72,7 +79,7 @@ const Load: FunctionComponent = () => {
       </List>
 
       <h3>New Animation</h3>
-
+      <p>Basic animation will be created on it</p>
       <Flex>
         <NewAnimationInput
           value={animationName}
@@ -92,6 +99,32 @@ const Load: FunctionComponent = () => {
           }}
         >
           Create
+        </Button>
+      </Flex>
+
+      <Box height={20} />
+
+      <h3>Save current</h3>
+      <p>Current animation will be saved with a new name</p>
+      <Flex>
+        <NewAnimationInput
+          value={toNewAnimation}
+          onChange={(e) => setToNewAnimation(e.target.value)}
+        />
+        <Button
+          onClick={() => {
+            window.localStorage.setItem(
+              'current',
+              `animation-${toNewAnimation}`
+            );
+            window.localStorage.setItem(
+              `animation-${toNewAnimation}`,
+              JSON.stringify(currentState)
+            );
+            location.reload();
+          }}
+        >
+          Save
         </Button>
       </Flex>
       <Box height={20} />

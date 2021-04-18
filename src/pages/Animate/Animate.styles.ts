@@ -9,48 +9,6 @@ export const Container = styled.div`
   height: calc(100vh - 6.813rem - ${tokens.sizes[24]});
 `;
 
-interface ContentProps {
-  x: number;
-  y: number;
-  w: number;
-  h: number;
-}
-
-interface ArtboardProps {
-  w: number;
-  h: number;
-  s: number;
-}
-
-const padding = 90;
-
-export const ArtboardSize = styled.div<ArtboardProps>`
-  width: ${(p) => p.w}px;
-  height: ${(p) => p.h}px;
-
-  transform: scale(${(p) => p.s});
-  transform-origin: top left;
-  display: inline-block;
-`;
-
-export const Content = styled.main<ContentProps>`
-  width: ${padding}%;
-  height: ${(p) => (((p.h / p.w) * padding) / 100) * p.x}px;
-  max-height: ${padding}%;
-  max-width: ${(p) => (((p.w / p.h) * padding) / 100) * p.y}px;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: inset 0 0 0 ${tokens.sizes[1]}
-    ${(p) => p.theme.secondaryBackground}${tokens.alpha[50]};
-`;
-
 export const ToolBar = styled.div`
   width: 100%;
   display: flex;
@@ -70,9 +28,9 @@ export const LeftSidePanel = styled.div<{ closed?: boolean }>`
     .alpha[50]};
   position: absolute;
   right: ${tokens.sizes[24]};
-  background-color: ${(p) => p.theme.background}${tokens.alpha[80]};
+  background-color: ${(p) => p.theme.background}${tokens.alpha[95]};
   height: calc(100vh - ${tokens.sizes[88]} - 5.65rem);
-  z-index: 9999999;
+  z-index: 500;
 
   ${mq(992)} {
     display: block;

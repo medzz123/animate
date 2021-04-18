@@ -3,6 +3,7 @@ import { VscClose } from 'react-icons/vsc';
 import { useTheme } from 'styled-components';
 
 import { useAnimationState } from '../../state/Animation/animation';
+import Box from '../Box';
 import {
   Frame,
   FramesContainer,
@@ -35,9 +36,13 @@ const Timeline: FunctionComponent = () => {
             }}
           >
             <Overflow>{key}</Overflow>
-            <button type="button" onClick={deleteCurrentElement}>
-              <VscClose size="20px" color={theme.paragraph} />
-            </button>
+            {key !== state.element ? (
+              <button type="button" onClick={deleteCurrentElement}>
+                <VscClose size="20px" color={theme.paragraph} />
+              </button>
+            ) : (
+              <Box minWidth={20} height={24} />
+            )}
             <FramesContainer>
               {Object.keys(state.elements[key].steps).map((frame) => (
                 <Frame

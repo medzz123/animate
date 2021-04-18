@@ -12,6 +12,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       ref={ref}
       variant={variant}
       size={size}
+      type="button"
       data-testid="button"
       {...rest}
     >

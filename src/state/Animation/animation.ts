@@ -23,6 +23,8 @@ export const animationState = createState<AnimationState>(() => {
     return animations[animationKey];
   }
 
+  window.localStorage.setItem('current', 'basic');
+
   return animations.basic;
 });
 
@@ -32,8 +34,8 @@ export const useAnimationState = () => {
   const cleanState = state.get();
 
   const parsed = useMemo(() => {
-    return parseElements(state.elements.get());
-  }, [state.elements]);
+    return parseElements(cleanState.elements);
+  }, [cleanState.elements]);
 
   const { jsx, nodes } = useMemo(() => {
     return {
@@ -117,7 +119,8 @@ export const useAnimationState = () => {
       if (inRange(step, 0, 100) && !currentSteps.includes(step)) {
         state.elements[state.element.get()].steps.merge({
           [step]: {
-            normal: {},
+            property: {},
+            transform: {},
           },
         });
 
@@ -137,7 +140,9 @@ export const useAnimationState = () => {
       state.elements[element].set(none);
     },
     deleteCurrentElement() {
-      state.elements[state.element.get()].set(none);
+      const elementToDelete = state.element.get();
+
+      state.elements[elementToDelete].set(none);
     },
     setElement(element: string) {
       state.element.set(element);
@@ -155,15 +160,15 @@ export const useAnimationState = () => {
       const element = state.element.get();
       const step = state.elements[element].step.get();
 
-      state.elements[element].steps[step].transform[event.target.name].set(
+      state.elements[element].steps[step]['transform'][event.target.name].set(
         event.target.value
       );
     },
-    onAnimationPropertyChange: (event: React.ChangeEvent<HTMLInputElement>) => {
+    onPropertyChange: (event: React.ChangeEvent<HTMLInputElement>) => {
       const element = state.element.get();
       const step = state.elements[element].step.get();
 
-      state.elements[element].steps[step].normal[event.target.name].set(
+      state.elements[element].steps[step]['property'][event.target.name].set(
         event.target.value
       );
     },

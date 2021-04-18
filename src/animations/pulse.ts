@@ -56,6 +56,7 @@ export const pulse: AnimationState = {
           transform: {
             scale: '2',
           },
+          property: {},
         },
       },
     },

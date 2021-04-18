@@ -6,7 +6,7 @@ export const ControllerContainer = styled.div`
   overflow: scroll;
   height: ${tokens.sizes.full};
   padding: ${tokens.sizes[8]};
-  min-width: ${tokens.sizes['2xs']};
+  min-width: ${tokens.sizes['1xs']};
 
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */

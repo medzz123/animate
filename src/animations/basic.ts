@@ -39,7 +39,7 @@ export const basic: AnimationState = {
             scale: '1',
             skew: '0deg',
           },
-          normal: {},
+          property: {},
         },
         50: {
           transform: {
@@ -48,7 +48,7 @@ export const basic: AnimationState = {
             scale: '1.8',
             skew: '0deg',
           },
-          normal: {},
+          property: {},
         },
         100: {
           transform: {
@@ -57,7 +57,7 @@ export const basic: AnimationState = {
             scale: '1',
             skew: '0deg',
           },
-          normal: {},
+          property: {},
         },
       },
     },
@@ -78,7 +78,7 @@ export const basic: AnimationState = {
             scale: '1',
             skew: '0deg',
           },
-          normal: {},
+          property: {},
         },
         50: {
           transform: {
@@ -86,7 +86,7 @@ export const basic: AnimationState = {
             scale: '1.8',
             skew: '0deg',
           },
-          normal: {},
+          property: {},
         },
         100: {
           transform: {
@@ -94,7 +94,7 @@ export const basic: AnimationState = {
             scale: '1',
             skew: '0deg',
           },
-          normal: {},
+          property: {},
         },
       },
     },

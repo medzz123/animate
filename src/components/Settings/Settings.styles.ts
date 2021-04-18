@@ -10,6 +10,7 @@ export const SettingsContainer = styled.div<{ active: boolean }>`
   display: flex;
   transition: transform ${tokens.transitions.fast} ease;
   ${(p) => p.active && `transform: translateX(${tokens.sizes['2xs']});`}
+  z-index: 99999999;
 
   ${flipReset}
 `;

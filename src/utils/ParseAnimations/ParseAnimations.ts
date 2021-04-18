@@ -11,9 +11,9 @@ export const parseElementAnimation = (element: Element, name: string) => {
 
   for (const step in steps) {
     let transformAnimation = '';
-    let normalAnimation = '';
+    let propertyAnimation = '';
     const transforms = steps[step].transform;
-    const normal = steps[step].normal;
+    const properties = steps[step].property;
 
     for (const transformProperty in transforms) {
       if (transforms[transformProperty]) {
@@ -21,10 +21,11 @@ export const parseElementAnimation = (element: Element, name: string) => {
       }
     }
 
-    for (const normalProperty in normal) {
-      if (normal[normalProperty]) {
-        normalAnimation += `${normal}: ${normal[normalProperty]};\n`;
+    for (const property in properties) {
+      if (!properties[property]) {
+        continue;
       }
+      propertyAnimation += `${property}: ${properties[property]};\n`;
     }
 
     if (transformAnimation.length > 0) {
@@ -33,7 +34,7 @@ export const parseElementAnimation = (element: Element, name: string) => {
 
     stepAnimations += `
       ${step}% {
-        ${normalAnimation}
+        ${propertyAnimation}
         ${transformAnimation}
       }
     `;
@@ -65,39 +66,4 @@ export const parseElements = (elements: AnimationState['elements']) => {
   }
 
   return parsed;
-};
-
-export const parseToCss = (state: Element['steps']) => {
-  let finalString = ``;
-
-  for (const key in state) {
-    const properties = state[key];
-    let parsedTransform = '';
-    let parsedNormal = '';
-
-    for (const property in properties.transform) {
-      if (properties.transform[property]) {
-        parsedTransform += `${property}(${properties.transform[property]})`;
-      }
-    }
-
-    for (const property2 in properties.normal) {
-      if (properties.normal[property2]) {
-        parsedNormal += `${property2}: ${properties.normal[property2]};\n`;
-      }
-    }
-
-    const build = `${key}% {
-          ${parsedNormal}
-          ${parsedTransform.length > 0 ? `transform: ${parsedTransform};` : ''}
-        }`;
-
-    finalString += build;
-  }
-
-  return `
-        @keyframes animate {
-            ${finalString}
-        }
-      `;
 };

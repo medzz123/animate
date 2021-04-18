@@ -20,13 +20,13 @@ const Controller: FunctionComponent = () => {
   const {
     currentStepState,
     onTransformChange,
-    onAnimationPropertyChange,
     currentElement,
     currentStep,
     setWidth,
     setHeight,
     width,
     height,
+    onPropertyChange,
     currentAnimationState,
     onAnimationStateChange,
   } = useAnimationState();
@@ -42,8 +42,8 @@ const Controller: FunctionComponent = () => {
           label="Origin"
           placeholder="center center"
           name="transform-origin"
-          value={currentStepState?.normal?.['transform-origin'] || ''}
-          onChange={onAnimationPropertyChange}
+          value={currentStepState?.property?.['transform-origin'] || ''}
+          onChange={onPropertyChange}
         />
         <AnimatableInput
           label="Translate"
@@ -79,8 +79,8 @@ const Controller: FunctionComponent = () => {
           label="Perspective"
           name="perspective"
           placeholder="100px"
-          value={currentStepState?.normal?.perspective || ''}
-          onChange={onAnimationPropertyChange}
+          value={currentStepState?.property?.perspective || ''}
+          onChange={onPropertyChange}
         />
         <AnimatableInput
           label="Translate3d"
@@ -113,29 +113,29 @@ const Controller: FunctionComponent = () => {
           label="Top"
           name="top"
           placeholder="0"
-          value={currentStepState?.normal?.top || ''}
-          onChange={onAnimationPropertyChange}
+          value={currentStepState?.property?.top || ''}
+          onChange={onPropertyChange}
         />
         <AnimatableInput
           label="Right"
           name="right"
           placeholder="0"
-          value={currentStepState?.normal?.right || ''}
-          onChange={onAnimationPropertyChange}
+          value={currentStepState?.property?.right || ''}
+          onChange={onPropertyChange}
         />
         <AnimatableInput
           label="Bottom"
           name="bottom"
           placeholder="0"
-          value={currentStepState?.normal?.bottom || ''}
-          onChange={onAnimationPropertyChange}
+          value={currentStepState?.property?.bottom || ''}
+          onChange={onPropertyChange}
         />
         <AnimatableInput
           label="Left"
           name="left"
           placeholder="0"
-          value={currentStepState?.normal?.left || ''}
-          onChange={onAnimationPropertyChange}
+          value={currentStepState?.property?.left || ''}
+          onChange={onPropertyChange}
         />
       </Accordion>
       <Accordion title="Color" id="color-properties" Icon={FaPalette}>
@@ -143,15 +143,15 @@ const Controller: FunctionComponent = () => {
           label="Background"
           name="background-color"
           placeholder="blue"
-          value={currentStepState?.normal?.['background-color'] || ''}
-          onChange={onAnimationPropertyChange}
+          value={currentStepState?.property?.['background-color'] || ''}
+          onChange={onPropertyChange}
         />
         <AnimatableInput
           label="Opacity"
           name="opacity"
           placeholder="1"
-          value={currentStepState?.normal?.opacity || ''}
-          onChange={onAnimationPropertyChange}
+          value={currentStepState?.property?.opacity || ''}
+          onChange={onPropertyChange}
         />
       </Accordion>
       <Accordion title="Text" id="text-properties" Icon={FaSpellCheck}>
@@ -159,15 +159,15 @@ const Controller: FunctionComponent = () => {
           label="Color"
           name="color"
           placeholder="red"
-          value={currentStepState?.normal?.color || ''}
-          onChange={onAnimationPropertyChange}
+          value={currentStepState?.property?.color || ''}
+          onChange={onPropertyChange}
         />
         <AnimatableInput
           label="Font Size"
           name="font-size"
           placeholder="14px"
-          value={currentStepState?.normal?.['font-size'] || ''}
-          onChange={onAnimationPropertyChange}
+          value={currentStepState?.property?.['font-size'] || ''}
+          onChange={onPropertyChange}
         />
       </Accordion>
       <Accordion title="Borders" id="border-properties" Icon={FaBorderStyle}>
@@ -175,22 +175,22 @@ const Controller: FunctionComponent = () => {
           label="Border"
           name="border"
           placeholder="2px solid black"
-          value={currentStepState?.normal?.border || ''}
-          onChange={onAnimationPropertyChange}
+          value={currentStepState?.property?.border || ''}
+          onChange={onPropertyChange}
         />
         <AnimatableInput
           label="Radius"
           name="border-radius"
           placeholder="50%"
-          value={currentStepState?.normal?.['border-radius'] || ''}
-          onChange={onAnimationPropertyChange}
+          value={currentStepState?.property?.['border-radius'] || ''}
+          onChange={onPropertyChange}
         />
         <AnimatableInput
           label="Box Shadow"
           name="box-shadow"
           placeholder="10px 5px 5px red"
-          value={currentStepState?.normal?.['box-shadow'] || ''}
-          onChange={onAnimationPropertyChange}
+          value={currentStepState?.property?.['box-shadow'] || ''}
+          onChange={onPropertyChange}
         />
       </Accordion>
       <Accordion title="State" id="animation-state" Icon={MdSlowMotionVideo}>
