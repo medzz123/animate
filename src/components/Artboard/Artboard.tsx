@@ -68,7 +68,7 @@ const Artboard: FunctionComponent = () => {
                       css={css}
                       animations={parsed}
                     >
-                      <div id="main-container">{react}</div>
+                      {react}
                     </AnimationsManager>
                   </ArtboardSize>,
                   mountNode

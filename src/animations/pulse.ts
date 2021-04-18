@@ -3,41 +3,42 @@ import { AnimationState } from '../state/Animation/animation.models';
 export const pulse: AnimationState = {
   width: 600,
   height: 400,
-  markup: '<div id="heart"></div>',
-  css: `
-  #main-container {
+  markup: `<div id="main-container">
+  <div id="heart"></div>
+</div>`,
+  css: `#main-container {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
 
-  #heart {
-        position: relative;
-        width: 100px;
-        height: 90px;
-        margin: 0 auto;
-      }
-      #heart:before,
-      #heart:after {
-        position: absolute;
-        content: "";
-        left: 50px;
-        top: 0;
-        width: 50px;
-        height: 80px;
-        background: red;
-        border-radius: 50px 50px 0 0;
-        transform: rotate(-45deg);
-        transform-origin: 0 100%;
-      }
-      #heart:after {
-        left: 0;
-        transform: rotate(45deg);
-        transform-origin: 100% 100%;
-      }
-    `,
+#heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    margin: 0 auto;
+}
+
+#heart:before, #heart:after {
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: red;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+      
+#heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}`,
   element: 'heart',
   'animation-play-state': 'running',
   elements: {

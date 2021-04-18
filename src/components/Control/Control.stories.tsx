@@ -8,6 +8,13 @@ export default {
   component: Control,
 } as Meta;
 
-const Template: Story = (storyArguments) => <Control {...storyArguments} />;
+const Template: Story = (storyArguments) => (
+  <Control
+    handleReset={() => {
+      alert('hey');
+    }}
+    {...storyArguments}
+  />
+);
 
 export const ControlStory = Template.bind({});

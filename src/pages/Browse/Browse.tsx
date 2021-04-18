@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 
 import Box from '../../components/Box';
 import Button from '../../components/Button';
@@ -14,7 +13,6 @@ import {
 } from './Browse.styles';
 const Browse: React.FunctionComponent = () => {
   const { animations } = useBrowseHooks();
-  const history = useHistory();
 
   return (
     <Container>
@@ -28,7 +26,7 @@ const Browse: React.FunctionComponent = () => {
               <Button
                 onClick={() => {
                   window.localStorage.setItem('current', animation.key);
-                  history.push('/animate');
+                  window.location.href = '/animate';
                 }}
               >
                 Load
@@ -37,7 +35,7 @@ const Browse: React.FunctionComponent = () => {
               <Button
                 onClick={() => {
                   window.localStorage.removeItem(animation.key);
-                  location.reload();
+                  window.location.href = '/animate';
                 }}
               >
                 Delete
@@ -48,6 +46,8 @@ const Browse: React.FunctionComponent = () => {
             </ArtboardContainer>
           </Card>
         ))}
+
+        {animations.length === 0 && <p>You don&apos;t have any animations</p>}
       </MaxWidth>
     </Container>
   );

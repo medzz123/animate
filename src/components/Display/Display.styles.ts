@@ -20,6 +20,11 @@ export const DisplayContainer = styled.div`
   }
 `;
 
+export const DisplayFrame = styled.iframe`
+  width: 100%;
+  height: 100%;
+`;
+
 const padding = 95;
 
 export const DisplayAnimations = styled.div<{
@@ -64,5 +69,5 @@ export const DisplaySize = styled.div<DisplaySizeProps>`
   width: ${(p) => p.artboardWidth}px;
   height: ${(p) => p.artboardHeight}px;
   transform: scale(${(p) => p.width / p.artboardWidth});
-  transform-origin: center center;
+  transform-origin: top left;
 `;

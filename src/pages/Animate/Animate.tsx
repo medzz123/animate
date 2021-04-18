@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Artboard from '../../components/Artboard';
 import Box from '../../components/Box';
@@ -9,6 +9,7 @@ import Export from '../../components/Export';
 import Load from '../../components/Load';
 import Target from '../../components/Target';
 import Timeline from '../../components/Timeline';
+import { useAnimationState } from '../../state/Animation/animation';
 import { useEditorState } from '../../state/editor';
 import {
   BottomPanel,
@@ -21,6 +22,17 @@ import {
 
 const Animate: React.FunctionComponent = () => {
   const { toggle, open } = useEditorState();
+  const { pausePlayState } = useAnimationState();
+  const [resetKey, setResetKey] = useState('reset-key');
+
+  const handleReset = () => {
+    setResetKey('frame-off');
+    pausePlayState();
+    setTimeout(() => {
+      setResetKey('reset-key');
+    }, 50);
+  };
+
   return (
     <Container>
       <ToolBar>
@@ -36,14 +48,14 @@ const Animate: React.FunctionComponent = () => {
       </ToolBar>
 
       <FlexContainer>
-        <Artboard />
+        <Artboard key={resetKey} />
         <LeftSidePanel closed={open}>
           <Controller />
         </LeftSidePanel>
       </FlexContainer>
 
       <ControlsPanel>
-        <Control />
+        <Control handleReset={handleReset} />
       </ControlsPanel>
 
       <BottomPanel>

@@ -9,9 +9,22 @@ import Editor from '../Editor';
 import { TargetFallback } from './Target.fallback';
 
 const Target: FunctionComponent = () => {
-  const { markup, css, onChangeMarkup, onChangeCss } = useAnimationState();
+  const {
+    markup,
+    css,
+    onChangeMarkup,
+    onChangeCss,
+    mergeElements,
+  } = useAnimationState();
+
+  const openOpenChange = (state: boolean) => {
+    if (!state) {
+      mergeElements();
+    }
+  };
+
   return (
-    <Dialog label="Target">
+    <Dialog label="Target" onOpenChange={openOpenChange}>
       <ErrorBoundary
         fallbackRender={TargetFallback}
         onReset={() => {

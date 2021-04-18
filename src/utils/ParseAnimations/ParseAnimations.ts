@@ -46,24 +46,29 @@ export const parseElementAnimation = (element: Element, name: string) => {
     }
   }
 
-  return `
+  return {
+    controls: `
     #${name} {
       animation-name: ${name}Animation;
       ${parsedControls}
-      
-      @keyframes ${name}Animation {
-        ${stepAnimations}
-      }
+    }`,
+    keyframes: `
+    @keyframes ${name}Animation {
+      ${stepAnimations}
     }
-  `;
+    `,
+  };
 };
 
 export const parseElements = (elements: AnimationState['elements']) => {
-  let parsed = '';
+  let mergeControls = '';
+  let mergeKeyframes = '';
 
   for (const element in elements) {
-    parsed += parseElementAnimation(elements[element], element);
+    mergeControls += parseElementAnimation(elements[element], element).controls;
+    mergeKeyframes += parseElementAnimation(elements[element], element)
+      .keyframes;
   }
 
-  return parsed;
+  return { mergeControls, mergeKeyframes };
 };

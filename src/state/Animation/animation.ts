@@ -88,7 +88,7 @@ export const useAnimationState = () => {
       return state.css.get();
     },
     get parsed() {
-      return parsed;
+      return parsed.mergeControls + parsed.mergeKeyframes;
     },
     get currentAnimationState() {
       const element = state.element.get();
@@ -101,11 +101,52 @@ export const useAnimationState = () => {
 
       return state.elements[element].steps[step].get();
     },
+    mergeElements() {
+      const currentElements = Object.keys(state.elements.get());
+
+      const allElements = state.markup
+        .get()
+        .match(/id="(.*?)"/g)
+        .map((val) => {
+          return val.replace(/id="/g, '').replace(`"`, '');
+        })
+        .filter((e) => {
+          return !currentElements.includes(e);
+        })
+        .reduce(
+          (acc, curr) => (
+            (acc[curr] = {
+              animationState: {
+                'animation-duration': '2s',
+                'animation-timing-function': 'ease',
+                'animation-delay': '0s',
+                'animation-fill-mode': 'none',
+                'animation-direction': 'normal',
+                'animation-iteration-count': 'infinite',
+              },
+              step: 0,
+              steps: {
+                0: {
+                  transform: {},
+                  property: {},
+                },
+              },
+            }),
+            acc
+          ),
+          {}
+        );
+
+      state.elements.merge({ ...allElements });
+    },
     togglePlayState() {
       const currentPlayState = state['animation-play-state'].get();
       state['animation-play-state'].set(
         currentPlayState === 'paused' ? 'running' : 'paused'
       );
+    },
+    pausePlayState() {
+      state['animation-play-state'].set('paused');
     },
     setWidth(event: React.ChangeEvent<HTMLInputElement>) {
       state.width.set(Number(event.target.value));

@@ -25,8 +25,6 @@ const Load: FunctionComponent = () => {
 
   const { state: currentState } = useAnimationState();
 
-  console.log('c', currentState);
-
   const [animationName, setAnimationName] = useState('');
   const [toNewAnimation, setToNewAnimation] = useState('');
 
