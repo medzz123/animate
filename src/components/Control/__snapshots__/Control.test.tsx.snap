@@ -6,20 +6,45 @@ exports[`Control Test 1`] = `
     class="sc-dkPtyc ivLdOD"
     data-testid="control"
   >
-    <button
-      class="sc-gsDJrp liakXf"
-      data-testid="button"
-      type="button"
+    <div
+      class="sc-bdvvaa hOlXtj"
+      data-testid="box"
     >
-      Add Frame
-    </button>
-    <div>
+      <input
+        class="sc-hKwCoD cUTuCB"
+        maxlength="3"
+        value=""
+      />
       <button
-        class="sc-gsDJrp liakXf"
+        class="sc-gsDJrp ksaGds"
         data-testid="button"
         type="button"
       >
-        Duration
+        <svg
+          fill="currentColor"
+          height="12"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 448 512"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+          />
+        </svg>
+      </button>
+      <div
+        class="sc-bdvvaa kkNaPP"
+        data-testid="box"
+      />
+      <button
+        class="sc-gsDJrp cyIpqY"
+        data-testid="button"
+        type="button"
+      >
+        Delete 
+        50
       </button>
     </div>
     <div
@@ -27,17 +52,17 @@ exports[`Control Test 1`] = `
       data-testid="box"
     >
       <button
-        class="sc-gsDJrp bzHnWL"
+        class="sc-gsDJrp ksaGds"
         data-testid="button"
         type="button"
       >
         <svg
           fill="currentColor"
-          height="18"
+          height="12"
           stroke="currentColor"
           stroke-width="0"
           viewBox="0 0 448 512"
-          width="18"
+          width="12"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -50,40 +75,17 @@ exports[`Control Test 1`] = `
         data-testid="box"
       />
       <button
-        class="sc-gsDJrp bzHnWL"
+        class="sc-gsDJrp ksaGds"
         data-testid="button"
         type="button"
       >
         <svg
           fill="currentColor"
-          height="18"
+          height="12"
           stroke="currentColor"
           stroke-width="0"
           viewBox="0 0 448 512"
-          width="18"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M144 479H48c-26.5 0-48-21.5-48-48V79c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm304-48V79c0-26.5-21.5-48-48-48h-96c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48z"
-          />
-        </svg>
-      </button>
-      <div
-        class="sc-bdvvaa kkNaPP"
-        data-testid="box"
-      />
-      <button
-        class="sc-gsDJrp bzHnWL"
-        data-testid="button"
-        type="button"
-      >
-        <svg
-          fill="currentColor"
-          height="18"
-          stroke="currentColor"
-          stroke-width="0"
-          viewBox="0 0 448 512"
-          width="18"
+          width="12"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path

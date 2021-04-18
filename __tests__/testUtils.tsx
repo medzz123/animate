@@ -1,3 +1,4 @@
+import { IdProvider } from '@radix-ui/react-id';
 import { render, RenderOptions } from '@testing-library/react';
 import React, { FC, ReactElement } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -8,13 +9,15 @@ import { themes } from '../src/theme/theme';
 
 const AllTheProviders: FC = ({ children }) => (
   <ThemeProvider theme={themes.purple}>
-    <ToastProvider
-      autoDismiss={true}
-      placement="bottom-center"
-      autoDismissTimeout={2000}
-    >
-      <Router>{children}</Router>
-    </ToastProvider>
+    <IdProvider>
+      <ToastProvider
+        autoDismiss={true}
+        placement="bottom-center"
+        autoDismissTimeout={2000}
+      >
+        <Router>{children}</Router>
+      </ToastProvider>
+    </IdProvider>
   </ThemeProvider>
 );
 

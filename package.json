@@ -15,19 +15,15 @@
     "new:page": "plop --generate-page",
     "new:component": "plop --generate-component",
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "build-storybook": "build-storybook -s public"
+    "build": "react-scripts build"
   },
   "dependencies": {
     "@hookstate/core": "^3.0.6",
-    "@hookstate/persistence": "^3.0.0",
     "@radix-ui/react-accordion": "^0.0.7",
     "@radix-ui/react-dialog": "^0.0.15",
-    "@radix-ui/react-tooltip": "^0.0.16",
     "ace-builds": "^1.4.12",
     "copy-to-clipboard": "^3.3.1",
     "html-react-parser": "^1.2.4",
-    "immer": "^9.0.1",
     "js-file-download": "^0.4.12",
     "lodash": "^4.17.21",
     "react": "17.0.1",
@@ -41,8 +37,7 @@
     "react-scripts": "^4.0.3",
     "react-select": "^4.3.0",
     "react-toast-notifications": "^2.4.3",
-    "styled-components": "^5.2.1",
-    "use-immer": "^0.5.1"
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",
@@ -99,18 +94,6 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
-  },
-  "eslintConfig": {
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
     ]
   }
 }

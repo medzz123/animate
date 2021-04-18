@@ -3,11 +3,11 @@
 exports[`Settings Test 1`] = `
 <div>
   <div
-    class="sc-bdvvaa fuDobx"
+    class="sc-bdvvaa bsYwbJ"
     data-testid="settings"
   >
     <div
-      class="sc-gsDJrp gqNVbd"
+      class="sc-gsDJrp fNLQom"
     >
       <h3>
         Color switcher
@@ -16,46 +16,41 @@ exports[`Settings Test 1`] = `
         class="sc-hKwCoD DzoLE"
       >
         <div
-          class="sc-eCImvq kZWFUy"
-          color="#FF3366"
+          class="sc-eCImvq hcChmD"
+          color="#232946"
         />
         <div
-          class="sc-eCImvq dSCRv"
-          color="#FF3366"
+          class="sc-eCImvq LTRcy"
+          color="#004643"
         />
         <div
-          class="sc-eCImvq cBySXP"
-          color="#1de9b6"
+          class="sc-eCImvq cqtylu"
+          color="#0f0e17"
         />
         <div
-          class="sc-eCImvq iQxyTb"
-          color="#2979ff"
+          class="sc-eCImvq dBqnlQ"
+          color="#fffffe"
         />
         <div
-          class="sc-eCImvq jcQxwV"
-          color="#fca311"
+          class="sc-eCImvq evAybb"
+          color="#ffffff"
         />
         <div
-          class="sc-eCImvq jcQxwV"
-          color="#fca311"
+          class="sc-eCImvq dgLjXR"
+          color="#d4d8f0"
         />
       </div>
-      <a
-        href="/testing-grounds"
-      >
-        Testing Grounds
-      </a>
     </div>
     <button
-      class="sc-dkPtyc gKgzkj"
+      class="sc-dkPtyc dzRDgj"
     >
       <svg
         fill="currentColor"
-        height="2rem"
+        height="32px"
         stroke="currentColor"
         stroke-width="0"
         viewBox="0 0 512 512"
-        width="2rem"
+        width="32px"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path

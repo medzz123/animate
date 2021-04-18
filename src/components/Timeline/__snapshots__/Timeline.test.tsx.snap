@@ -3,115 +3,83 @@
 exports[`Timeline Test 1`] = `
 <div>
   <div
-    class="sc-bdvvaa hykYqx"
+    class="sc-gsDJrp kgUkhx"
     data-testid="timeline"
   >
     <ul
-      class="sc-gKckTs fsMbnl"
+      class="sc-dkPtyc gXXMOT"
     >
       <li
-        class="sc-iCfLBT kCUkqM"
+        class="sc-hKwCoD cXdffR"
       >
-        <button
-          class="sc-furvIG bUqbGv"
+        <span
+          class="sc-eCImvq hsPYqN"
         >
-          <span
-            class="sc-pVTma cFJwBr"
-          >
-            <span>
-              SomeLongClassName
-            </span>
-          </span>
-          <span
-            class="sc-jrQzUz cPpEhs"
-          >
-            div
-          </span>
-        </button>
+          square
+        </span>
         <div
-          class="sc-eCImvq dCKDUK"
+          class="sc-bdvvaa rVJmh"
+          data-testid="box"
+        />
+        <div
+          class="sc-gKckTs hisylS"
         >
           <button
-            class="sc-jRQAMF dpLIg"
-            data-state="closed"
-            position="0"
+            class="sc-iCfLBT ionlcn"
             type="button"
           />
           <button
-            class="sc-jRQAMF dKemgx"
-            data-state="closed"
-            position="10"
+            class="sc-iCfLBT cTEmkr"
             type="button"
           />
           <button
-            class="sc-jRQAMF eywsPx"
-            data-state="closed"
-            position="50"
-            type="button"
-          />
-          <button
-            class="sc-jRQAMF lhDnIo"
-            data-state="closed"
-            position="80"
+            class="sc-iCfLBT gDwbHa"
             type="button"
           />
         </div>
       </li>
       <li
-        class="sc-iCfLBT hxhYuG"
+        class="sc-hKwCoD iAIhwf"
       >
-        <button
-          class="sc-furvIG bUqbGv"
+        <span
+          class="sc-eCImvq hsPYqN"
         >
-          <span
-            class="sc-pVTma cFJwBr"
+          circle
+        </span>
+        <button
+          type="button"
+        >
+          <svg
+            color="#b8c1ec"
+            fill="currentColor"
+            height="20px"
+            stroke="currentColor"
+            stroke-width="0"
+            style="color: rgb(184, 193, 236);"
+            viewBox="0 0 16 16"
+            width="20px"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <span>
-              Cube
-            </span>
-          </span>
-          <span
-            class="sc-jrQzUz cPpEhs"
-          >
-            div
-          </span>
+            <path
+              clip-rule="evenodd"
+              d="M8 8.707l3.646 3.647.708-.707L8.707 8l3.647-3.646-.707-.708L8 7.293 4.354 3.646l-.707.708L7.293 8l-3.646 3.646.707.708L8 8.707z"
+              fill-rule="evenodd"
+            />
+          </svg>
         </button>
         <div
-          class="sc-eCImvq dCKDUK"
-        />
-      </li>
-      <li
-        class="sc-iCfLBT hxhYuG"
-      >
-        <button
-          class="sc-furvIG bUqbGv"
-        >
-          <span
-            class="sc-pVTma cFJwBr"
-          >
-            <span>
-              Star
-            </span>
-          </span>
-          <span
-            class="sc-jrQzUz cPpEhs"
-          >
-            div
-          </span>
-        </button>
-        <div
-          class="sc-eCImvq dCKDUK"
+          class="sc-gKckTs hisylS"
         >
           <button
-            class="sc-jRQAMF eywsPx"
-            data-state="closed"
-            position="50"
+            class="sc-iCfLBT ionlcn"
             type="button"
           />
           <button
-            class="sc-jRQAMF inAQww"
-            data-state="closed"
-            position="77"
+            class="sc-iCfLBT jWyKtu"
+            type="button"
+          />
+          <button
+            class="sc-iCfLBT gDwbHa"
             type="button"
           />
         </div>
