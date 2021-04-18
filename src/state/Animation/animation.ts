@@ -157,7 +157,7 @@ export const useAnimationState = () => {
     addStep(step: number) {
       const currentSteps = state.elements[state.element.get()].steps.keys;
 
-      if (inRange(step, 0, 100) && !currentSteps.includes(step)) {
+      if (inRange(step, 0, 101) && !currentSteps.includes(step)) {
         state.elements[state.element.get()].steps.merge({
           [step]: {
             property: {},
