@@ -16,6 +16,10 @@ const styles = css`
     color: ${(p) => p.theme.headline};
   }
 
+  body {
+    min-height: 100vh;
+  }
+
   * {
     box-sizing: border-box;
   }

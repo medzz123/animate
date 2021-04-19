@@ -1,34 +1,40 @@
+import { AnimatePresence } from 'framer-motion';
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { ToastProvider } from 'react-toast-notifications';
 import { ThemeProvider } from 'styled-components';
 
 import Box from '../components/Box';
 import Header from '../components/Header';
 import Settings from '../components/Settings';
-import Animate from '../pages/Animate';
-import Browse from '../pages/Browse';
-import Home from '../pages/Home';
 import { GlobalStyle } from '../theme/globalStyles';
 import { useThemeController } from '../theme/themeController';
+import Animate from './Animate';
+import Browse from './Browse';
+import Help from './Help';
+import Home from './Home';
 
 const App = () => {
   const themeController = useThemeController();
+  const location = useLocation();
   return (
-    <Router>
-      <ThemeProvider theme={themeController.theme}>
-        <ToastProvider
-          autoDismiss={true}
-          placement="bottom-center"
-          autoDismissTimeout={2000}
-        >
-          <GlobalStyle />
-          {themeController.mounted && (
-            <>
-              <Header />
-              <Box padding={24} paddingTop={0} display="block">
-                <div>
-                  <Switch>
+    <ThemeProvider theme={themeController.theme}>
+      <ToastProvider
+        autoDismiss={true}
+        placement="bottom-center"
+        autoDismissTimeout={2000}
+      >
+        <GlobalStyle />
+        {themeController.mounted && (
+          <>
+            <Header />
+            <Box padding={24} paddingTop={0} display="block">
+              <div>
+                <AnimatePresence exitBeforeEnter initial={false}>
+                  <Switch location={location} key={location.pathname}>
+                    <Route path="/help">
+                      <Help />
+                    </Route>
                     <Route path="/browse">
                       <Browse />
                     </Route>
@@ -39,14 +45,14 @@ const App = () => {
                       <Home />
                     </Route>
                   </Switch>
-                </div>
-              </Box>
-              <Settings themeController={themeController} />
-            </>
-          )}
-        </ToastProvider>
-      </ThemeProvider>
-    </Router>
+                </AnimatePresence>
+              </div>
+            </Box>
+            <Settings themeController={themeController} />
+          </>
+        )}
+      </ToastProvider>
+    </ThemeProvider>
   );
 };
 

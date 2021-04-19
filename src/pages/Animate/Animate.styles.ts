@@ -5,8 +5,6 @@ import { tokens } from '../../theme/tokens';
 
 export const Container = styled.div`
   border: ${tokens.sizes[1]} solid ${(p) => p.theme.secondaryBackground}${tokens.alpha[50]};
-  width: calc(100vw - ${tokens.sizes[48]});
-  height: calc(100vh - 6.813rem - ${tokens.sizes[24]});
 `;
 
 export const ToolBar = styled.div`

@@ -2,12 +2,13 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Button from '../../components/Button';
-import { HomeContainer, MaxWidth } from './Home.styles';
+import Motion from '../../components/Motion';
+import { MaxWidth } from './Home.styles';
 
 const Home: React.FunctionComponent = () => {
   const history = useHistory();
   return (
-    <HomeContainer>
+    <Motion>
       <MaxWidth>
         <h1>Quickly Build CSS Animations With Animate</h1>
         <p>
@@ -23,7 +24,7 @@ const Home: React.FunctionComponent = () => {
           start animating
         </Button>
       </MaxWidth>
-    </HomeContainer>
+    </Motion>
   );
 };
 

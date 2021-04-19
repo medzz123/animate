@@ -12,6 +12,9 @@ const Header: FunctionComponent = () => {
 
       <ul>
         <li>
+          <Link to="/help">Help</Link>
+        </li>
+        <li>
           <Link to="/browse">Browse</Link>
         </li>
         <li>

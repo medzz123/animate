@@ -11,9 +11,9 @@ export const MaxWidth = styled.div`
   align-items: center;
   flex-direction: column;
 
-  ${mq(768)} {
+  /* ${mq(768)} {
     transform: translateY(-${tokens.sizes[48]});
-  }
+  } */
 
   h1,
   p {
@@ -25,12 +25,4 @@ export const MaxWidth = styled.div`
 
 export const HomeContainer = styled.div`
   margin: auto auto;
-
-  min-width: calc(100vw - ${tokens.sizes[48]});
-  min-height: calc(100vh - 6.813rem - ${tokens.sizes[24]});
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 `;

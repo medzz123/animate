@@ -7,6 +7,7 @@ import Control from '../../components/Control';
 import Controller from '../../components/Controller';
 import Export from '../../components/Export';
 import Load from '../../components/Load';
+import Motion from '../../components/Motion';
 import Target from '../../components/Target';
 import Timeline from '../../components/Timeline';
 import { useAnimationState } from '../../state/Animation/animation';
@@ -34,34 +35,36 @@ const Animate: React.FunctionComponent = () => {
   };
 
   return (
-    <Container>
-      <ToolBar>
-        <Load />
-        <Box width={10} />
-        <Target />
-        <Box width={10} />
-        <Export />
-        <Box width={10} />
-        <Box display={{ 375: 'block', 992: 'none' }}>
-          <Button onClick={toggle}>Editor</Button>
-        </Box>
-      </ToolBar>
+    <Motion>
+      <Container>
+        <ToolBar>
+          <Load />
+          <Box width={10} />
+          <Target />
+          <Box width={10} />
+          <Export />
+          <Box width={10} />
+          <Box display={{ 375: 'block', 992: 'none' }}>
+            <Button onClick={toggle}>Editor</Button>
+          </Box>
+        </ToolBar>
 
-      <FlexContainer>
-        <Artboard key={resetKey} />
-        <LeftSidePanel closed={open}>
-          <Controller />
-        </LeftSidePanel>
-      </FlexContainer>
+        <FlexContainer>
+          <Artboard key={resetKey} />
+          <LeftSidePanel closed={open}>
+            <Controller />
+          </LeftSidePanel>
+        </FlexContainer>
 
-      <ControlsPanel>
-        <Control handleReset={handleReset} />
-      </ControlsPanel>
+        <ControlsPanel>
+          <Control handleReset={handleReset} />
+        </ControlsPanel>
 
-      <BottomPanel>
-        <Timeline />
-      </BottomPanel>
-    </Container>
+        <BottomPanel>
+          <Timeline />
+        </BottomPanel>
+      </Container>
+    </Motion>
   );
 };
 

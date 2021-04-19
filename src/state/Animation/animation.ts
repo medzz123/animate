@@ -30,7 +30,6 @@ export const animationState = createState<AnimationState>(() => {
 
 export const useAnimationState = () => {
   const state = useState(animationState);
-
   const cleanState = state.get();
 
   const parsed = useMemo(() => {
