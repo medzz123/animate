@@ -55,7 +55,7 @@ export const DisplayRatio = styled.div<DisplayRatioProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: inset 0 0 0 1px ${(p) => p.theme.secondaryBackground};
+  box-shadow: inset 0 0 0 1px ${(p) => p.theme.headline};
 
   ${mq(768)} {
     height: ${(p) =>

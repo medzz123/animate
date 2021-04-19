@@ -3,7 +3,7 @@
 exports[`Button Test 1`] = `
 <div>
   <button
-    class="sc-bdvvaa jOvDOm"
+    class="sc-bdvvaa cAehPg"
     data-testid="button"
     type="button"
   >

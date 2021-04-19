@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 import { tokens } from '../../theme/tokens';
 
-export const Container = styled.main``;
+export const Container = styled.main`
+  padding: 0 ${tokens.sizes['24']} ${tokens.sizes['24']} ${tokens.sizes['24']};
+`;
 
 export const MaxWidth = styled.div`
   margin: 0 auto;
@@ -12,14 +14,14 @@ export const MaxWidth = styled.div`
 
 export const Card = styled.div`
   margin-bottom: ${tokens.sizes[20]};
-  border: ${tokens.sizes[1]} solid ${(p) => p.theme.secondaryBackground}${tokens.alpha[60]};
+  border: ${tokens.sizes[1]} solid ${(p) => p.theme.headline}${tokens.alpha[60]};
 
   text-transform: capitalize;
 `;
 
 export const ActionsContainer = styled.div`
   padding: ${tokens.sizes[8]};
-  border-bottom: ${tokens.sizes[1]} solid ${(p) => p.theme.secondaryBackground}${tokens.alpha[60]};
+  border-bottom: ${tokens.sizes[1]} solid ${(p) => p.theme.headline}${tokens.alpha[60]};
   display: flex;
 
   p {

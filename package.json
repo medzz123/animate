@@ -14,7 +14,7 @@
     "storybook:deploy": "build-storybook -c .storybook -o dist -s ./public",
     "new:page": "plop --generate-page",
     "new:component": "plop --generate-component",
-    "start": "react-scripts start",
+    "start": "ESLINT_NO_DEV_ERRORS=true react-scripts start",
     "build": "react-scripts build"
   },
   "dependencies": {
@@ -37,7 +37,8 @@
     "react-scripts": "^4.0.3",
     "react-select": "^4.3.0",
     "react-toast-notifications": "^2.4.3",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "prettier": "^2.2.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",
@@ -74,7 +75,6 @@
     "husky": "^4.3.0",
     "node-plop": "^0.26.2",
     "plop": "^2.7.4",
-    "prettier": "^2.2.1",
     "react-test-renderer": "^17.0.1",
     "ts-jest": "^26.5.3",
     "ts-node": "^9.1.1",

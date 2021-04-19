@@ -21,6 +21,7 @@ const Editor: FunctionComponent<EditorProps> = (props) => {
         theme="dracula"
         value={value}
         height={tokens.sizes['3xs']}
+        width="100%"
         onChange={onChange}
         name="UNIQUE_ID_OF_DIV"
         editorProps={{ $blockScrolling: true }}

@@ -32,7 +32,7 @@ const Target: FunctionComponent = () => {
         }}
       >
         <h3>Target Elements</h3>
-        <p>Add the element you want animate with an ID attribute.</p>
+        <p>Add the elements you want animate with an ID attribute.</p>
         <Editor language="html" value={markup} onChange={onChangeMarkup} />
         <Box height={16} />
 

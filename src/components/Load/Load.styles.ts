@@ -20,9 +20,8 @@ export const Item = styled.li`
 export const NewAnimationInput = styled.input`
   font-size: ${tokens.sizes[12]};
   padding: ${tokens.sizes[5]};
-  color: ${(p) => p.theme.secondaryParagraph};
   border: none;
-  box-shadow: inset 0 0 0 ${tokens.sizes[1]} ${(p) => p.theme.secondaryHeadline};
+  box-shadow: inset 0 0 0 ${tokens.sizes[1]} ${(p) => p.theme.headline};
   background-color: transparent;
   width: ${tokens.sizes.full};
 
@@ -34,7 +33,7 @@ export const NewAnimationInput = styled.input`
 export const SelectAnimationButton = styled.button.attrs({ type: 'button' })`
   ${buttonReset}
 
-  color: ${(p) => p.theme.secondaryParagraph};
+  color: ${(p) => p.theme.headline};
 
   font-weight: 500;
   font-size: ${tokens.sizes[18]};
@@ -46,6 +45,7 @@ export const SelectAnimationButton = styled.button.attrs({ type: 'button' })`
   &:hover,
   &:focus {
     text-decoration: underline;
+    box-shadow: none;
   }
 `;
 

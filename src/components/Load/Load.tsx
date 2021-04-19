@@ -28,36 +28,47 @@ const Load: FunctionComponent = () => {
   const [animationName, setAnimationName] = useState('');
   const [toNewAnimation, setToNewAnimation] = useState('');
 
+  const currentAnimation = window.localStorage.getItem('current');
+
   return (
     <Dialog label="Load">
+      <h2>Editing: {currentAnimation.replace('animation-', '')}</h2>
+      {!currentAnimation.includes('animation-') && (
+        <p>
+          Presets animations will not save your changes, to continue working
+          from this animation use the save current feature.
+        </p>
+      )}
       <h3>Your animations</h3>
       <p>Select from one of your animations</p>
       <List>
-        {Object.keys(state.localAnimations).map((key) => (
-          <Item key={`local-animation-${key}`}>
-            <SelectAnimationButton
-              onClick={() => {
-                window.localStorage.setItem('current', key);
-                location.reload();
-              }}
-            >
-              {key.replace('animation-', '')}
-            </SelectAnimationButton>
-            <DeleteAnimationButton
-              onClick={() => {
-                if (window.localStorage.getItem('current') === key) {
-                  window.localStorage.setItem('current', 'basic');
-                }
+        {Object.keys(state.localAnimations)
+          .filter((animation) => animation !== currentAnimation)
+          .map((key) => (
+            <Item key={`local-animation-${key}`}>
+              <SelectAnimationButton
+                onClick={() => {
+                  window.localStorage.setItem('current', key);
+                  location.reload();
+                }}
+              >
+                {key.replace('animation-', '')}
+              </SelectAnimationButton>
+              <DeleteAnimationButton
+                onClick={() => {
+                  if (window.localStorage.getItem('current') === key) {
+                    window.localStorage.setItem('current', 'basic');
+                  }
 
-                window.localStorage.removeItem(key);
+                  window.localStorage.removeItem(key);
 
-                location.reload();
-              }}
-            >
-              <VscClose size="20px" color="red" />
-            </DeleteAnimationButton>
-          </Item>
-        ))}
+                  location.reload();
+                }}
+              >
+                <VscClose size="20px" color="red" />
+              </DeleteAnimationButton>
+            </Item>
+          ))}
       </List>
 
       <h3>Preset Animations</h3>

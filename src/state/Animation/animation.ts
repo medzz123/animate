@@ -97,7 +97,16 @@ export const useAnimationState = () => {
     },
     get currentStepState() {
       const element = state.element.get();
+
+      if (!element) {
+        return undefined;
+      }
+
       const step = state.elements[element].step.get();
+
+      if (!step) {
+        return undefined;
+      }
 
       return state.elements[element].steps[step].get();
     },

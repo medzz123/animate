@@ -7,9 +7,15 @@ test('Settings Test', () => {
   const { getByTestId, container } = render(
     <Settings
       themeController={{
-        theme: {},
-        setTheme: jest.fn(),
-        themeName: 'dark',
+        theme: {
+          background: '#232946',
+          headline: '#fffffe',
+          paragraph: '#b8c1ec',
+          button: '#eebbc3',
+          buttonText: '#232946',
+        },
+        state: false,
+        toggleTheme: jest.fn(),
         mounted: true,
       }}
     />

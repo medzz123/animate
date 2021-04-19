@@ -3,20 +3,18 @@ import { useCallback, useEffect, useState } from 'react';
 import { themes } from './theme';
 
 export const useThemeController = () => {
-  const [state, setState] = useState('purple');
-
-  useEffect(() => {
-    if (localStorage.getItem('theme')) {
-      setState(localStorage.getItem('theme'));
-    }
-  }, []);
+  const [state, setState] = useState(() => {
+    return localStorage.getItem('theme') === 'true' ? true : false;
+  });
 
   const [mounted, setMounted] = useState(false);
 
-  const setTheme = useCallback((themeName: string) => {
-    localStorage.setItem('theme', themeName);
-
-    setState(themeName);
+  const toggleTheme = useCallback(() => {
+    setState((s) => {
+      const flip = !s;
+      localStorage.setItem('theme', flip.toString());
+      return flip;
+    });
   }, []);
 
   useEffect(() => {
@@ -24,10 +22,10 @@ export const useThemeController = () => {
   }, []);
 
   return {
-    theme: themes[state] || themes.purple,
-    themeName: state,
+    theme: state ? themes.dark : themes.day,
+    state,
     mounted,
-    setTheme,
+    toggleTheme,
   };
 };
 

@@ -15,9 +15,15 @@ const noop = () => {
 const Template: Story = (storyArguments) => (
   <Settings
     themeController={{
-      theme: {},
-      setTheme: noop,
-      themeName: 'dark',
+      theme: {
+        background: '#232946',
+        headline: '#fffffe',
+        paragraph: '#b8c1ec',
+        button: '#eebbc3',
+        buttonText: '#232946',
+      },
+      state: false,
+      toggleTheme: noop,
       mounted: true,
     }}
     {...storyArguments}

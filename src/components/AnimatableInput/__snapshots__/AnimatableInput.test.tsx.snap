@@ -6,7 +6,7 @@ exports[`AnimatableInput Test 1`] = `
     class="sc-bdvvaa cpIdJy"
   >
     <label
-      class="sc-gsDJrp fRGuEO"
+      class="sc-gsDJrp fugxSU"
       data-testid="animatable-input-label"
       for="Test"
     >
@@ -14,7 +14,7 @@ exports[`AnimatableInput Test 1`] = `
     </label>
     <input
       autocomplete="off"
-      class="sc-dkPtyc dcdDqd"
+      class="sc-dkPtyc kdIYgM"
       data-testid="animatable-input"
       id="Test"
     />

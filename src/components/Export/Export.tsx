@@ -9,6 +9,7 @@ import Button from '../Button';
 import Dialog from '../Dialog';
 import { Close } from '../Dialog/Dialog.close';
 import { Code } from './Export.styles';
+import { getProcessedString } from './Export.utils';
 
 const Export: FunctionComponent = () => {
   const { addToast } = useToasts();
@@ -19,38 +20,6 @@ const Export: FunctionComponent = () => {
     .getItem('current')
     .replace('animation-', '');
 
-  const data = `<!DOCTYPE html>
-  <html>
-    <head>
-      <meta charset="utf-8" />
-  
-      <title>${currentAnimationName}</title>
-      <meta name="description" content="Animating ${currentAnimationName}" />
-  
-      <style>
-        body,
-        html {
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-          width: 100%;
-          height: 100%;
-        }
-  
-        * {
-          box-sizing: border-box;
-        }
-
-        ${css}
-        ${parsed}
-        ${nodes} { animation-play-state: running; }
-      </style>
-    </head>
-  
-    <body>${markup}</body>
-  </html>
-  `;
-
   return (
     <Dialog label="Export">
       <h3>Export to HTML</h3>
@@ -59,7 +28,16 @@ const Export: FunctionComponent = () => {
       <Box marginBottom={16}>
         <Button
           onClick={() => {
-            fileDownload(data, `${currentAnimationName}.html`);
+            fileDownload(
+              getProcessedString({
+                parsed,
+                css,
+                markup,
+                nodes,
+                currentAnimationName,
+              }),
+              `${currentAnimationName}.html`
+            );
           }}
         >
           Export
@@ -68,22 +46,41 @@ const Export: FunctionComponent = () => {
 
       <h3>Raw HTML & CSS</h3>
       <Box marginBottom={16}>
-        <Code>{data}</Code>
+        <Code>
+          {getProcessedString({
+            parsed,
+            css,
+            markup,
+            nodes,
+            currentAnimationName,
+          })}
+        </Code>
       </Box>
       <Box marginBottom={16}>
         <Button
           onClick={() => {
-            copy(data, {
-              onCopy: () => {
-                addToast('Copied Successfully!', { appearance: 'success' });
-              },
-            });
+            copy(
+              getProcessedString({
+                parsed,
+                css,
+                markup,
+                nodes,
+                currentAnimationName,
+              }),
+              {
+                onCopy: () => {
+                  addToast('Copied Successfully!', { appearance: 'success' });
+                },
+              }
+            );
           }}
         >
           Copy to clipboard
         </Button>
       </Box>
-      <Close>Close</Close>
+      <Box marginBottom={16}>
+        <Close>Close</Close>
+      </Box>
     </Dialog>
   );
 };

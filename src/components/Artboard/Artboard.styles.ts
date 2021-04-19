@@ -9,6 +9,7 @@ export const ArtboardContainer = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
+  background-color: ${(p) => p.theme.headline}${tokens.alpha[5]};
 `;
 
 export const AspectRatio = styled.div.attrs({
@@ -30,7 +31,7 @@ export const AspectRatio = styled.div.attrs({
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: inset 0 0 0 1px ${(p) => p.theme.secondaryBackground}${tokens.alpha[30]};
+  background-color: ${(p) => p.theme.background}${tokens.alpha[50]};
 `;
 
 export const ArtboardSize = styled.div<ArtboardSizeProps>`

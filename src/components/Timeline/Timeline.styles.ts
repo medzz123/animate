@@ -3,8 +3,14 @@ import styled, { css } from 'styled-components';
 import { buttonReset } from '../../theme/resets';
 import { tokens } from '../../theme/tokens';
 
+export const DeleteButton = styled.button`
+  padding: 0 ${tokens.sizes[14]};
+  background-color: ${(p) => p.theme.button};
+`;
+
 export const TimelineContainer = styled.div`
   width: ${tokens.sizes.full};
+  padding-bottom: ${tokens.sizes[8]};
 
   height: ${tokens.sizes['4xs']};
   overflow-y: scroll;
@@ -36,16 +42,16 @@ export const Item = styled.li<{ selected?: boolean }>`
   padding: ${tokens.sizes[4]} ${tokens.sizes[8]};
 
   width: ${tokens.sizes.full};
-  border-bottom: ${tokens.sizes[1]} solid ${(p) => p.theme.secondaryBackground}${tokens.alpha[50]};
+  border-bottom: ${tokens.sizes[1]} solid ${(p) => p.theme.headline}${tokens.alpha[50]};
 
   ${(p) =>
     p.selected &&
     css`
-      background-color: ${(p) => p.theme.secondaryBackground}${tokens.alpha[5]};
+      background-color: ${(p) => p.theme.headline}${tokens.alpha[5]};
     `}
 
   &:hover {
-    background-color: ${(p) => p.theme.secondaryBackground}${tokens.alpha[5]};
+    background-color: ${(p) => p.theme.headline}${tokens.alpha[5]};
   }
 `;
 
@@ -63,7 +69,6 @@ export const Overflow = styled.span`
   position: relative;
   margin-right: ${tokens.sizes[8]};
   cursor: default;
-  color: ${(p) => p.theme.secondaryParagraph};
   padding: 0 ${tokens.sizes[2]};
 
   font-family: 'Inter', sans-serif;

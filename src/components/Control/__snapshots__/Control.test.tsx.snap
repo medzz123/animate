@@ -11,12 +11,12 @@ exports[`Control Test 1`] = `
       data-testid="box"
     >
       <input
-        class="sc-hKwCoD cUTuCB"
+        class="sc-hKwCoD eVQOLh"
         maxlength="3"
         value=""
       />
       <button
-        class="sc-gsDJrp ksaGds"
+        class="sc-gsDJrp kOjuze"
         data-testid="button"
         type="button"
       >
@@ -39,7 +39,7 @@ exports[`Control Test 1`] = `
         data-testid="box"
       />
       <button
-        class="sc-gsDJrp cyIpqY"
+        class="sc-gsDJrp kRmFVy"
         data-testid="button"
         type="button"
       >
@@ -52,7 +52,7 @@ exports[`Control Test 1`] = `
       data-testid="box"
     >
       <button
-        class="sc-gsDJrp ksaGds"
+        class="sc-gsDJrp kOjuze"
         data-testid="button"
         type="button"
       >
@@ -75,7 +75,7 @@ exports[`Control Test 1`] = `
         data-testid="box"
       />
       <button
-        class="sc-gsDJrp ksaGds"
+        class="sc-gsDJrp kOjuze"
         data-testid="button"
         type="button"
       >

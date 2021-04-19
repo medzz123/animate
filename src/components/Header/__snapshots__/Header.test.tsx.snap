@@ -7,7 +7,7 @@ exports[`Header Test 1`] = `
     data-testid="header"
   >
     <a
-      class="sc-gsDJrp hracjM"
+      class="sc-gsDJrp juuEKj"
       href="/"
       tabindex="0"
     >
@@ -23,7 +23,7 @@ exports[`Header Test 1`] = `
       </li>
       <li>
         <a
-          class="sc-dkPtyc fNbONe"
+          class="sc-dkPtyc eTdaSJ"
           href="/animate"
           tabindex="0"
         >

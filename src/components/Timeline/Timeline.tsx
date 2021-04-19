@@ -5,6 +5,7 @@ import { useTheme } from 'styled-components';
 import { useAnimationState } from '../../state/Animation/animation';
 import Box from '../Box';
 import {
+  DeleteButton,
   Frame,
   FramesContainer,
   Item,
@@ -19,7 +20,7 @@ const Timeline: FunctionComponent = () => {
     setElement,
     setStep,
     currentStep,
-    deleteCurrentElement,
+    deleteElement,
   } = useAnimationState();
 
   const theme = useTheme();
@@ -37,11 +38,17 @@ const Timeline: FunctionComponent = () => {
           >
             <Overflow>{key}</Overflow>
             {key !== state.element ? (
-              <button type="button" onClick={deleteCurrentElement}>
+              <DeleteButton
+                type="button"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  deleteElement(key);
+                }}
+              >
                 <VscClose size="20px" color={theme.paragraph} />
-              </button>
+              </DeleteButton>
             ) : (
-              <Box minWidth={20} height={24} />
+              <Box minWidth={48} height={24} />
             )}
             <FramesContainer>
               {Object.keys(state.elements[key].steps).map((frame) => (

@@ -3,59 +3,60 @@
 exports[`Timeline Test 1`] = `
 <div>
   <div
-    class="sc-gsDJrp kgUkhx"
+    class="sc-dkPtyc bepIQA"
     data-testid="timeline"
   >
     <ul
-      class="sc-dkPtyc gXXMOT"
+      class="sc-hKwCoD dLNPKa"
     >
       <li
-        class="sc-hKwCoD cXdffR"
+        class="sc-eCImvq hiimFq"
       >
         <span
-          class="sc-eCImvq hsPYqN"
+          class="sc-jRQAMF ibcQbN"
         >
           square
         </span>
         <div
-          class="sc-bdvvaa rVJmh"
+          class="sc-bdvvaa kgncym"
           data-testid="box"
         />
         <div
-          class="sc-gKckTs hisylS"
+          class="sc-iCfLBT fYESJe"
         >
           <button
-            class="sc-iCfLBT ionlcn"
+            class="sc-furvIG jBUuLZ"
             type="button"
           />
           <button
-            class="sc-iCfLBT cTEmkr"
+            class="sc-furvIG GMUcJ"
             type="button"
           />
           <button
-            class="sc-iCfLBT gDwbHa"
+            class="sc-furvIG kFlig"
             type="button"
           />
         </div>
       </li>
       <li
-        class="sc-hKwCoD iAIhwf"
+        class="sc-eCImvq jkLjNy"
       >
         <span
-          class="sc-eCImvq hsPYqN"
+          class="sc-jRQAMF ibcQbN"
         >
           circle
         </span>
         <button
+          class="sc-gsDJrp fnAnkT"
           type="button"
         >
           <svg
-            color="#b8c1ec"
+            color="#ffffff"
             fill="currentColor"
             height="20px"
             stroke="currentColor"
             stroke-width="0"
-            style="color: rgb(184, 193, 236);"
+            style="color: rgb(255, 255, 255);"
             viewBox="0 0 16 16"
             width="20px"
             xmlns="http://www.w3.org/2000/svg"
@@ -68,18 +69,18 @@ exports[`Timeline Test 1`] = `
           </svg>
         </button>
         <div
-          class="sc-gKckTs hisylS"
+          class="sc-iCfLBT fYESJe"
         >
           <button
-            class="sc-iCfLBT ionlcn"
+            class="sc-furvIG jBUuLZ"
             type="button"
           />
           <button
-            class="sc-iCfLBT jWyKtu"
+            class="sc-furvIG hSgCnE"
             type="button"
           />
           <button
-            class="sc-iCfLBT gDwbHa"
+            class="sc-furvIG kFlig"
             type="button"
           />
         </div>

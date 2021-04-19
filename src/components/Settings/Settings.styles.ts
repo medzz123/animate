@@ -1,74 +1,23 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-import { buttonReset, flipReset } from '../../theme/resets';
 import { tokens } from '../../theme/tokens';
 
-export const SettingsContainer = styled.div<{ active: boolean }>`
+export const SettingsContainer = styled.button`
   position: fixed;
-  left: -${tokens.sizes['2xs']};
+
   top: 25%;
   display: flex;
   transition: transform ${tokens.transitions.fast} ease;
-  ${(p) => p.active && `transform: translateX(${tokens.sizes['2xs']});`}
-  z-index: 99999999;
 
-  ${flipReset}
-`;
+  z-index: ${tokens.zIndices[9999]};
 
-export const SettingsContent = styled.div`
-  width: ${tokens.sizes['2xs']};
-  height: ${tokens.sizes['2xs']};
-  background-color: ${(p) => p.theme.secondaryBackground};
-  align-items: top;
-  padding: ${tokens.sizes[16]};
-`;
-
-export const SettingsButton = styled.button<{ active: boolean }>`
-  ${buttonReset}
-
-  width: ${tokens.sizes[40]};
-  height: ${tokens.sizes[40]};
+  width: ${tokens.sizes[20]};
+  height: ${tokens.sizes[20]};
   background-color: ${(p) => p.theme.button};
-  border-radius: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   transform-origin: center left;
 
   outline: none;
-
-  transform: scale(0.6);
-  opacity: 0.5;
-
-  ${(p) =>
-    p.active &&
-    css`
-      transform: scale(1);
-      opacity: 1;
-    `}
-
-  &:hover {
-    transform: scale(1);
-    opacity: 1;
-  }
-`;
-
-export const ColorContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: ${tokens.sizes[16]};
-`;
-
-export const Color = styled.div<{ color: string; active: boolean }>`
-  margin-right: ${tokens.sizes[10]};
-  margin-bottom: ${tokens.sizes[10]};
-  width: ${tokens.sizes[28]};
-  height: ${tokens.sizes[28]};
-  background-color: ${(p) => p.color};
-  cursor: pointer;
-
-  box-shadow: inset 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.button};
-
-  ${(p) =>
-    p.active && `box-shadow: inset 0 0 0 ${tokens.sizes[6]} ${p.theme.button};`}
 `;

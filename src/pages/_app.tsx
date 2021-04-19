@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ToastProvider } from 'react-toast-notifications';
 import { ThemeProvider } from 'styled-components';
 
-import Box from '../components/Box';
 import Header from '../components/Header';
 import Settings from '../components/Settings';
 import Animate from '../pages/Animate';
@@ -26,21 +25,19 @@ const App = () => {
           {themeController.mounted && (
             <>
               <Header />
-              <Box padding={24} paddingTop={0} display="block">
-                <div>
-                  <Switch>
-                    <Route path="/browse">
-                      <Browse />
-                    </Route>
-                    <Route path="/animate">
-                      <Animate />
-                    </Route>
-                    <Route path="/">
-                      <Home />
-                    </Route>
-                  </Switch>
-                </div>
-              </Box>
+              <div>
+                <Switch>
+                  <Route path="/browse">
+                    <Browse />
+                  </Route>
+                  <Route path="/animate">
+                    <Animate />
+                  </Route>
+                  <Route path="/">
+                    <Home />
+                  </Route>
+                </Switch>
+              </div>
               <Settings themeController={themeController} />
             </>
           )}

@@ -25,6 +25,7 @@ export const MaxWidth = styled.div`
 
 export const HomeContainer = styled.div`
   margin: auto auto;
+  padding: 0 ${tokens.sizes['24']} ${tokens.sizes['24']} ${tokens.sizes['24']};
 
   min-width: calc(100vw - ${tokens.sizes[48]});
   min-height: calc(100vh - 6.813rem - ${tokens.sizes[24]});

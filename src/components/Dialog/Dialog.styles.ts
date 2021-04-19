@@ -2,7 +2,6 @@ import { Content, Overlay, Trigger } from '@radix-ui/react-dialog';
 import styled from 'styled-components';
 
 import { mq } from '../../theme/mediaQueries';
-import { flipReset } from '../../theme/resets';
 import { secondaryButtonStyles } from '../../theme/reusable';
 import { tokens } from '../../theme/tokens';
 
@@ -30,14 +29,12 @@ export const StyledContent = styled(Content)`
   padding: ${tokens.sizes[12]};
   border-radius: ${tokens.sizes[6]};
   padding: ${tokens.sizes[24]};
-  background-color: ${(p) => p.theme.secondaryBackground};
+  background-color: ${(p) => p.theme.background};
 
   overflow-y: scroll;
 
-  ${flipReset}
-
   ${mq(768)} {
-    max-width: fit-content;
+    max-width: ${tokens.sizes['lg']};
   }
 
   &:focus {
