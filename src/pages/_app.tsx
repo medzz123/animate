@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 
 import Header from '../components/Header';
 import Settings from '../components/Settings';
+import Unsupported from '../components/Unsupported';
 import Animate from '../pages/Animate';
 import Browse from '../pages/Browse';
 import Home from '../pages/Home';
@@ -24,6 +25,7 @@ const App = () => {
           <GlobalStyle />
           {themeController.mounted && (
             <>
+              <Unsupported />
               <Header />
               <div>
                 <Switch>

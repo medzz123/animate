@@ -24,6 +24,7 @@ export const NewAnimationInput = styled.input`
   box-shadow: inset 0 0 0 ${tokens.sizes[1]} ${(p) => p.theme.headline};
   background-color: transparent;
   width: ${tokens.sizes.full};
+  color: ${(p) => p.theme.headline};
 
   &:focus {
     outline: none;

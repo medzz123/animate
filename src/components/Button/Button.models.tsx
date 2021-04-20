@@ -1,4 +1,6 @@
-export type ButtonProps = React.HTMLAttributes<HTMLButtonElement> &
+import { HTMLAttributes } from 'react';
+
+export type ButtonProps = HTMLAttributes<HTMLButtonElement> &
   Partial<ButtonStyles>;
 
 export interface ButtonStyles {

@@ -6,6 +6,7 @@ import { tokens } from './tokens';
 const styles = css`
   html {
     scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
   }
 
   body,

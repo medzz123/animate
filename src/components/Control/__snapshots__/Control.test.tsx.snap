@@ -16,7 +16,7 @@ exports[`Control Test 1`] = `
         value=""
       />
       <button
-        class="sc-gsDJrp kOjuze"
+        class="sc-gsDJrp hqEpId"
         data-testid="button"
         type="button"
       >
@@ -39,7 +39,7 @@ exports[`Control Test 1`] = `
         data-testid="box"
       />
       <button
-        class="sc-gsDJrp kRmFVy"
+        class="sc-gsDJrp iakLhB"
         data-testid="button"
         type="button"
       >
@@ -52,7 +52,7 @@ exports[`Control Test 1`] = `
       data-testid="box"
     >
       <button
-        class="sc-gsDJrp kOjuze"
+        class="sc-gsDJrp hqEpId"
         data-testid="button"
         type="button"
       >
@@ -75,7 +75,7 @@ exports[`Control Test 1`] = `
         data-testid="box"
       />
       <button
-        class="sc-gsDJrp kOjuze"
+        class="sc-gsDJrp hqEpId"
         data-testid="button"
         type="button"
       >

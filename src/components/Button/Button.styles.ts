@@ -39,6 +39,11 @@ export const ButtonContainer = styled.button.attrs({
   line-height: 1.5;
 
   &:hover {
-    box-shadow: inset 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.headline};
+    box-shadow: 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.headline};
+  }
+
+  &:disabled {
+    background-color: ${(p) => p.theme.headline}${tokens.alpha[50]};
+    box-shadow: none;
   }
 `;

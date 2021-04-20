@@ -27,9 +27,9 @@ export const LeftSidePanel = styled.div<{ closed?: boolean }>`
   border: ${tokens.sizes[1]} solid ${(p) => p.theme.headline}${tokens
     .alpha[50]};
   position: absolute;
-  right: ${tokens.sizes[24]};
+  right: 0;
   background-color: ${(p) => p.theme.background}${tokens.alpha[95]};
-  height: calc(100vh - ${tokens.sizes[88]} - 5.65rem);
+  height: calc(100% - 110px - 44px - 161px - 44px);
   z-index: 500;
 
   ${mq(992)} {

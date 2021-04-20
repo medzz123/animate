@@ -95,16 +95,20 @@ const Load: FunctionComponent = () => {
           onChange={(e) => setAnimationName(e.target.value)}
         />
         <Button
+          // @ts-ignore
+          disabled={animationName.length < 3}
           onClick={() => {
-            window.localStorage.setItem(
-              'current',
-              `animation-${animationName}`
-            );
-            window.localStorage.setItem(
-              `animation-${animationName}`,
-              JSON.stringify(animations.basic)
-            );
-            location.reload();
+            if (animationName.length > 1) {
+              window.localStorage.setItem(
+                'current',
+                `animation-${animationName}`
+              );
+              window.localStorage.setItem(
+                `animation-${animationName}`,
+                JSON.stringify(animations.basic)
+              );
+              location.reload();
+            }
           }}
         >
           Create
@@ -121,6 +125,8 @@ const Load: FunctionComponent = () => {
           onChange={(e) => setToNewAnimation(e.target.value)}
         />
         <Button
+          // @ts-ignore
+          disabled={toNewAnimation.length < 3}
           onClick={() => {
             window.localStorage.setItem(
               'current',

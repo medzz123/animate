@@ -6,6 +6,7 @@ import Button from '../../components/Button';
 import Control from '../../components/Control';
 import Controller from '../../components/Controller';
 import Export from '../../components/Export';
+import Help from '../../components/Help';
 import Load from '../../components/Load';
 import Target from '../../components/Target';
 import Timeline from '../../components/Timeline';
@@ -41,6 +42,8 @@ const Animate: React.FunctionComponent = () => {
         <Target />
         <Box width={10} />
         <Export />
+        <Box width={10} />
+        <Help />
         <Box width={10} />
         <Box display={{ 375: 'block', 992: 'none' }}>
           <Button onClick={toggle}>Editor</Button>
