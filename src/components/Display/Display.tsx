@@ -31,7 +31,9 @@ const Display: FunctionComponent<DisplayProps> = (props) => {
       window.localStorage.getItem(animationKey)
     ) as AnimationState;
 
-    const { mergeKeyframes, mergeControls } = parseElements(animation.elements);
+    const { mergeKeyframes, mergeControls } = parseElements({
+      elements: animation.elements,
+    });
 
     const nodes = animation.markup
       .match(/id="(.*?)"/g)

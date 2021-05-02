@@ -2,13 +2,20 @@ import {
   AnimationState,
   Element,
 } from '../../state/Animation/animation.models';
+import { tokens } from '../../theme/tokens';
 import { defaultProperties } from './ParseAnimations.defaults';
 
-export const parseElementAnimation = (
-  element: Element,
-  name: string,
-  playState?: string
-) => {
+export const parseElementAnimation = ({
+  element,
+  name,
+  playState,
+  activeElement,
+}: {
+  element: Element;
+  name: string;
+  playState?: string;
+  activeElement?: string;
+}) => {
   const steps = element.steps;
   const animationState = element.animationState;
   let parsedControls = '';
@@ -88,8 +95,11 @@ export const parseElementAnimation = (
     #${name} {
       ${
         playState === 'paused'
-          ? `${currentStepAnimation}`
-          : `animation-name: ${name}Animation; ${parsedControls}`
+          ? `${currentStepAnimation} ${
+              name === activeElement &&
+              `outline: 5px solid #4169e1${tokens.alpha[25]};`
+            };`
+          : `animation-name: ${name}Animation;${parsedControls}`
       }
     }`,
     keyframes: `
@@ -100,19 +110,25 @@ export const parseElementAnimation = (
   };
 };
 
-export const parseElements = (
-  elements: AnimationState['elements'],
-  playState?: string
-) => {
+export const parseElements = ({
+  elements,
+  playState,
+  activeElement,
+}: {
+  elements: AnimationState['elements'];
+  playState?: string;
+  activeElement?: string;
+}) => {
   let mergeControls = '';
   let mergeKeyframes = '';
 
   for (const element in elements) {
-    const parsedAnimations = parseElementAnimation(
-      elements[element],
-      element,
-      playState
-    );
+    const parsedAnimations = parseElementAnimation({
+      element: elements[element],
+      name: element,
+      playState,
+      activeElement,
+    });
 
     mergeControls += parsedAnimations.controls;
     mergeKeyframes += parsedAnimations.keyframes;

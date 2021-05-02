@@ -34,11 +34,16 @@ export const useAnimationState = () => {
   const cleanState = state.get();
 
   const parsed = useMemo(() => {
-    return parseElements(
-      cleanState.elements,
-      cleanState['animation-play-state']
-    );
-  }, [cleanState.elements]);
+    return parseElements({
+      elements: cleanState.elements,
+      playState: cleanState['animation-play-state'],
+      activeElement: cleanState.element,
+    });
+  }, [
+    cleanState.elements,
+    cleanState['animation-play-state'],
+    cleanState.element,
+  ]);
 
   const { jsx, nodes } = useMemo(() => {
     return {
@@ -208,6 +213,29 @@ export const useAnimationState = () => {
     },
     onChangeCss(input: string) {
       state.css.set(input);
+    },
+    move(direction: 'x' | 'y', unit: number) {
+      const element = state.element.get();
+      const step = state.elements[element].step.get();
+      const currentTranslate = state.elements[element].steps[
+        step
+      ]?.transform?.translate?.get();
+
+      const matches = currentTranslate?.match(
+        /(?<xValue>-?\d*)(?<xUnit>.*),\s{1}(?<yValue>-?\d*)(?<yUnit>.*)/
+      );
+
+      if (matches) {
+        const {
+          groups: { xValue, xUnit, yValue, yUnit },
+        } = matches;
+
+        state.elements[element].steps[step]['transform']['translate'].set(
+          `${direction === 'x' ? Number(xValue) + unit : xValue}${xUnit}, ${
+            direction === 'y' ? Number(yValue) + unit : yValue
+          }${yUnit}`
+        );
+      }
     },
     onTransformChange: (event: React.ChangeEvent<HTMLInputElement>) => {
       const element = state.element.get();

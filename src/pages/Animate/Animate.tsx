@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHotkeys } from 'react-hotkeys-hook';
 
 import Artboard from '../../components/Artboard';
 import Box from '../../components/Box';
@@ -23,7 +24,7 @@ import {
 
 const Animate: React.FunctionComponent = () => {
   const { toggle, open } = useEditorState();
-  const { pausePlayState } = useAnimationState();
+  const { pausePlayState, move } = useAnimationState();
   const [resetKey, setResetKey] = useState('reset-key');
 
   const handleReset = () => {
@@ -33,6 +34,22 @@ const Animate: React.FunctionComponent = () => {
       setResetKey('reset-key');
     }, 50);
   };
+
+  useHotkeys('left', () => {
+    move('x', -5);
+  });
+
+  useHotkeys('right', () => {
+    move('x', 5);
+  });
+
+  useHotkeys('up', () => {
+    move('y', -5);
+  });
+
+  useHotkeys('down', () => {
+    move('y', 5);
+  });
 
   return (
     <Container>
