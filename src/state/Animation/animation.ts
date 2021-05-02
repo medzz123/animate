@@ -34,7 +34,10 @@ export const useAnimationState = () => {
   const cleanState = state.get();
 
   const parsed = useMemo(() => {
-    return parseElements(cleanState.elements);
+    return parseElements(
+      cleanState.elements,
+      cleanState['animation-play-state']
+    );
   }, [cleanState.elements]);
 
   const { jsx, nodes } = useMemo(() => {
@@ -98,13 +101,13 @@ export const useAnimationState = () => {
     get currentStepState() {
       const element = state.element.get();
 
-      if (!element) {
+      if (element === undefined) {
         return undefined;
       }
 
       const step = state.elements[element].step.get();
 
-      if (!step) {
+      if (step === undefined) {
         return undefined;
       }
 

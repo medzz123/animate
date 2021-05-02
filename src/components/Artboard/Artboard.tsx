@@ -19,7 +19,7 @@ import {
 } from './Artboard.styles';
 
 const Artboard: FunctionComponent = () => {
-  const [contentRef, setContentRef] = useState(null);
+  const [contentRef, setContentRef] = useState<HTMLIFrameElement>(null);
   const {
     parsed,
     css,
@@ -31,9 +31,11 @@ const Artboard: FunctionComponent = () => {
   } = useAnimationState();
   const { state } = useArtboardState();
 
-  const mountNode = contentRef?.contentWindow?.document?.body;
-
   const [_, forceUpdate] = useReducer((x) => x + 1, 0);
+
+  const doc = contentRef?.contentWindow?.document;
+  const mountNode = doc?.body;
+  const head = doc?.head;
 
   useEffect(() => {
     contentRef?.addEventListener('load', forceUpdate);
@@ -42,6 +44,29 @@ const Artboard: FunctionComponent = () => {
       contentRef?.removeEventListener('load', forceUpdate);
     };
   }, [contentRef]);
+
+  useEffect(() => {
+    if (doc && head) {
+      const cacheControlMeta = doc.createElement('meta');
+
+      cacheControlMeta.httpEquiv = 'cache-control';
+      cacheControlMeta.content = 'no-cache';
+
+      const expiresMeta = doc.createElement('meta');
+
+      expiresMeta.httpEquiv = 'expires';
+      expiresMeta.content = '0';
+
+      const pragmaMeta = doc.createElement('meta');
+
+      pragmaMeta.httpEquiv = 'pragma';
+      pragmaMeta.content = 'no-cache';
+
+      head.append(cacheControlMeta);
+      head.append(expiresMeta);
+      head.append(pragmaMeta);
+    }
+  }, [head, doc]);
 
   return (
     <ArtboardContainer data-testid="artboard" id="parent">
@@ -52,7 +77,7 @@ const Artboard: FunctionComponent = () => {
         artboardHeight={height}
       >
         <IFrame title="Hello" frameBorder="0" ref={setContentRef}>
-          <StyleSheetManager target={contentRef?.contentWindow?.document?.head}>
+          <StyleSheetManager target={head}>
             <div>
               <GlobalFrameStyles />
               {mountNode &&
