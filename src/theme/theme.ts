@@ -15,10 +15,10 @@ const dark: Theme = {
 };
 
 const day: Theme = {
-  background: '#ffffff',
-  headline: '#121212',
-  paragraph: '#121212',
-  button: '#446DF6',
+  background: '#f7f8fc',
+  headline: '#262835',
+  paragraph: '#262835',
+  button: '#262835',
   buttonText: '#ffffff',
 };
 

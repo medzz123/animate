@@ -16,3 +16,9 @@ const Template: Story = (storyArguments) => (
 );
 
 export const AccordionStory = Template.bind({});
+
+AccordionStory.args = {
+  title: 'Accordion',
+  id: 'Accordion',
+  Icon: BiMove,
+};

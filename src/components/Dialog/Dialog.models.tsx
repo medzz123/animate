@@ -6,4 +6,6 @@ export interface DialogProps {
    */
   label: string;
   onOpenChange?: DialogOwnProps['onOpenChange'];
+  open?: boolean;
+  close?: () => void;
 }

@@ -4,9 +4,7 @@ import styled from 'styled-components';
 import { tokens } from '../../theme/tokens';
 
 export const HeaderContainer = styled.div`
-  padding: ${tokens.sizes[24]} ${tokens.sizes[24]};
-  background-color: transparent;
-
+  padding: ${tokens.sizes[12]} ${tokens.sizes[12]};
   display: flex;
   justify-content: space-between;
   align-items: center;

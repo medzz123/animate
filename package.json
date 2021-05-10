@@ -21,6 +21,7 @@
     "@hookstate/core": "^3.0.6",
     "@radix-ui/react-accordion": "^0.0.7",
     "@radix-ui/react-dialog": "^0.0.15",
+    "@radix-ui/react-dropdown-menu": "^0.0.18",
     "ace-builds": "^1.4.12",
     "copy-to-clipboard": "^3.3.1",
     "html-react-parser": "^1.2.4",

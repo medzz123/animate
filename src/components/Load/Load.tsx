@@ -18,7 +18,7 @@ import {
   SelectAnimationButton,
 } from './Load.styles';
 
-const Load: FunctionComponent = () => {
+const Load: FunctionComponent<{ open: boolean }> = (props) => {
   const [state] = useState(() => {
     return getLocalAnimations();
   });
@@ -31,7 +31,7 @@ const Load: FunctionComponent = () => {
   const currentAnimation = window.localStorage.getItem('current');
 
   return (
-    <Dialog label="Load">
+    <Dialog label="Load" open={props.open}>
       <h2>Editing: {currentAnimation.replace('animation-', '')}</h2>
       {!currentAnimation.includes('animation-') && (
         <p>

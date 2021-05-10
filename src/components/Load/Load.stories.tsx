@@ -8,6 +8,8 @@ export default {
   component: Load,
 } as Meta;
 
-const Template: Story = (storyArguments) => <Load {...storyArguments} />;
+const Template: Story = (storyArguments) => (
+  <Load open={false} {...storyArguments} />
+);
 
 export const LoadStory = Template.bind({});

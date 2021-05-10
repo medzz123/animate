@@ -40,7 +40,53 @@ const Export: FunctionComponent = () => {
             );
           }}
         >
-          Export
+          Export HTML
+        </Button>
+      </Box>
+
+      <h3>Export to React</h3>
+      <p>
+        This will create a React file with the animation as a styled component.
+      </p>
+
+      <Box marginBottom={16}>
+        <Button
+          onClick={() => {
+            fileDownload(
+              getProcessedString({
+                parsed,
+                css,
+                markup,
+                nodes,
+                currentAnimationName,
+              }),
+              `${currentAnimationName}.html`
+            );
+          }}
+        >
+          Export React
+        </Button>
+      </Box>
+
+      <h3>Export as animation file</h3>
+      <p>You can</p>
+
+      <Box marginBottom={16}>
+        <Button
+          onClick={() => {
+            fileDownload(
+              getProcessedString({
+                parsed,
+                css,
+                markup,
+                nodes,
+                currentAnimationName,
+              }),
+              `${currentAnimationName}.html`
+            );
+          }}
+        >
+          Export React
         </Button>
       </Box>
 

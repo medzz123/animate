@@ -9,6 +9,7 @@ import Controller from '../../components/Controller';
 import Export from '../../components/Export';
 import Help from '../../components/Help';
 import Load from '../../components/Load';
+import Menu from '../../components/Menu';
 import Target from '../../components/Target';
 import Timeline from '../../components/Timeline';
 import { useAnimationState } from '../../state/Animation/animation';
@@ -26,6 +27,17 @@ const Animate: React.FunctionComponent = () => {
   const { toggle, open } = useEditorState();
   const { pausePlayState, move } = useAnimationState();
   const [resetKey, setResetKey] = useState('reset-key');
+
+  const [dialogState, setDialogState] = useState({
+    load: false,
+    target: false,
+    label: false,
+    hep: false,
+  });
+
+  const toggleDialog = (dialog: 'load' | 'target' | 'label' | 'help') => {
+    setDialogState((s) => ({ ...s, [dialog]: !s[dialog] }));
+  };
 
   const handleReset = () => {
     setResetKey('frame-off');
@@ -54,7 +66,27 @@ const Animate: React.FunctionComponent = () => {
   return (
     <Container>
       <ToolBar>
-        <Load />
+        <Menu
+          items={[
+            {
+              label: 'Load',
+              onClick: () => toggleDialog('load'),
+            },
+            {
+              label: 'Target',
+              onClick: () => toggleDialog('target'),
+            },
+            {
+              label: 'Export',
+              onClick: () => toggleDialog('label'),
+            },
+            {
+              label: 'Help',
+              onClick: () => toggleDialog('help'),
+            },
+          ]}
+        />
+        <Load open={dialogState.load} />
         <Box width={10} />
         <Target />
         <Box width={10} />
