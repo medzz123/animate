@@ -8,6 +8,8 @@ export const StyledTrigger = styled(Trigger)`
   padding: ${tokens.sizes[4]};
   border-radius: ${tokens.sizes[4]};
   box-shadow: inset 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.headline};
+  height: ${tokens.sizes[32]};
+  width: ${tokens.sizes[32]};
 `;
 
 export const StyledContent = styled(Content)`

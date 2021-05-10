@@ -1,13 +1,13 @@
 import copy from 'copy-to-clipboard';
 import fileDownload from 'js-file-download';
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import { useToasts } from 'react-toast-notifications';
 
 import { useAnimationState } from '../../state/Animation/animation';
+import { useDialogContext } from '../../state/dialogs';
 import Box from '../Box';
 import Button from '../Button';
 import Dialog from '../Dialog';
-import { Close } from '../Dialog/Dialog.close';
 import { Code } from './Export.styles';
 import { getProcessedString } from './Export.utils';
 
@@ -20,8 +20,14 @@ const Export: FunctionComponent = () => {
     .getItem('current')
     .replace('animation-', '');
 
+  const { exp, set } = useDialogContext();
+
+  const close = () => {
+    set({ field: 'exp', value: false });
+  };
+
   return (
-    <Dialog label="Export">
+    <Dialog label="Export" open={exp} close={close}>
       <h3>Export to HTML</h3>
       <p>This will create a HTML file with animation.</p>
 
@@ -124,9 +130,7 @@ const Export: FunctionComponent = () => {
           Copy to clipboard
         </Button>
       </Box>
-      <Box marginBottom={16}>
-        <Close>Close</Close>
-      </Box>
+      <Box marginBottom={16}></Box>
     </Dialog>
   );
 };

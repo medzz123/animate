@@ -8,4 +8,5 @@ export interface DialogProps {
   onOpenChange?: DialogOwnProps['onOpenChange'];
   open?: boolean;
   close?: () => void;
+  button?: boolean;
 }

@@ -5,21 +5,28 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { ToastProvider } from 'react-toast-notifications';
 import { ThemeProvider } from 'styled-components';
 
+import { DialogProvider, initDialogContext } from '../src/state/dialogs';
 import { themes } from '../src/theme/theme';
 
-const AllTheProviders: FC = ({ children }) => (
-  <ThemeProvider theme={themes.dark}>
-    <IdProvider>
-      <ToastProvider
-        autoDismiss={true}
-        placement="bottom-center"
-        autoDismissTimeout={2000}
-      >
-        <Router>{children}</Router>
-      </ToastProvider>
-    </IdProvider>
-  </ThemeProvider>
-);
+const AllTheProviders: FC = ({ children }) => {
+  const dialogProviderValues = initDialogContext();
+
+  return (
+    <ThemeProvider theme={themes.dark}>
+      <IdProvider>
+        <ToastProvider
+          autoDismiss={true}
+          placement="bottom-center"
+          autoDismissTimeout={2000}
+        >
+          <DialogProvider value={dialogProviderValues}>
+            <Router>{children}</Router>
+          </DialogProvider>
+        </ToastProvider>
+      </IdProvider>
+    </ThemeProvider>
+  );
+};
 
 const customRender = (
   ui: ReactElement,

@@ -13,6 +13,7 @@ import Menu from '../../components/Menu';
 import Target from '../../components/Target';
 import Timeline from '../../components/Timeline';
 import { useAnimationState } from '../../state/Animation/animation';
+import { useDialogContext } from '../../state/dialogs';
 import { useEditorState } from '../../state/editor';
 import {
   BottomPanel,
@@ -28,16 +29,7 @@ const Animate: React.FunctionComponent = () => {
   const { pausePlayState, move } = useAnimationState();
   const [resetKey, setResetKey] = useState('reset-key');
 
-  const [dialogState, setDialogState] = useState({
-    load: false,
-    target: false,
-    label: false,
-    hep: false,
-  });
-
-  const toggleDialog = (dialog: 'load' | 'target' | 'label' | 'help') => {
-    setDialogState((s) => ({ ...s, [dialog]: !s[dialog] }));
-  };
+  const { set } = useDialogContext();
 
   const handleReset = () => {
     setResetKey('frame-off');
@@ -70,23 +62,23 @@ const Animate: React.FunctionComponent = () => {
           items={[
             {
               label: 'Load',
-              onClick: () => toggleDialog('load'),
+              onClick: () => set({ field: 'load', value: true }),
             },
             {
               label: 'Target',
-              onClick: () => toggleDialog('target'),
+              onClick: () => set({ field: 'target', value: true }),
             },
             {
               label: 'Export',
-              onClick: () => toggleDialog('label'),
+              onClick: () => set({ field: 'exp', value: true }),
             },
             {
               label: 'Help',
-              onClick: () => toggleDialog('help'),
+              onClick: () => set({ field: 'help', value: true }),
             },
           ]}
         />
-        <Load open={dialogState.load} />
+        <Load />
         <Box width={10} />
         <Target />
         <Box width={10} />

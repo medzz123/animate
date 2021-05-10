@@ -4,12 +4,12 @@ import { VscClose } from 'react-icons/vsc';
 
 import * as animations from '../../animations';
 import { useAnimationState } from '../../state/Animation/animation';
+import { useDialogContext } from '../../state/dialogs';
 import { getLocalAnimations } from '../../utils/GetLocalAnimations';
 import Box from '../Box';
 import Flex from '../Box/Flex';
 import Button from '../Button';
 import Dialog from '../Dialog';
-import { Close } from '../Dialog/Dialog.close';
 import {
   DeleteAnimationButton,
   Item,
@@ -18,10 +18,16 @@ import {
   SelectAnimationButton,
 } from './Load.styles';
 
-const Load: FunctionComponent<{ open: boolean }> = (props) => {
+const Load: FunctionComponent = () => {
   const [state] = useState(() => {
     return getLocalAnimations();
   });
+
+  const { load, set } = useDialogContext();
+
+  const close = () => {
+    set({ field: 'load', value: false });
+  };
 
   const { state: currentState } = useAnimationState();
 
@@ -31,7 +37,7 @@ const Load: FunctionComponent<{ open: boolean }> = (props) => {
   const currentAnimation = window.localStorage.getItem('current');
 
   return (
-    <Dialog label="Load" open={props.open}>
+    <Dialog label="Load" open={load} close={close}>
       <h2>Editing: {currentAnimation.replace('animation-', '')}</h2>
       {!currentAnimation.includes('animation-') && (
         <p>
@@ -143,7 +149,7 @@ const Load: FunctionComponent<{ open: boolean }> = (props) => {
         </Button>
       </Flex>
       <Box height={20} />
-      <Close>Close</Close>
+      <Button onClick={close}>Close</Button>
     </Dialog>
   );
 };

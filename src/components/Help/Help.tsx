@@ -1,13 +1,19 @@
 import React, { FunctionComponent } from 'react';
 
+import { useDialogContext } from '../../state/dialogs';
 import Box from '../Box';
 import Dialog from '../Dialog';
-import { Close } from '../Dialog/Dialog.close';
 import { OrderedList } from './Help.styles';
 
 const Help: FunctionComponent = () => {
+  const { help, set } = useDialogContext();
+
+  const close = () => {
+    set({ field: 'help', value: false });
+  };
+
   return (
-    <Dialog label="Help">
+    <Dialog label="Help" open={help} close={close}>
       <h3>How to use</h3>
       <OrderedList>
         <li>
@@ -27,7 +33,6 @@ const Help: FunctionComponent = () => {
         </li>
       </OrderedList>
       <Box height={20} />
-      <Close>Close</Close>
     </Dialog>
   );
 };

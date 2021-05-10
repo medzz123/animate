@@ -2,9 +2,9 @@ import React, { FunctionComponent } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import { useAnimationState } from '../../state/Animation/animation';
+import { useDialogContext } from '../../state/dialogs';
 import Box from '../Box';
 import Dialog from '../Dialog';
-import { Close } from '../Dialog/Dialog.close';
 import Editor from '../Editor';
 import { TargetFallback } from './Target.fallback';
 
@@ -23,8 +23,19 @@ const Target: FunctionComponent = () => {
     }
   };
 
+  const { target, set } = useDialogContext();
+
+  const close = () => {
+    set({ field: 'target', value: false });
+  };
+
   return (
-    <Dialog label="Target" onOpenChange={openOpenChange}>
+    <Dialog
+      label="Target"
+      open={target}
+      close={close}
+      onOpenChange={openOpenChange}
+    >
       <ErrorBoundary
         fallbackRender={TargetFallback}
         onReset={() => {
@@ -39,9 +50,7 @@ const Target: FunctionComponent = () => {
         <h3>Initial CSS</h3>
         <p>Initial CSS applied to your HTML elements.</p>
         <Editor language="scss" value={css} onChange={onChangeCss} />
-        <Box marginTop={16}>
-          <Close>Close</Close>
-        </Box>
+        <Box marginTop={16}></Box>
       </ErrorBoundary>
     </Dialog>
   );
