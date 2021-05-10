@@ -1,11 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { VscClose } from 'react-icons/vsc';
-import { useTheme } from 'styled-components';
 
 import { useAnimationState } from '../../state/Animation/animation';
-import Box from '../Box';
+import ContextMenu from '../ContextMenu';
 import {
-  DeleteButton,
   Frame,
   FramesContainer,
   Item,
@@ -23,49 +20,44 @@ const Timeline: FunctionComponent = () => {
     deleteElement,
   } = useAnimationState();
 
-  const theme = useTheme();
-
   return (
     <TimelineContainer data-testid="timeline">
       <List>
         {Object.keys(state.elements).map((key) => (
-          <Item
+          <ContextMenu
             key={key}
-            selected={key === state.element}
-            onClick={() => {
-              setElement(key);
-            }}
+            items={[
+              key !== state.element && {
+                label: 'Delete Element',
+                onClick: () => deleteElement(key),
+              },
+            ]}
           >
-            <Overflow>{key}</Overflow>
-            {key !== state.element ? (
-              <DeleteButton
-                type="button"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  deleteElement(key);
-                }}
-              >
-                <VscClose size="20px" color={theme.paragraph} />
-              </DeleteButton>
-            ) : (
-              <Box minWidth={48} height={24} />
-            )}
-            <FramesContainer>
-              {Object.keys(state.elements[key].steps).map((frame) => (
-                <Frame
-                  selected={
-                    key === state.element && Number(frame) === currentStep
-                  }
-                  key={`frame@${frame}`}
-                  position={frame}
-                  type="button"
-                  onClick={() => {
-                    setStep(Number(frame));
-                  }}
-                />
-              ))}
-            </FramesContainer>
-          </Item>
+            <Item
+              selected={key === state.element}
+              onClick={() => {
+                setElement(key);
+              }}
+            >
+              <Overflow>{key}</Overflow>
+
+              <FramesContainer>
+                {Object.keys(state.elements[key].steps).map((frame) => (
+                  <Frame
+                    key={`frame@${frame}`}
+                    selected={
+                      key === state.element && Number(frame) === currentStep
+                    }
+                    position={frame}
+                    type="button"
+                    onClick={() => {
+                      setStep(Number(frame));
+                    }}
+                  />
+                ))}
+              </FramesContainer>
+            </Item>
+          </ContextMenu>
         ))}
       </List>
     </TimelineContainer>

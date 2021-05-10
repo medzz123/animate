@@ -13,8 +13,10 @@ import { MdSlowMotionVideo } from 'react-icons/md';
 import { useAnimationState } from '../../state/Animation/animation';
 import Accordion from '../Accordion';
 import AnimatableInput from '../AnimatableInput';
+import Box from '../Box';
 import Flex from '../Box/Flex';
-import { ControllerContainer } from './Controller.styles';
+import Button from '../Button';
+import { ActionsContainer, ControllerContainer } from './Controller.styles';
 
 const Controller: FunctionComponent = () => {
   const {
@@ -37,6 +39,12 @@ const Controller: FunctionComponent = () => {
         <h3>{currentElement}</h3>
         <h3>{currentStep}%</h3>
       </Flex>
+
+      <Accordion title="Artboard" id="artboard-size" Icon={FaSign}>
+        <AnimatableInput label="Width" value={width} onChange={setWidth} />
+        <AnimatableInput label="Height" value={height} onChange={setHeight} />
+      </Accordion>
+
       {currentStepState ? (
         <>
           <Accordion
@@ -256,10 +264,14 @@ const Controller: FunctionComponent = () => {
         <p>Select a step to edit</p>
       )}
 
-      <Accordion title="Artboard" id="artboard-size" Icon={FaSign}>
-        <AnimatableInput label="Width" value={width} onChange={setWidth} />
-        <AnimatableInput label="Height" value={height} onChange={setHeight} />
-      </Accordion>
+      <ActionsContainer>
+        <Box flex={1}>
+          <Button>Add Step</Button>
+        </Box>
+        <Box flex={1}>
+          <Button>Delete Step</Button>
+        </Box>
+      </ActionsContainer>
     </ControllerContainer>
   );
 };

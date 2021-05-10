@@ -4,7 +4,6 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import Artboard from '../../components/Artboard';
 import Box from '../../components/Box';
 import Button from '../../components/Button';
-import Control from '../../components/Control';
 import Controller from '../../components/Controller';
 import Export from '../../components/Export';
 import Help from '../../components/Help';
@@ -18,7 +17,6 @@ import { useEditorState } from '../../state/editor';
 import {
   BottomPanel,
   Container,
-  ControlsPanel,
   FlexContainer,
   LeftSidePanel,
   ToolBar,
@@ -92,15 +90,11 @@ const Animate: React.FunctionComponent = () => {
       </ToolBar>
 
       <FlexContainer>
-        <Artboard key={resetKey} />
+        <Artboard key={resetKey} handleReset={handleReset} />
         <LeftSidePanel closed={open}>
           <Controller />
         </LeftSidePanel>
       </FlexContainer>
-
-      <ControlsPanel>
-        <Control handleReset={handleReset} />
-      </ControlsPanel>
 
       <BottomPanel>
         <Timeline />

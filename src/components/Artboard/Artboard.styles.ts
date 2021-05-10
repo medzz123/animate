@@ -12,6 +12,48 @@ export const ArtboardContainer = styled.div`
   background-color: ${(p) => p.theme.headline}${tokens.alpha[5]};
 `;
 
+export const PlayButton = styled.button.attrs({ type: 'button' })`
+  color: ${(p) => p.theme.button};
+
+  &:focus {
+    box-shadow: none;
+  }
+`;
+
+export const PlayDivider = styled.div`
+  width: 2px;
+  height: 20px;
+  margin: 0 12px;
+  background-color: ${(p) => p.theme.button};
+`;
+
+export const PlayStateContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transition: all 200ms ease;
+
+  box-shadow: 0 0 ${tokens.sizes[12]} ${tokens.sizes[4]}
+    ${(p) => p.theme.headline}${tokens.alpha[8]};
+
+  left: 50%;
+  bottom: 10px;
+
+  transform: translateX(-50%) scale(0.8);
+
+  padding: 8px 12px;
+  border-radius: 24px;
+  opacity: 0.3;
+
+  background-color: ${(p) => p.theme.background};
+
+  &:hover {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+`;
+
 export const AspectRatio = styled.div.attrs({
   id: 'aspect-ratio',
 })<AspectRatioProps>`

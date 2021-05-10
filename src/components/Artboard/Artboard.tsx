@@ -5,10 +5,14 @@ import React, {
   useState,
 } from 'react';
 import { createPortal } from 'react-dom';
+import { FaPause, FaPlay, FaStop } from 'react-icons/fa';
 import { StyleSheetManager } from 'styled-components';
 
 import { useAnimationState } from '../../state/Animation/animation';
 import { useArtboardState } from '../../state/artboard';
+import Box from '../Box';
+import Button from '../Button';
+import { ArtboardProps } from './Artboard.models';
 import {
   AnimationsManager,
   ArtboardContainer,
@@ -16,15 +20,20 @@ import {
   AspectRatio,
   GlobalFrameStyles,
   IFrame,
+  PlayButton,
+  PlayDivider,
+  PlayStateContainer,
 } from './Artboard.styles';
 
-const Artboard: FunctionComponent = () => {
+const Artboard: FunctionComponent<ArtboardProps> = (props) => {
   const [contentRef, setContentRef] = useState<HTMLIFrameElement>(null);
+  const { handleReset } = props;
   const {
     parsed,
     css,
     react,
     width,
+    togglePlayState,
     height,
     nodes,
     playState,
@@ -102,6 +111,19 @@ const Artboard: FunctionComponent = () => {
           </StyleSheetManager>
         </IFrame>
       </AspectRatio>
+      <PlayStateContainer>
+        <PlayButton onClick={togglePlayState}>
+          {playState === 'paused' ? (
+            <FaPause size={16} />
+          ) : (
+            <FaPlay size={16} />
+          )}
+        </PlayButton>
+        <PlayDivider />
+        <PlayButton onClick={handleReset}>
+          <FaStop size={16} />
+        </PlayButton>
+      </PlayStateContainer>
     </ArtboardContainer>
   );
 };

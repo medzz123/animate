@@ -1,19 +1,7 @@
-import { Content, Item, Trigger } from '@radix-ui/react-dropdown-menu';
+import { Content, Item, Trigger } from '@radix-ui/react-context-menu';
 import styled from 'styled-components';
 
 import { tokens } from '../../theme/tokens';
-
-export const StyledTrigger = styled(Trigger)`
-  color: ${(p) => p.theme.headline};
-  padding: ${tokens.sizes[4]};
-  border-radius: ${tokens.sizes[4]};
-  box-shadow: 0 0 ${tokens.sizes[12]} ${tokens.sizes[4]}
-    ${(p) => p.theme.headline}${tokens.alpha[8]};
-
-  background-color: ${(p) => p.theme.background};
-  height: ${tokens.sizes[32]};
-  width: ${tokens.sizes[32]};
-`;
 
 export const StyledContent = styled(Content)`
   min-width: ${tokens.sizes['3xs']};
@@ -37,4 +25,8 @@ export const StyledItem = styled(Item)`
     background-color: ${(p) => p.theme.button};
     color: ${(p) => p.theme.background};
   }
+`;
+
+export const StyledTrigger = styled(Trigger)`
+  width: ${tokens.sizes.full};
 `;
