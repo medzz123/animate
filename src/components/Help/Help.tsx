@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { IoMdHelpCircleOutline } from 'react-icons/io';
 
 import { useDialogContext } from '../../state/dialogs';
 import Box from '../Box';
@@ -13,7 +14,7 @@ const Help: FunctionComponent = () => {
   };
 
   return (
-    <Dialog label="Help" open={help} close={close}>
+    <Dialog label="Help" Icon={IoMdHelpCircleOutline} open={help} close={close}>
       <h3>How to use</h3>
       <OrderedList>
         <li>

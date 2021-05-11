@@ -10,13 +10,15 @@ export const DeleteButton = styled.button`
 
 export const TimelineContainer = styled.div`
   width: ${tokens.sizes.full};
-  padding-bottom: ${tokens.sizes[8]};
 
-  height: ${tokens.sizes['4xs']};
+  height: 100%;
   overflow-y: scroll;
 
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
 
   span {
     color: ${(p) => p.theme.paragraph};
@@ -24,6 +26,27 @@ export const TimelineContainer = styled.div`
 
   &::-webkit-scrollbar {
     display: none;
+  }
+`;
+
+export const ActionsContainer = styled.div`
+  padding: 26px 42px;
+  display: flex;
+  justify-content: space-between;
+
+  svg {
+    height: 16px;
+  }
+`;
+
+export const AddObject = styled.button`
+  font-size: 16px;
+
+  color: hsla(226, 32%, 28%, 1);
+  font-weight: 300;
+
+  svg {
+    margin-left: 8px;
   }
 `;
 
@@ -36,51 +59,46 @@ export const List = styled.ul`
 
 export const Item = styled.li<{ selected?: boolean }>`
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
   transition: all 200ms ease;
 
-  padding: ${tokens.sizes[4]} ${tokens.sizes[8]};
+  padding: ${tokens.sizes[16]} ${tokens.sizes[40]};
 
   width: ${tokens.sizes.full};
-  border-bottom: ${tokens.sizes[1]} solid ${(p) => p.theme.headline}${tokens.alpha[50]};
+
+  border-radius: 20px;
 
   ${(p) =>
     p.selected &&
     css`
-      background-color: ${(p) => p.theme.headline}${tokens.alpha[5]};
+      background-color: #f7f8fc;
     `}
 
   &:hover {
-    background-color: ${(p) => p.theme.headline}${tokens.alpha[5]};
+    background-color: #f7f8fc;
   }
 `;
 
 export const Overflow = styled.span`
-  display: block;
-  min-width: ${tokens.sizes[60]};
-  max-width: ${tokens.sizes[60]};
-  margin-right: ${tokens.sizes[8]};
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  margin-top: auto;
-  margin-bottom: auto;
-
-  position: relative;
-  margin-right: ${tokens.sizes[8]};
-  cursor: default;
-  padding: 0 ${tokens.sizes[2]};
-
-  font-family: 'Inter', sans-serif;
-  font-size: ${tokens.sizes[12]};
+  font-size: ${tokens.sizes[14]};
+  font-weight: bold;
 `;
 
 export const TooltipText = styled.span`
   font-size: ${tokens.sizes[12]};
 `;
 
+export const TimelineText = styled.span`
+  margin-right: 30px;
+  font-size: 12px;
+  font-weight: 300;
+  color: #313c60;
+  min-width: 80px;
+`;
+
 export const FramesContainer = styled.div`
-  margin: 0 ${tokens.sizes[16]} 0 ${tokens.sizes[24]};
   height: ${tokens.sizes[24]};
   width: ${tokens.sizes.full};
   position: relative;
@@ -105,9 +123,8 @@ export const Frame = styled.button<{ position: string; selected: boolean }>`
   cursor: pointer;
 
   background-color: ${(p) => p.theme.button};
-  opacity: 0.7;
-  width: ${tokens.sizes[9]};
-  height: ${tokens.sizes[9]};
+  width: ${tokens.sizes[7]};
+  height: ${tokens.sizes[7]};
   border-radius: 50%;
 
   transform: translateY(-50%);
@@ -117,15 +134,10 @@ export const Frame = styled.button<{ position: string; selected: boolean }>`
     css`
       box-shadow: none;
       transform: translateY(-50%) scale(2);
-      opacity: 1;
     `}
-
-  box-shadow: inset 0 0 0  ${tokens.sizes[2]} ${(p) => p.theme.buttonText};
 
   &:focus,
   &:hover {
     transform: translateY(-50%) scale(2);
-    box-shadow: inset 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.buttonText};
-    opacity: 1;
   }
 `;

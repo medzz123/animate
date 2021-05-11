@@ -35,7 +35,7 @@ const Controller: FunctionComponent = () => {
 
   return (
     <ControllerContainer data-testid="controller">
-      <Flex justifyContent="space-between">
+      <Flex justifyContent="space-between" marginBottom={24}>
         <h3>{currentElement}</h3>
         <h3>{currentStep}%</h3>
       </Flex>
@@ -264,14 +264,14 @@ const Controller: FunctionComponent = () => {
         <p>Select a step to edit</p>
       )}
 
-      <ActionsContainer>
+      {/* <ActionsContainer>
         <Box flex={1}>
           <Button>Add Step</Button>
         </Box>
         <Box flex={1}>
           <Button>Delete Step</Button>
         </Box>
-      </ActionsContainer>
+      </ActionsContainer> */}
     </ControllerContainer>
   );
 };

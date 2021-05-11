@@ -7,9 +7,8 @@ const padding = 95;
 
 export const ArtboardContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: calc(100% - 109px);
   position: relative;
-  background-color: ${(p) => p.theme.headline}${tokens.alpha[5]};
 `;
 
 export const PlayButton = styled.button.attrs({ type: 'button' })`
@@ -73,7 +72,8 @@ export const AspectRatio = styled.div.attrs({
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${(p) => p.theme.background}${tokens.alpha[50]};
+
+  border: 5px dashed #f0f0f0;
 `;
 
 export const ArtboardSize = styled.div<ArtboardSizeProps>`

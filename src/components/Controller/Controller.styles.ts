@@ -10,7 +10,7 @@ export const ControllerContainer = styled.div`
   padding-bottom: ${tokens.sizes[8]};
   padding-left: ${tokens.sizes[8]};
   padding-right: ${tokens.sizes[8]};
-  min-width: ${tokens.sizes['1xs']};
+  min-width: 229px;
 
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */

@@ -111,7 +111,7 @@ const Artboard: FunctionComponent<ArtboardProps> = (props) => {
           </StyleSheetManager>
         </IFrame>
       </AspectRatio>
-      <PlayStateContainer>
+      {/* <PlayStateContainer>
         <PlayButton onClick={togglePlayState}>
           {playState === 'paused' ? (
             <FaPause size={16} />
@@ -123,7 +123,7 @@ const Artboard: FunctionComponent<ArtboardProps> = (props) => {
         <PlayButton onClick={handleReset}>
           <FaStop size={16} />
         </PlayButton>
-      </PlayStateContainer>
+      </PlayStateContainer> */}
     </ArtboardContainer>
   );
 };

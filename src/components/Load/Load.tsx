@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FunctionComponent } from 'react';
+import { Plus } from 'react-iconly';
 import { VscClose } from 'react-icons/vsc';
 
 import * as animations from '../../animations';
@@ -37,7 +38,7 @@ const Load: FunctionComponent = () => {
   const currentAnimation = window.localStorage.getItem('current');
 
   return (
-    <Dialog label="Load" open={load} close={close}>
+    <Dialog label="Load" Icon={Plus} button={true} open={load} close={close}>
       <h2>Editing: {currentAnimation.replace('animation-', '')}</h2>
       {!currentAnimation.includes('animation-') && (
         <p>

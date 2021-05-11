@@ -1,6 +1,7 @@
 import copy from 'copy-to-clipboard';
 import fileDownload from 'js-file-download';
 import { FunctionComponent } from 'react';
+import { Upload } from 'react-iconly';
 import { useToasts } from 'react-toast-notifications';
 
 import { useAnimationState } from '../../state/Animation/animation';
@@ -27,7 +28,7 @@ const Export: FunctionComponent = () => {
   };
 
   return (
-    <Dialog label="Export" open={exp} close={close}>
+    <Dialog label="Export" Icon={Upload} open={exp} close={close}>
       <h3>Export to HTML</h3>
       <p>This will create a HTML file with animation.</p>
 

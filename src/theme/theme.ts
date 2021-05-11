@@ -15,7 +15,7 @@ const dark: Theme = {
 };
 
 const day: Theme = {
-  background: '#f7f8fc',
+  background: '#FBFBFB',
   headline: '#262835',
   paragraph: '#262835',
   button: '#262835',

@@ -1,4 +1,5 @@
 import { DialogOwnProps } from '@radix-ui/react-dialog';
+import { IconType } from 'react-icons';
 
 export interface DialogProps {
   /**
@@ -9,4 +10,5 @@ export interface DialogProps {
   open?: boolean;
   close?: () => void;
   button?: boolean;
+  Icon?: IconType;
 }

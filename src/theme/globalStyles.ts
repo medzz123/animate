@@ -3,22 +3,110 @@ import { createGlobalStyle, css } from 'styled-components';
 import { buttonReset, listReset } from './resets';
 import { tokens } from './tokens';
 
-const styles = css`
+const layoutStyles = css`
   html {
-    scroll-behavior: smooth;
-    font-family: 'Inter', sans-serif;
+    display: flex;
+    min-height: ${tokens.sizes.full};
   }
 
   body,
-  html {
+  #root,
+  main {
+    display: flex;
+    flex: 1;
+    height: auto;
+    min-height: auto;
+  }
+
+  body {
     margin: 0;
     padding: 0;
-    background-color: ${(p) => p.theme.background};
-    color: ${(p) => p.theme.headline};
+    overflow-x: hidden;
   }
 
   * {
     box-sizing: border-box;
+  }
+`;
+
+const fontStyles = css`
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+
+  p,
+  a,
+  button,
+  input,
+  label,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Inter', sans-serif;
+    line-height: 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: ${tokens.sizes[48]};
+    font-weight: 900;
+  }
+
+  h3 {
+    font-size: ${tokens.sizes[24]};
+  }
+
+  p {
+    font-weight: 500;
+    font-size: ${tokens.sizes[18]};
+    line-height: 1.5;
+  }
+
+  a {
+    font-size: ${tokens.sizes[18]};
+    font-weight: 600;
+  }
+`;
+
+const colorStyles = css`
+  body {
+    background-color: ${(p) => p.theme.background};
+    color: ${(p) => p.theme.headline};
+  }
+
+  p {
+    color: ${(p) => p.theme.paragraph};
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #313c60;
+  }
+
+  a {
+    color: inherit;
+  }
+`;
+
+const generalStyles = css`
+  html {
+    scroll-behavior: smooth;
   }
 
   ul {
@@ -34,25 +122,12 @@ const styles = css`
     align-items: center;
 
     &:focus {
-      box-shadow: inset 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.headline};
+      text-decoration: underline;
     }
   }
 
   p {
-    color: ${(p) => p.theme.paragraph};
-    font-weight: 500;
-    font-size: ${tokens.sizes[18]};
-    line-height: 1.5;
     margin: 0 0 ${tokens.sizes[16]} 0;
-  }
-
-  p,
-  a,
-  button,
-  input,
-  label,
-  li {
-    font-family: 'Inter', sans-serif;
   }
 
   h1,
@@ -61,30 +136,17 @@ const styles = css`
   h4,
   h5,
   h6 {
-    color: ${(p) => p.theme.headline};
     margin: 0 0 ${tokens.sizes[16]} 0;
-    font-weight: 700;
-    font-family: 'Inter', sans-serif;
-  }
-
-  h1 {
-    font-size: ${tokens.sizes[48]};
-    font-weight: 900;
   }
 
   a {
     text-decoration: none;
-    color: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
     outline: none;
-
     transition: all 200ms ease;
-
     margin: ${tokens.sizes[4]} ${tokens.sizes[12]};
-    font-size: ${tokens.sizes[18]};
-    font-weight: 600;
     cursor: pointer;
     opacity: 0.8;
 
@@ -99,5 +161,8 @@ const styles = css`
 `;
 
 export const GlobalStyle = createGlobalStyle`
-  ${styles}
+  ${generalStyles}
+  ${layoutStyles}
+  ${fontStyles}
+  ${colorStyles}
 `;

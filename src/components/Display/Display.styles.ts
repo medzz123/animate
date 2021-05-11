@@ -9,6 +9,9 @@ const h320 = 280;
 const w768 = 700;
 const h768 = 500;
 
+const w992 = 900;
+const h992 = 600;
+
 export const DisplayContainer = styled.div`
   height: ${h320}px;
   width: ${w320}px;
@@ -17,6 +20,11 @@ export const DisplayContainer = styled.div`
   ${mq(768)} {
     height: ${h768}px;
     width: ${w768}px;
+  }
+
+  ${mq(992)} {
+    height: ${h992}px;
+    width: ${w992}px;
   }
 `;
 
@@ -40,6 +48,8 @@ ${(p) => p.nodes} {
 `;
 
 export const DisplayRatio = styled.div<DisplayRatioProps>`
+  border: 5px dashed #f0f0f0;
+
   width: ${padding}%;
   height: ${(p) =>
     (((p.artboardHeight / p.artboardWidth) * padding) / 100) * w320}px;
@@ -55,13 +65,19 @@ export const DisplayRatio = styled.div<DisplayRatioProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: inset 0 0 0 1px ${(p) => p.theme.headline};
 
   ${mq(768)} {
     height: ${(p) =>
       (((p.artboardHeight / p.artboardWidth) * padding) / 100) * w768}px;
     max-width: ${(p) =>
       (((p.artboardWidth / p.artboardHeight) * padding) / 100) * h768}px;
+  }
+
+  ${mq(992)} {
+    height: ${(p) =>
+      (((p.artboardHeight / p.artboardWidth) * padding) / 100) * w992}px;
+    max-width: ${(p) =>
+      (((p.artboardWidth / p.artboardHeight) * padding) / 100) * h992}px;
   }
 `;
 

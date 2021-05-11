@@ -2,11 +2,18 @@ import { Content, Overlay, Trigger } from '@radix-ui/react-dialog';
 import styled from 'styled-components';
 
 import { mq } from '../../theme/mediaQueries';
-import { secondaryButtonStyles } from '../../theme/reusable';
 import { tokens } from '../../theme/tokens';
 
 export const StyledTrigger = styled(Trigger)`
-  ${secondaryButtonStyles}
+  font-size: 16px;
+  font-weight: 300;
+  color: hsla(226, 32%, 28%, 1);
+
+  span + svg {
+    margin-left: 8px;
+    width: 16px;
+    height: 16px;
+  }
 `;
 
 export const StyledOverlay = styled(Overlay)`

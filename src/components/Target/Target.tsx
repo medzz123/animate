@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
+import { VscCode } from 'react-icons/vsc';
 
 import { useAnimationState } from '../../state/Animation/animation';
 import { useDialogContext } from '../../state/dialogs';
@@ -34,6 +35,7 @@ const Target: FunctionComponent = () => {
       label="Target"
       open={target}
       close={close}
+      Icon={VscCode}
       onOpenChange={openOpenChange}
     >
       <ErrorBoundary

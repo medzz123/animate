@@ -5,10 +5,23 @@ import { DialogProps } from './Dialog.models';
 import { StyledContent, StyledOverlay, StyledTrigger } from './Dialog.styles';
 
 const Dialog: FunctionComponent<DialogProps> = (props) => {
-  const { label, children, onOpenChange, open, close, button = false } = props;
+  const {
+    label,
+    children,
+    onOpenChange,
+    open,
+    close,
+    Icon,
+    button = true,
+  } = props;
   return (
     <Root data-testid="dialog" open={open} onOpenChange={onOpenChange}>
-      {button && <StyledTrigger type="button">{label}</StyledTrigger>}
+      {button && (
+        <StyledTrigger type="button">
+          <span>{label}</span>
+          {Icon && <Icon />}
+        </StyledTrigger>
+      )}
       <StyledOverlay />
       <StyledContent onPointerDownOutside={close} onEscapeKeyDown={close}>
         {children}

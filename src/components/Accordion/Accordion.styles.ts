@@ -16,7 +16,7 @@ export const StyledButton = styled(Button)`
 
   &:hover {
     span {
-      text-decoration: underline;
+      text-decoration: none;
     }
   }
 
@@ -24,18 +24,19 @@ export const StyledButton = styled(Button)`
     box-shadow: none;
 
     span {
-      text-decoration: underline;
+      text-decoration: none;
     }
   }
 `;
 
 export const Text = styled.span`
   margin-right: ${tokens.sizes[8]};
+  font-size: 14px;
 `;
 
 export const HorizontalLine = styled.div`
   height: ${tokens.sizes[1]};
-  background-color: ${(p) => p.theme.headline};
+  /* background-color: ${(p) => p.theme.headline}; */
   width: ${tokens.sizes.full};
   margin-left: ${tokens.sizes[8]};
 `;

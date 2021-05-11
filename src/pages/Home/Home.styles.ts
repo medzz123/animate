@@ -6,6 +6,7 @@ import { tokens } from '../../theme/tokens';
 export const Center = styled.div``;
 
 export const MaxWidth = styled.div`
+  margin: auto auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,17 +22,4 @@ export const MaxWidth = styled.div`
   }
 
   max-width: ${tokens.sizes['3xl']};
-`;
-
-export const HomeContainer = styled.div`
-  margin: auto auto;
-  padding: 0 ${tokens.sizes['24']} ${tokens.sizes['24']} ${tokens.sizes['24']};
-
-  min-width: calc(100vw - ${tokens.sizes[48]});
-  min-height: calc(100vh - 6.813rem - ${tokens.sizes[24]});
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 `;
