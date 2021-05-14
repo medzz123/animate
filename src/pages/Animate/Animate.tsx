@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
-import { Edit } from 'react-iconly';
+import { IoIosClose } from 'react-icons/io';
 
 import Artboard from '../../components/Artboard';
 import Box from '../../components/Box';
@@ -20,6 +20,7 @@ import {
   AnimationContainer,
   BottomPanel,
   Container,
+  ControlCloseButton,
   LeftSidePanel,
   ToolBar,
 } from './Animate.styles';
@@ -28,6 +29,8 @@ const Animate: React.FunctionComponent = () => {
   const { toggle, open } = useEditorState();
   const { pausePlayState, move } = useAnimationState();
   const [resetKey, setResetKey] = useState('reset-key');
+
+  const currentAnimation = window.localStorage.getItem('current');
 
   const { set } = useDialogContext();
 
@@ -61,31 +64,40 @@ const Animate: React.FunctionComponent = () => {
         <Box width="full">
           <ToolBar>
             <Flex>
-              <h3 style={{ fontSize: 16 }}>Animation Name</h3>
-              <Box width={16} />
-              <Edit size="small" />
+              <h3 style={{ textTransform: 'capitalize' }}>
+                {currentAnimation.replace('animation-', '')}
+              </h3>
             </Flex>
-            {/* <Menu
-              items={[
-                {
-                  label: 'Load',
-                  onClick: () => set({ field: 'load', value: true }),
-                },
-                {
-                  label: 'Target',
-                  onClick: () => set({ field: 'target', value: true }),
-                },
-                {
-                  label: 'Export',
-                  onClick: () => set({ field: 'exp', value: true }),
-                },
-                {
-                  label: 'Help',
-                  onClick: () => set({ field: 'help', value: true }),
-                },
-              ]}
-            /> */}
-            <Flex>
+            <Box
+              display={{ 768: 'block', 992: 'none' }}
+              marginRight={{ 480: 0, 768: open ? '1xs' : 0, 992: 0 }}
+            >
+              <Menu
+                items={[
+                  {
+                    label: 'Load',
+                    onClick: () => set({ field: 'load', value: true }),
+                  },
+                  {
+                    label: 'Target',
+                    onClick: () => set({ field: 'target', value: true }),
+                  },
+                  {
+                    label: 'Export',
+                    onClick: () => set({ field: 'exp', value: true }),
+                  },
+                  {
+                    label: 'Help',
+                    onClick: () => set({ field: 'help', value: true }),
+                  },
+                  {
+                    label: `${open ? `Close` : 'Open'} Controls`,
+                    onClick: toggle,
+                  },
+                ]}
+              />
+            </Box>
+            <Flex display={{ 768: 'none', 992: 'flex' }}>
               <Load />
               <Box width={40} />
               <Target />
@@ -102,7 +114,12 @@ const Animate: React.FunctionComponent = () => {
           <Artboard key={resetKey} handleReset={handleReset} />
         </Box>
 
-        <LeftSidePanel closed={open}>
+        <LeftSidePanel open={open}>
+          <div style={{ position: 'relative' }}>
+            <ControlCloseButton onClick={toggle} type="button">
+              <IoIosClose />
+            </ControlCloseButton>
+          </div>
           <Controller />
         </LeftSidePanel>
       </AnimationContainer>

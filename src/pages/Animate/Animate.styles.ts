@@ -3,6 +3,24 @@ import styled from 'styled-components';
 import { mq } from '../../theme/mediaQueries';
 import { tokens } from '../../theme/tokens';
 
+export const ControlCloseButton = styled.button`
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  top: -30px;
+  right: -20px;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  align-items: center;
+  color: white;
+
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+`;
+
 export const Container = styled.div`
   width: 100%;
   height: calc(100vh - 82px);
@@ -25,6 +43,7 @@ export const ToolBar = styled.div`
   display: flex;
   border-bottom: 5px solid #f0f0f0;
   justify-content: space-between;
+  align-items: center;
 
   padding-top: ${tokens.sizes[20]};
   padding-bottom: ${tokens.sizes[16]};
@@ -49,11 +68,16 @@ export const ControllerContainer = styled.div`
   position: relative;
 `;
 
-export const LeftSidePanel = styled.div<{ closed?: boolean }>`
+export const LeftSidePanel = styled.div<{ open?: boolean }>`
   background-color: #313c60;
+  display: ${(p) => (p.open ? 'block' : 'none')};
   height: 100%;
+  z-index: ${tokens.zIndices[500]};
 
-  height: ${tokens.sizes.full};
+  position: absolute;
+  right: 20px;
+
+  height: 57.8%;
   border: none;
 
   p,
@@ -65,6 +89,13 @@ export const LeftSidePanel = styled.div<{ closed?: boolean }>`
   padding: 40px 30px;
 
   border-radius: 20px;
+
+  ${mq(992)} {
+    background-color: #313c60;
+    display: block;
+    position: static;
+    height: ${tokens.sizes.full};
+  }
 `;
 
 export const ControlsPanel = styled.div`

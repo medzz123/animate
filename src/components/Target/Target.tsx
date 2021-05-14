@@ -30,10 +30,15 @@ const Target: FunctionComponent = () => {
     set({ field: 'target', value: false });
   };
 
+  const setOpen = () => {
+    set({ field: 'target', value: true });
+  };
+
   return (
     <Dialog
       label="Target"
       open={target}
+      setOpen={setOpen}
       close={close}
       Icon={VscCode}
       onOpenChange={openOpenChange}

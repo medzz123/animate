@@ -13,10 +13,8 @@ import { MdSlowMotionVideo } from 'react-icons/md';
 import { useAnimationState } from '../../state/Animation/animation';
 import Accordion from '../Accordion';
 import AnimatableInput from '../AnimatableInput';
-import Box from '../Box';
 import Flex from '../Box/Flex';
-import Button from '../Button';
-import { ActionsContainer, ControllerContainer } from './Controller.styles';
+import { ControllerContainer } from './Controller.styles';
 
 const Controller: FunctionComponent = () => {
   const {
@@ -263,15 +261,6 @@ const Controller: FunctionComponent = () => {
       ) : (
         <p>Select a step to edit</p>
       )}
-
-      {/* <ActionsContainer>
-        <Box flex={1}>
-          <Button>Add Step</Button>
-        </Box>
-        <Box flex={1}>
-          <Button>Delete Step</Button>
-        </Box>
-      </ActionsContainer> */}
     </ControllerContainer>
   );
 };

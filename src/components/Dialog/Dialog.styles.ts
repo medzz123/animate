@@ -1,10 +1,10 @@
-import { Content, Overlay, Trigger } from '@radix-ui/react-dialog';
+import { Content, Overlay } from '@radix-ui/react-dialog';
 import styled from 'styled-components';
 
 import { mq } from '../../theme/mediaQueries';
 import { tokens } from '../../theme/tokens';
 
-export const StyledTrigger = styled(Trigger)`
+export const StyledTrigger = styled.button`
   font-size: 16px;
   font-weight: 300;
   color: hsla(226, 32%, 28%, 1);
@@ -37,6 +37,9 @@ export const StyledContent = styled(Content)`
   border-radius: ${tokens.sizes[6]};
   padding: ${tokens.sizes[24]};
   background-color: ${(p) => p.theme.background};
+
+  box-shadow: 0 0 ${tokens.sizes[12]} ${tokens.sizes[4]}
+    ${(p) => p.theme.headline}${tokens.alpha[8]};
 
   overflow-y: scroll;
 

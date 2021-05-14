@@ -9,6 +9,7 @@ export interface DialogProps {
   onOpenChange?: DialogOwnProps['onOpenChange'];
   open?: boolean;
   close?: () => void;
+  setOpen?: () => void;
   button?: boolean;
   Icon?: IconType;
 }

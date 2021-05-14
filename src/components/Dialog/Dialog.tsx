@@ -12,12 +12,14 @@ const Dialog: FunctionComponent<DialogProps> = (props) => {
     open,
     close,
     Icon,
+    setOpen,
     button = true,
   } = props;
+
   return (
     <Root data-testid="dialog" open={open} onOpenChange={onOpenChange}>
       {button && (
-        <StyledTrigger type="button">
+        <StyledTrigger onClick={setOpen} type="button">
           <span>{label}</span>
           {Icon && <Icon />}
         </StyledTrigger>

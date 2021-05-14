@@ -30,6 +30,10 @@ const Load: FunctionComponent = () => {
     set({ field: 'load', value: false });
   };
 
+  const setOpen = () => {
+    set({ field: 'load', value: true });
+  };
+
   const { state: currentState } = useAnimationState();
 
   const [animationName, setAnimationName] = useState('');
@@ -38,7 +42,14 @@ const Load: FunctionComponent = () => {
   const currentAnimation = window.localStorage.getItem('current');
 
   return (
-    <Dialog label="Load" Icon={Plus} button={true} open={load} close={close}>
+    <Dialog
+      label="Load"
+      Icon={Plus}
+      button={true}
+      setOpen={setOpen}
+      open={load}
+      close={close}
+    >
       <h2>Editing: {currentAnimation.replace('animation-', '')}</h2>
       {!currentAnimation.includes('animation-') && (
         <p>

@@ -15,6 +15,7 @@
       "noconflict",
       "preconnect",
       "testid",
+      "textfield",
       "toastify"
     ]
   }

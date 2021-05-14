@@ -13,8 +13,18 @@ const Help: FunctionComponent = () => {
     set({ field: 'help', value: false });
   };
 
+  const setOpen = () => {
+    set({ field: 'help', value: true });
+  };
+
   return (
-    <Dialog label="Help" Icon={IoMdHelpCircleOutline} open={help} close={close}>
+    <Dialog
+      label="Help"
+      Icon={IoMdHelpCircleOutline}
+      setOpen={setOpen}
+      open={help}
+      close={close}
+    >
       <h3>How to use</h3>
       <OrderedList>
         <li>

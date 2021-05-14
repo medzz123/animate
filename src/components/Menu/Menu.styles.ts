@@ -7,12 +7,11 @@ export const StyledTrigger = styled(Trigger)`
   color: ${(p) => p.theme.headline};
   padding: ${tokens.sizes[4]};
   border-radius: ${tokens.sizes[4]};
-  box-shadow: 0 0 ${tokens.sizes[12]} ${tokens.sizes[4]}
-    ${(p) => p.theme.headline}${tokens.alpha[8]};
 
-  background-color: ${(p) => p.theme.background};
   height: ${tokens.sizes[32]};
   width: ${tokens.sizes[32]};
+
+  background-color: white;
 `;
 
 export const StyledContent = styled(Content)`

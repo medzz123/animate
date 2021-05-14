@@ -1,6 +1,7 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { BsPlusCircleFill } from 'react-icons/bs';
 import { CgClose } from 'react-icons/cg';
+import { TiPlus } from 'react-icons/ti';
 
 import { useAnimationState } from '../../state/Animation/animation';
 import Box from '../Box';
@@ -14,6 +15,9 @@ import {
   Item,
   List,
   Overflow,
+  PillButton,
+  PillInput,
+  PillInputContainer,
   TimelineContainer,
   TimelineText,
 } from './Timeline.styles';
@@ -26,6 +30,8 @@ const Timeline: FunctionComponent = () => {
     currentStep,
     deleteElement,
   } = useAnimationState();
+
+  const [newStep, setNewStep] = useState('');
 
   return (
     <TimelineContainer data-testid="timeline">
@@ -60,72 +66,86 @@ const Timeline: FunctionComponent = () => {
           </svg>
         </Flex>
         <AddObject>
-          Add Object <BsPlusCircleFill />
+          <span>Add Object</span>
+          <PillButton>
+            <TiPlus />
+          </PillButton>
         </AddObject>
       </ActionsContainer>
       <List>
         {Object.keys(state.elements).map((key) => (
-          <ContextMenu
+          <Item
             key={key}
-            items={[
-              key !== state.element && {
-                label: 'Delete Element',
-                onClick: () => deleteElement(key),
-              },
-            ]}
+            selected={key === state.element}
+            onClick={() => {
+              setElement(key);
+            }}
           >
-            <Item
-              selected={key === state.element}
-              onClick={() => {
-                setElement(key);
-              }}
-            >
-              <Flex alignItems="center" marginBottom={16}>
-                <Overflow>{key}</Overflow>
-                {key === state.element && (
-                  <div
-                    style={{
-                      marginLeft: 8,
-                      width: 20,
-                      height: 20,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      borderRadius: '50%',
-                      backgroundColor: 'white',
-                    }}
-                  >
-                    <CgClose size="12" color="#BDBDBD" />
-                  </div>
-                )}
-              </Flex>
-
-              <Flex alignItems="center" marginBottom={8}>
-                <TimelineText>Timeline</TimelineText>
-                <FramesContainer>
-                  {Object.keys(state.elements[key].steps).map((frame) => (
-                    <Frame
-                      key={`frame@${frame}`}
-                      selected={
-                        key === state.element && Number(frame) === currentStep
-                      }
-                      position={frame}
-                      type="button"
-                      onClick={() => {
-                        setStep(Number(frame));
-                      }}
-                    />
-                  ))}
-                </FramesContainer>
-              </Flex>
-
-              {key === state.element && (
-                <Flex alignItems="center">
-                  <TimelineText>Add step</TimelineText>
-                </Flex>
+            <Flex alignItems="center" marginBottom={16}>
+              <Overflow>{key}</Overflow>
+              {key !== state.element && (
+                <button
+                  style={{
+                    marginLeft: 8,
+                    width: 20,
+                    height: 20,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: '50%',
+                    backgroundColor: 'white',
+                  }}
+                >
+                  <CgClose size="12" color="#BDBDBD" />
+                </button>
               )}
-            </Item>
-          </ContextMenu>
+            </Flex>
+
+            <Flex alignItems="center" marginBottom={8}>
+              <TimelineText>Timeline</TimelineText>
+              <FramesContainer>
+                {Object.keys(state.elements[key].steps).map((frame) => (
+                  <Frame
+                    key={`frame@${frame}`}
+                    selected={
+                      key === state.element && Number(frame) === currentStep
+                    }
+                    position={frame}
+                    type="button"
+                    onClick={() => {
+                      setStep(Number(frame));
+                    }}
+                  />
+                ))}
+              </FramesContainer>
+            </Flex>
+
+            {key === state.element && (
+              <Flex alignItems="center">
+                <TimelineText>Add step</TimelineText>
+                <PillInputContainer>
+                  <PillInput
+                    maxLength={3}
+                    value={newStep}
+                    onChange={(event) => {
+                      const re = /^[0-9\b]+$/;
+
+                      if (
+                        (event.target.value === '' ||
+                          re.test(event.target.value)) &&
+                        event.target.value.length < 4
+                      ) {
+                        setNewStep(event.target.value);
+                      }
+                    }}
+                  />
+                  <PillButton move={true}>
+                    <TiPlus />
+                  </PillButton>
+                </PillInputContainer>
+              </Flex>
+            )}
+          </Item>
         ))}
       </List>
     </TimelineContainer>

@@ -27,8 +27,18 @@ const Export: FunctionComponent = () => {
     set({ field: 'exp', value: false });
   };
 
+  const setOpen = () => {
+    set({ field: 'exp', value: true });
+  };
+
   return (
-    <Dialog label="Export" Icon={Upload} open={exp} close={close}>
+    <Dialog
+      label="Export"
+      Icon={Upload}
+      setOpen={setOpen}
+      open={exp}
+      close={close}
+    >
       <h3>Export to HTML</h3>
       <p>This will create a HTML file with animation.</p>
 

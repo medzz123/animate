@@ -65,7 +65,7 @@ const fontStyles = css`
   }
 
   h3 {
-    font-size: ${tokens.sizes[24]};
+    font-size: ${tokens.sizes[16]};
   }
 
   p {
