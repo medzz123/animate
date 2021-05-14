@@ -62,12 +62,6 @@ export const ToolBar = styled.div`
   }
 `;
 
-export const ControllerContainer = styled.div`
-  display: flex;
-
-  position: relative;
-`;
-
 export const LeftSidePanel = styled.div<{ open?: boolean }>`
   background-color: #313c60;
   display: ${(p) => (p.open ? 'block' : 'none')};
@@ -96,11 +90,6 @@ export const LeftSidePanel = styled.div<{ open?: boolean }>`
     position: static;
     height: ${tokens.sizes.full};
   }
-`;
-
-export const ControlsPanel = styled.div`
-  width: ${tokens.sizes.full};
-  height: ${tokens.sizes[44]};
 `;
 
 export const BottomPanel = styled.div`

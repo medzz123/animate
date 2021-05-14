@@ -3,11 +3,6 @@ import styled, { css } from 'styled-components';
 import { buttonReset } from '../../theme/resets';
 import { tokens } from '../../theme/tokens';
 
-export const DeleteButton = styled.button`
-  padding: 0 ${tokens.sizes[14]};
-  background-color: ${(p) => p.theme.button};
-`;
-
 export const PillInputContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -25,7 +20,7 @@ export const PillInput = styled.input`
 
   color: #313c60;
   font-weight: bold;
-  padding: 8px;
+  padding: ${tokens.sizes[8]};
 `;
 
 export const PillButton = styled.button<{ move?: boolean }>`
@@ -39,7 +34,7 @@ export const PillButton = styled.button<{ move?: boolean }>`
   ${(p) =>
     p.move &&
     css`
-      transform: translateX(-100%);
+      transform: translateX(-${tokens.sizes.full});
     `}
 
   background-color: #313c60;
@@ -124,10 +119,6 @@ export const Item = styled.li<{ selected?: boolean }>`
 export const Overflow = styled.span`
   font-size: ${tokens.sizes[14]};
   font-weight: bold;
-`;
-
-export const TooltipText = styled.span`
-  font-size: ${tokens.sizes[12]};
 `;
 
 export const TimelineText = styled.span`

@@ -1,12 +1,10 @@
 import React, { FunctionComponent, useState } from 'react';
-import { BsPlusCircleFill } from 'react-icons/bs';
 import { CgClose } from 'react-icons/cg';
 import { TiPlus } from 'react-icons/ti';
 
 import { useAnimationState } from '../../state/Animation/animation';
 import Box from '../Box';
 import Flex from '../Box/Flex';
-import ContextMenu from '../ContextMenu';
 import {
   ActionsContainer,
   AddObject,
@@ -23,13 +21,7 @@ import {
 } from './Timeline.styles';
 
 const Timeline: FunctionComponent = () => {
-  const {
-    state,
-    setElement,
-    setStep,
-    currentStep,
-    deleteElement,
-  } = useAnimationState();
+  const { state, setElement, setStep, currentStep } = useAnimationState();
 
   const [newStep, setNewStep] = useState('');
 

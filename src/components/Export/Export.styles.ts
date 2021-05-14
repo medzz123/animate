@@ -6,8 +6,9 @@ export const Code = styled.code`
   display: block;
   white-space: pre-wrap;
 
-  border: ${tokens.sizes[1]} solid ${(p) => p.theme.headline}${tokens.alpha[50]};
+  border: ${tokens.sizes[1]} solid ${(p) => p.theme.somethingNew.main}${tokens.alpha[50]};
   padding: ${tokens.sizes[8]};
+  border-radius: ${tokens.sizes[16]};
   max-height: ${tokens.sizes['2xs']};
   overflow-y: scroll;
 `;

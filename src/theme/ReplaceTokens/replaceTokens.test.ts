@@ -1,6 +1,6 @@
 import { replaceTokens } from './replaceTokens';
 
-export const exampleProps = {
+const exampleProps = {
   padding: 10,
   margin: { 480: 10, 375: 20 },
 };

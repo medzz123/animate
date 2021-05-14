@@ -6,51 +6,9 @@ import { ArtboardSizeProps, AspectRatioProps } from './Artboard.models';
 const padding = 95;
 
 export const ArtboardContainer = styled.div`
-  width: 100%;
-  height: calc(100% - 109px);
+  width: ${tokens.sizes.full};
+  height: calc(${tokens.sizes.full} - 6.8125rem);
   position: relative;
-`;
-
-export const PlayButton = styled.button.attrs({ type: 'button' })`
-  color: ${(p) => p.theme.button};
-
-  &:focus {
-    box-shadow: none;
-  }
-`;
-
-export const PlayDivider = styled.div`
-  width: 2px;
-  height: 20px;
-  margin: 0 12px;
-  background-color: ${(p) => p.theme.button};
-`;
-
-export const PlayStateContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  transition: all 200ms ease;
-
-  box-shadow: 0 0 ${tokens.sizes[12]} ${tokens.sizes[4]}
-    ${(p) => p.theme.headline}${tokens.alpha[8]};
-
-  left: 50%;
-  bottom: 10px;
-
-  transform: translateX(-50%) scale(0.8);
-
-  padding: 8px 12px;
-  border-radius: 24px;
-  opacity: 0.3;
-
-  background-color: ${(p) => p.theme.background};
-
-  &:hover {
-    transform: translateX(-50%) scale(1);
-    opacity: 1;
-  }
 `;
 
 export const AspectRatio = styled.div.attrs({
@@ -73,7 +31,7 @@ export const AspectRatio = styled.div.attrs({
   justify-content: center;
   align-items: center;
 
-  border: 5px dashed #f0f0f0;
+  border: ${tokens.sizes[5]} dashed ${(p) => p.theme.somethingNew.border};
 `;
 
 export const ArtboardSize = styled.div<ArtboardSizeProps>`
@@ -98,8 +56,8 @@ export const AnimationsManager = styled.div<{
 `;
 
 export const IFrame = styled.iframe`
-  width: 100%;
-  height: 100%;
+  width: ${tokens.sizes.full};
+  height: ${tokens.sizes.full};
 `;
 
 const styles = css`
@@ -108,8 +66,8 @@ const styles = css`
     margin: 0;
     padding: 0;
     overflow: hidden;
-    width: 100%;
-    height: 100%;
+    width: ${tokens.sizes.full};
+    height: ${tokens.sizes.full};
   }
 
   * {

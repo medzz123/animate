@@ -1,6 +1,6 @@
 import { responsiveProps } from './responsiveProps';
 
-export const exampleProps = {
+const exampleProps = {
   padding: '10px',
   backgroundColor: {
     480: 'red',

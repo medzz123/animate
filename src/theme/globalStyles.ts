@@ -82,12 +82,12 @@ const fontStyles = css`
 
 const colorStyles = css`
   body {
-    background-color: ${(p) => p.theme.background};
-    color: ${(p) => p.theme.headline};
+    background-color: ${(p) => p.theme.somethingNew.background};
+    color: ${(p) => p.theme.somethingNew.main};
   }
 
   p {
-    color: ${(p) => p.theme.paragraph};
+    color: ${(p) => p.theme.somethingNew.paragraph};
   }
 
   h1,
@@ -96,11 +96,15 @@ const colorStyles = css`
   h4,
   h5,
   h6 {
-    color: #313c60;
+    color: ${(p) => p.theme.somethingNew.main};
   }
 
   a {
     color: inherit;
+  }
+
+  button {
+    color: ${(p) => p.theme.somethingNew.main};
   }
 `;
 
@@ -121,7 +125,8 @@ const generalStyles = css`
     justify-content: center;
     align-items: center;
 
-    &:focus {
+    &:focus,
+    &:hover {
       text-decoration: underline;
     }
   }
@@ -145,15 +150,11 @@ const generalStyles = css`
     justify-content: center;
     align-items: center;
     outline: none;
-    transition: all 200ms ease;
+    transition: all ${tokens.transitions.fast} ease;
     margin: ${tokens.sizes[4]} ${tokens.sizes[12]};
     cursor: pointer;
-    opacity: 0.8;
 
-    &:hover {
-      text-decoration: underline;
-    }
-
+    &:hover,
     &:focus {
       text-decoration: underline;
     }

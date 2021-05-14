@@ -11,7 +11,7 @@ interface DialogState {
   help: boolean;
 }
 
-export const DialogContext = createContext<DialogContextValues>(undefined);
+const DialogContext = createContext<DialogContextValues>(undefined);
 export const DialogProvider = DialogContext.Provider;
 
 export const initDialogContext = () => {

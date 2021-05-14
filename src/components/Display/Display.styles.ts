@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { mq } from '../../theme/mediaQueries';
+import { tokens } from '../../theme/tokens';
 import { DisplayRatioProps, DisplaySizeProps } from './Display.models';
 
 const w320 = 300;
@@ -29,8 +30,8 @@ export const DisplayContainer = styled.div`
 `;
 
 export const DisplayFrame = styled.iframe`
-  width: 100%;
-  height: 100%;
+  width: ${tokens.sizes.full};
+  height: ${tokens.sizes.full};
 `;
 
 const padding = 95;

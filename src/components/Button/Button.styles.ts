@@ -17,13 +17,13 @@ export const ButtonContainer = styled.button.attrs({
       height: ${tokens.sizes[26]};
     `}
 
-  background-color: ${(p) => p.theme.button};
+  background-color: ${(p) => p.theme.somethingNew.main};
 
   transition: all ${tokens.transitions.fast} ease 0s;
   font-size: ${(p) =>
     p.size === 'large' ? tokens.sizes[18] : tokens.sizes[12]};
 
-  color: ${(p) => p.theme.buttonText};
+  color: ${(p) => p.theme.somethingNew.flip};
 
   display: inline-flex;
   font-weight: 500;
@@ -37,13 +37,4 @@ export const ButtonContainer = styled.button.attrs({
       ${tokens.sizes[12]}`};
 
   line-height: 1.5;
-
-  &:hover {
-    box-shadow: 0 0 0 ${tokens.sizes[2]} ${(p) => p.theme.headline};
-  }
-
-  &:disabled {
-    background-color: ${(p) => p.theme.headline}${tokens.alpha[50]};
-    box-shadow: none;
-  }
 `;

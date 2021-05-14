@@ -5,15 +5,11 @@ import { SettingsProps } from './Settings.models';
 import { SettingsContainer } from './Settings.styles';
 
 const Settings: FunctionComponent<SettingsProps> = (props) => {
-  const { themeController } = props;
+  const { toggle, theme } = props;
 
   return (
-    <SettingsContainer
-      data-testid="settings"
-      type="button"
-      onClick={themeController.toggleTheme}
-    >
-      {themeController.state ? <FaSun /> : <FaMoon />}
+    <SettingsContainer data-testid="settings" type="button" onClick={toggle}>
+      {theme ? <FaSun /> : <FaMoon />}
     </SettingsContainer>
   );
 };

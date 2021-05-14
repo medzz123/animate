@@ -5,7 +5,7 @@ import {
 import { tokens } from '../../theme/tokens';
 import { defaultProperties } from './ParseAnimations.defaults';
 
-export const parseElementAnimation = ({
+const parseElementAnimation = ({
   element,
   name,
   playState,

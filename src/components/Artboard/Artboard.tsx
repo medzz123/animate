@@ -21,7 +21,6 @@ import {
 
 const Artboard: FunctionComponent<ArtboardProps> = () => {
   const [contentRef, setContentRef] = useState<HTMLIFrameElement>(null);
-
   const {
     parsed,
     css,

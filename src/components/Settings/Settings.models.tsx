@@ -1,5 +1,6 @@
 import { ThemeController } from '../../theme/themeController';
 
 export interface SettingsProps {
-  themeController: ThemeController;
+  toggle: ThemeController['toggleTheme'];
+  theme: ThemeController['state'];
 }

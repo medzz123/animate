@@ -5,14 +5,14 @@ import { mq } from '../../theme/mediaQueries';
 import { tokens } from '../../theme/tokens';
 
 export const StyledTrigger = styled.button`
-  font-size: 16px;
+  font-size: ${tokens.sizes[16]};
   font-weight: 300;
-  color: hsla(226, 32%, 28%, 1);
+  color: ${(p) => p.theme.somethingNew.main};
 
   span + svg {
-    margin-left: 8px;
-    width: 16px;
-    height: 16px;
+    margin-left: ${tokens.sizes[8]};
+    width: ${tokens.sizes[16]};
+    height: ${tokens.sizes[16]};
   }
 `;
 

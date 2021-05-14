@@ -8,35 +8,21 @@ import { tokens } from '../../theme/tokens';
 export const StyledButton = styled(Button)`
   ${buttonReset}
 
-  color: ${(p) => p.theme.paragraph};
+  color: ${(p) => p.theme.somethingNew.flip};
 
   display: flex;
   align-items: center;
   width: ${tokens.sizes.full};
-
-  &:hover {
-    span {
-      text-decoration: none;
-    }
-  }
-
-  &:focus {
-    box-shadow: none;
-
-    span {
-      text-decoration: none;
-    }
-  }
 `;
 
 export const Text = styled.span`
+  color: ${(p) => p.theme.somethingNew.flip};
   margin-right: ${tokens.sizes[8]};
-  font-size: 14px;
+  font-size: ${tokens.sizes[14]};
 `;
 
 export const HorizontalLine = styled.div`
   height: ${tokens.sizes[1]};
-  /* background-color: ${(p) => p.theme.headline}; */
   width: ${tokens.sizes.full};
   margin-left: ${tokens.sizes[8]};
 `;

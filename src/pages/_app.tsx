@@ -56,7 +56,10 @@ const App = () => {
                 </main>
               </Container>
             )}
-            <Settings themeController={themeController} />
+            <Settings
+              theme={themeController.state}
+              toggle={themeController.toggleTheme}
+            />
           </DialogProvider>
         </ToastProvider>
       </ThemeProvider>
