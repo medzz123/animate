@@ -31,7 +31,7 @@ export const AspectRatio = styled.div.attrs({
   justify-content: center;
   align-items: center;
 
-  border: ${tokens.sizes[5]} dashed ${(p) => p.theme.somethingNew.border};
+  border: ${tokens.sizes[5]} dashed ${(p) => p.theme.border};
 `;
 
 export const ArtboardSize = styled.div<ArtboardSizeProps>`

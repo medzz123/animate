@@ -3,8 +3,26 @@ import styled, { css } from 'styled-components';
 import { buttonReset } from '../../theme/resets';
 import { tokens } from '../../theme/tokens';
 
+export const DeleteButton = styled.button`
+  margin-left: ${tokens.sizes[8]};
+  width: ${tokens.sizes[20]};
+  height: ${tokens.sizes[20]};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: ${tokens.sizes.half};
+  background-color: ${(p) => p.theme.background};
+  color: ${(p) => p.theme.danger};
+  box-shadow: ${(p) => p.theme.shadow};
+
+  svg {
+    width: ${tokens.sizes[12]};
+    height: ${tokens.sizes[12]};
+  }
+`;
+
 export const PlayStateButtons = styled.button.attrs({ type: 'button' })`
-  color: ${(p) => p.theme.somethingNew.main};
+  color: ${(p) => p.theme.main};
 
   svg {
     width: ${tokens.sizes[24]};
@@ -22,12 +40,12 @@ export const PillInput = styled.input`
   width: ${tokens.sizes[70]};
   height: ${tokens.sizes[28]};
   border-radius: ${tokens.sizes[16]};
-  background-color: white;
+  background-color: ${(p) => p.theme.backgroundContrast};
   box-shadow: none;
   border: none;
   outline: none;
 
-  color: #313c60;
+  color: ${(p) => p.theme.main};
   font-weight: bold;
   padding: ${tokens.sizes[8]};
 `;
@@ -48,9 +66,9 @@ export const PillButton = styled.button.attrs({ type: 'button' })<{
       transform: translateX(-${tokens.sizes.full});
     `}
 
-  background-color: #313c60;
+  background-color: ${(p) => p.theme.main};
 
-  color: white;
+  color: ${(p) => p.theme.background};
 
   svg {
     width: ${tokens.sizes[16]};
@@ -60,6 +78,7 @@ export const PillButton = styled.button.attrs({ type: 'button' })<{
 
 export const TimelineContainer = styled.div`
   width: ${tokens.sizes.full};
+  background-color: ${(p) => p.theme.backgroundContrast};
 
   height: ${tokens.sizes.full};
   overflow-y: scroll;
@@ -67,7 +86,7 @@ export const TimelineContainer = styled.div`
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
-  box-shadow: ${(p) => p.theme.somethingNew.shadow};
+  box-shadow: ${(p) => p.theme.shadow};
   border-radius: ${tokens.sizes[20]};
 
   span {
@@ -113,7 +132,7 @@ export const Item = styled.li<{ selected?: boolean }>`
   ${(p) =>
     p.selected &&
     css`
-      background-color: ${(p) => p.theme.somethingNew.focus};
+      background-color: ${(p) => p.theme.focus};
     `}
 `;
 
@@ -126,7 +145,7 @@ export const Overflow = styled.span`
 export const TimelineText = styled.span`
   margin-right: ${tokens.sizes[30]};
   font-size: ${tokens.sizes[12]};
-  color: ${(p) => p.theme.somethingNew.paragraph};
+  color: ${(p) => p.theme.paragraph};
   min-width: ${tokens.sizes[70]};
 `;
 
@@ -142,7 +161,7 @@ export const FramesContainer = styled.div`
     content: '';
     width: ${tokens.sizes.full};
     height: ${tokens.sizes[1]};
-    background-color: ${(p) => p.theme.button}${tokens.alpha[65]};
+    background-color: ${(p) => p.theme.main}${tokens.alpha[65]};
   }
 `;
 
@@ -154,7 +173,7 @@ export const Frame = styled.button<{ position: string; selected: boolean }>`
   top: ${tokens.sizes.half};
   cursor: pointer;
 
-  background-color: ${(p) => p.theme.button};
+  background-color: ${(p) => p.theme.main};
   width: ${tokens.sizes[7]};
   height: ${tokens.sizes[7]};
   border-radius: ${tokens.sizes.half};

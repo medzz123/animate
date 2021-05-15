@@ -19,12 +19,12 @@ export const Item = styled.li`
 
 export const NewAnimationInput = styled.input`
   font-size: ${tokens.sizes[12]};
-  padding: ${tokens.sizes[5]};
+  padding: ${tokens.sizes[8]};
   border: none;
-  box-shadow: inset 0 0 0 ${tokens.sizes[1]} ${(p) => p.theme.headline};
+  box-shadow: inset 0 0 0 ${tokens.sizes[1]} ${(p) => p.theme.main}${tokens.alpha[50]};
+  border-radius: ${tokens.sizes[10]};
   background-color: transparent;
-  width: ${tokens.sizes.full};
-  color: ${(p) => p.theme.headline};
+  color: ${(p) => p.theme.paragraph};
 
   &:focus {
     outline: none;
@@ -34,7 +34,7 @@ export const NewAnimationInput = styled.input`
 export const SelectAnimationButton = styled.button.attrs({ type: 'button' })`
   ${buttonReset}
 
-  color: ${(p) => p.theme.headline};
+  color: ${(p) => p.theme.main};
 
   font-weight: 500;
   font-size: ${tokens.sizes[18]};
@@ -53,7 +53,7 @@ export const SelectAnimationButton = styled.button.attrs({ type: 'button' })`
 export const DeleteAnimationButton = styled.button.attrs({ type: 'button' })`
   ${buttonReset}
 
-  color: ${(p) => p.theme.somethingNew.danger};
+  color: ${(p) => p.theme.danger};
 
   svg {
     width: ${tokens.sizes[20]};

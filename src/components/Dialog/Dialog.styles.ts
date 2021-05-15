@@ -7,7 +7,7 @@ import { tokens } from '../../theme/tokens';
 export const StyledTrigger = styled.button`
   font-size: ${tokens.sizes[16]};
   font-weight: 300;
-  color: ${(p) => p.theme.somethingNew.main};
+  color: ${(p) => p.theme.main};
 
   span + svg {
     margin-left: ${tokens.sizes[8]};
@@ -36,10 +36,9 @@ export const StyledContent = styled(Content)`
   padding: ${tokens.sizes[12]};
   border-radius: ${tokens.sizes[6]};
   padding: ${tokens.sizes[24]};
-  background-color: ${(p) => p.theme.background};
+  background-color: ${(p) => p.theme.backgroundContrast};
 
-  box-shadow: 0 0 ${tokens.sizes[12]} ${tokens.sizes[4]}
-    ${(p) => p.theme.headline}${tokens.alpha[8]};
+  box-shadow: 0 0 ${tokens.sizes[12]} ${tokens.sizes[4]} ${(p) => p.theme.main}${tokens.alpha[8]};
 
   overflow-y: scroll;
 

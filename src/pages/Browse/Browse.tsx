@@ -1,5 +1,6 @@
 import React from 'react';
 import { Delete, Plus } from 'react-iconly';
+import { useTheme } from 'styled-components';
 
 import Box from '../../components/Box';
 import Flex from '../../components/Box/Flex';
@@ -17,6 +18,8 @@ import {
 const Browse: React.FunctionComponent = () => {
   const { animations } = useBrowseHooks();
 
+  const theme = useTheme();
+
   return (
     <Container>
       <Title>Your animations</Title>
@@ -32,17 +35,17 @@ const Browse: React.FunctionComponent = () => {
                 }}
               >
                 <span>Load</span>
-                <Plus set="light" primaryColor="#313c60" />
+                <Plus set="light" primaryColor={theme.main} />
               </Button>
               <Box width={40} />
               <Button
                 onClick={() => {
                   window.localStorage.removeItem(animation.key);
-                  window.location.href = '/animate';
+                  window.location.reload();
                 }}
               >
                 <span>Delete</span>
-                <Delete set="light" primaryColor="red" />
+                <Delete set="light" primaryColor={theme.danger} />
               </Button>
             </Flex>
           </ActionsContainer>

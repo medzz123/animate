@@ -11,6 +11,7 @@ import Stop from '../Icons/Stop';
 import { TimelineProps } from './Timeline.models';
 import {
   ActionsContainer,
+  DeleteButton,
   Frame,
   FramesContainer,
   Item,
@@ -63,20 +64,9 @@ const Timeline: FunctionComponent<TimelineProps> = (props) => {
             <Flex alignItems="center" marginBottom={16}>
               <Overflow>{key}</Overflow>
               {key !== state.element && (
-                <button
-                  style={{
-                    marginLeft: 8,
-                    width: 20,
-                    height: 20,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderRadius: '50%',
-                    backgroundColor: 'white',
-                  }}
-                >
-                  <CgClose size="12" color="#BDBDBD" />
-                </button>
+                <DeleteButton>
+                  <CgClose />
+                </DeleteButton>
               )}
             </Flex>
 

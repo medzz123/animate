@@ -17,6 +17,6 @@ export const ControllerContainer = styled.div`
   }
 
   p {
-    color: ${(p) => p.theme.somethingNew.flip};
+    color: ${(p) => p.theme.flip};
   }
 `;

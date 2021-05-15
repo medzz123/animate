@@ -82,12 +82,12 @@ const fontStyles = css`
 
 const colorStyles = css`
   body {
-    background-color: ${(p) => p.theme.somethingNew.background};
-    color: ${(p) => p.theme.somethingNew.main};
+    background-color: ${(p) => p.theme.background};
+    color: ${(p) => p.theme.main};
   }
 
   p {
-    color: ${(p) => p.theme.somethingNew.paragraph};
+    color: ${(p) => p.theme.paragraph};
   }
 
   h1,
@@ -96,7 +96,7 @@ const colorStyles = css`
   h4,
   h5,
   h6 {
-    color: ${(p) => p.theme.somethingNew.main};
+    color: ${(p) => p.theme.main};
   }
 
   a {
@@ -104,7 +104,7 @@ const colorStyles = css`
   }
 
   button {
-    color: ${(p) => p.theme.somethingNew.main};
+    color: ${(p) => p.theme.main};
   }
 `;
 
@@ -124,6 +124,7 @@ const generalStyles = css`
     display: flex;
     justify-content: center;
     align-items: center;
+    text-transform: capitalize;
 
     &:focus,
     &:hover {

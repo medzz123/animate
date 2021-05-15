@@ -8,7 +8,6 @@ import { useAnimationState } from '../../state/Animation/animation';
 import { useDialogContext } from '../../state/dialogs';
 import { getLocalAnimations } from '../../utils/GetLocalAnimations';
 import Box from '../Box';
-import Flex from '../Box/Flex';
 import Button from '../Button';
 import Dialog from '../Dialog';
 import {
@@ -107,11 +106,12 @@ const Load: FunctionComponent = () => {
 
       <h3>New Animation</h3>
       <p>Basic animation will be created on it</p>
-      <Flex>
+      <Box>
         <NewAnimationInput
           value={animationName}
           onChange={(e) => setAnimationName(e.target.value)}
         />
+        <Box height={20} />
         <Button
           // @ts-ignore
           disabled={animationName.length < 3}
@@ -131,17 +131,18 @@ const Load: FunctionComponent = () => {
         >
           Create
         </Button>
-      </Flex>
+      </Box>
 
       <Box height={20} />
 
       <h3>Save current</h3>
       <p>Current animation will be saved with a new name</p>
-      <Flex>
+      <Box>
         <NewAnimationInput
           value={toNewAnimation}
           onChange={(e) => setToNewAnimation(e.target.value)}
         />
+        <Box height={20} />
         <Button
           // @ts-ignore
           disabled={toNewAnimation.length < 3}
@@ -159,9 +160,7 @@ const Load: FunctionComponent = () => {
         >
           Save
         </Button>
-      </Flex>
-      <Box height={20} />
-      <Button onClick={close}>Close</Button>
+      </Box>
     </Dialog>
   );
 };

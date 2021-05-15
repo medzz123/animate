@@ -13,7 +13,8 @@ export const SettingsContainer = styled.button`
 
   width: ${tokens.sizes[20]};
   height: ${tokens.sizes[20]};
-  background-color: ${(p) => p.theme.button};
+  background-color: ${(p) => p.theme.main};
+  color: ${(p) => p.theme.background};
   display: flex;
   justify-content: center;
   align-items: center;

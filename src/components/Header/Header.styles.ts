@@ -15,12 +15,12 @@ export const LogoLink = styled(Link)`
   font-size: ${tokens.sizes[22]};
   cursor: pointer;
   transition: color 200ms ease;
-  color: ${(p) => p.theme.headline};
+  color: ${(p) => p.theme.paragraph};
   margin-left: 0;
 `;
 
 export const MainLink = styled(Link)`
-  color: ${(p) => p.theme.headline};
+  color: ${(p) => p.theme.paragraph};
 
   margin-right: 0;
 `;

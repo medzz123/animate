@@ -21,3 +21,11 @@ export const MaxWidth = styled.div`
 
   max-width: ${tokens.sizes['3xl']};
 `;
+
+export const HomeButton = styled.button`
+  background-color: ${(p) => p.theme.main};
+  color: ${(p) => p.theme.background};
+  padding: ${tokens.sizes[14]} ${tokens.sizes[20]};
+  font-size: ${tokens.sizes[18]};
+  font-weight: 500;
+`;

@@ -13,7 +13,7 @@ export const ControlCloseButton = styled.button`
   justify-content: center;
   border-radius: ${tokens.sizes.half};
   align-items: center;
-  color: white;
+  color: ${(p) => p.theme.background};
 
   svg {
     width: ${tokens.sizes[40]};
@@ -32,16 +32,16 @@ export const AnimationContainer = styled.div`
   display: flex;
   margin-bottom: ${tokens.sizes[20]};
 
-  box-shadow: ${(p) => p.theme.somethingNew.shadow};
+  box-shadow: ${(p) => p.theme.shadow};
   border-radius: ${tokens.sizes[20]};
-  background-color: white;
+  background-color: ${(p) => p.theme.backgroundContrast};
   height: calc(65% - ${tokens.sizes[20]});
 `;
 
 export const ToolBar = styled.div`
   width: ${tokens.sizes.full};
   display: flex;
-  border-bottom: ${tokens.sizes[5]} solid #f0f0f0;
+  border-bottom: ${tokens.sizes[5]} solid ${(p) => p.theme.border};
   justify-content: space-between;
   align-items: center;
 
@@ -63,7 +63,7 @@ export const ToolBar = styled.div`
 `;
 
 export const LeftSidePanel = styled.div<{ open?: boolean }>`
-  background-color: #313c60;
+  background-color: ${(p) => p.theme.main};
   display: ${(p) => (p.open ? 'block' : 'none')};
   height: ${tokens.sizes.full};
   z-index: ${tokens.zIndices[500]};
@@ -77,7 +77,7 @@ export const LeftSidePanel = styled.div<{ open?: boolean }>`
   p,
   button,
   h3 {
-    color: white;
+    color: ${(p) => p.theme.background};
   }
 
   padding: ${tokens.sizes[40]} ${tokens.sizes[30]};
@@ -85,7 +85,7 @@ export const LeftSidePanel = styled.div<{ open?: boolean }>`
   border-radius: ${tokens.sizes[20]};
 
   ${mq(992)} {
-    background-color: #313c60;
+    background-color: ${(p) => p.theme.main};
     display: block;
     position: static;
     height: ${tokens.sizes.full};

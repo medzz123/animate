@@ -1,8 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import Button from '../../components/Button';
-import { MaxWidth } from './Home.styles';
+import { HomeButton, MaxWidth } from './Home.styles';
 
 const Home: React.FunctionComponent = () => {
   const history = useHistory();
@@ -13,14 +12,13 @@ const Home: React.FunctionComponent = () => {
         Animate is a platform that helps developers and designers to build
         beautiful css animations in minutes. Try it out now!
       </p>
-      <Button
-        size="large"
+      <HomeButton
         onClick={() => {
           history.push('/animate');
         }}
       >
         start animating
-      </Button>
+      </HomeButton>
     </MaxWidth>
   );
 };

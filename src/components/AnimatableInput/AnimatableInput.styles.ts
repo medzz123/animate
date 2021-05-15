@@ -13,7 +13,7 @@ export const AnimatableInputContainer = styled.div`
 
 export const Label = styled.label`
   font-size: ${tokens.sizes[12]};
-  color: ${(p) => p.theme.somethingNew.flip};
+  color: ${(p) => p.theme.flip};
   flex: 1;
   margin-right: ${tokens.sizes[8]};
   min-width: ${tokens.sizes[100]};
@@ -22,15 +22,15 @@ export const Label = styled.label`
 export const StyledInput = styled.input`
   font-size: ${tokens.sizes[12]};
   padding: ${tokens.sizes[5]};
-  color: ${(p) => p.theme.somethingNew.flip};
+  color: ${(p) => p.theme.flip};
   border: none;
-  box-shadow: inset 0 0 0 ${tokens.sizes[1]} ${(p) => p.theme.somethingNew.flip};
+  box-shadow: inset 0 0 0 ${tokens.sizes[1]} ${(p) => p.theme.flip};
   background-color: transparent;
   width: ${tokens.sizes.full};
   flex: 2;
 
   ::placeholder {
-    color: ${(p) => p.theme.somethingNew.flip};
+    color: ${(p) => p.theme.flip};
     opacity: 0.5;
   }
 

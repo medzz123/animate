@@ -8,7 +8,7 @@ import { tokens } from '../../theme/tokens';
 export const StyledButton = styled(Button)`
   ${buttonReset}
 
-  color: ${(p) => p.theme.somethingNew.flip};
+  color: ${(p) => p.theme.flip};
 
   display: flex;
   align-items: center;
@@ -16,7 +16,7 @@ export const StyledButton = styled(Button)`
 `;
 
 export const Text = styled.span`
-  color: ${(p) => p.theme.somethingNew.flip};
+  color: ${(p) => p.theme.flip};
   margin-right: ${tokens.sizes[8]};
   font-size: ${tokens.sizes[14]};
 `;

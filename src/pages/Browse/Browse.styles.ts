@@ -9,10 +9,10 @@ export const Container = styled.div`
 
 export const Title = styled.h1`
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: ${tokens.sizes[20]};
 
   ${mq(768)} {
-    margin-bottom: 60px;
+    margin-bottom: ${tokens.sizes[60]};
   }
 `;
 
@@ -21,8 +21,8 @@ export const Card = styled.div`
 
   text-transform: capitalize;
 
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+  box-shadow: ${(p) => p.theme.shadow};
+  border-radius: ${tokens.sizes[20]};
 `;
 
 export const ActionsContainer = styled.div`
@@ -38,7 +38,7 @@ export const ActionsContainer = styled.div`
     padding-right: ${tokens.sizes[60]};
   }
 
-  border-bottom: 5px solid #f0f0f0;
+  border-bottom: ${tokens.sizes[5]} solid ${(p) => p.theme.border};
   display: flex;
   justify-content: space-between;
 
@@ -48,11 +48,11 @@ export const ActionsContainer = styled.div`
 `;
 
 export const Button = styled.button`
-  color: #313c60;
-  font-size: 20px;
+  color: ${(p) => p.theme.main};
+  font-size: ${tokens.sizes[20]};
 
   span {
-    margin-right: 8px;
+    margin-right: ${tokens.sizes[8]};
   }
 
   &:hover {
