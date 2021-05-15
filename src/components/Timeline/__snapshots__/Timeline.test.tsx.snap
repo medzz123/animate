@@ -3,86 +3,196 @@
 exports[`Timeline Test 1`] = `
 <div>
   <div
-    class="sc-dkPtyc bepIQA"
+    class="sc-gKckTs iPxHli"
     data-testid="timeline"
   >
-    <ul
-      class="sc-hKwCoD dLNPKa"
+    <div
+      class="sc-iCfLBT jNWKRX"
     >
-      <li
-        class="sc-eCImvq hiimFq"
+      <div
+        class="sc-bdvvaa hOlXtj"
+        data-testid="box"
       >
-        <span
-          class="sc-jRQAMF ibcQbN"
-        >
-          square
-        </span>
-        <div
-          class="sc-bdvvaa kgncym"
-          data-testid="box"
-        />
-        <div
-          class="sc-iCfLBT fYESJe"
-        >
-          <button
-            class="sc-furvIG jBUuLZ"
-            type="button"
-          />
-          <button
-            class="sc-furvIG GMUcJ"
-            type="button"
-          />
-          <button
-            class="sc-furvIG kFlig"
-            type="button"
-          />
-        </div>
-      </li>
-      <li
-        class="sc-eCImvq jkLjNy"
-      >
-        <span
-          class="sc-jRQAMF ibcQbN"
-        >
-          circle
-        </span>
         <button
-          class="sc-gsDJrp fnAnkT"
+          class="sc-dkPtyc fmAgso"
           type="button"
         >
           <svg
-            color="#ffffff"
-            fill="currentColor"
-            height="20px"
-            stroke="currentColor"
-            stroke-width="0"
-            style="color: rgb(255, 255, 255);"
-            viewBox="0 0 16 16"
-            width="20px"
+            fill="none"
+            viewBox="0 0 16 20"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              clip-rule="evenodd"
-              d="M8 8.707l3.646 3.647.708-.707L8.707 8l3.647-3.646-.707-.708L8 7.293 4.354 3.646l-.707.708L7.293 8l-3.646 3.646.707.708L8 8.707z"
-              fill-rule="evenodd"
+              d="M1 1l14 9-14 9V1z"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
             />
           </svg>
         </button>
         <div
-          class="sc-iCfLBT fYESJe"
+          class="sc-bdvvaa iIWjWV"
+          data-testid="box"
+        />
+        <button
+          class="sc-dkPtyc fmAgso"
+          type="button"
         >
+          <svg
+            fill="none"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17 1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V3a2 2 0 00-2-2z"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <ul
+      class="sc-furvIG jeRDpP"
+    >
+      <li
+        class="sc-pVTma bMoiI"
+      >
+        <div
+          class="sc-bdvvaa lfPXup"
+          data-testid="box"
+        >
+          <span
+            class="sc-jrQzUz hCUuho"
+          >
+            square
+          </span>
+        </div>
+        <div
+          class="sc-bdvvaa hqnMHH"
+          data-testid="box"
+        >
+          <span
+            class="sc-kDThTU fVbmJF"
+          >
+            Timeline
+          </span>
+          <div
+            class="sc-iqsfdx lksgNe"
+          >
+            <button
+              class="sc-crHlIS jbGZaA"
+              type="button"
+            />
+            <button
+              class="sc-crHlIS hFNSmf"
+              type="button"
+            />
+            <button
+              class="sc-crHlIS irldNp"
+              type="button"
+            />
+          </div>
+        </div>
+        <div
+          class="sc-bdvvaa gHiJmz"
+          data-testid="box"
+        >
+          <span
+            class="sc-kDThTU fVbmJF"
+          >
+            Add step
+          </span>
+          <div
+            class="sc-hKwCoD cPGBYi"
+          >
+            <input
+              class="sc-eCImvq jYdQjV"
+              maxlength="3"
+              value=""
+            />
+            <button
+              class="sc-jRQAMF kxrwdq"
+              type="button"
+            >
+              <svg
+                baseProfile="tiny"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                version="1.2"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 10h-4v-4c0-1.104-.896-2-2-2s-2 .896-2 2l.071 4h-4.071c-1.104 0-2 .896-2 2s.896 2 2 2l4.071-.071-.071 4.071c0 1.104.896 2 2 2s2-.896 2-2v-4.071l4 .071c1.104 0 2-.896 2-2s-.896-2-2-2z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </li>
+      <li
+        class="sc-pVTma heTPDG"
+      >
+        <div
+          class="sc-bdvvaa lfPXup"
+          data-testid="box"
+        >
+          <span
+            class="sc-jrQzUz hCUuho"
+          >
+            circle
+          </span>
           <button
-            class="sc-furvIG jBUuLZ"
-            type="button"
-          />
-          <button
-            class="sc-furvIG hSgCnE"
-            type="button"
-          />
-          <button
-            class="sc-furvIG kFlig"
-            type="button"
-          />
+            class="sc-gsDJrp loMwYa"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.2253 4.81108C5.83477 4.42056 5.20161 4.42056 4.81108 4.81108C4.42056 5.20161 4.42056 5.83477 4.81108 6.2253L10.5858 12L4.81114 17.7747C4.42062 18.1652 4.42062 18.7984 4.81114 19.1889C5.20167 19.5794 5.83483 19.5794 6.22535 19.1889L12 13.4142L17.7747 19.1889C18.1652 19.5794 18.7984 19.5794 19.1889 19.1889C19.5794 18.7984 19.5794 18.1652 19.1889 17.7747L13.4142 12L19.189 6.2253C19.5795 5.83477 19.5795 5.20161 19.189 4.81108C18.7985 4.42056 18.1653 4.42056 17.7748 4.81108L12 10.5858L6.2253 4.81108Z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="sc-bdvvaa hqnMHH"
+          data-testid="box"
+        >
+          <span
+            class="sc-kDThTU fVbmJF"
+          >
+            Timeline
+          </span>
+          <div
+            class="sc-iqsfdx lksgNe"
+          >
+            <button
+              class="sc-crHlIS jbGZaA"
+              type="button"
+            />
+            <button
+              class="sc-crHlIS koUBVJ"
+              type="button"
+            />
+            <button
+              class="sc-crHlIS irldNp"
+              type="button"
+            />
+          </div>
         </div>
       </li>
     </ul>
