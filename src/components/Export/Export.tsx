@@ -39,7 +39,7 @@ const Export: FunctionComponent = () => {
       open={exp}
       close={close}
     >
-      <h3>Export to HTML</h3>
+      <h2>Export to HTML</h2>
       <p>This will create a HTML file with animation.</p>
 
       <Box marginBottom={16}>

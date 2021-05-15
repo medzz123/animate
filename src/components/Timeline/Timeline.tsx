@@ -32,6 +32,7 @@ const Timeline: FunctionComponent<TimelineProps> = (props) => {
     currentStep,
     togglePlayState,
     playState,
+    addStep,
   } = useAnimationState();
   const { handleReset } = props;
 
@@ -117,7 +118,12 @@ const Timeline: FunctionComponent<TimelineProps> = (props) => {
                       }
                     }}
                   />
-                  <PillButton move={true}>
+                  <PillButton
+                    onClick={() => {
+                      addStep(Number(newStep));
+                    }}
+                    move={true}
+                  >
                     <TiPlus />
                   </PillButton>
                 </PillInputContainer>

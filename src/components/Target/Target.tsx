@@ -49,7 +49,7 @@ const Target: FunctionComponent = () => {
           location.reload();
         }}
       >
-        <h3>Target Elements</h3>
+        <h2>Target Elements</h2>
         <p>Add the elements you want animate with an ID attribute.</p>
         <Editor language="html" value={markup} onChange={onChangeMarkup} />
         <Box height={16} />

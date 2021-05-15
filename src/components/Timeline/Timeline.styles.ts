@@ -32,7 +32,9 @@ export const PillInput = styled.input`
   padding: ${tokens.sizes[8]};
 `;
 
-export const PillButton = styled.button<{ move?: boolean }>`
+export const PillButton = styled.button.attrs({ type: 'button' })<{
+  move?: boolean;
+}>`
   border-radius: ${tokens.sizes.half};
   height: ${tokens.sizes[28]};
   width: ${tokens.sizes[28]};

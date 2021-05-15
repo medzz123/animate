@@ -25,7 +25,7 @@ const Help: FunctionComponent = () => {
       open={help}
       close={close}
     >
-      <h3>How to use</h3>
+      <h2>How to use</h2>
       <OrderedList>
         <li>
           <p>Open Target and add your initial HTML and CSS</p>
