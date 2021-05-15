@@ -111,21 +111,21 @@ const Animate: React.FunctionComponent = () => {
               </Box>
             </Flex>
           </ToolBar>
-          <Artboard key={resetKey} handleReset={handleReset} />
+          <Artboard key={resetKey} />
         </Box>
 
         <LeftSidePanel open={open}>
-          <div style={{ position: 'relative' }}>
+          <Box position="relative" display={{ 768: 'block', 992: 'none' }}>
             <ControlCloseButton onClick={toggle} type="button">
               <IoIosClose />
             </ControlCloseButton>
-          </div>
+          </Box>
           <Controller />
         </LeftSidePanel>
       </AnimationContainer>
 
       <BottomPanel>
-        <Timeline />
+        <Timeline handleReset={handleReset} />
       </BottomPanel>
     </Container>
   );

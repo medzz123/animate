@@ -49,7 +49,7 @@ ${(p) => p.nodes} {
 `;
 
 export const DisplayRatio = styled.div<DisplayRatioProps>`
-  border: 5px dashed #f0f0f0;
+  border: ${tokens.sizes[5]} dashed #f0f0f0;
 
   width: ${padding}%;
   height: ${(p) =>

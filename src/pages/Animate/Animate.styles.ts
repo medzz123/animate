@@ -5,43 +5,43 @@ import { tokens } from '../../theme/tokens';
 
 export const ControlCloseButton = styled.button`
   position: absolute;
-  width: 28px;
-  height: 28px;
-  top: -30px;
-  right: -20px;
+  width: ${tokens.sizes[28]};
+  height: ${tokens.sizes[28]};
+  top: -${tokens.sizes[30]};
+  right: -${tokens.sizes[20]};
   display: flex;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: ${tokens.sizes.half};
   align-items: center;
   color: white;
 
   svg {
-    width: 40px;
-    height: 40px;
+    width: ${tokens.sizes[40]};
+    height: ${tokens.sizes[40]};
   }
 `;
 
 export const Container = styled.div`
-  width: 100%;
-  height: calc(100vh - 82px);
+  width: ${tokens.sizes.full};
+  height: calc(100vh - 5.125rem);
   display: flex;
   flex-direction: column;
 `;
 
 export const AnimationContainer = styled.div`
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: ${tokens.sizes[20]};
 
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+  box-shadow: ${(p) => p.theme.somethingNew.shadow};
+  border-radius: ${tokens.sizes[20]};
   background-color: white;
-  height: calc(65% - 20px);
+  height: calc(65% - ${tokens.sizes[20]});
 `;
 
 export const ToolBar = styled.div`
-  width: 100%;
+  width: ${tokens.sizes.full};
   display: flex;
-  border-bottom: 5px solid #f0f0f0;
+  border-bottom: ${tokens.sizes[5]} solid #f0f0f0;
   justify-content: space-between;
   align-items: center;
 
@@ -65,11 +65,11 @@ export const ToolBar = styled.div`
 export const LeftSidePanel = styled.div<{ open?: boolean }>`
   background-color: #313c60;
   display: ${(p) => (p.open ? 'block' : 'none')};
-  height: 100%;
+  height: ${tokens.sizes.full};
   z-index: ${tokens.zIndices[500]};
 
   position: absolute;
-  right: 20px;
+  right: ${tokens.sizes[20]};
 
   height: 57.8%;
   border: none;
@@ -80,9 +80,9 @@ export const LeftSidePanel = styled.div<{ open?: boolean }>`
     color: white;
   }
 
-  padding: 40px 30px;
+  padding: ${tokens.sizes[40]} ${tokens.sizes[30]};
 
-  border-radius: 20px;
+  border-radius: ${tokens.sizes[20]};
 
   ${mq(992)} {
     background-color: #313c60;
@@ -93,6 +93,6 @@ export const LeftSidePanel = styled.div<{ open?: boolean }>`
 `;
 
 export const BottomPanel = styled.div`
-  height: calc(35% - 20px);
-  margin-bottom: 20px;
+  height: calc(35% - ${tokens.sizes[20]});
+  margin-bottom: ${tokens.sizes[20]};
 `;

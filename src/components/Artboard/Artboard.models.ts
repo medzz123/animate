@@ -10,7 +10,3 @@ export interface ArtboardSizeProps {
   artboardHeight: number;
   scale: number;
 }
-
-export interface ArtboardProps {
-  handleReset: () => void;
-}

@@ -8,6 +8,13 @@ export default {
   component: Timeline,
 } as Meta;
 
-const Template: Story = (storyArguments) => <Timeline {...storyArguments} />;
+const Template: Story = (storyArguments) => (
+  <Timeline
+    handleReset={() => {
+      // nothing
+    }}
+    {...storyArguments}
+  />
+);
 
 export const TimelineStory = Template.bind({});

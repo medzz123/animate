@@ -83,7 +83,7 @@ const Load: FunctionComponent = () => {
                   location.reload();
                 }}
               >
-                <VscClose size="20px" color="red" />
+                <VscClose />
               </DeleteAnimationButton>
             </Item>
           ))}

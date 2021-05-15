@@ -5,9 +5,12 @@ import { TiPlus } from 'react-icons/ti';
 import { useAnimationState } from '../../state/Animation/animation';
 import Box from '../Box';
 import Flex from '../Box/Flex';
+import Pause from '../Icons/Pause';
+import Play from '../Icons/Play';
+import Stop from '../Icons/Stop';
+import { TimelineProps } from './Timeline.models';
 import {
   ActionsContainer,
-  AddObject,
   Frame,
   FramesContainer,
   Item,
@@ -16,12 +19,21 @@ import {
   PillButton,
   PillInput,
   PillInputContainer,
+  PlayStateButtons,
   TimelineContainer,
   TimelineText,
 } from './Timeline.styles';
 
-const Timeline: FunctionComponent = () => {
-  const { state, setElement, setStep, currentStep } = useAnimationState();
+const Timeline: FunctionComponent<TimelineProps> = (props) => {
+  const {
+    state,
+    setElement,
+    setStep,
+    currentStep,
+    togglePlayState,
+    playState,
+  } = useAnimationState();
+  const { handleReset } = props;
 
   const [newStep, setNewStep] = useState('');
 
@@ -29,40 +41,14 @@ const Timeline: FunctionComponent = () => {
     <TimelineContainer data-testid="timeline">
       <ActionsContainer>
         <Flex>
-          <svg
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 20"
-          >
-            <path
-              d="M1 1l14 9-14 9V1z"
-              stroke="#313C60"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <PlayStateButtons onClick={togglePlayState}>
+            {playState === 'paused' ? <Pause /> : <Play />}
+          </PlayStateButtons>
           <Box width={40} />
-          <svg
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M17 1H3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V3a2 2 0 00-2-2z"
-              stroke="#313C60"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <PlayStateButtons onClick={handleReset}>
+            <Stop />
+          </PlayStateButtons>
         </Flex>
-        <AddObject>
-          <span>Add Object</span>
-          <PillButton>
-            <TiPlus />
-          </PillButton>
-        </AddObject>
       </ActionsContainer>
       <List>
         {Object.keys(state.elements).map((key) => (

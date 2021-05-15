@@ -52,4 +52,11 @@ export const SelectAnimationButton = styled.button.attrs({ type: 'button' })`
 
 export const DeleteAnimationButton = styled.button.attrs({ type: 'button' })`
   ${buttonReset}
+
+  color: ${(p) => p.theme.somethingNew.danger};
+
+  svg {
+    width: ${tokens.sizes[20]};
+    height: ${tokens.sizes[20]};
+  }
 `;

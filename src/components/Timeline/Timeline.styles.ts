@@ -3,6 +3,15 @@ import styled, { css } from 'styled-components';
 import { buttonReset } from '../../theme/resets';
 import { tokens } from '../../theme/tokens';
 
+export const PlayStateButtons = styled.button.attrs({ type: 'button' })`
+  color: ${(p) => p.theme.somethingNew.main};
+
+  svg {
+    width: ${tokens.sizes[24]};
+    height: ${tokens.sizes[24]};
+  }
+`;
+
 export const PillInputContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -50,14 +59,14 @@ export const PillButton = styled.button<{ move?: boolean }>`
 export const TimelineContainer = styled.div`
   width: ${tokens.sizes.full};
 
-  height: 100%;
+  height: ${tokens.sizes.full};
   overflow-y: scroll;
 
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+  box-shadow: ${(p) => p.theme.somethingNew.shadow};
+  border-radius: ${tokens.sizes[20]};
 
   span {
     color: ${(p) => p.theme.paragraph};
@@ -69,23 +78,13 @@ export const TimelineContainer = styled.div`
 `;
 
 export const ActionsContainer = styled.div`
-  padding: 26px 42px;
+  padding: ${tokens.sizes[24]} ${tokens.sizes[40]};
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   svg {
-    height: 16px;
-  }
-`;
-
-export const AddObject = styled.button`
-  font-size: 16px;
-
-  color: hsla(226, 32%, 28%, 1);
-
-  span {
-    margin-right: 8px;
+    height: ${tokens.sizes[16]};
   }
 `;
 
@@ -101,31 +100,32 @@ export const Item = styled.li<{ selected?: boolean }>`
   flex-direction: column;
   justify-content: flex-start;
 
-  transition: all 200ms ease;
+  transition: all ${tokens.transitions.fast} ease;
 
   padding: ${tokens.sizes[16]} ${tokens.sizes[40]};
 
   width: ${tokens.sizes.full};
 
-  border-radius: 20px;
+  border-radius: ${tokens.sizes[20]};
 
   ${(p) =>
     p.selected &&
     css`
-      background-color: #f7f8fc;
+      background-color: ${(p) => p.theme.somethingNew.focus};
     `}
 `;
 
 export const Overflow = styled.span`
   font-size: ${tokens.sizes[14]};
   font-weight: bold;
+  min-width: ${tokens.sizes[52]};
 `;
 
 export const TimelineText = styled.span`
-  margin-right: 30px;
-  font-size: 12px;
-  color: #313c60;
-  min-width: 80px;
+  margin-right: ${tokens.sizes[30]};
+  font-size: ${tokens.sizes[12]};
+  color: ${(p) => p.theme.somethingNew.paragraph};
+  min-width: ${tokens.sizes[70]};
 `;
 
 export const FramesContainer = styled.div`
@@ -147,7 +147,7 @@ export const FramesContainer = styled.div`
 export const Frame = styled.button<{ position: string; selected: boolean }>`
   ${buttonReset}
   position: absolute;
-  transition: all 200ms ease;
+  transition: all ${tokens.transitions.fast} ease;
   left: ${(p) => p.position}%;
   top: ${tokens.sizes.half};
   cursor: pointer;
@@ -155,19 +155,19 @@ export const Frame = styled.button<{ position: string; selected: boolean }>`
   background-color: ${(p) => p.theme.button};
   width: ${tokens.sizes[7]};
   height: ${tokens.sizes[7]};
-  border-radius: 50%;
+  border-radius: ${tokens.sizes.half};
 
-  transform: translateY(-50%);
+  transform: translateY(-${tokens.sizes.half});
 
   ${(p) =>
     p.selected &&
     css`
       box-shadow: none;
-      transform: translateY(-50%) scale(2);
+      transform: translateY(-${tokens.sizes.half}) scale(2);
     `}
 
   &:focus,
   &:hover {
-    transform: translateY(-50%) scale(2);
+    transform: translateY(-${tokens.sizes.half}) scale(2);
   }
 `;

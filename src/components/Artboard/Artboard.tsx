@@ -9,7 +9,6 @@ import { StyleSheetManager } from 'styled-components';
 
 import { useAnimationState } from '../../state/Animation/animation';
 import { useArtboardState } from '../../state/artboard';
-import { ArtboardProps } from './Artboard.models';
 import {
   AnimationsManager,
   ArtboardContainer,
@@ -19,7 +18,7 @@ import {
   IFrame,
 } from './Artboard.styles';
 
-const Artboard: FunctionComponent<ArtboardProps> = () => {
+const Artboard: FunctionComponent = () => {
   const [contentRef, setContentRef] = useState<HTMLIFrameElement>(null);
   const {
     parsed,
