@@ -16,12 +16,31 @@ import {
   List,
   NewAnimationInput,
   SelectAnimationButton,
+  UploadButton,
 } from './Load.styles';
 
 const Load: FunctionComponent = () => {
   const [state] = useState(() => {
     return getLocalAnimations();
   });
+
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const changeHandler = (event) => {
+    const file = event.target.files[0];
+
+    const reader = new FileReader();
+
+    reader.readAsText(file);
+
+    reader.onload = function () {
+      setSelectedFile(reader.result);
+    };
+
+    reader.onerror = function () {
+      setSelectedFile(null);
+    };
+  };
 
   const { load, set } = useDialogContext();
 
@@ -137,7 +156,7 @@ const Load: FunctionComponent = () => {
 
       <h3>Save current</h3>
       <p>Current animation will be saved with a new name</p>
-      <Box>
+      <Box marginBottom={20}>
         <NewAnimationInput
           value={toNewAnimation}
           onChange={(e) => setToNewAnimation(e.target.value)}
@@ -161,6 +180,36 @@ const Load: FunctionComponent = () => {
           Save
         </Button>
       </Box>
+
+      <h3>Load animation file</h3>
+      <p>
+        The new animation will be loaded and your current animation will be lost
+        if its not saved. NOTE: If an animation has the name local it will be
+        overwritten.
+      </p>
+
+      <UploadButton
+        type="file"
+        name="file"
+        accept=".json"
+        onChange={changeHandler}
+      />
+
+      <Box height={20} />
+
+      <Button
+        // @ts-ignore
+        disabled={!selectedFile}
+        onClick={() => {
+          window.localStorage.setItem('current', `animation-local`);
+          window.localStorage.setItem(`animation-local`, selectedFile);
+          location.reload();
+        }}
+      >
+        Load animation
+      </Button>
+
+      <Box height={20} />
     </Dialog>
   );
 };

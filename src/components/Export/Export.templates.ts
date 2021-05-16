@@ -36,3 +36,36 @@ export const htmlTemplate = ({
     <body>${markup}</body>
   </html>`;
 };
+
+export const reactTemplate = ({ css, parsed, nodes, markup }) => {
+  return `
+  import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+
+const GlobalStyles = createGlobalStyle\`
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ${css}
+  ${parsed}
+  ${nodes} { animation-play-state: running; }
+\`;
+
+const Animation = () => {
+  return <div>${markup}</div>;
+};
+
+export default Animation;
+
+  `;
+};

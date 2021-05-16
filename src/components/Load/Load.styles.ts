@@ -3,6 +3,24 @@ import styled from 'styled-components';
 import { buttonReset } from '../../theme/resets';
 import { tokens } from '../../theme/tokens';
 
+export const UploadButton = styled.input`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  transition: all ${tokens.transitions.fast} ease 0s;
+  font-size: ${tokens.sizes[12]};
+  background-color: ${(p) => p.theme.focus};
+  color: ${(p) => p.theme.main};
+  padding: ${tokens.sizes[6]} ${tokens.sizes[16]};
+
+  border-radius: ${tokens.sizes[4]};
+  min-width: ${tokens.sizes[100]};
+  font-weight: 400;
+  line-height: 1.5;
+  box-shadow: ${(p) => p.theme.buttonShadow};
+`;
+
 export const List = styled.ul`
   flex-direction: column;
   align-items: flex-start;

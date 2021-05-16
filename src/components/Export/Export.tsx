@@ -10,12 +10,13 @@ import Box from '../Box';
 import Button from '../Button';
 import Dialog from '../Dialog';
 import { Code } from './Export.styles';
+import { reactTemplate } from './Export.templates';
 import { getProcessedString } from './Export.utils';
 
 const Export: FunctionComponent = () => {
   const { addToast } = useToasts();
 
-  const { parsed, css, markup, nodes } = useAnimationState();
+  const { parsed, css, markup, nodes, state } = useAnimationState();
 
   const currentAnimationName = window.localStorage
     .getItem('current')
@@ -70,14 +71,13 @@ const Export: FunctionComponent = () => {
         <Button
           onClick={() => {
             fileDownload(
-              getProcessedString({
+              reactTemplate({
                 parsed,
                 css,
                 markup,
                 nodes,
-                currentAnimationName,
               }),
-              `${currentAnimationName}.html`
+              `${currentAnimationName}.jsx`
             );
           }}
         >
@@ -86,24 +86,18 @@ const Export: FunctionComponent = () => {
       </Box>
 
       <h3>Export as animation file</h3>
-      <p>You can</p>
+      <p>You can later load this animation in a different device.</p>
 
       <Box marginBottom={16}>
         <Button
           onClick={() => {
             fileDownload(
-              getProcessedString({
-                parsed,
-                css,
-                markup,
-                nodes,
-                currentAnimationName,
-              }),
-              `${currentAnimationName}.html`
+              `${JSON.stringify(state)}`,
+              `${currentAnimationName}.json`
             );
           }}
         >
-          Export React
+          Export Animation File
         </Button>
       </Box>
 
