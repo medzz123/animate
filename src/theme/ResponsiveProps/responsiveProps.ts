@@ -5,6 +5,10 @@ import { camelCaseToKebabCase } from '../../utils/CamelCaseToKebabCase';
 import { mq } from '../mediaQueries';
 import { ResponsiveProps } from './responsiveProps.models';
 
+/**
+ * Takes the properties defined in the object, if values are objects
+ * it finds the corresponding media keys add adds them as CSS properties
+ */
 export const responsiveProps = <T>(props: ResponsiveProps<T>) => {
   let finalString = '';
 

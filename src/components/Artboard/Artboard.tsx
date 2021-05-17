@@ -18,6 +18,9 @@ import {
   IFrame,
 } from './Artboard.styles';
 
+/**
+ * Scalable artboard component which contains the iframe containing the animations
+ */
 const Artboard: FunctionComponent = () => {
   const [contentRef, setContentRef] = useState<HTMLIFrameElement>(null);
   const {
@@ -31,12 +34,19 @@ const Artboard: FunctionComponent = () => {
   } = useAnimationState();
   const { state } = useArtboardState();
 
+  /**
+   * Force render the component after initial mount to load iframe
+   * with react content inside. Due to mozilla bug, it is necessary to do so
+   */
   const [_, forceUpdate] = useReducer((x) => x + 1, 0);
 
   const doc = contentRef?.contentWindow?.document;
   const mountNode = doc?.body;
   const head = doc?.head;
 
+  /**
+   * Run the force update code
+   */
   useEffect(() => {
     contentRef?.addEventListener('load', forceUpdate);
 
@@ -45,6 +55,10 @@ const Artboard: FunctionComponent = () => {
     };
   }, [contentRef]);
 
+  /**
+   * Removing cache control from css, so old properties and animations
+   * are not kept when users remove them
+   */
   useEffect(() => {
     if (doc && head) {
       const cacheControlMeta = doc.createElement('meta');

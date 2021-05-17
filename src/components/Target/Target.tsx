@@ -18,6 +18,10 @@ const Target: FunctionComponent = () => {
     mergeElements,
   } = useAnimationState();
 
+  /**
+   * Whenever the state of dialog changes, and its going from open to closed
+   * run the code to create new elements and add to the animation state
+   */
   const openOpenChange = (state: boolean) => {
     if (!state) {
       mergeElements();

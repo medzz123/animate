@@ -1,4 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+/**
+ * Reused code - https://stackoverflow.com/a/53449595/10691892
+ */
 // @ts-ignore
 Object.defineProperty(window, 'matchMedia', {
   writable: true,

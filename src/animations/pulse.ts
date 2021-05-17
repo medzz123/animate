@@ -1,5 +1,8 @@
 import { AnimationState } from '../state/Animation/animation.models';
 
+/**
+ * Hearth pulse animation
+ */
 export const pulse: AnimationState = {
   width: 600,
   height: 400,

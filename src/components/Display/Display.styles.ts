@@ -48,6 +48,12 @@ ${(p) => p.nodes} {
   }
 `;
 
+/**
+ * As this page can contain a lot of animations running at the same time,
+ * instead of listenting to browser resize events and always filling the
+ * maximum space available, it uses media queries to only occupy certain amount
+ * of space while keeping the ratio
+ */
 export const DisplayRatio = styled.div<DisplayRatioProps>`
   border: ${tokens.sizes[5]} dashed #f0f0f0;
 

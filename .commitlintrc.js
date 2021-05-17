@@ -1,3 +1,6 @@
+/**
+ * Semi generated code from commitlint
+ */
 const Configuration = {
     /*
      * Resolve and load @commitlint/config-conventional from node_modules.

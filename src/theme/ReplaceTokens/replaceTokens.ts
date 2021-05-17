@@ -4,6 +4,13 @@ import isPlainObject from 'lodash/isPlainObject';
 import { ResponsiveProps } from '../../theme/ResponsiveProps/responsiveProps.models';
 import { tokens } from '../../theme/tokens';
 
+/**
+ * Replaces the tokens in the current object
+ * with proper css values
+ *
+ * It checks if the current object properties are objects or
+ * literal values to know how to properly replace them
+ */
 export const replaceTokens = <T = unknown>(
   props: ResponsiveProps<T>
 ): ResponsiveProps<T> => {

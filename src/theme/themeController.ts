@@ -2,6 +2,9 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { themes } from './theme';
 
+/**
+ * Helper methods to control the theme
+ */
 export const useThemeController = () => {
   const [state, setState] = useState(() => {
     return localStorage.getItem('theme') === 'true' ? true : false;

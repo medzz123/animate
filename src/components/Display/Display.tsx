@@ -26,6 +26,10 @@ const Display: FunctionComponent<DisplayProps> = (props) => {
   const { animationKey } = props;
   const [box, ref] = useBox();
 
+  /**
+   * Loads animation from local storage and generates the code
+   * to run the animation in the browser
+   */
   const { css, jsx, nodes, animations, width, height } = useMemo(() => {
     const animation = JSON.parse(
       window.localStorage.getItem(animationKey)
@@ -56,8 +60,15 @@ const Display: FunctionComponent<DisplayProps> = (props) => {
 
   const mountNode = contentRef?.contentWindow?.document?.body;
 
+  /**
+   * Force render the component after initial mount to load iframe
+   * with react content inside. Due to mozilla bug, it is necessary to do so
+   */
   const [_, forceUpdate] = useReducer((x) => x + 1, 0);
 
+  /**
+   * Run the force update code
+   */
   useEffect(() => {
     contentRef?.addEventListener('load', forceUpdate);
 

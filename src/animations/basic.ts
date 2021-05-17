@@ -1,5 +1,8 @@
 import { AnimationState } from '../state/Animation/animation.models';
 
+/**
+ * Basic animation
+ */
 export const basic: AnimationState = {
   width: 600,
   height: 400,

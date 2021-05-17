@@ -34,6 +34,12 @@ const Animate: React.FunctionComponent = () => {
 
   const { set } = useDialogContext();
 
+  /**
+   * There is no defined method to reset css animations. A way to achieve is to destroy the
+   * react component where it lives and recreate it.
+   *
+   * To re initialize react components, changing the key does the trick.
+   */
   const handleReset = () => {
     setResetKey('frame-off');
     pausePlayState();

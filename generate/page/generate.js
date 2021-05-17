@@ -1,3 +1,6 @@
+/**
+ * Generates a new page in demand
+ */
 module.exports.setGenerator = function (plop) {
   plop.setGenerator('controller', {
     description: 'Generates Equals Money Page',

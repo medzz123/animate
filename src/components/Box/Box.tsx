@@ -39,6 +39,12 @@ const Box = forwardRef<HTMLDivElement, BoxPropsExtended>((props, ref) => {
     ...rest
   } = props;
 
+  /**
+   * Converts tokens defined in the project into
+   * css compatible values
+   *
+   * The function is cached and only re run if a property changes
+   */
   const parsedProps = useMemo(() => {
     const replacedObject = replaceTokens({
       margin,
@@ -63,6 +69,9 @@ const Box = forwardRef<HTMLDivElement, BoxPropsExtended>((props, ref) => {
       bottom,
     });
 
+    /**
+     * Creates responsive properties where necessary
+     */
     return responsiveProps<BoxProps>({
       ...replacedObject,
       display,

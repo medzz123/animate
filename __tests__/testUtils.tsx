@@ -8,6 +8,9 @@ import { ThemeProvider } from 'styled-components';
 import { DialogProvider, initDialogContext } from '../src/state/dialogs';
 import { themes } from '../src/theme/theme';
 
+/**
+ * Includes all the providers required for testing.
+ */
 const AllTheProviders: FC = ({ children }) => {
   const dialogProviderValues = initDialogContext();
 
@@ -28,6 +31,9 @@ const AllTheProviders: FC = ({ children }) => {
   );
 };
 
+/**
+ * Creates custom render which contains the providers
+ */
 const customRender = (
   ui: ReactElement,
   options?: Omit<RenderOptions, 'queries'>
@@ -35,4 +41,7 @@ const customRender = (
 
 export * from '@testing-library/react';
 
+/**
+ * Re exports normal testing library and custom render, as the normal render
+ */
 export { customRender as render };

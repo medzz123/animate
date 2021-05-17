@@ -1,5 +1,7 @@
+/**
+ * Generates a new component in demand
+ */
 module.exports.setGenerator = function (plop) {
-  // controller generator
   plop.setGenerator('controller', {
     description: 'Generates Equals Money Component',
     prompts: [

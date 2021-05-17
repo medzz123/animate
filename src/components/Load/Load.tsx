@@ -26,6 +26,9 @@ const Load: FunctionComponent = () => {
 
   const [selectedFile, setSelectedFile] = useState(null);
 
+  /**
+   * Takes raw file data and converts into a string that can be processed
+   */
   const changeHandler = (event) => {
     const file = event.target.files[0];
 

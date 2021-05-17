@@ -1,5 +1,8 @@
 import { AnimationState } from '../state/Animation/animation.models';
 
+/**
+ * Rotate animation
+ */
 export const rotate: AnimationState = {
   width: 600,
   height: 400,

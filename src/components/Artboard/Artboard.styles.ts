@@ -11,6 +11,9 @@ export const ArtboardContainer = styled.div`
   position: relative;
 `;
 
+/**
+ * Calculates and keeps the ratio same as specified
+ */
 export const AspectRatio = styled.div.attrs({
   id: 'aspect-ratio',
 })<AspectRatioProps>`
@@ -34,6 +37,9 @@ export const AspectRatio = styled.div.attrs({
   border: ${tokens.sizes[5]} dashed ${(p) => p.theme.border};
 `;
 
+/**
+ * Scales board down or up to fill all the content
+ */
 export const ArtboardSize = styled.div<ArtboardSizeProps>`
   width: ${(p) => p.artboardWidth}px;
   height: ${(p) => p.artboardHeight}px;

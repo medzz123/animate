@@ -9,9 +9,19 @@ import { getLocalAnimations } from '../../utils/GetLocalAnimations';
 import { parseElements } from '../../utils/ParseAnimations';
 import { AnimationState } from './animation.models';
 
+/**
+ * Finds which animation to load and creates the local state for it
+ */
 export const animationState = createState<AnimationState>(() => {
+  /**
+   * Gets all local animations in the storage and they key which points
+   * to the correct animation to load
+   */
   const { animationKey, localAnimations } = getLocalAnimations();
 
+  /**
+   * If key relates to an animation saved to the storage, it loads that animation
+   */
   if (
     localAnimations[animationKey] &&
     window.localStorage.getItem(animationKey) !== null
@@ -19,10 +29,16 @@ export const animationState = createState<AnimationState>(() => {
     return JSON.parse(window.localStorage.getItem(animationKey));
   }
 
+  /**
+   * If key is part of basic preloaded animations it loads the correct one
+   */
   if (animations[animationKey]) {
     return animations[animationKey];
   }
 
+  /**
+   * Failsafe if key is none of those it sets a new key and returns a basic animation
+   */
   window.localStorage.setItem('current', 'basic');
 
   return animations.basic;
@@ -33,6 +49,10 @@ export const useAnimationState = () => {
 
   const cleanState = state.get();
 
+  /**
+   * Parses the animation code to generate the animations, by listening
+   * when the state changes
+   */
   const parsed = useMemo(() => {
     return parseElements({
       elements: cleanState.elements,
@@ -45,6 +65,9 @@ export const useAnimationState = () => {
     cleanState.element,
   ]);
 
+  /**
+   * Creates new jsx nodes whenever the target has been changed
+   */
   const { jsx, nodes } = useMemo(() => {
     return {
       jsx: parse(cleanState.markup),
@@ -57,6 +80,9 @@ export const useAnimationState = () => {
     };
   }, [cleanState.markup]);
 
+  /**
+   * Saves animations to local storage if they are not part of the preloaded animations
+   */
   useEffect(() => {
     const currentKey = window.localStorage.getItem('current');
     if (currentKey && currentKey.includes('animation-')) {
@@ -118,6 +144,12 @@ export const useAnimationState = () => {
 
       return state.elements[element].steps[step].get();
     },
+    /**
+     * Whenever the initial markup is changed, take the current elements
+     * in the animation and merge them with the old ones.
+     *
+     * This is done so in case the user accidentally deletes node they did not intend to
+     */
     mergeElements() {
       const currentElements = Object.keys(state.elements.get());
 
@@ -214,6 +246,9 @@ export const useAnimationState = () => {
     onChangeCss(input: string) {
       state.css.set(input);
     },
+    /**
+     * Changes the transform state by the specified direction
+     */
     move(direction: 'x' | 'y', unit: number) {
       const element = state.element.get();
       const step = state.elements[element].step.get();
@@ -221,10 +256,16 @@ export const useAnimationState = () => {
         step
       ]?.transform?.translate?.get();
 
+      /**
+       * Matches regex on the current transform property, and extracts its values
+       */
       const matches = currentTranslate?.match(
         /(?<xValue>-?\d*)(?<xUnit>.*),\s{1}(?<yValue>-?\d*)(?<yUnit>.*)/
       );
 
+      /**
+       * If match exists update the corresponding values
+       */
       if (matches) {
         const {
           groups: { xValue, xUnit, yValue, yUnit },

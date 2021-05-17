@@ -9,7 +9,9 @@ import { DialogProvider, initDialogContext } from '../src/state/dialogs';
 
 
 const themeNames = Object.keys(themes);
-
+/**
+ * Providers that the components uses, global decorator added to all stories. 
+ */
 const Providers = ({ children }) => {
   const theme = select('Theme', themeNames, themeNames[0]);
   const dialogProviderValues = initDialogContext();

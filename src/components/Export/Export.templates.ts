@@ -1,3 +1,6 @@
+/**
+ * Replaces the template literal string with the params provided.
+ */
 export const htmlTemplate = ({
   currentAnimationName,
   css,
@@ -37,6 +40,9 @@ export const htmlTemplate = ({
   </html>`;
 };
 
+/**
+ * Replaces the template literal string with the params provided.
+ */
 export const reactTemplate = ({ css, parsed, nodes, markup }) => {
   return `
   import React from 'react';
