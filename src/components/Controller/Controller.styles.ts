@@ -20,3 +20,19 @@ export const ControllerContainer = styled.div`
     color: ${(p) => p.theme.flip};
   }
 `;
+
+export const DeleteStep = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(p) => p.theme.danger};
+  font-size: ${tokens.sizes[12]};
+  color: ${(p) => p.theme.main};
+  padding: ${tokens.sizes[6]} ${tokens.sizes[16]};
+
+  border-radius: ${tokens.sizes[4]};
+  width: 100%;
+  font-weight: 400;
+  line-height: 1.5;
+  box-shadow: ${(p) => p.theme.buttonShadow};
+`;

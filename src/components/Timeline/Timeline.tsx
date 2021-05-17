@@ -34,6 +34,7 @@ const Timeline: FunctionComponent<TimelineProps> = (props) => {
     togglePlayState,
     playState,
     addStep,
+    deleteElement,
   } = useAnimationState();
   const { handleReset } = props;
 
@@ -64,7 +65,13 @@ const Timeline: FunctionComponent<TimelineProps> = (props) => {
             <Flex alignItems="center" marginBottom={16}>
               <Overflow>{key}</Overflow>
               {key !== state.element && (
-                <DeleteButton>
+                <DeleteButton
+                  type="button"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    deleteElement(key);
+                  }}
+                >
                   <CgClose />
                 </DeleteButton>
               )}

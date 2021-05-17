@@ -9,7 +9,9 @@ export default {
 } as Meta;
 
 const Template: Story = (storyArguments) => (
-  <AnimatableInput label="Story Input" {...storyArguments} />
+  <div style={{ backgroundColor: '#313C60', padding: '30px' }}>
+    <AnimatableInput label="Story Input" {...storyArguments} />
+  </div>
 );
 
 export const AnimatableInputStory = Template.bind({});

@@ -13,8 +13,9 @@ import { MdSlowMotionVideo } from 'react-icons/md';
 import { useAnimationState } from '../../state/Animation/animation';
 import Accordion from '../Accordion';
 import AnimatableInput from '../AnimatableInput';
+import Box from '../Box';
 import Flex from '../Box/Flex';
-import { ControllerContainer } from './Controller.styles';
+import { ControllerContainer, DeleteStep } from './Controller.styles';
 
 const Controller: FunctionComponent = () => {
   const {
@@ -29,6 +30,7 @@ const Controller: FunctionComponent = () => {
     onPropertyChange,
     currentAnimationState,
     onAnimationStateChange,
+    deleteCurrentStep,
   } = useAnimationState();
 
   return (
@@ -257,6 +259,12 @@ const Controller: FunctionComponent = () => {
               onChange={onAnimationStateChange}
             />
           </Accordion>
+
+          <Box marginBottom={24} />
+
+          <DeleteStep type="button" onClick={deleteCurrentStep}>
+            Delete Step
+          </DeleteStep>
         </>
       ) : (
         <p>Select a step to edit</p>

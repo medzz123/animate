@@ -10,9 +10,16 @@ export default {
 } as Meta;
 
 const Template: Story = (storyArguments) => (
-  <Accordion title="Accordion" id="accordion" Icon={BiMove} {...storyArguments}>
-    <p>Hello from the other side</p>
-  </Accordion>
+  <div style={{ backgroundColor: '#313C60', padding: '30px' }}>
+    <Accordion
+      title="Accordion"
+      id="accordion"
+      Icon={BiMove}
+      {...storyArguments}
+    >
+      <p>Hello from the other side</p>
+    </Accordion>
+  </div>
 );
 
 export const AccordionStory = Template.bind({});
